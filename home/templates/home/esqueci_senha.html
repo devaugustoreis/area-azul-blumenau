@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="login_form">
+    <form action="" id="form">
+        <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" id="logo">
+        <h2>Esqueci minha senha</h2>
+        <input type="text" class="login" id="log_input" required>
+        <label for="log_input" class="login">CPF / CNPJ / CADASTRO</label>
+        <button type="button" class="btn">Enviar</button>
+    </form>
+</div>
+{% endblock %}
