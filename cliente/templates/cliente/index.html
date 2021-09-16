@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="cliente_main">
+        <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="300" class="logo">
+        <h2>Olá, (nome do cliente)</h2>
+        <h1>Você tem</h1>
+        <h1>(valor em créditos)</h1>
+        <h1>em créditos.</h1>
+    </div>
+
+    <div class="cliente_options_div">
+        <div class="cliente_options_links">
+            <img src="{% static 'imagens/Estacionar.png' %}" alt="Icone Estacionar"><a href="">Estacionar</a>
+        </div>
+        <div class="cliente_options_links">
+            <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato"><a href="">Extrato</a>
+        </div>
+        <div class="cliente_options_links">
+            <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos"><a href="">Adicionar Créditos</a>
+        </div>
+        <div class="cliente_options_links">
+            <img src="{% static 'imagens/Pagar_Multa.png' %}" alt="Icone Pagar_Multa"><a href="">Pagar Multa</a>
+        </div>
+        <div class="cliente_options_links">
+            <img src="{% static 'imagens/Meus_Veiculos.png' %}" alt="Icone Meus_Veiculos"><a href="">Meus Veículos</a>
+        </div>
+        <div class="cliente_options_links">
+            <img src="{% static 'imagens/Meus_Dados.svg' %}" alt="Icone Meus_Dados"><a href="">Meus Dados</a>
+        </div>
+        <div class="cliente_options_links">
+            <img src="{% static 'imagens/Sair.png' %}" alt="Icone Sair"><a href="">Sair</a>
+        </div>
+    </div>
+{% endblock %}
