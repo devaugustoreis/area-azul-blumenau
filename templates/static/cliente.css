@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+body {
+    background-color: rgb(253, 252, 242);
+}
+
+/* Página Index */
+.cliente_main {
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    color: royalblue;
+}
+
+.logo {
+    margin-bottom: 50px;
+}
+
+h2 {
+    margin-bottom: 50px;
+}
+
+.cliente_options_div {
+    width: 100%;
+    height: 170px;
+    background-color: royalblue;
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cliente_options_links {
+    height: 100%;
+    width: 14%;
+    text-align: center;
+    padding: 35px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cliente_options_links img {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.cliente_options_links:hover {
+    background-color: rgb(40, 57, 148);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Template base_clientes */
+.fullpage {
+    display: flex;
+}
+
+.sidebar_upper {
+    height: 25vh;
+    width: 20vw;
+    border: 1px solid royalblue;
+    text-align: center;
+}
+
+.sb_upper_img {
+    height: 85%;
+    width: 100%;
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-template {
+    margin: auto;
+}
+
+.sb_upper_text {
+    height: 15%;
+    width: 100%;
+    /* border: 1px solid brown; */
+    display: flex;
+    align-items: center;
+}
+
+.sb_upper_text h3 {
+    font-size: 14px;
+    color: royalblue;
+    margin: auto;
+}
+
+.sb_upper_text a {
+    color: inherit;
+    transition: 0.2s;
+}
+
+.sb_upper_text a:hover {
+    color: darkblue;
+}
+
+.sidebar_lower {
+    height: 75vh;
+    width: 20vw;
+    padding-top: 10px;
+    background-color: royalblue;
+    text-align: center;
+}
+
+.sidebar_options {
+    height: 55px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar_options:hover {
+    background-color: rgb(40, 57, 148);
+}
+
+.sidebar_options img {
+    margin: 0 15px 0 15px;    
+}
+
+.page {
+    height: 100vh;
+    width: 80vw;
+}
+
+.page_title {
+    height: 5%;
+    width: 97%;
+    background-color: royalblue;
+    color: white;
+    margin: 5.5vh auto 2.5vh auto;
+    display: flex;
+    align-items: center;
+}
+
+.page_title h3 {
+    margin-left: 25px;
+    font-weight: 100;
+}
+
+.page_content {
+    height: 85%;
+    width: 97%;
+    margin: auto;
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(12, 8.33%);
+    grid-template-rows: repeat(12, 8.33%);
+}
