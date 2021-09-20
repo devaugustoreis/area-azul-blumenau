@@ -1,3 +1,13 @@
+:root{
+    --cor0: #0070c0;
+    --cor1: #f9f9f9;
+    --cor2: #0070c07e;
+    --cor3: #1B3E59;
+    --cor4: #002540;
+    --cor5: #3D8FCA;
+    --cor6: #F2F2F2;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +16,7 @@
 }
 
 body {
-    background-color: rgb(253, 252, 242);
+    background-color: var(--cor6);
 }
 
 /* Página Index */
@@ -25,7 +35,7 @@ body {
     margin-bottom: 50px;
 }
 
-h2 {
+.cliente_main h2 {
     margin-bottom: 50px;
 }
 
@@ -57,7 +67,7 @@ h2 {
     background-color: rgb(40, 57, 148);
 }
 
-a {
+.cliente_options_links a {
     text-decoration: none;
     color: white;
 }
@@ -118,6 +128,11 @@ a {
     text-align: center;
 }
 
+.sidebar_lower a{
+    color: white;
+    text-decoration: none;
+}
+
 .sidebar_options {
     height: 55px;
     width: 100%;
@@ -164,4 +179,139 @@ a {
     display: grid;
     grid-template-columns: repeat(12, 8.33%);
     grid-template-rows: repeat(12, 8.33%);
+}
+
+/* Página "Estacionar" */
+.vehicle_type {
+    grid-column: 1/13;
+    grid-row: 1/3;
+}
+
+.vehicle_type h2 {
+    color: var(--cor3);
+    margin-bottom: 10px;
+}
+
+.vehicle_type img {
+    padding-right: 8px;
+}
+
+.vehicle_type #car {
+    width: 25px;
+}
+
+.vehicle_type #moto {
+    width: 23px;
+}
+
+.vehicle_type #others_vehicles {
+    width: 29px;
+}
+
+.vehicle_type button {
+    color: var(--cor0);
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    margin-right: 10px;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.vehicle_type button:hover {
+    background-color: var(--cor2);
+    color: var(--cor1);
+}
+
+.vehicle_plate {
+    grid-column: 1/13;
+    grid-row: 3/5;
+}
+
+.vehicle_plate h2 {
+    color: var(--cor3);
+    margin-bottom: 10px;
+}
+
+.vehicle_plate button {
+    color: var(--cor0);
+    width: 100px;
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    margin: 0 10px 0 0;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.vehicle_plate button:hover {
+    background-color: var(--cor2);
+    color: var(--cor1);
+}
+
+
+.time {
+    grid-column: 1/13;
+    grid-row: 5/8;
+}
+
+
+
+.time h2 {
+    color: var(--cor3);
+    margin-bottom: 10px;
+}
+
+.add_time {
+    display: flex;
+}
+
+.add_time div {
+    width: 115px;
+    height: 120px;
+    text-align: center;
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    font-size: 20px;
+    margin-right: 20px;
+    padding: 5px 5px;
+    color: var(--cor0);
+}
+
+.add_time p {
+    margin: 5px;
+}
+
+.add_time #minutes {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.add_time button {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    font-size: 28px;
+    padding: 0;
+    background-color: var(--cor0);
+    border: 1px solid var(--cor0);
+    color: var(--cor1);
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.24);
+}
+
+.add_time button:hover {
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    color: var(--cor5);
+}
+  
+.add_time button:active {
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    transform: translateY(1.5px);
 }

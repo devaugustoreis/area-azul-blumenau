@@ -2,5 +2,36 @@
 {% load static %}
 
 {% block content %}
-    Estacionar
+    <div class="vehicle_type">
+        <h2>Tipo de Veículo:</h2>
+        <button><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">Carro</button>
+        <button><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
+        <button><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="others_vehicles">Demais Veículos</button>
+    </div>
+    <div class="vehicle_plate">
+        <h2>Veículo:</h2>
+        <button>XXX 1111</button>
+        <button>XXX 1X11</button>
+        <button>XXX 1111 </button>
+    </div>
+    <div class="time">
+        <h2>Tempo (em minutos):</h2>
+        <div class="add_time">
+            <div>
+                <p id="minutes">30</p>
+                <p>R$ 0,75</p>
+                <button>+</button>
+                <button>-</button>
+            </div>
+            <div>
+                <p id="minutes">60</p>
+                <p>R$ 1,50</p>
+                <button>+</button>
+                <button>-</button>
+            </div>
+        </div>
+    </div>
+    <div>
+                
+    </div>
 {% endblock %}
