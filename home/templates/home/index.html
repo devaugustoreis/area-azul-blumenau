@@ -1,4 +1,52 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="div_nav">
+    <div id="div_logo">
+        <img src="{% static 'imagens/Logo-B-provisorio.png'%}" alt="stylesheet" id="logo">
+    </div>
+    <div id="div_menu">
+        <div class="items_menu">
+            <a href="#">Home</a>
+            <a href="#">Como Funciona</a>
+            <a href="#">Perguntas Frequentes</a>
+            <a href="#">Contato</a>
+        </div>
+    </div>
+</div>
+<div class="div_body">
+    <div id="div_text">
+        <h2>Desde 1948</h2>
+        <h3>Agora mais prático e rápido para estacionar em blumenau.</h3>
+    </div>
+    <div id="div_login">
+        <div id="div_h1">
+            <h1>Faça seu login</h1>
+        </div>
+        <div id="div_selects">
+            <input type="radio" name="select" id="cpf">
+            <label for="cpf">CPF</label>
+            <input type="radio" name="select" id="cnpj">
+            <label for="cnpj">CNPJ</label>
+            <input type="radio" name="select" id="fiscal">
+            <label for="fiscal">Fiscal</label>
+        </div>
+        <div id="div_inputs">
+            <div class="input_log">
+                <input type="text" id="login" required class="input">
+                <label for="login" class="label_input">Login</label>
+            </div>
+            <div class="input_log">
+                <input type="password" id="password" required class="input">
+                <label for="password" class="label_input">Senha</label>
+            </div>
+            <a href="{% url 'esqueci_senha' %}">Esqueci minha senha</a>
+        </div>
+        <div id="div_button">
+            <button id="btn">Continuar</button>
+            <a href="">Ainda não sou cadastrado</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
