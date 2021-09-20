@@ -4,7 +4,11 @@
 
 *{
     font-family: 'Urbanist', sans-serif;
-    background-color: var(--cor0);
+    /* background-color: var(--cor0); */
+}
+
+body{
+    background-color: red;
 }
 
 #form{
