@@ -1,0 +1,94 @@
+:root{
+    --cor0: #0070C0;
+}
+
+*{
+    font-family: 'Urbanist', sans-serif;
+    /* background-color: var(--cor0); */
+}
+
+body{
+    background-color: red;
+}
+
+#form{
+    background-color: white;
+}
+
+.login_form{
+    background-color: yellow;
+    border: none;
+    border-radius: 2%;
+    width: 350px;
+    height: 400px;
+    text-align: left;
+    margin: 15rem auto 0 auto;
+    padding: 30px;
+    /* box-shadow: 0px 0px 25px 2px rgba(0,0,0,0.15); */
+}
+
+h2 {
+    margin-top: 50px;
+    color: var(--cor0);
+    font-size: 1.2rem;
+    font-family: 'Urbanist', sans-serif;
+    background-color: white;
+}
+
+.login{
+    background-color: white;
+    display: flex;
+    position: absolute;  
+    margin-top: 50px;
+}
+
+#log_input{
+    background-color: white;
+    border: none;
+    border-bottom: 1.5px dotted #000000;
+    width: 340px;
+    padding: 5px;
+    outline: none;
+}
+
+.login:focus + label{
+    color: var(--cor0);
+    transform: translateY(-60%);
+    transition: 0.15s;
+    font-size: 12px;
+}
+
+.login:valid + label{
+    color:gray;
+    transform: translateY(-60%);
+    transition: 0.15s;
+    font-size: 12px;
+}
+
+/* ---------------------------------------- */
+
+.btn{
+    border-radius: 5px;  
+    border: var(--cor0) 1.5px solid;
+    background-color: white;
+    color: var(--cor0);
+    font-size: 1.2rem;
+    width: 170px;
+    height: 50px;
+    margin-top: 35%;
+    margin-left: 25%;
+}
+
+.btn:hover{
+    background-color: var(--cor0);
+    opacity: 50%;
+    color: white;
+    transition: 0.3s;
+}
+
+#logo{
+    background-color: white;
+    padding: 0;
+    margin-left: 60px;
+    width: 60%;
+}
