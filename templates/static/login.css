@@ -22,7 +22,6 @@ body{
 
 #div_logo{
     width: 30%;
-
     padding: 20px;
     padding-left: 40px;
 }
@@ -36,7 +35,6 @@ body{
 #div_menu {
     position: relative;
     width: 70%;
-
 }
 
 .items_menu {
@@ -49,10 +47,8 @@ body{
 
 #div_menu a {
     color: white;
-
     margin-right: 30px;
     margin-left: 80px;
-
     font-size: 20px;
 }
 
@@ -61,29 +57,21 @@ body{
 
 .div_body{
     border: 1px solid #0070C0;
-    
     margin: 5px auto 0 auto;
-
     width: 90%;
     height: 35rem;
-
     padding: 10px;
-
     display: flex;
     justify-content: space-between;
 }
 
 #div_text{
-
     color: white;
     background-color: #0070C0;
-
     width: 22rem;
     height: 10rem;
-
     margin-left: 8rem;
     margin-top: 8rem;
-
     font-size: 1.3rem;
 }
 
@@ -91,22 +79,18 @@ body{
     font-weight: 700;
     background-color: #0070C0;
     color: white;
-
 }
 
 #div_text h3{
     font-weight: 200;
-
 }
 
 #div_login{
     border: 1px solid #0070C0;
     background-color: white;
     border-radius: 2%;
-
     width: 20rem;
     height: 25rem;
-
     margin-right: 150px;
 
     padding: 20px;
