@@ -708,7 +708,11 @@ body {
 
 .time {
     grid-column: 1/8;
+<<<<<<< HEAD
     grid-row: 6/10;
+=======
+    grid-row: 7/10;
+>>>>>>> 4a4ed6c (Finalização página "estacionar")
 }
 
 .button_confirm {
