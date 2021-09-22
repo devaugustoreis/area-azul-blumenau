@@ -28,7 +28,7 @@ body {
     top: 5%;
     left: 50%;
     transform: translate(-50%);
-    color: royalblue;
+    color: var(--cor0);
 }
 
 .logo {
@@ -42,7 +42,7 @@ body {
 .cliente_options_div {
     width: 100%;
     height: 170px;
-    background-color: royalblue;
+    background-color: var(--cor0);
     position: absolute;
     bottom: 10%;
     display: flex;
@@ -69,7 +69,7 @@ body {
 
 .cliente_options_links a {
     text-decoration: none;
-    color: white;
+    color: var(--cor1);
 }
 
 /* Template base_clientes */
@@ -80,7 +80,7 @@ body {
 .sidebar_upper {
     height: 25vh;
     width: 20vw;
-    border: 1px solid royalblue;
+    border: 1px solid var(--cor0);
     text-align: center;
 }
 
@@ -107,7 +107,7 @@ body {
 
 .sb_upper_text h3 {
     font-size: 14px;
-    color: royalblue;
+    color: var(--cor0);
     margin: auto;
 }
 
@@ -124,12 +124,12 @@ body {
     height: 75vh;
     width: 20vw;
     padding-top: 10px;
-    background-color: royalblue;
+    background-color: var(--cor0);
     text-align: center;
 }
 
 .sidebar_lower a{
-    color: white;
+    color: var(--cor1);
     text-decoration: none;
 }
 
@@ -159,8 +159,8 @@ body {
 .page_title {
     height: 5%;
     width: 97%;
-    background-color: royalblue;
-    color: white;
+    background-color: var(--cor0);
+    color: var(--cor1);
     margin: 5.5vh auto 2.5vh auto;
     display: flex;
     align-items: center;
@@ -331,83 +331,48 @@ body {
 }
 
 
-
-.total{
-    grid-column: 8/12;
-    grid-row: 1/7;
+/* Módulo "total" */
+.total {
+    color: var(--cor0);
     background-color: var(--cor1);
     border: 1px solid var(--cor0);
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
     border-radius: 6px;
-
-    /* width: 15rem; */
-
-    padding: 20px;
-
+    padding: 40px;
 }
 
-
-.total h1{
+.total h1 {
     text-align: center;
-    color: var(--cor0);
 }
 
-
-
-
-.h1_tempo h2{
-    font-weight: 200;
+.total h2 {
+    font-weight: normal;
+    color: var(--cor4);
+    padding-top: 40px;
 }
 
-.div_tempo{
+.informations {
     display: flex;
-
     margin-top: 10px;
-
+    padding-top: 10px;
 }
 
-.div_tempo img{
-    width: 50px;
+.informations img {
+    width: 100px;
+    margin-right: 10px;
 }
 
-.h1_valor{
-    margin-top: 40px;
-
-    font-weight: 300;
-}
-
-.h1_valor h2{
-    font-weight: 200;
-}
-
-.div_valor img{
-    width: 50px;
-}
-
-.div_valor{
-
+.box {
+    width: 100%;
     display: flex;
-
-    margin-top: 10px;
-
+    background-color: var(--cor6);
+    border: 1px solid var(--cor0);
 }
 
-.box{
-    border: 0.5px solid #1e7ac7;
-
-    margin-left: 40px;
-    
-    width: 50%;
-
-    text-align: center;
-
-    vertical-align: middle;
-}
-
-.box h1{
-    font-weight: 300;
-
-    line-height: 48px;
+.box p {
+    font-size: 30px;
+    font-weight: bolder;
+    margin: auto;
 }
 
 /* Módulo "date_filter" */
@@ -631,13 +596,17 @@ body {
 .time {
     grid-column: 1/8;
     grid-row: 7/10;
-    bottom: 0;
 }
 
 .button_confirm {
     grid-column: 1/13;
     grid-row: 12/13;
     text-align: center;
+}
+
+.total {
+    grid-column: 8/12;
+    grid-row: 2/9;
 }
 
 /* Página "Extrato" */
