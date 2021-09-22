@@ -3,35 +3,45 @@
 
 {% block content %}
     <div class="vehicle_type">
-        <h2>Tipo de Veículo:</h2>
-        <button><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">Carro</button>
-        <button><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
-        <button><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="others_vehicles">Demais Veículos</button>
+        {% include 'partials/_vehicle_type.html' %}
     </div>
     <div class="vehicle_plate">
-        <h2>Veículo:</h2>
-        <button>XXX 1111</button>
-        <button>XXX 1X11</button>
-        <button>XXX 1111 </button>
+        {% include 'partials/_vehicle_plate.html' %}
     </div>
     <div class="time">
-        <h2>Tempo (em minutos):</h2>
-        <div class="add_time">
-            <div>
-                <p id="minutes">30</p>
-                <p>R$ 0,75</p>
-                <button>+</button>
-                <button>-</button>
-            </div>
-            <div>
-                <p id="minutes">60</p>
-                <p>R$ 1,50</p>
-                <button>+</button>
-                <button>-</button>
+        {% include 'partials/_time.html' %}
+    </div>
+    <div class="button_confirm">
+        <button>Confirmar</button>
+    </div>
+
+
+
+    <div class="total">
+
+        <h1>TOTAL</h1>
+        <div class="h1_tempo">
+            <h2>Tempo:</h2>
+        </div>
+        <div class="div_tempo">
+            <img src="{% static 'imagens/relogio.svg' %}" alt="stylesheet">
+            <div class="box">
+                <h1>90m00s</h1>
             </div>
         </div>
+        <div class="h1_valor">
+            <h2>Valor:</h2>
+        </div>
+        <div class="div_valor">
+            <img src="{% static 'imagens/valor.svg' %}" alt="stylesheet">
+            <div class="box">
+                <h1>R$2,20</h1>
+            </div>
+        </div>
+        
     </div>
-    <div>
-                
-    </div>
+
+
+
+
 {% endblock %}

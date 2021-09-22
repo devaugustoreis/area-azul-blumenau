@@ -1,0 +1,30 @@
+{% load static %}
+<!-- Colocar o nome da classe da div como "add_credits" -->
+<h2>Adicionar:</h2>
+<div class="values">
+    <div>
+        <p>R$ 5,00</p>
+        <button>+</button>
+        <button>-</button>
+    </div>
+    <div>
+        <p>R$ 20,00</p>
+        <button>+</button>
+        <button>-</button>
+    </div>
+    <div>
+        <p>R$ 50,00</p>
+        <button>+</button>
+        <button>-</button>
+    </div>
+        <div id="div-other">
+        <p>Outro</p>
+        <div id="div-box">
+            <div id="div-value">
+                <span>R$</span>
+                <input type="number" placeholder="0,00">
+            </div>
+            <button><img src="{% static 'imagens/check.png' %}" alt="Check"></button>
+        </div>
+    </div>
+</div>
