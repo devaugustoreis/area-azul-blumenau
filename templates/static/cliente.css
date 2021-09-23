@@ -8,7 +8,10 @@
     --cor6: #F2F2F2;
     --cor7: #D00000;
     --cor8: #740101;
+<<<<<<< HEAD
     --cor9: #cdcdcd;
+=======
+>>>>>>> ff73da8 (Criação da página "Meus Veículos")
 }
 
 * {
@@ -641,6 +644,7 @@ body {
     font-size: 14px;
 }
 
+<<<<<<< HEAD
 /* Módulo "add_plate" */
 .add_plate h2 {
     margin-bottom: 10px;
@@ -694,6 +698,11 @@ body {
     border: 1px solid var(--cor4);
     transform: translateY(1.5px);
 }
+=======
+
+
+
+>>>>>>> ff73da8 (Criação da página "Meus Veículos")
 
 /* Página "Estacionar" */
 .vehicle_type_estacionar {
@@ -709,10 +718,14 @@ body {
 .time {
     grid-column: 1/8;
 <<<<<<< HEAD
+<<<<<<< HEAD
     grid-row: 6/10;
 =======
     grid-row: 7/10;
 >>>>>>> 4a4ed6c (Finalização página "estacionar")
+=======
+    grid-row: 6/10;
+>>>>>>> ff73da8 (Criação da página "Meus Veículos")
 }
 
 .button_confirm {
@@ -899,8 +912,14 @@ body {
 
 /* Página "Meus Veículos" */
 .vehicle_plate_veiculos {
+<<<<<<< HEAD
     grid-column: 1/8;
     grid-row: 1/4;
+=======
+    grid-column: 1/10;
+    grid-row: 1/4;
+    border: 1px solid red;
+>>>>>>> ff73da8 (Criação da página "Meus Veículos")
 }
 
 .plate_button {
@@ -908,6 +927,7 @@ body {
 }
 
 .vehicle_type_veiculos {
+<<<<<<< HEAD
     grid-column: 1/13;
     grid-row: 4/7;
 }
@@ -915,10 +935,16 @@ body {
 .vehicle_type_veiculos h2 {
     font-weight: normal;
     font-style: italic;
+=======
+    grid-column: 1/10;
+    grid-row: 4/7;
+    border: 1px solid red;
+>>>>>>> ff73da8 (Criação da página "Meus Veículos")
 }
 
 .vehicle_type_veiculos #title {
     margin-bottom: 20px;
+<<<<<<< HEAD
     font-weight: bolder;
     font-style: normal;
 }
@@ -1007,6 +1033,11 @@ body {
     padding-left: 10px;
 }
 
+=======
+    font-size: 26px;
+    font-style: italic;
+}
+>>>>>>> ff73da8 (Criação da página "Meus Veículos")
 
 cor{
 --cor0: #0070c0;
