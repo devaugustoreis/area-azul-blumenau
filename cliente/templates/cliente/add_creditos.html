@@ -2,5 +2,76 @@
 {% load static %}
 
 {% block content %}
-    Adicionar Créditos
+<div class="add_credits">
+<h2>Adicionar:</h2>
+<div class="values">
+    <div>
+        <p>R$ 5,00</p>
+        <button>+</button>
+        <button>-</button>
+    </div>
+    <div>
+        <p>R$ 20,00</p>
+        <button>+</button>
+        <button>-</button>
+    </div>
+    <div>
+        <p>R$ 50,00</p>
+        <button>+</button>
+        <button>-</button>
+    </div>
+        <div id="div-other">
+        <p>Outro</p>
+        <div id="div-box">
+            <div id="div-value">
+                <span>R$</span>
+                <input type="number" placeholder="0,00">
+            </div>
+            <button><img src="{% static 'imagens/check.png' %}" alt="Check"></button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="payment_method">
+    <h2>Forma de Pagamento:</h2>
+<button><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Crédito">Crédito</button>
+<button><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Débito">Débito</button>
+<button><img src="{% static 'imagens/pix.png' %}" alt="Caminhão Azul">PIX</button>
+</div>
+<div class="discount">
+    <h2>Cupom de desconto:</h2>
+    <input type="text" placeholder="Insira o Código">
+</div>
+<div class="confirm">
+    <button class="confirm-btn">Confirmar</button>
+</div>
+<div class="geral">
+    <div class="adicionar_h2">
+        <h2>Valor a adicionar:</h2>
+    </div>
+    <div class="valor">
+        <div class="box">
+            <h1>R$25,00</h1>
+        </div>
+        <img src="{% static 'imagens/coins.svg'%}" alt="stylesheet">
+    </div>
+    <div class="desconto_h2">
+        <h2>Cupom de desconto:</h2>
+    </div>
+    <div class="desconto">
+        <div class="box">
+            <h1>-</h1>
+        </div>
+        <img src="{% static 'imagens/etiqueta.svg'%}" alt="stylesheet">
+    </div>
+    <div class="final_h2">
+        <h2>Valor final:</h2>
+    </div>
+    <div class="final">
+        <div class="box">
+            <h1>R$25,00</h1>
+        </div>
+        <img src="{% static 'imagens/caixa.svg'%}" alt="stylesheet">
+    </div>
+</div>
 {% endblock %}
