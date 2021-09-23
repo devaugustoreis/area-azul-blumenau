@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <div class="vehicle_type">
+    <div class="vehicle_type_estacionar">
         {% include 'partials/_vehicle_type.html' %}
     </div>
-    <div class="vehicle_plate">
+    <div class="vehicle_plate_estacionar">
+        <h2 class="vehicle_plate_title">Veículo:</h2>
         {% include 'partials/_vehicle_plate.html' %}
     </div>
     <div class="time">
@@ -14,8 +15,6 @@
     <div class="button_confirm">
         <button>Confirmar</button>
     </div>
-
-
     <div class="total">
         <h1>TOTAL</h1>
         <h2>Tempo:</h2>
@@ -33,6 +32,4 @@
             </div>
         </div>
     </div>
-    
-
 {% endblock %}
