@@ -15,14 +15,14 @@ class Address(models.Model):
 
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    birth_date = models.DateField()
     phone1 = models.CharField(max_length=20)
     phone2 = models.CharField(max_length=20, null=True, blank=True)
-    email = models.CharField(max_length=100)
     credits = models.FloatField(default=0)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    # address = models.ForeignKey(Address, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

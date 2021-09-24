@@ -5,7 +5,8 @@
 <main class='main-cadastro'>
     <img src="{% static 'imagens/Logo-A-provisorio.png'%}" height="75px" alt="Logo Área Azul" onclick="location.href='{% url 'login' %}'">
     <p>Cadastre-se</p>
-    <div class="div-register">
+    <form class="div-register" method="POST">
+        {% csrf_token %}
         <div class="register-left">
             <input type="number" name="CPF" size="30" placeholder="CPF/ CNPJ/ Cadastro" class="home_input register_input" required>
             <input type="text" name='Nome' size="30" placeholder="Nome / Razão Social" class="home_input register_input" required>
@@ -25,7 +26,7 @@
             <input type="text" name="Rua" size="30" placeholder="Rua" class="home_input register_input" required>
             <input type="text" name="Número" size="30" placeholder="Número" class="home_input register_input" required>
             <input type="text" name="Complemento" size="30" placeholder="Complemento" class="home_input register_input">
-            <button type="button" class="btn btn-cadastrar">Cadastrar</button>
+            <button type="submit" class="btn btn-cadastrar">Cadastrar</button>
         </div>       
     </div>
 </main>
