@@ -3,11 +3,11 @@
 
 {% block content %}
 <form class="esqueci_senha_form" action="" id="form">
-    <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" class="logo">
+    <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" class="logo" onclick="location.href='{% url 'login' %}'">
     <h2>Esqueci minha senha</h2>
-    <div class="div_esq_senha_input">
-        <input type="text" class="esq_senha_input" id="esq_senha_input" required>
-        <label for="log_input" class="esq_senha_label">CPF / CNPJ / CADASTRO</label>
+    <div class="div_home_input">
+        <input type="number" class="home_input" id="esq_senha_input" required>
+        <label for="log_input" class="home_input_label">CPF / CNPJ / CADASTRO</label>
     </div>
     <button type="button" class="btn">Enviar</button>
 </form>

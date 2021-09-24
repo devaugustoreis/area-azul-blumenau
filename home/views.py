@@ -5,3 +5,6 @@ def login(request):
 
 def esqueci_senha(request):
     return render(request, 'home/esqueci_senha.html')
+
+def cadastro(request):
+    return render(request, 'home/cadastro.html')
