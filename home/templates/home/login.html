@@ -1,0 +1,53 @@
+{% extends 'base_home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="div_upper">
+    <div class="div_upper_logo">
+        <img src="{% static 'imagens/Logo-B-provisorio.png'%}" alt="areaazul-logo" class="logo">
+    </div>
+
+    <div class="div_upper_nav">
+        <a href="#">Home</a>
+        <a href="#">Como Funciona</a>
+        <a href="#">Perguntas Frequentes</a>
+        <a href="#">Contato</a>
+    </div>
+</div>
+
+<div class="div_body">
+    <div class="div_body_text">
+        <h2>Desde 1948</h2>
+        <h3>Agora mais prático e rápido para estacionar em blumenau.</h3>
+    </div>
+
+    <div class="div_login_box">
+        <h1>Faça seu login</h1>
+        <div class="div_select_user">
+            <div>
+                <input type="radio" name="select" id="cpf">
+                <label for="cpf">CPF</label>
+            </div>
+            <div>
+                <input type="radio" name="select" id="cnpj">
+                <label for="cnpj">CNPJ</label>
+            </div>
+            <div>
+                <input type="radio" name="select" id="fiscal">
+                <label for="fiscal">Fiscal</label>
+            </div>
+        </div>
+        <div class="div_home_input">
+            <input type="text" class="home_input" id="login" required>
+            <label for="login" class="home_input_label">Login</label>
+        </div>
+        <div class="div_home_input input_space">
+            <input type="password" class="home_input" id="password" required>
+            <label for="password" class="home_input_label">Senha</label>
+        </div>
+        <a href="{% url 'esqueci_senha' %}">Esqueci minha senha</a>
+        <button class="btn">Continuar</button>
+        <a href="{% url 'cadastro' %}">Ainda não sou cadastrado</a>
+    </div>
+</div>
+{% endblock %}
