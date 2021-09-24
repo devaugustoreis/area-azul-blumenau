@@ -642,6 +642,22 @@ body {
 
 /* Página "Extrato" */
 
+.date_filter{
+    grid-column: 1/13;
+    grid-row: 1/5;
+}
+
+.div_table {
+    grid-column: 1/9;
+    grid-row: 8/13;
+
+    margin-top: 100px;
+}
+
+.back_color{
+    background-color: var(--cor0) !important;
+    color: white !important;
+}
 /* Página "Adicionar Créditos" */
 
 /* Página "Pagar NR" */
@@ -649,3 +665,90 @@ body {
 /* Página "Meus Veículos" */
 
 /* Página "Meus Dados" */
+
+.perfil{
+    text-align: left;
+
+    grid-column: 1/6;
+    grid-row: 1/5;
+
+}
+
+.phone{
+    text-align: left;
+
+    grid-column: 1/6;
+    grid-row: 5/8;
+
+}
+
+.password{
+    text-align: left;
+
+    grid-column: 1/6;
+    grid-row: 8/12;
+
+}
+
+.address{
+    grid-column: 7/12;
+    grid-row: 1/9;
+
+}
+
+.button{
+    grid-column: 8/11;
+    grid-row: 9/13;
+
+
+    text-align: center;
+    align-items: center;
+
+    padding: 100px auto 0 auto;
+}
+
+.button-dados{
+    margin-top: 50px;
+
+    width: 70%;
+    height: 50px;
+
+    background-color: var(--cor0);
+    color: var(--cor1);
+
+    border: none;
+    font-size: larger;
+
+    cursor: pointer;
+}
+
+.button-dados:hover{
+    background-color: var(--cor4);
+    color: var(--cor0);
+    transition: 0.5s;
+}
+
+.perfil input, .phone input, .password input, .address input{
+    width: 100%;
+    height: 35px;
+
+    border: 1px solid;
+    border-color: var(--cor0);
+
+    margin-top: 20px;
+
+    color: var(--cor0);
+
+    padding-left: 10px;
+}
+
+
+cor{
+--cor0: #0070c0;
+--cor1: #f9f9f9;
+--cor2: #0070c07e;
+--cor3: #1B3E59;
+--cor4: #002540;
+--cor5: #3D8FCA;
+--cor6: #F2F2F2;
+}
