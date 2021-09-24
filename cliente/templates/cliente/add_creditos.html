@@ -2,42 +2,15 @@
 {% load static %}
 
 {% block content %}
-<div class="add_credits">
-<h2>Adicionar:</h2>
-<div class="values">
-    <div>
-        <p>R$ 5,00</p>
-        <button>+</button>
-        <button>-</button>
+    <div class="add_credits">
+        {% include 'partials/_add_credits.html' %}
     </div>
-    <div>
-        <p>R$ 20,00</p>
-        <button>+</button>
-        <button>-</button>
+    <div class="payment_method_add_credits">
+        {% include 'partials/_payment_method.html' %}
     </div>
-    <div>
-        <p>R$ 50,00</p>
-        <button>+</button>
-        <button>-</button>
-    </div>
-        <div id="div-other">
-        <p>Outro</p>
-        <div id="div-box">
-            <div id="div-value">
-                <span>R$</span>
-                <input type="number" placeholder="0,00">
-            </div>
-            <button><img src="{% static 'imagens/check.png' %}" alt="Check"></button>
-        </div>
-    </div>
-</div>
-</div>
-<div class="payment_method">
-    <h2>Forma de Pagamento:</h2>
-<button><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Crédito">Crédito</button>
-<button><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Débito">Débito</button>
-<button><img src="{% static 'imagens/pix.png' %}" alt="Caminhão Azul">PIX</button>
-</div>
+
+
+
 <div class="discount">
     <h2>Cupom de desconto:</h2>
     <input type="text" placeholder="Insira o Código">
