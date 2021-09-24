@@ -740,8 +740,8 @@ body {
     background-color: var(--cor0) !important;
     color: white !important;
 }
-/* Página "Adicionar Créditos" */
 
+/* Página "Adicionar Créditos" */
 .add_credits{
     grid-column: 1/13;
     grid-row: 1/4;
