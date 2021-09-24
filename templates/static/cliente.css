@@ -745,16 +745,19 @@ body {
 .add_credits{
     grid-column: 1/13;
     grid-row: 1/4;
+    border: 1px solid red;
 }
 
-.payment_method{
-    grid-column: 1/6;
-    grid-row: 5/6;
+.payment_method_add_credits{
+    grid-column: 1/8;
+    grid-row: 4/7;
+    border: 1px solid green;
 }
 
 .discount{
-    grid-column: 1/5;
-    grid-row: 9/11;
+    grid-column: 1/8;
+    grid-row: 7/12;
+    border: 1px solid red;
 }
 
 .discount input{
