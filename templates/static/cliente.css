@@ -8,6 +8,7 @@
     --cor6: #F2F2F2;
     --cor7: #D00000;
     --cor8: #740101;
+    --cor9: #cdcdcd;
 }
 
 * {
@@ -307,6 +308,7 @@ body {
     cursor: pointer;
     margin: 5px;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.24);
+    transition-duration: 0.3s;
 }
 
 .add_time button:hover {
@@ -639,9 +641,59 @@ body {
     font-size: 14px;
 }
 
+/* Módulo "add_plate" */
+.add_plate h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-style: italic;
+}
 
+.add_plate input {
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    padding: 6px;
+    color: var(--cor0);
+    font-weight: bold;
+    outline: 0;
+    margin-right: 10px;
+}
 
+.add_plate input::placeholder {
+    color: var(--cor2)
+}
 
+.add_plate img {
+    width: 25px;
+    padding-right: 5px;
+    margin-top: 2px;
+}
+
+.add_plate button {
+    color: var(--cor9);
+    background-color: var(--cor0);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    height: 40px;
+    padding: 7px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.24);
+    transition-duration: 0.3s;
+}
+
+.add_plate button:hover {
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    color: var(--cor5);
+}
+
+.add_plate button:active {
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    transform: translateY(1.5px);
+}
 
 /* Página "Estacionar" */
 .vehicle_type_estacionar {
@@ -678,9 +730,8 @@ body {
 
 /* Página "Meus Veículos" */
 .vehicle_plate_veiculos {
-    grid-column: 1/10;
+    grid-column: 1/8;
     grid-row: 1/4;
-    border: 1px solid red;
 }
 
 .plate_button {
@@ -688,15 +739,24 @@ body {
 }
 
 .vehicle_type_veiculos {
-    grid-column: 1/10;
+    grid-column: 1/13;
     grid-row: 4/7;
-    border: 1px solid red;
+}
+
+.vehicle_type_veiculos h2 {
+    font-weight: normal;
+    font-style: italic;
 }
 
 .vehicle_type_veiculos #title {
     margin-bottom: 20px;
-    font-size: 26px;
-    font-style: italic;
+    font-weight: bolder;
+    font-style: normal;
+}
+
+.add_plate {
+    grid-column: 1/13;
+    grid-row: 7/12;
 }
 
 /* Página "Meus Dados" */
