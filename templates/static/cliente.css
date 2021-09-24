@@ -873,6 +873,22 @@ body {
     margin-left: 10px;
 }
 /* Página "Pagar NR" */
+.date_filter_pagar_nr {
+    grid-column: 1/13;
+    grid-row: 1/4;
+}
+
+.tabela{
+    grid-column: 1/13;
+    grid-row: 4/8;
+    border: 1px solid green;
+}
+
+.payment_method_pagar_nr {
+    grid-column: 1/13;
+    grid-row: 8/12;
+
+}
 
 /* Página "Meus Veículos" */
 .vehicle_plate_veiculos {
