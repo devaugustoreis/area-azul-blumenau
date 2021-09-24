@@ -9,9 +9,13 @@
     --cor7: #D00000;
     --cor8: #740101;
 <<<<<<< HEAD
+<<<<<<< HEAD
     --cor9: #cdcdcd;
 =======
 >>>>>>> ff73da8 (Criação da página "Meus Veículos")
+=======
+    --cor9: #cdcdcd;
+>>>>>>> f5925ab (Finalização da página "Meus Veículos")
 }
 
 * {
@@ -645,12 +649,16 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f5925ab (Finalização da página "Meus Veículos")
 /* Módulo "add_plate" */
 .add_plate h2 {
     margin-bottom: 10px;
     font-weight: normal;
     font-style: italic;
 }
+<<<<<<< HEAD
 
 .add_plate input {
     background-color: var(--cor1);
@@ -675,6 +683,32 @@ body {
     margin-top: 2px;
 }
 
+=======
+
+.add_plate input {
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    padding: 6px;
+    color: var(--cor0);
+    font-weight: bold;
+    outline: 0;
+    margin-right: 10px;
+}
+
+.add_plate input::placeholder {
+    color: var(--cor2)
+}
+
+.add_plate img {
+    width: 25px;
+    padding-right: 5px;
+    margin-top: 2px;
+}
+
+>>>>>>> f5925ab (Finalização da página "Meus Veículos")
 .add_plate button {
     color: var(--cor9);
     background-color: var(--cor0);
@@ -698,11 +732,14 @@ body {
     border: 1px solid var(--cor4);
     transform: translateY(1.5px);
 }
+<<<<<<< HEAD
 =======
 
 
 
 >>>>>>> ff73da8 (Criação da página "Meus Veículos")
+=======
+>>>>>>> f5925ab (Finalização da página "Meus Veículos")
 
 /* Página "Estacionar" */
 .vehicle_type_estacionar {
@@ -913,6 +950,7 @@ body {
 /* Página "Meus Veículos" */
 .vehicle_plate_veiculos {
 <<<<<<< HEAD
+<<<<<<< HEAD
     grid-column: 1/8;
     grid-row: 1/4;
 =======
@@ -920,6 +958,10 @@ body {
     grid-row: 1/4;
     border: 1px solid red;
 >>>>>>> ff73da8 (Criação da página "Meus Veículos")
+=======
+    grid-column: 1/8;
+    grid-row: 1/4;
+>>>>>>> f5925ab (Finalização da página "Meus Veículos")
 }
 
 .plate_button {
@@ -927,6 +969,7 @@ body {
 }
 
 .vehicle_type_veiculos {
+<<<<<<< HEAD
 <<<<<<< HEAD
     grid-column: 1/13;
     grid-row: 4/7;
@@ -940,11 +983,23 @@ body {
     grid-row: 4/7;
     border: 1px solid red;
 >>>>>>> ff73da8 (Criação da página "Meus Veículos")
+=======
+    grid-column: 1/13;
+    grid-row: 4/7;
+}
+
+.vehicle_type_veiculos h2 {
+    font-weight: normal;
+    font-style: italic;
+>>>>>>> f5925ab (Finalização da página "Meus Veículos")
 }
 
 .vehicle_type_veiculos #title {
     margin-bottom: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f5925ab (Finalização da página "Meus Veículos")
     font-weight: bolder;
     font-style: normal;
 }
@@ -952,6 +1007,7 @@ body {
 .add_plate {
     grid-column: 1/13;
     grid-row: 7/12;
+<<<<<<< HEAD
 }
 
 /* Página "Meus Dados" */
@@ -1036,6 +1092,8 @@ body {
 =======
     font-size: 26px;
     font-style: italic;
+=======
+>>>>>>> f5925ab (Finalização da página "Meus Veículos")
 }
 >>>>>>> ff73da8 (Criação da página "Meus Veículos")
 
