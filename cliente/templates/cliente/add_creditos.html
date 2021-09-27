@@ -8,43 +8,16 @@
     <div class="payment_method_add_credits">
         {% include 'partials/_payment_method.html' %}
     </div>
-
-
-
-<div class="discount">
-    <h2>Cupom de desconto:</h2>
-    <input type="text" placeholder="Insira o Código">
-</div>
-<div class="confirm">
-    <button class="confirm-btn">Confirmar</button>
-</div>
-<div class="geral">
-    <div class="adicionar_h2">
-        <h2>Valor a adicionar:</h2>
-    </div>
-    <div class="valor">
-        <div class="box">
-            <h1>R$25,00</h1>
+    <div class="informations_add_credits">
+        <h2>Valor a Adicionar:</h2>
+        <div class="informations">
+            <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
+            <div class="box">
+                <p>R$ 2,20</p>
+            </div>
         </div>
-        <img src="{% static 'imagens/coins.svg'%}" alt="stylesheet">
     </div>
-    <div class="desconto_h2">
-        <h2>Cupom de desconto:</h2>
+    <div class="button_confirm">
+        <button>Confirmar</button>
     </div>
-    <div class="desconto">
-        <div class="box">
-            <h1>-</h1>
-        </div>
-        <img src="{% static 'imagens/etiqueta.svg'%}" alt="stylesheet">
-    </div>
-    <div class="final_h2">
-        <h2>Valor final:</h2>
-    </div>
-    <div class="final">
-        <div class="box">
-            <h1>R$25,00</h1>
-        </div>
-        <img src="{% static 'imagens/caixa.svg'%}" alt="stylesheet">
-    </div>
-</div>
 {% endblock %}
