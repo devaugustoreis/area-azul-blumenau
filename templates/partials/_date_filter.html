@@ -1,19 +1,21 @@
 {% load static %}
 <!-- Colocar o nome da classe da div como "date_filter" -->
-<button>Dia atual</button>
-<button>Mês atual</button>
-<button>Ano Atual</button>
-<button>Personalizado</button>
-<div class="date">
-    <div>
-        <h3>Data Inicial:</h3>
-        <input type="date">
-    </div>
-    <div>
-        <h3>Data Final:</h3>
-        <input type="date">
-    </div>
-    <div id="search">
-        <button><img src="{% static 'imagens/lupa.png' %}" alt="Lupa">Buscar</button>
+<div class="date_filter">
+    <button>Dia atual</button>
+    <button>Mês atual</button>
+    <button>Ano Atual</button>
+    <button>Personalizado</button>
+    <div class="date">
+        <div>
+            <h3>Data Inicial:</h3>
+            <input type="date">
+        </div>
+        <div>
+            <h3>Data Final:</h3>
+            <input type="date">
+        </div>
+        <div id="search">
+            <button><img src="{% static 'imagens/lupa.png' %}" alt="Lupa">Buscar</button>
+        </div>
     </div>
 </div>

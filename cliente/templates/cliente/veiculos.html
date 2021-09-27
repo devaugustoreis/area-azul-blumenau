@@ -2,5 +2,24 @@
 {% load static %}
 
 {% block content %}
-    Meus Veículos
+    <div class="vehicle_plate_veiculos">
+        <h2 class="vehicle_plate_title">Veículo:</h2>
+        <div class="plate_button">
+            {% include 'partials/_vehicle_plate.html' %}
+            {% include 'partials/_button_remove.html' %}
+        </div>
+    </div>
+    <div class="vehicle_type_veiculos">
+        <h2 id="title">Incluir novo veículo</h2>
+        {% include 'partials/_vehicle_type.html' %}
+    </div>
+    <div class="add_plate">
+        <h2>Placa:</h2>
+        <input type="text" placeholder="Insira a Placa">
+        <button><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
+    </div>
+
+
+
+
 {% endblock %}

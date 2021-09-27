@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <div class="vehicle_type">
+    <div class="vehicle_type_estacionar">
         {% include 'partials/_vehicle_type.html' %}
     </div>
-    <div class="vehicle_plate">
+    <div class="vehicle_plate_estacionar">
+        <h2 class="vehicle_plate_title">Veículo:</h2>
         {% include 'partials/_vehicle_plate.html' %}
     </div>
     <div class="time">
@@ -14,34 +15,21 @@
     <div class="button_confirm">
         <button>Confirmar</button>
     </div>
-
-
-
     <div class="total">
-
         <h1>TOTAL</h1>
-        <div class="h1_tempo">
-            <h2>Tempo:</h2>
-        </div>
-        <div class="div_tempo">
-            <img src="{% static 'imagens/relogio.svg' %}" alt="stylesheet">
+        <h2>Tempo:</h2>
+        <div class="informations">
+            <img src="{% static 'imagens/relogio.png' %}" alt="stylesheet">
             <div class="box">
-                <h1>90m00s</h1>
+                <p>90m00s</p>
             </div>
         </div>
-        <div class="h1_valor">
-            <h2>Valor:</h2>
-        </div>
-        <div class="div_valor">
-            <img src="{% static 'imagens/valor.svg' %}" alt="stylesheet">
+        <h2>Valor:</h2>
+        <div class="informations">
+            <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
             <div class="box">
-                <h1>R$2,20</h1>
+                <p>R$ 2,20</p>
             </div>
         </div>
-        
     </div>
-
-
-
-
 {% endblock %}

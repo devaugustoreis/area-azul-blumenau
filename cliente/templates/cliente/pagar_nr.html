@@ -2,5 +2,16 @@
 {% load static %}
 
 {% block content %}
-    Pagar Multa
+    <div class="date_filter_pagar_nr">
+        {% include 'partials/_date_filter.html' %}
+    </div>
+    <div class="tabela">
+        Tabela
+    </div>
+    <div class="payment_method_pagar_nr">
+        {% include 'partials/_payment_method.html' %}
+    </div>
+    <div class="button_confirm">
+        <button>Pagar</button>
+    </div>
 {% endblock %}
