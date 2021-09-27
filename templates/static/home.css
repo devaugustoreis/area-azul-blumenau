@@ -1,5 +1,5 @@
 /* -------------------------------  GERAL  ------------------------------- */
-:root {
+:root{
     --cor0: #0070c0;
     --cor1: #f9f9f9;
     --cor2: #0070c07e;
@@ -7,13 +7,17 @@
     --cor4: #002540;
     --cor5: #3D8FCA;
     --cor6: #F2F2F2;
+    --cor7: #D00000;
+    --cor8: #740101;
+    --cor9: #cdcdcd;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Urbanist', sans-serif;
+    /* font-family: 'Urbanist', sans-serif; */
+    font-family: 'Century Gothic', sans-serif;
 }
 
 html, body {
@@ -126,7 +130,7 @@ a {
 }
 
 .div_upper_logo img {
-    width: 300px;
+    width: 350px;
 }
 
 .div_upper_nav {
@@ -161,18 +165,18 @@ a {
 }
 
 .div_body_text{
-    color: var(--cor1);
+    color: var(--cor6);
     width: 30%;
     height: 10rem;
     font-size: 22px;
 }
 
-.div_body_text h2{
-    font-weight: 700;
-    color: var(--cor1);
+.div_body_text h1{
+    color: var(--cor6);
+    margin-bottom: 15px;
 }
 
-.div_body_text h3{
+.div_body_text h2{
     font-weight: 200;
 }
 

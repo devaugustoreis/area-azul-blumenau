@@ -66,13 +66,13 @@ body {
     margin: 0 auto 15px;
 }
 
-.cliente_options_links:hover {
-    background-color: rgb(40, 57, 148);
-}
-
 .cliente_options_links a {
     text-decoration: none;
-    color: var(--cor1);
+    color: var(--cor6);
+}
+
+.cliente_options_links:hover {
+    background-color: var(--cor4);
 }
 
 /* Template base_clientes */
@@ -120,7 +120,7 @@ body {
 }
 
 .sb_upper_text a:hover {
-    color: darkblue;
+    color: var(--cor4)
 }
 
 .sidebar_lower {
@@ -147,7 +147,7 @@ body {
 }
 
 .sidebar_options:hover {
-    background-color: rgb(40, 57, 148);
+    background-color: var(--cor4);
 }
 
 .sidebar_options img {
@@ -163,7 +163,7 @@ body {
     height: 5%;
     width: 97%;
     background-color: var(--cor0);
-    color: var(--cor1);
+    color: var(--cor6);
     margin: 5.5vh auto 2.5vh auto;
     display: flex;
     align-items: center;
@@ -350,6 +350,32 @@ body {
     transform: translateY(2px);
 }
 
+/* Módulo "button_save" */
+.button_save button {
+    width: 265px;
+    height: 66px;
+    background-color: var(--cor0);
+    border: 1px solid var(--cor0);
+    color: var(--cor1);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+    font-size: 22px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    position: relative;
+    bottom: 0%;
+}
+
+.button_save button:hover {
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    color: var(--cor5);
+}
+  
+.button_save button:active {
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    transform: translateY(2px);
+}
 
 /* Módulo "total" */
 .total {
@@ -723,17 +749,16 @@ body {
 }
 
 /* Página "Extrato" */
-
-.date_filter{
+.date_filter_extrato {
     grid-column: 1/13;
-    grid-row: 1/5;
+    grid-row: 1/4;
+    border: 1px solid red;
 }
 
 .div_table {
-    grid-column: 1/9;
-    grid-row: 8/13;
-
-    margin-top: 100px;
+    grid-column: 1/13;
+    grid-row: 4/13;
+    border: 1px solid green;
 }
 
 .back_color{
@@ -742,139 +767,30 @@ body {
 }
 
 /* Página "Adicionar Créditos" */
-.add_credits{
+.add_credits {
     grid-column: 1/13;
     grid-row: 1/4;
-    border: 1px solid red;
 }
 
-.payment_method_add_credits{
-    grid-column: 1/8;
+.payment_method_add_credits {
+    grid-column: 1/13;
     grid-row: 4/7;
-    border: 1px solid green;
 }
 
-.discount{
-    grid-column: 1/8;
+.informations_add_credits {
+    grid-column: 1/5;
     grid-row: 7/12;
-    border: 1px solid red;
 }
 
-.discount input{
-    margin-top: 10px;
-    width: 75%;
-    height: 35px;
-    padding-left: 10px;
-    border: 1px solid var(--cor0);
-    outline: none;
+.informations_add_credits h2 {
+    color: var(--cor3);
 }
 
-.discount h2{
-    color: var(--cor4);
-}
-
-.confirm{
-    grid-column: 6/8;
-    grid-row: 11/12;
-    text-align: center;
-}
-
-.confirm-btn{
-    width: 100%;
-    height: 100%;
-    border: none;
-    cursor: pointer;
-    background-color: var(--cor0);
-    font-size: large;
-    color: white;
-    font-weight: inherit;
-}
-
-.confirm-btn:hover{
-    background-color: var(--cor4);
+.informations_add_credits .box {
+    background-color: var(--cor1);
     color: var(--cor0);
-    transition: 0.5s;
 }
 
-.geral{
-    grid-column: 7/13;
-    grid-row: 1/3;
-
-    border: 1px solid #1e7ac7;
-    border-radius: 3%;
-
-    padding: 20px;
-
-    width: 20rem;
-    height: 18rem;
-
-    margin: 150px auto 0 auto;
-    
-}
-
-.adicionar_h2{
-    margin-bottom: 10px;
-}
-
-.valor{
-    width: 10rem;
-
-    display: flex;
-}
-
-.box{
-    border: 1px solid #1e7ac7;
-
-    width: 9rem;
-    height: 2.5rem;
-
-    background-color: rgb(243, 241, 241);
-}
-
-.desconto_h2{
-    margin-bottom: 10px;
-    margin-top: 20px;
-    text-align: left;
-}
-
-.desconto{
-    width: 10rem;
-
-    display: flex;
-}
-
-.final_h2{
-    margin-bottom: 10px;
-    margin-top: 20px;
-}
-
-.final{
-    width: 10rem;
-
-    display: flex;
-}
-
-.geral h2{
-    font-weight: 300;
-    font-size: large;
-}
-
-.geral h1{
-    font-weight: 700;
-    font-size: large;
-
-    text-align: center;
-
-    line-height: 2.5rem;
-}
-
-.geral img{
-    display: flex;
-
-    width: 30px;
-    
-    margin-left: 10px;
-}
 /* Página "Pagar NR" */
 .date_filter_pagar_nr {
     grid-column: 1/13;
@@ -890,7 +806,6 @@ body {
 .payment_method_pagar_nr {
     grid-column: 1/13;
     grid-row: 8/12;
-
 }
 
 /* Página "Meus Veículos" */
@@ -925,90 +840,48 @@ body {
 }
 
 /* Página "Meus Dados" */
-
-.perfil{
+.perfil {
     text-align: left;
-
     grid-column: 1/6;
     grid-row: 1/5;
-
 }
 
-.phone{
+.phone {
     text-align: left;
-
     grid-column: 1/6;
     grid-row: 5/8;
-
 }
 
-.password{
+.password {
     text-align: left;
-
     grid-column: 1/6;
     grid-row: 8/12;
-
 }
 
-.address{
+.address {
     grid-column: 7/12;
     grid-row: 1/9;
-
 }
 
-.button{
-    grid-column: 8/11;
+.button_save {
+    grid-column: 7/12;
     grid-row: 9/13;
-
-
     text-align: center;
-    align-items: center;
-
-    padding: 100px auto 0 auto;
 }
 
-.button-dados{
-    margin-top: 50px;
-
-    width: 70%;
-    height: 50px;
-
-    background-color: var(--cor0);
-    color: var(--cor1);
-
-    border: none;
-    font-size: larger;
-
-    cursor: pointer;
-}
-
-.button-dados:hover{
-    background-color: var(--cor4);
-    color: var(--cor0);
-    transition: 0.5s;
-}
-
-.perfil input, .phone input, .password input, .address input{
+.perfil input, .phone input, .password input, .address input {
     width: 100%;
-    height: 35px;
-
-    border: 1px solid;
-    border-color: var(--cor0);
-
+    height: 40px;
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    outline: 0;
     margin-top: 20px;
-
     color: var(--cor0);
-
-    padding-left: 10px;
+    padding: 6px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-
-cor{
---cor0: #0070c0;
---cor1: #f9f9f9;
---cor2: #0070c07e;
---cor3: #1B3E59;
---cor4: #002540;
---cor5: #3D8FCA;
---cor6: #F2F2F2;
+.perfil input::placeholder, .phone input::placeholder, .password input::placeholder, .address input::placeholder {
+    color: var(--cor2)
 }
