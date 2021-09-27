@@ -1,19 +1,19 @@
-{% extends 'base_clientes.html' %}
+{% extends 'cliente/base_clientes.html' %}
 {% load static %}
 
 {% block content %}
 <div class="perfil">
     <h2>Perfil:</h2>
-    <input type="text" placeholder="Victor Viana">
-    <input type="email" placeholder="victorvianads@gmail.com">
-    <input type="text" placeholder="011.423.369-13">
+    <span>Usuário: {{client.user}}</span>
+    <span>Nome: {{client.name}}</span>
+    <span>E-mail: {{client.email}}</span>
 </div>
 <div class="phone">
     <h2>Telefones:</h2>
-    <input type="text" placeholder="(47) 99127-4607">
-    <input type="text" placeholder="(47) 99127-4607">
+    <span>Telefone 01: {{client.phone1}}</span>
+    <span>Telefone 02: {{client.phone2}}</span>
 </div>
-<div class="password">
+<!-- <div class="password">
     <h2>Perfil:</h2>
     <input type="password" placeholder="Senha Atual">
     <input type="password" placeholder="Nova Senha">
@@ -28,7 +28,7 @@
     <input type="text" placeholder="89.040-000">
     <input type="text" placeholder="Blumenau">
     <input type="text" placeholder="Santa Catarina">
-</div>
+</div> -->
 <div class="button">
     <button class="button-dados">Salvar</button>
 </div>

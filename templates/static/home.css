@@ -17,7 +17,7 @@
 }
 
 html, body {
-    background-color: var(--cor0);
+    background-image: url("../imagens/Prefeitura_de_Blumenau_BG_Final.png");
     width: 100%;
 }
 

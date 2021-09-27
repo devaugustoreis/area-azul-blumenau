@@ -1,22 +1,30 @@
+from home.models import Client
 from django.shortcuts import render
 
-def index(request):
-    return render(request, "cliente/index.html")
+def index(request, pk):
+    client = Client.objects.get(id=pk)
+    return render(request, "cliente/index.html", {'client': client})
 
-def estacionar(request):
-    return render(request, "cliente/estacionar.html")
+def estacionar(request, pk):
+    client = Client.objects.get(id=pk)
+    return render(request, "cliente/estacionar.html", {'client': client})
 
-def extrato(request):
-    return render(request, "cliente/extrato.html")
+def extrato(request, pk):
+    client = Client.objects.get(id=pk)
+    return render(request, "cliente/extrato.html", {'client': client})
 
-def creditos(request):
-    return render(request, "cliente/add_creditos.html")
+def creditos(request, pk):
+    client = Client.objects.get(id=pk)
+    return render(request, "cliente/add_creditos.html", {'client': client})
 
-def multas(request):
-    return render(request, "cliente/pagar_nr.html")
+def multas(request, pk):
+    client = Client.objects.get(id=pk)
+    return render(request, "cliente/pagar_nr.html", {'client': client})
 
-def veiculos(request):
-    return render(request, "cliente/veiculos.html")
+def veiculos(request, pk):
+    client = Client.objects.get(id=pk)
+    return render(request, "cliente/veiculos.html", {'client': client})
 
-def dados(request):
-    return render(request, "cliente/dados.html")
+def dados(request, pk):
+    client = Client.objects.get(id=pk)
+    return render(request, "cliente/dados.html", {'client': client})
