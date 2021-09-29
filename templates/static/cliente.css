@@ -826,14 +826,9 @@ body {
     grid-row: 1/4;
 }
 
-.payment_method_add_credits {
-    grid-column: 1/13;
-    grid-row: 4/7;
-}
-
 .informations_add_credits {
     grid-column: 1/5;
-    grid-row: 7/12;
+    grid-row: 4/7;
 }
 
 .informations_add_credits h2 {
@@ -843,6 +838,11 @@ body {
 .informations_add_credits .box {
     background-color: var(--cor1);
     color: var(--cor0);
+}
+
+.payment_method_add_credits {
+    grid-column: 1/13;
+    grid-row: 7/12;
 }
 
 /* Página "Pagar NR" */
