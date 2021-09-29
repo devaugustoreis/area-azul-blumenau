@@ -12,9 +12,12 @@ class ClientForm(ModelForm):
 
 
 class CreateUser(UserCreationForm):
+    first_name = forms.CharField(max_length=50)
+    email = forms.EmailField()
+
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'email', 'password']
+        fields = ['username', 'first_name', 'email', 'password1', 'password2']
 
 
 # class SignUpForm(forms.ModelForm):

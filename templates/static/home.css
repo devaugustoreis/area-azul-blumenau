@@ -17,7 +17,8 @@
 }
 
 html, body {
-    background-image: url("../imagens/Prefeitura_de_Blumenau_BG_Final.png");
+    background-color: var(--cor0);
+    /* background-image: url('/static/images/Prefeitura_de_Blumenau_BG_Final.png'); */
     width: 100%;
 }
 
@@ -89,6 +90,17 @@ a {
 
 .home_input:hover + label {
     color: var(--cor0);
+}
+
+.home_messages {
+    border: 1px solid var(--cor5);
+    background-color: var(--cor5);
+    color: var(--cor6);
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
 }
 
 .btn{
@@ -180,7 +192,6 @@ a {
     background-color: var(--cor1);
     border-radius: 2%;
     width: 360px;
-    height: 440px;
     padding: 30px;
     text-align: center;
     margin-right: 5vw;
@@ -256,14 +267,12 @@ a {
 main {
     background-color: var(--cor1);
     border-radius: 10px;
-    width: 700px;
-    height: 550px;
+    width: 450px;
     padding: 25px 40px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px;
+    transform: translate(-50%, -50%); 
 }
 
 .main-cadastro img {
@@ -274,27 +283,20 @@ main {
 
 .main-cadastro p {
     color: var(--cor0);
+    font-size: 18px;
     font-weight: bold;
     margin-top: 30px;
 }
 
 .div-register {
-    display: flex;
-    justify-content: space-between;
     margin-top: 25px;
-}
-
-.register-right {
-    width: 270px;
-}
-
-.register-left {
-    width: 270px;
 }
 
 .register_input {
     color: gray;
-    margin-bottom: 6px;
+    height: 30px;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .register_input:hover::placeholder, .register_input:focus::placeholder {
@@ -303,7 +305,7 @@ main {
 
 .btn-cadastrar {
     display: block;
-    margin: 40px auto;
+    margin: 20px auto;
     width: 165px;
-    height: 40px;
+    height: 45px;
 }

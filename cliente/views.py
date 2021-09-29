@@ -1,30 +1,38 @@
 from home.models import Client
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
-def index(request, pk):
-    client = Client.objects.get(id=pk)
-    return render(request, "cliente/index.html", {'client': client})
+@login_required(login_url='login')
+def index(request):
+    # client = Client.objects.get(id=pk)
+    return render(request, "cliente/index.html", {})
 
-def estacionar(request, pk):
-    client = Client.objects.get(id=pk)
-    return render(request, "cliente/estacionar.html", {'client': client})
+@login_required(login_url='login')
+def estacionar(request):
+    # client = Client.objects.get(id=pk)
+    return render(request, "cliente/estacionar.html", {})
 
-def extrato(request, pk):
-    client = Client.objects.get(id=pk)
-    return render(request, "cliente/extrato.html", {'client': client})
+@login_required(login_url='login')
+def extrato(request):
+    # client = Client.objects.get(id=pk)
+    return render(request, "cliente/extrato.html", {})
 
-def creditos(request, pk):
-    client = Client.objects.get(id=pk)
-    return render(request, "cliente/add_creditos.html", {'client': client})
+@login_required(login_url='login')
+def creditos(request):
+    # client = Client.objects.get(id=pk)
+    return render(request, "cliente/add_creditos.html", {})
 
-def multas(request, pk):
-    client = Client.objects.get(id=pk)
-    return render(request, "cliente/pagar_nr.html", {'client': client})
+@login_required(login_url='login')
+def multas(request):
+    # client = Client.objects.get(id=pk)
+    return render(request, "cliente/pagar_nr.html", {})
 
-def veiculos(request, pk):
-    client = Client.objects.get(id=pk)
-    return render(request, "cliente/veiculos.html", {'client': client})
+@login_required(login_url='login')
+def veiculos(request):
+    # client = Client.objects.get(id=pk)
+    return render(request, "cliente/veiculos.html", {})
 
-def dados(request, pk):
-    client = Client.objects.get(id=pk)
-    return render(request, "cliente/dados.html", {'client': client})
+@login_required(login_url='login')
+def dados(request):
+    # client = Client.objects.get(id=pk)
+    return render(request, "cliente/dados.html", {})

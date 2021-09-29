@@ -16,9 +16,9 @@ class Address(models.Model):
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    phone1 = models.CharField(max_length=20)
+    phone1 = models.CharField(max_length=20, null=True, blank=True)
     phone2 = models.CharField(max_length=20, null=True, blank=True)
-    email = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
     credits = models.FloatField(default=0)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.SET_NULL)
