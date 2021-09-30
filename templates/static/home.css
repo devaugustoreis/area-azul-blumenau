@@ -17,8 +17,9 @@
 }
 
 html, body {
-    background-color: var(--cor0);
-    /* background-image: url('/static/images/Prefeitura_de_Blumenau_BG_Final.png'); */
+    /* background-color: var(--cor0); */
+    background-image: url('/static/imagens/Prefeitura_de_Blumenau_BG_Final.png');
+    background-size: cover;
     width: 100%;
 }
 
@@ -198,18 +199,18 @@ a {
 }
 
 .div_login_box h1 {
-    margin-top: 10px;
+    margin: 10px 0 70px 0;
     color: var(--cor0);
 }
 
-.div_select_user {
+/* .div_select_user {
     width: 80%;
     margin: 50px auto 40px auto;
     display: flex;
     justify-content: space-between;
     font-weight: bold;
     color: gray;
-}
+} */
 
 .div_login_box a {
     color: var(--cor0);
@@ -225,7 +226,7 @@ a {
 .div_login_box button {
     width: 150px;
     height: 40px;
-    margin: 30px auto 0 auto;
+    margin: 50px auto 0 auto;
 }
 
 
@@ -238,7 +239,6 @@ a {
     background-color: var(--cor1);
     border-radius: 2%;
     width: 410px;
-    height: 460px;
     padding: 30px;
 }
 
@@ -259,7 +259,7 @@ a {
 .esqueci_senha_form button {
     width: 170px;
     height: 50px;
-    margin: 80px auto 0 auto;
+    margin: 80px auto 10px auto;
 }
 
 

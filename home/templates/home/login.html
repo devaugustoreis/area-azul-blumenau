@@ -23,6 +23,8 @@
 
     <div class="div_login_box">
         <h1>Faça seu login</h1>
+
+        <!-- Input Selects removidos
         <div class="div_select_user">
             <div>
                 <input type="radio" name="select" id="cpf">
@@ -37,12 +39,14 @@
                 <label for="fiscal">Fiscal</label>
             </div>
         </div>
+        -->
+
         <form action="" method="POST">
             {% csrf_token %}
 
             <div class="div_home_input">
                 <input type="text" class="home_input" id="username" name="username" required>
-                <label for="username" class="home_input_label">Login</label>
+                <label for="username" class="home_input_label">CPF / CNPJ</label>
             </div>
             <div class="div_home_input input_space">
                 <input type="password" class="home_input" id="password" name="password" required>

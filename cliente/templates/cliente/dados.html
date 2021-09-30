@@ -4,14 +4,14 @@
 {% block content %}
 <div class="perfil">
     <h2>Perfil:</h2>
-    <span>Usuário: </span>
-    <span>Nome: </span>
-    <span>E-mail: </span>
+    <span>CPF: {{user.username}}</span>
+    <span>Nome: {{user.client.name}}</span>
+    <span>E-mail: {{user.client.email}}</span>
 </div>
 <div class="phone">
     <h2>Telefones:</h2>
-    <span>Telefone 01: </span>
-    <span>Telefone 02: </span>
+    <span>Telefone 01: {% if user.client.phone1 != None %} {{user.client.phone1}} {% else %} --- {% endif %}</span>
+    <span>Telefone 02: {% if user.client.phone2 != None %} {{user.client.phone1}} {% else %} --- {% endif %}</span>
 </div>
 <!-- <div class="password">
     <h2>Perfil:</h2>

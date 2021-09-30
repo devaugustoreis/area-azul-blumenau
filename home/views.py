@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 from django.contrib import messages
 
-# Create your views here.
 from .models import *
 from .forms import *
 from .filters import *
@@ -46,11 +45,12 @@ def cadastro(request):
         if form.is_valid():
             user = form.save()
             name = form.cleaned_data.get('first_name')
+            email = form.cleaned_data.get('email')
 
             group = Group.objects.get(name='Client')
             user.groups.add(group)
             Client.objects.create(
-                user=user, name=name
+                user=user, name=name, email=email
             )
 
             messages.success(request, 'Parabéns, ' + name + '. Sua conta foi cadastrada com sucesso!')
