@@ -56,3 +56,6 @@ def esqueci_senha(request):
 
 def cadastro(request):
     return render(request, 'home/cadastro.html')
+
+def como_funciona(request):
+    return render(request, 'home/como_funciona.html')
