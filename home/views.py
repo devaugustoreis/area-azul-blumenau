@@ -39,6 +39,7 @@ def esqueci_senha(request):
 
 @unauthenticated_user
 def cadastro(request):
+<<<<<<< HEAD
     form = CreateUser()
     if request.method == 'POST':
         form = CreateUser(request.POST)
@@ -58,3 +59,9 @@ def cadastro(request):
 
     context = {'form': form}
     return render(request, 'home/cadastro.html', context)
+=======
+    return render(request, 'home/cadastro.html')
+
+def como_funciona(request):
+    return render(request, 'home/como_funciona.html')
+>>>>>>> 1867436 (Início da página 'Como Funciona')
