@@ -10,15 +10,19 @@
     <a href="{% url 'contato' %}">Contato</a>
 </div>
 <div id="sidenav"><span onclick="openNav()">&#9776; Menu</span></div>
-<form class="esqueci_senha_form" action="" id="form">
-    <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" class="logo" onclick="location.href='{% url 'login' %}'">
-    <h2>Esqueci minha senha</h2>
-    <div class="div_home_input">
-        <input type="number" class="home_input" id="esq_senha_input" required>
-        <label for="log_input" class="home_input_label">CPF / CNPJ</label>
+<main class='main-cadastro contato'>
+    <img src="{% static 'imagens/Logo-A-provisorio.png'%}" height="75px" alt="Logo Área Azul" onclick="location.href='{% url 'login' %}'">
+    <h2>Contato</h2>
+    <div>
+        <input type="text" name="Nome" placeholder="NOME" required>
+        <input type="text" name="E-mail" placeholder="E-MAIL" required>
+        <input type="text" name="Telefone" placeholder="TELEFONE" required>
+        <input type="text" name="Cidade" placeholder="CIDADE" required>
+        <input type="text" name="Assunto" placeholder="ASSUNTO" required>
+        <textarea name="subject" placeholder="MENSAGEM"></textarea>
     </div>
-    <button type="button" class="btn">Enviar</button>
-</form>
+    <button type="button" class="btn btn-cadastrar">Enviar</button>
+</main>
 
 <script>
     function openNav() {
@@ -29,6 +33,4 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 </script>
-
-
 {% endblock %}
