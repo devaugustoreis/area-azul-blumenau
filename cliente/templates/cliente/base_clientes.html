@@ -19,7 +19,7 @@
                     <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="70%" class="logo-template" onclick="location.href='{% url 'index' %}'">
                 </div>
                 <div class="sb_upper_text">
-                    <h3>Olá, <a href="{% url 'index' %}">{{user.username}}!</a></h3>
+                    <h3>Olá, <a href="{% url 'index' %}">{{user.client.name}}!</a></h3>
                 </div>
             </div>
 
@@ -56,6 +56,7 @@
                 {% if request.get_full_path == "/cliente/multas/" %} <h3>Pagar NR</h3> {% endif %}
                 {% if request.get_full_path == "/cliente/veiculos/" %} <h3>Meus Veículos</h3> {% endif %}
                 {% if request.get_full_path == "/cliente/dados/" %} <h3>Meus Dados</h3> {% endif %}
+                {% if request.get_full_path == "/cliente/atualizar_dados/" %} <h3>Meus Dados</h3> {% endif %}
             </div>
             <div class="page_content">
                 {% block content %}{% endblock %}   

@@ -16,7 +16,7 @@
 <body>
     <div class="cliente_main">
         <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="300" class="logo">
-        <h2>Olá, {{user.first_name}}!</h2>
+        <h2>Olá, {{user.client.name}}!</h2>
         <h1>Você tem</h1>
         <h1>R$ {{user.client.credits}}</h1>
         <h1>em créditos.</h1>

@@ -1,0 +1,33 @@
+{% extends 'cliente/base_clientes.html' %}
+{% load static %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="perfil">
+        <h2>Perfil:</h2>
+        lalala
+    </div>
+    <div class="address">
+        <h2>Endereço:</h2>
+        
+    </div>
+    <button class="btn-dados">Salvar</button>
+</form>
+<!-- <div class="password">
+    <h2>Perfil:</h2>
+    <input type="password" placeholder="Senha Atual">
+    <input type="password" placeholder="Nova Senha">
+    <input type="password" placeholder="Confirmar Senha">
+</div>
+<div class="address">
+    <h2>Endereço:</h2>
+    <input type="text" placeholder="Rua dos caçadores">
+    <input type="text" placeholder="325">
+    <input type="text" placeholder="apto 102">
+    <input type="text" placeholder="Velha">
+    <input type="text" placeholder="89.040-000">
+    <input type="text" placeholder="Blumenau">
+    <input type="text" placeholder="Santa Catarina">
+</div> -->
+{% endblock %}

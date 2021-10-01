@@ -9,4 +9,5 @@ urlpatterns = [
     path("multas/", views.multas, name="multas"),
     path("veiculos/", views.veiculos, name="veiculos"),
     path("dados/", views.dados, name="dados"),
+    # path("atualizar_dados/", views.atualizarDados, name="atualizar-dados"),
 ]
