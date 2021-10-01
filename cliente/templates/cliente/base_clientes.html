@@ -9,7 +9,6 @@
   <title>Área Azul - Blumenau</title>
   
   <link rel="stylesheet" href="{% static 'cliente.css' %}">
-  <link rel="stylesheet" href="{% static 'bootstrap-5.1.1-dist\css\bootstrap.css' %}">
 </head>
 <body>
     <div class="fullpage">
@@ -20,7 +19,7 @@
                     <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="70%" class="logo-template" onclick="location.href='{% url 'index' %}'">
                 </div>
                 <div class="sb_upper_text">
-                    <h3>Olá, <a href="{% url 'index' %}">(Nome do Cliente)!</a></h3>
+                    <h3>Olá, <a href="{% url 'index' %}">{{user.username}}!</a></h3>
                 </div>
             </div>
 
@@ -43,8 +42,8 @@
                 <div class="sidebar_options" onclick="location.href='{% url 'dados' %}'">
                     <img src="{% static 'imagens/Meus_Dados.svg' %}" alt="Icone Meus_Dados" width="25"><a href="{% url 'dados' %}">Meus Dados</a>
                 </div>
-                <div class="sidebar_options" >
-                    <img src="{% static 'imagens/Sair.png' %}" alt="Icone Sair" width="25"><a href="">Sair</a>
+                <div class="sidebar_options" onclick="location.href='{% url 'logout' %}'">
+                    <img src="{% static 'imagens/Sair.png' %}" alt="Icone Sair" width="25"><a href="{% url 'logout' %}">Sair</a>
                 </div>
             </div>
         </div>

@@ -1,7 +1,8 @@
-{% extends 'base_clientes.html' %}
+{% extends 'cliente/base_clientes.html' %}
 {% load static %}
 
 {% block content %}
+
     <div class="vehicle_plate_veiculos">
         <h2 class="vehicle_plate_title">Veículo:</h2>
         <div class="plate_button">
@@ -18,8 +19,5 @@
         <input type="text" placeholder="Insira a Placa">
         <button><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
     </div>
-
-
-
 
 {% endblock %}
