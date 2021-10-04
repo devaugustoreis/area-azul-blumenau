@@ -4,7 +4,7 @@ Página Veículos:
 1 - Adicionar mensagem de carro cadastrado com sucesso;
 2 - [RESOLVIDO] Manter botão de tipo de veículo ativo;
 3 - Formatar página de exclusão de veículos;
-4 - Readequar path redirect após exclusão do veículo;
+4 - [RESOLVIDO] Readequar path redirect após exclusão do veículo;
 5 - Ajustar botão de remover veículo (tirar texto "remover"?); Botões devem ter hover?
 5.2 - Aumentar levemente o retângulo das placas? (algumas não cabem, exemplo: GGG7777)
 
@@ -15,3 +15,6 @@ Página Dados:
 
 Página Estacionar:
 9 - Botões de + e - não deveriam estar com posições invertidas?
+
+
+hover dos botões assim?

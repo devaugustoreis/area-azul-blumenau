@@ -90,7 +90,6 @@ body {
 .sb_upper_img {
     height: 85%;
     width: 100%;
-    /* border: 1px solid green; */
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -103,7 +102,6 @@ body {
 .sb_upper_text {
     height: 15%;
     width: 100%;
-    /* border: 1px solid brown; */
     display: flex;
     align-items: center;
 }
@@ -260,6 +258,10 @@ body {
 .btn_vehicle_plate:hover {
     background-color: var(--cor2);
     color: var(--cor1);
+}
+
+.btn-car, .btn-moto, .btn-other {
+    display: inline-block;
 }
 
 .btn_vehicle_plate img {
