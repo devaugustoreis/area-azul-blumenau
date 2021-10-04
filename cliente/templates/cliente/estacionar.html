@@ -12,7 +12,7 @@
         {% for car in cars %}
             <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
         {% endfor %}
-
+        
         {% for moto in motos %}
             <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
         {% endfor %}
@@ -48,36 +48,30 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-    var btnCar = document.getElementById('btn-type-car')
-    var btnMoto = document.getElementById('btn-type-moto')
-    var btnOther = document.getElementById('btn-type-other')
-    var vehicleType = 'car'
-    console.log(vehicleType)
+        var vehicle_type = 'C'
+        var btnCar = document.getElementById('btn-type-car')
+        var btnMoto = document.getElementById('btn-type-moto')
+        var btnOther = document.getElementById('btn-type-other')
 
-    btnCar.onclick = function(){
-        vehicleType = 'car'
-    }
+        btnCar.onclick = function() {
+            btnMoto.classList.remove('btn-active')
+            btnOther.classList.remove('btn-active')
+            btnCar.classList.add('btn-active')
+            vehicle_type = 'C'
+        }
 
-    {% comment %} $(document).ready(function(){
+        btnMoto.onclick = function(){
+            btnCar.classList.remove('btn-active')
+            btnOther.classList.remove('btn-active')
+            btnMoto.classList.add('btn-active')
+            vehicle_type = 'M'
+        }
 
-        $(".btn-type-car").click(function(){
-            {% for car in cars %}
-                
-            {% endfor %}
-        })
-
-        $(".btn-type-moto").click(function(){
-            {% for moto in motos %}
-                console.log("{{moto}}")
-            {% endfor %}
-        })
-
-        $(".btn-type-other").click(function(){
-            {% for other in others %}
-                console.log("{{other}}")
-            {% endfor %}
-        })
-
-    }); {% endcomment %}
+        btnOther.onclick = function(){
+            btnCar.classList.remove('btn-active')
+            btnMoto.classList.remove('btn-active')
+            btnOther.classList.add('btn-active')
+            vehicle_type = 'O'
+        }
     </script>
 {% endblock %}

@@ -102,5 +102,5 @@ def excluirVeiculo(request, pk_client, pk_vehicle):
         vehicle.delete()
         return redirect('veiculos', client.pk)
 
-    context = {'vehicle':vehicle}
+    context = {'client':client, 'vehicle':vehicle}
     return render(request, "cliente/excluir.html", context)

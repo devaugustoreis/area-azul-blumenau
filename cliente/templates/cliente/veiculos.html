@@ -9,7 +9,7 @@
                 <div class="plate_button">
                     <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
                     <div class="button_remove">
-                        <a href="{% url 'excluirVeiculo' car.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        <a href="{% url 'excluirVeiculo' user.client.id car.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
                         <p>remover</p>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                 <div class="plate_button">
                     <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
                     <div class="button_remove">
-                        <a href="{% url 'excluirVeiculo' moto.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        <a href="{% url 'excluirVeiculo' user.client.id moto.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
                         <p>remover</p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="plate_button">
                     <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
                     <div class="button_remove">
-                        <a href="{% url 'excluirVeiculo' other.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        <a href="{% url 'excluirVeiculo' user.client.id other.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
                         <p>remover</p>
                     </div>
                 </div>
@@ -67,6 +67,7 @@
         var btnOther = document.getElementById('btn-type-other')
 
         btnCar.onclick = function() {
+            console.log(vehicle_type)
             btnMoto.classList.remove('btn-active')
             btnOther.classList.remove('btn-active')
             btnCar.classList.add('btn-active')
