@@ -8,7 +8,7 @@ from .models import *
 class ClientForm(ModelForm):
     class Meta:
         model = Client
-        fields = ['phone1', 'phone2', 'email']
+        fields = [ 'email', 'phone1', 'phone2']
 
 
 class AddressForm(ModelForm):

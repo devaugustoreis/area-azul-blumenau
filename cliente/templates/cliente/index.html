@@ -23,23 +23,23 @@
     </div>
 
     <div class="cliente_options_div">
-        <div class="cliente_options_links" onclick="location.href='{% url 'estacionar' %}'">
-            <img src="{% static 'imagens/Estacionar.png' %}" alt="Icone Estacionar" width="60"><a href="{% url 'estacionar' %}">Estacionar</a>
+        <div class="cliente_options_links" onclick="location.href='{% url 'estacionar' user.client.id %}'">
+            <img src="{% static 'imagens/Estacionar.png' %}" alt="Icone Estacionar" width="60"><a href="{% url 'estacionar' user.client.id %}">Estacionar</a>
         </div>
-        <div class="cliente_options_links" onclick="location.href='{% url 'extrato' %}'">
-            <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato" width="60"><a href="{% url 'extrato' %}">Extrato</a>
+        <div class="cliente_options_links div_disabled">
+            <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato" width="60"><a class="disabled">Extrato</a>
         </div>
-        <div class="cliente_options_links" onclick="location.href='{% url 'creditos' %}'">
-            <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos" width="60"><a href="{% url 'creditos' %}">Adicionar Créditos</a>
+        <div class="cliente_options_links" onclick="location.href='{% url 'creditos' user.client.id %}'">
+            <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos" width="60"><a href="{% url 'creditos' user.client.id %}">Adicionar Créditos</a>
         </div>
-        <div class="cliente_options_links" onclick="location.href='{% url 'multas' %}'">
-            <img src="{% static 'imagens/Pagar_Multa.png' %}" alt="Icone Pagar_Multa" width="60"><a href="{% url 'multas' %}">Pagar Multa</a>
+        <div class="cliente_options_links div_disabled">
+            <img src="{% static 'imagens/Pagar_Multa.png' %}" alt="Icone Pagar_Multa" width="60"><a class="disabled">Pagar Multa</a>
         </div>
-        <div class="cliente_options_links" onclick="location.href='{% url 'veiculos' %}'">
-            <img src="{% static 'imagens/Meus_Veiculos.png' %}" alt="Icone Meus_Veiculos" width="60"><a href="{% url 'veiculos' %}">Meus Veículos</a>
+        <div class="cliente_options_links" onclick="location.href='{% url 'veiculos' user.client.id %}'">
+            <img src="{% static 'imagens/Meus_Veiculos.png' %}" alt="Icone Meus_Veiculos" width="60"><a href="{% url 'veiculos' user.client.id %}">Meus Veículos</a>
         </div>
-        <div class="cliente_options_links" onclick="location.href='{% url 'dados' %}'">
-            <img src="{% static 'imagens/Meus_Dados.svg' %}" alt="Icone Meus_Dados" width="60"><a href="{% url 'dados' %}">Meus Dados</a>
+        <div class="cliente_options_links" onclick="location.href='{% url 'dados' user.client.id %}'">
+            <img src="{% static 'imagens/Meus_Dados.svg' %}" alt="Icone Meus_Dados" width="60"><a href="{% url 'dados' user.client.id %}">Meus Dados</a>
         </div>
         <div class="cliente_options_links" onclick="location.href='{% url 'logout' %}'">
             <img src="{% static 'imagens/Sair.png' %}" alt="Icone Sair" width="60"><a href="{% url 'logout' %}">Sair</a>

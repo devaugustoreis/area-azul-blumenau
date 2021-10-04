@@ -2,29 +2,38 @@
 {% load static %}
 
 {% block content %}
-<!-- <form class="dados_form" action="" method="POST"> -->
-    <div class="perfil">
-        <h2>Perfil:</h2>
-        <span>CPF: {{user.username}}</span>
-        <span>Nome: {{user.client.name}}</span>
-        <span>E-mail: {{user.client.email}}</span>
-        <span>Créditos: R$ {{user.client.credits}}</span>
-        <span>Telefone 01: {% if user.client.phone1 != None %} {{user.client.phone1}} {% else %} --- {% endif %}</span>
-        <span>Telefone 02: {% if user.client.phone2 != None %} {{user.client.phone1}} {% else %} --- {% endif %}</span>
-        {{clientForm}}
-        {{addressForm}}
+<form action='' method='POST' class='dados-form'>
+    {% csrf_token %}
+    <div class="form-box">
+        <div class="perfil">
+            <h2>Perfil:</h2>
+            <span>CPF: {{user.username}}</span>
+            <span>Nome: {{user.client.name}}</span>
+            <span>Créditos: R$ {{user.client.credits}}</span>
+            <span>E-mail:</span>{{clientForm.email}}
+            <span>Telefone 01: {{clientForm.phone1}}</span>
+            <span>Telefone 02: {{clientForm.phone2}}</span>
+        </div>
+        <div class="address">
+            <h2>Endereço:</h2>
+            <span>CEP: {{addressForm.zip_code}}</span>
+            <span>Estado: {{addressForm.state}}</span>
+            <span>Cidade: {{addressForm.city}}</span>
+            <span>Bairro: {{addressForm.district}}</span>
+            <span>Rua: {{addressForm.street_name}}</span>
+            <span>Nº: {{addressForm.house_number}}</span>
+            <span>Complemento: {{addressForm.complement}}</span>
+        </div>
     </div>
-    <div class="address">
-        <h2>Endereço:</h2>
-        <span>CEP: {% if user.client.address.zip_code != None %} {{user.client.address.zip_code}} {% else %} --- {% endif %}</span>
-        <span>Estado: {% if user.client.address.state != None %} {{user.client.address.state}} {% else %} --- {% endif %}</span>
-        <span>Cidade: {% if user.client.address.city != None %} {{user.client.address.city}} {% else %} --- {% endif %}</span>
-        <span>Bairro: {% if user.client.address.district != None %} {{user.client.address.district}} {% else %} --- {% endif %}</span>
-        <span>Rua: {% if user.client.address.street_name != None %} {{user.client.address.street_name}} {% else %} --- {% endif %}</span>
-        <span>Nº: {% if user.client.address.house_number != None %} {{user.client.address.house_number}} {% else %} --- {% endif %}</span>
-        <span>Complemento: {% if user.client.address.complement != None %} {{user.client.address.complement}} {% else %} --- {% endif %}</span>
-    </div>
-    <button type="submit" class="btn-dados">Editar Dados</button>
-<!-- </form> -->
+    <button type="submit" class="btn-dados">Salvar</button>
+</form>
+
+<script>
+    var form_fields = document.getElementsByTagName("input");
+
+    for (var field in form_fields) {
+    form_fields[field].className += "meus-dados-inputs";
+    }
+</script>
 
 {% endblock %}

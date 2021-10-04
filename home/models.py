@@ -2,19 +2,19 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Address(models.Model):
-    zip_code = models.CharField(max_length=9)
-    state = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    district = models.CharField(max_length=100)
-    street_name = models.CharField(max_length=100)
-    house_number = models.CharField(max_length=6)
+    zip_code = models.CharField(max_length=9, null=True, blank=True)
+    state = models.CharField(max_length=100, null=True, blank=True)
+    city = models.CharField(max_length=100, null=True, blank=True)
+    district = models.CharField(max_length=100, null=True, blank=True)
+    street_name = models.CharField(max_length=100, null=True, blank=True)
+    house_number = models.CharField(max_length=6, null=True, blank=True)
     complement = models.CharField(max_length=200, null=True, blank=True)
 
-    def __str__(self):
-        return self.city
+    # def __str__(self):
+    #     return self.city
 
 class Client(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=50)
     phone1 = models.CharField(max_length=20, null=True, blank=True)
     phone2 = models.CharField(max_length=20, null=True, blank=True)

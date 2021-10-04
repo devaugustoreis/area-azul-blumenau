@@ -49,8 +49,13 @@ def cadastro(request):
 
             group = Group.objects.get(name='Client')
             user.groups.add(group)
+            
+            emptyAddress = Address.objects.create(
+                zip_code='', state='', city='', district='', street_name='', house_number='', complement=''
+            )
+
             Client.objects.create(
-                user=user, name=name, email=email
+                user=user, name=name, email=email, address=emptyAddress
             )
 
             messages.success(request, 'Parabéns, ' + name + '. Sua conta foi cadastrada com sucesso!')

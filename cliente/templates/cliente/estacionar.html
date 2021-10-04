@@ -6,8 +6,22 @@
         {% include 'partials/_vehicle_type.html' %}
     </div>
     <div class="vehicle_plate_estacionar">
-        <h2 class="vehicle_plate_title">Veículo:</h2>
-        {% include 'partials/_vehicle_plate.html' %}
+        <h2 class="vehicle_plate_title">Veículos:</h2>
+        <div id='vehiclesDiv'>
+        
+        {% for car in cars %}
+            <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
+        {% endfor %}
+
+        {% for moto in motos %}
+            <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
+        {% endfor %}
+
+        {% for other in others %}
+            <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
+        {% endfor %}
+        
+        </div>
     </div>
     <div class="time">
         {% include 'partials/_time.html' %}
@@ -32,4 +46,38 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    var btnCar = document.getElementById('btn-type-car')
+    var btnMoto = document.getElementById('btn-type-moto')
+    var btnOther = document.getElementById('btn-type-other')
+    var vehicleType = 'car'
+    console.log(vehicleType)
+
+    btnCar.onclick = function(){
+        vehicleType = 'car'
+    }
+
+    {% comment %} $(document).ready(function(){
+
+        $(".btn-type-car").click(function(){
+            {% for car in cars %}
+                
+            {% endfor %}
+        })
+
+        $(".btn-type-moto").click(function(){
+            {% for moto in motos %}
+                console.log("{{moto}}")
+            {% endfor %}
+        })
+
+        $(".btn-type-other").click(function(){
+            {% for other in others %}
+                console.log("{{other}}")
+            {% endfor %}
+        })
+
+    }); {% endcomment %}
+    </script>
 {% endblock %}
