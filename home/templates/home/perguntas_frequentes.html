@@ -5,39 +5,44 @@
 <div class="sidenav" id="mySidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{% url 'login' %}">Home / Login</a>
-  <a href="{% url 'como_funciona' %}">Como Funciona</a>
   <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
+  <a href="{% url 'sobre_nos' %}">Sobre Nós</a>
   <a href="{% url 'contato' %}">Contato</a>
 </div>
 
 <div id="sidenav"><span onclick="openNav()">&#9776; Menu</span></div>
 
-<main class='main-cadastro como-funciona'>
+<main class="main-cadastro perguntas-frequentes">
   <img src="{% static 'imagens/Logo-A-provisorio.png'%}" height="75px" alt="Logo Área Azul" onclick="location.href='{% url 'login' %}'">
   <h2>Perguntas Frequentes</h2>
-
-  <button class="accordion">Tarifas</button>
+  <button class="accordion">Como funciona o sistema ‘Área Azul’?</button>
   <div class="panel">
-    <p>- Quando o usuário NÃO utilizar o app 'Área Azul' pagará a NR, cujos valores das tarifas diferem quanto ao tipo de veículo conforme abaixo:</p>
-    <p><strong>Motos:</strong> 1 hora = R$ 7,50 / 2 horas = R$ 8,25</p>
-    <p><strong>Demais Veículos:</strong> 1 hora = R$ 15,00 / 2 horas = R$ 16,50</p>
+    <p>O usuário, através de um cadastro simples realizado no sistema, deverá criar uma conta online, onde poderá comprar créditos eletrônicos e adicionar tempo e valor no veículo estacionado em qualquer vaga regulamentada da Área Azul, demarcada por sinalização (placa).</p>
+  </div>
+
+  <button class="accordion">O que é a conta online?</button>
+  <div class="panel">
+    <p>É uma conta pessoal que será criada pelo usuário em nosso site, onde ficarão registrados todo o histórico de ações da Área Azul e créditos adquiridos exclusivamente para a mesma. Esta conta não tem qualquer relação com sua conta bancária.</p>
+  </div>
+
+  <button class="accordion">Como funciona a fiscalização através do sistema?</button>
+  <div class="panel">
+    <p>O sistema de estacionamento regulamentado, indicativo nas respectivas placas de regulamentação, obriga ao usuário utilizar o cartão de estacionamento ou o sistema automatizado para fiscalização dos monitores da Área Azul. O usuário deve adicionar o tempo desejado na placa do veículo estacionado e realizar o pagamento. Caso o usuário não o faça, o monitor aplicará uma Notificação de Regularização (NR).</p>
+  </div>
+
+  <button class="accordion">Qual o valor e prazo de pagamento da NR?</button>
+  <div class="panel">
+    <p>Quando o usuário NÃO utiliza o cartão ou o sistema automatizado de estacionamento pagará a NR, cujos valores das tarifas diferem quanto ao tipo de veículo como segue:</p>
+    <p><strong>Motos:</strong>R$ 5,00 por hora estacionada</p>
+    <p><strong>Demais Veículos:</strong>R$ 10,00 por hora estacionada</p>
     <br>
-    <p>- Através do app 'Área Azul' estes terão os seguintes valores:
-    <p><strong>Motos:</strong> 1 hora = R$ 0,75</p>
-    <p><strong>Demais Veículos:</strong> 1 hora = R$ 1,50</p>
+    <p>O usuário dispõe de 15 dias corridos após a emissão para efetuar o pagamento da NR. Caso não seja efetuado o pagamento haverá geração de multa ao infrator. Desde o dia 1º de janeiro de 2016 a infração de estacionamento irregular é considerada grave pelo Código de Trânsito Brasileiro, conforme a lei nº 13.146/2015. O valor da multa é de R$ 195,23 e gera perda de 5 (cincos) pontos na carteira de habilitação.</p>
   </div>
 
-  <button class="accordion">Pergunta 2</button>
+  <button class="accordion">Qual é o horário de cobrança da Área Azul?</button>
   <div class="panel">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>O horário de cobrança da Área Azul vai das 8h às 18h de segunda a sexta-feira, e das 8h às 12h aos sábados, conforme as placas indicativas.</p>
   </div>
-
-  <button class="accordion">Pergunta 3</button>
-  <div class="panel">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  </div>
-
-
 </main>
 
 <script>

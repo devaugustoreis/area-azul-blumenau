@@ -1,0 +1,47 @@
+{% extends 'base_home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="sidenav" id="mySidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{% url 'login' %}">Home / Login</a>
+  <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
+  <a href="{% url 'sobre_nos' %}">Sobre Nós</a>
+  <a href="{% url 'contato' %}">Contato</a>
+</div>
+<div id="sidenav"><span onclick="openNav()">&#9776; Menu</span></div>
+<main class="main-cadastro sobre-nos">
+  <img src="{% static 'imagens/Logo-A-provisorio.png'%}" height="75px" alt="Logo Área Azul" onclick="location.href='{% url 'login' %}'">
+  <h2>Sobre Nós</h2>
+  <div>
+    <h3>Estacionamento Rotativo Regularizado</h3>
+    <p>A Área Azul foi implantada no município de Blumenau no dia 3 de setembro de 1984, abrangendo em seu início 21 ruas totalizando 385 vagas.</p>
+  </div>
+  <div>
+    <h3>Motivações para a Implantação</h3>
+    <p>• Localização geográfica da área central entre o rio Itajaí e elevações, dispondo de apenas três vias principais de escoamento de tráfego;</p>
+    <p>• Elevada média de veículos por habitante;</p>
+    <p>• Concentração comercial, foco gerador de tráfego;</p>
+    <p>• Uso constante do estacionamento de longa duração nas áreas mais congestionadas;</p>
+    <p>• Demanda por espaço superior à oferta de vagas.</p>
+  </div>
+  <div>
+    <h3>Objetivos da Área Azul</h3>
+    <p>• Maximizar, igualar e democratizar a probabilidade de estacionamento para veículos cujos ocupantes se dirigem às compras, aos negócios, entre outros;</p>
+    <p>• Disciplinar fluxo de tráfego, aumento da produtividade do sistema viário e economia de combustível;</p>
+    <p>• Diminuir a incidência de veículos estacionados de forma irregular;</p>
+    <p>• Estimular e promover a atividade comercial.</p>
+  </div>
+</main>
+
+<script>
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+
+</script>
+{% endblock %}

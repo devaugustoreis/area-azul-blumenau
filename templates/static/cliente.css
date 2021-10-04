@@ -8,14 +8,9 @@
     --cor6: #F2F2F2;
     --cor7: #D00000;
     --cor8: #740101;
-<<<<<<< HEAD
-<<<<<<< HEAD
     --cor9: #cdcdcd;
-=======
->>>>>>> ff73da8 (Criação da página "Meus Veículos")
-=======
-    --cor9: #cdcdcd;
->>>>>>> f5925ab (Finalização da página "Meus Veículos")
+    --cor10: #d1ebff;
+    --cor11: #a3d8ff;
 }
 
 * {
@@ -500,6 +495,78 @@ body {
     padding-right: 8px;
 }
 
+/* Módulo "table_extract" */
+.tabela-extrato {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+  
+.tabela-extrato th, td {
+    text-align: center;
+    padding: 10px;
+}
+
+.tabela-extrato th {
+    background-color: var(--cor0);
+    color: var(--cor6);
+}
+
+.tabela-extrato td {
+    color: var(--cor0);
+}
+
+.tabela-extrato tr:nth-child(odd) {
+    background-color: var(--cor10);
+}
+  
+.tabela-extrato tr:nth-child(even) {
+    background-color: var(--cor11);
+}
+
+.saldo {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.tabela-total {
+    position: absolute;
+    right: 41px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 300px;
+}
+  
+.tabela-total td {
+    padding: 10px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--cor4);
+}
+
+.pagination {
+    margin-top: 10px;
+    margin-left: 15px;
+    float: left; 
+}
+
+.pagination a {
+    color: var(--cor4);
+    padding: 5px;
+    text-decoration: none;
+    transition: background-color .3s;
+    /* font-size: 14px; */
+}
+  
+.pagination a.active {
+    background-color: var(--cor0);
+    color: var(--cor6);
+}
+  
+.pagination a:hover:not(.active) {
+    background-color: var(--cor9);
+}
+
 /* Módulo "add_credits" */
 .add_credits h2 {
     color: var(--cor3);
@@ -635,8 +702,6 @@ body {
     color: var(--cor1);
 }
 
-
-
 /* Módulo "button_remove" */
 .button_remove {
     text-align: center;
@@ -674,17 +739,12 @@ body {
     font-size: 14px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f5925ab (Finalização da página "Meus Veículos")
 /* Módulo "add_plate" */
 .add_plate h2 {
     margin-bottom: 10px;
     font-weight: normal;
     font-style: italic;
 }
-<<<<<<< HEAD
 
 .add_plate input {
     background-color: var(--cor1);
@@ -709,8 +769,6 @@ body {
     margin-top: 2px;
 }
 
-=======
-
 .add_plate input {
     background-color: var(--cor1);
     border: 1px solid var(--cor0);
@@ -734,7 +792,6 @@ body {
     margin-top: 2px;
 }
 
->>>>>>> f5925ab (Finalização da página "Meus Veículos")
 .add_plate button {
     color: var(--cor9);
     background-color: var(--cor0);
@@ -758,14 +815,6 @@ body {
     border: 1px solid var(--cor4);
     transform: translateY(1.5px);
 }
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> ff73da8 (Criação da página "Meus Veículos")
-=======
->>>>>>> f5925ab (Finalização da página "Meus Veículos")
 
 /* Página "Estacionar" */
 .vehicle_type_estacionar {
@@ -780,15 +829,7 @@ body {
 
 .time {
     grid-column: 1/8;
-<<<<<<< HEAD
-<<<<<<< HEAD
     grid-row: 6/10;
-=======
-    grid-row: 7/10;
->>>>>>> 4a4ed6c (Finalização página "estacionar")
-=======
-    grid-row: 6/10;
->>>>>>> ff73da8 (Criação da página "Meus Veículos")
 }
 
 .button_confirm {
@@ -806,18 +847,11 @@ body {
 .date_filter_extrato {
     grid-column: 1/13;
     grid-row: 1/4;
-    border: 1px solid red;
 }
 
-.div_table {
+.div_table_extract {
     grid-column: 1/13;
     grid-row: 4/13;
-    border: 1px solid green;
-}
-
-.back_color{
-    background-color: var(--cor0) !important;
-    color: white !important;
 }
 
 /* Página "Adicionar Créditos" */
@@ -851,7 +885,7 @@ body {
     grid-row: 1/4;
 }
 
-.tabela{
+.tabela {
     grid-column: 1/13;
     grid-row: 4/8;
     border: 1px solid green;
@@ -864,19 +898,8 @@ body {
 
 /* Página "Meus Veículos" */
 .vehicle_plate_veiculos {
-<<<<<<< HEAD
-<<<<<<< HEAD
     grid-column: 1/8;
     grid-row: 1/4;
-=======
-    grid-column: 1/10;
-    grid-row: 1/4;
-    border: 1px solid red;
->>>>>>> ff73da8 (Criação da página "Meus Veículos")
-=======
-    grid-column: 1/8;
-    grid-row: 1/4;
->>>>>>> f5925ab (Finalização da página "Meus Veículos")
 }
 
 .plate_button {
@@ -884,8 +907,6 @@ body {
 }
 
 .vehicle_type_veiculos {
-<<<<<<< HEAD
-<<<<<<< HEAD
     grid-column: 1/13;
     grid-row: 4/7;
 }
@@ -893,28 +914,16 @@ body {
 .vehicle_type_veiculos h2 {
     font-weight: normal;
     font-style: italic;
-=======
-    grid-column: 1/10;
-    grid-row: 4/7;
     border: 1px solid red;
->>>>>>> ff73da8 (Criação da página "Meus Veículos")
-=======
-    grid-column: 1/13;
-    grid-row: 4/7;
 }
 
 .vehicle_type_veiculos h2 {
     font-weight: normal;
     font-style: italic;
->>>>>>> f5925ab (Finalização da página "Meus Veículos")
 }
 
 .vehicle_type_veiculos #title {
     margin-bottom: 20px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f5925ab (Finalização da página "Meus Veículos")
     font-weight: bolder;
     font-style: normal;
 }
@@ -922,7 +931,6 @@ body {
 .add_plate {
     grid-column: 1/13;
     grid-row: 7/12;
-<<<<<<< HEAD
 }
 
 /* Página "Meus Dados" */
@@ -955,19 +963,14 @@ body {
     text-align: center;
 }
 
-<<<<<<< HEAD
 .button-dados{
     margin-top: 50px;
-
     width: 70%;
     height: 50px;
-
     background-color: var(--cor0);
     color: var(--cor1);
-
     border: none;
     font-size: larger;
-
     cursor: pointer;
 }
 
@@ -980,45 +983,20 @@ body {
 .perfil span, .phone span, .password span, .address span {
     width: 100%;
     height: 35px;
-
     display: block;
     border: 1px solid;
     border-color: var(--cor0);
+}
 
-=======
 .perfil input, .phone input, .password input, .address input {
     width: 100%;
     height: 40px;
     background-color: var(--cor1);
     border: 1px solid var(--cor0);
     outline: 0;
->>>>>>> b7324f1 (Ajustes gerais)
     margin-top: 20px;
     color: var(--cor0);
     padding: 6px;
     font-size: 16px;
     font-weight: bold;
-}
-
-<<<<<<< HEAD
-=======
-    font-size: 26px;
-    font-style: italic;
-=======
->>>>>>> f5925ab (Finalização da página "Meus Veículos")
-}
->>>>>>> ff73da8 (Criação da página "Meus Veículos")
-
-cor{
---cor0: #0070c0;
---cor1: #f9f9f9;
---cor2: #0070c07e;
---cor3: #1B3E59;
---cor4: #002540;
---cor5: #3D8FCA;
---cor6: #F2F2F2;
-=======
-.perfil input::placeholder, .phone input::placeholder, .password input::placeholder, .address input::placeholder {
-    color: var(--cor2)
->>>>>>> b7324f1 (Ajustes gerais)
 }

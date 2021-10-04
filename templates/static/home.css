@@ -315,7 +315,7 @@ a {
 
 
 /* ---------------------------  Página "Cadastro"  --------------------------- */
-main {
+.main-cadastro {
     background-color: var(--cor1);
     border-radius: 10px;
     width: 450px;
@@ -334,7 +334,7 @@ main {
 
 .main-cadastro h2 {
     color: var(--cor0);
-    font-size: 20px;
+    /* font-size: 20px; */
     font-weight: bold;
     margin: 30px 0;
     text-align: center;
@@ -362,9 +362,9 @@ main {
     height: 45px;
 }
 
-/* ---------------------------  Página "Como Funciona/Perguntas Frequentes"  --------------------------- */
-.como-funciona {
-    width: 600px;
+/* ---------------------------  Página Perguntas Frequentes"  --------------------------- */
+.perguntas-frequentes {
+    width: 60%;
 }
 
 .accordion {
@@ -376,7 +376,7 @@ main {
     width: 100%;
     text-align: left;
     outline: none;
-    font-size: 16px;
+    font-size: 18px;
     transition: 0.4s;
     margin: 8px auto;
 }
@@ -405,7 +405,27 @@ main {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    color: var(--cor4);
+    font-size: 16px;
+    text-align: justify;
 }
+
+/* ---------------------------  Página "Sobre Nós"  --------------------------- */
+.sobre-nos {
+    width: 60%;
+    color: var(--cor0);
+    text-align: justify;
+}
+
+.sobre-nos div {
+    margin-bottom: 20px;
+}
+
+.sobre-nos h3 {
+    margin-bottom: 5px;
+    color: var(--cor4);
+}
+
 
 /* ---------------------------  Página "Contato"  --------------------------- */
 .contato input, textarea {
@@ -416,6 +436,7 @@ main {
     border-radius: 5px;
     margin-bottom: 8px;
     color: var(--cor0);
+    font-size: 16px;
 }
 
 .contato textarea {
