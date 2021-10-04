@@ -3,10 +3,12 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("estacionar/", views.estacionar, name="estacionar"),
-    path("extrato/", views.extrato, name="extrato"),
-    path("creditos/", views.creditos, name="creditos"),
-    path("multas/", views.multas, name="multas"),
-    path("veiculos/", views.veiculos, name="veiculos"),
-    path("dados/", views.dados, name="dados"),
+    path("<str:pk>/estacionar/", views.estacionar, name="estacionar"),
+    path("<str:pk>/extrato/", views.extrato, name="extrato"),
+    path("<str:pk>/creditos/", views.creditos, name="creditos"),
+    path("<str:pk>/multas/", views.multas, name="multas"),
+    path("<str:pk>/veiculos/", views.veiculos, name="veiculos"),
+    path("<str:pk>/dados/", views.dados, name="dados"),
+    path("<str:pk>/veiculos/adicionar/", views.adicionarVeiculo, name="adicionarVeiculo"),
+    path("<str:pk_client>/veiculos/excluir/<str:pk_vehicle>/", views.excluirVeiculo, name="excluirVeiculo"),
 ]

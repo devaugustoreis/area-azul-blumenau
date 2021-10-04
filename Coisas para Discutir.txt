@@ -1,0 +1,20 @@
+0 - Arrumar títulos das páginas;
+
+Página Veículos:
+1 - Adicionar mensagem de carro cadastrado com sucesso;
+2 - [RESOLVIDO] Manter botão de tipo de veículo ativo;
+3 - Formatar página de exclusão de veículos;
+4 - [RESOLVIDO] Readequar path redirect após exclusão do veículo;
+5 - Ajustar botão de remover veículo (tirar texto "remover"?); Botões devem ter hover?
+5.2 - Aumentar levemente o retângulo das placas? (algumas não cabem, exemplo: GGG7777)
+
+Página Dados:
+6 - Formatar página Dados;
+7 - Discutir para onde o usuário deve ser redirecionado (mesma página + mensagem?);
+8 - Mensagem de Dados atualizados com sucesso;
+
+Página Estacionar:
+9 - Botões de + e - não deveriam estar com posições invertidas?
+
+
+hover dos botões assim?

@@ -3,11 +3,28 @@
 
 {% block content %}
     <div class="vehicle_type_estacionar">
-        {% include 'partials/_vehicle_type.html' %}
+        <div class="vehicle_type">
+        <h2>Tipo de Veículo:</h2>
+            <button class='btn-vehicle-type btn-active' id='btn-type-all'><img src="{% static 'imagens/img_carro_az.png' %}" alt="Todos" id="car">Todos</button>
+            {% include 'partials/_vehicle_type.html' %}
     </div>
     <div class="vehicle_plate_estacionar">
-        <h2 class="vehicle_plate_title">Veículo:</h2>
-        {% include 'partials/_vehicle_plate.html' %}
+        <h2 class="vehicle_plate_title">Veículos:</h2>
+        <div id='vehiclesDiv'>
+        
+        {% for car in cars %}
+            <button class="btn_vehicle_plate btn-car"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
+        {% endfor %}
+        
+        {% for moto in motos %}
+            <button class="btn_vehicle_plate btn-moto"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
+        {% endfor %}
+
+        {% for other in others %}
+            <button class="btn_vehicle_plate btn-other"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
+        {% endfor %}
+        
+        </div>
     </div>
     <div class="time">
         {% include 'partials/_time.html' %}
@@ -32,4 +49,70 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var btnAll = document.getElementById('btn-type-all')
+        var btnCar = document.getElementById('btn-type-car')
+        var btnMoto = document.getElementById('btn-type-moto')
+        var btnOther = document.getElementById('btn-type-other')
+
+        var allVehicles = document.getElementsByClassName('btn_vehicle_plate')
+        var cars = document.getElementsByClassName('btn-car')
+        var motos = document.getElementsByClassName('btn-moto')
+        var others = document.getElementsByClassName('btn-other')
+
+
+        function showHideVehicles(vehicles1, vehicles2, vehicles3) {
+            for (let vehicle of vehicles1) {
+                vehicle.style.display = 'none'
+            }
+            for (let vehicle of vehicles2) {
+                vehicle.style.display = 'none'
+            }
+            for (let vehicle of vehicles3) {
+                vehicle.style.display = 'inline-block'
+            }
+        }
+
+
+        function showAllVehicles(vehicles) {
+            for (let vehicle of vehicles) {
+                vehicle.style.display = 'inline-block'
+            }
+        }
+
+
+        btnAll.onclick = function() {
+            btnCar.classList.remove('btn-active')
+            btnMoto.classList.remove('btn-active')
+            btnOther.classList.remove('btn-active')
+            btnAll.classList.add('btn-active')
+            showAllVehicles(allVehicles)
+        }
+
+        btnCar.onclick = function() {
+            btnAll.classList.remove('btn-active')
+            btnMoto.classList.remove('btn-active')
+            btnOther.classList.remove('btn-active')
+            btnCar.classList.add('btn-active')
+            showHideVehicles(motos, others, cars)
+        }
+
+        btnMoto.onclick = function(){
+            btnAll.classList.remove('btn-active')
+            btnCar.classList.remove('btn-active')
+            btnOther.classList.remove('btn-active')
+            btnMoto.classList.add('btn-active')
+            showHideVehicles(cars, others, motos)
+        }
+
+        btnOther.onclick = function(){
+            btnAll.classList.remove('btn-active')
+            btnCar.classList.remove('btn-active')
+            btnMoto.classList.remove('btn-active')
+            btnOther.classList.add('btn-active')
+            showHideVehicles(cars, motos, others)
+        }
+
+    </script>
 {% endblock %}

@@ -19,28 +19,28 @@
                     <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="70%" class="logo-template" onclick="location.href='{% url 'index' %}'">
                 </div>
                 <div class="sb_upper_text">
-                    <h3>Olá, <a href="{% url 'index' %}">{{user.username}}!</a></h3>
+                    <h3>Olá, <a href="{% url 'index' %}">{{user.client.name}}!</a></h3>
                 </div>
             </div>
 
             <div class="sidebar_lower">
-                <div class="sidebar_options" onclick="location.href='{% url 'estacionar' %}'">
-                    <img src="{% static 'imagens/Estacionar.png' %}" alt="Icone Estacionar" width="25"><a href="{% url 'estacionar' %}">Estacionar</a>
+                <div class="sidebar_options" onclick="location.href='{% url 'estacionar' user.client.id %}'">
+                    <img src="{% static 'imagens/Estacionar.png' %}" alt="Icone Estacionar" width="25"><a href="{% url 'estacionar' user.client.id %}">Estacionar</a>
                 </div>
-                <div class="sidebar_options" onclick="location.href='{% url 'extrato' %}'">
-                    <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato" width="25"><a href="{% url 'extrato' %}">Extrato</a>
+                <div class="sidebar_options div_disabled">
+                    <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato" width="25"><a class="disabled">Extrato</a>
                 </div>
-                <div class="sidebar_options" onclick="location.href='{% url 'creditos' %}'">
-                    <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos" width="25"><a href="{% url 'creditos' %}">Adicionar Créditos</a>
+                <div class="sidebar_options" onclick="location.href='{% url 'creditos' user.client.id %}'">
+                    <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos" width="25"><a href="{% url 'creditos' user.client.id %}">Adicionar Créditos</a>
                 </div>
-                <div class="sidebar_options" onclick="location.href='{% url 'multas' %}'">
-                    <img src="{% static 'imagens/Pagar_Multa.png' %}" alt="Icone Pagar_Multa" width="25"><a href="{% url 'multas' %}">Pagar NR</a>
+                <div class="sidebar_options div_disabled">
+                    <img src="{% static 'imagens/Pagar_Multa.png' %}" alt="Icone Pagar_Multa" width="25"><a class="disabled">Pagar NR</a>
                 </div>
-                <div class="sidebar_options" onclick="location.href='{% url 'veiculos' %}'">
-                    <img src="{% static 'imagens/Meus_Veiculos.png' %}" alt="Icone Meus_Veiculos" width="25"><a href="{% url 'veiculos' %}">Meus Veículos</a>
+                <div class="sidebar_options" onclick="location.href='{% url 'veiculos' user.client.id %}'">
+                    <img src="{% static 'imagens/Meus_Veiculos.png' %}" alt="Icone Meus_Veiculos" width="25"><a href="{% url 'veiculos' user.client.id %}">Meus Veículos</a>
                 </div>
-                <div class="sidebar_options" onclick="location.href='{% url 'dados' %}'">
-                    <img src="{% static 'imagens/Meus_Dados.svg' %}" alt="Icone Meus_Dados" width="25"><a href="{% url 'dados' %}">Meus Dados</a>
+                <div class="sidebar_options" onclick="location.href='{% url 'dados' user.client.id %}'">
+                    <img src="{% static 'imagens/Meus_Dados.svg' %}" alt="Icone Meus_Dados" width="25"><a href="{% url 'dados' user.client.id %}">Meus Dados</a>
                 </div>
                 <div class="sidebar_options" onclick="location.href='{% url 'logout' %}'">
                     <img src="{% static 'imagens/Sair.png' %}" alt="Icone Sair" width="25"><a href="{% url 'logout' %}">Sair</a>
@@ -50,12 +50,13 @@
 
         <div class="page">
             <div class="page_title">
-                {% if request.get_full_path == "/cliente/estacionar/" %} <h3>Estacionar</h3> {% endif %}
+                {% if request.get_full_path == "/cliente/estacionar/{{user.client.id}}" %} <h3>Estacionar</h3> {% endif %}
                 {% if request.get_full_path == "/cliente/extrato/" %} <h3>Extrato</h3> {% endif %}
                 {% if request.get_full_path == "/cliente/creditos/" %} <h3>Adicionar Créditos</h3> {% endif %}
                 {% if request.get_full_path == "/cliente/multas/" %} <h3>Pagar NR</h3> {% endif %}
                 {% if request.get_full_path == "/cliente/veiculos/" %} <h3>Meus Veículos</h3> {% endif %}
                 {% if request.get_full_path == "/cliente/dados/" %} <h3>Meus Dados</h3> {% endif %}
+                {% if request.get_full_path == "/cliente/atualizar_dados/" %} <h3>Meus Dados</h3> {% endif %}
             </div>
             <div class="page_content">
                 {% block content %}{% endblock %}   
@@ -63,6 +64,6 @@
         </div>
 
     </div>
-<script src="{% static 'bootstrap-5.1.1-dist\js\bootstrap.bundle.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>

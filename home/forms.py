@@ -8,6 +8,12 @@ from .models import *
 class ClientForm(ModelForm):
     class Meta:
         model = Client
+        fields = ['email', 'phone1', 'phone2']
+
+
+class AddressForm(ModelForm):
+    class Meta:
+        model = Address
         fields = '__all__'
 
 
