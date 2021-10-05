@@ -1,0 +1,73 @@
+{% extends 'base_home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="sidenav" id="mySidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{% url 'login' %}">Home / Login</a>
+  <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
+  <a href="{% url 'sobre_nos' %}">Sobre Nós</a>
+  <a href="{% url 'contato' %}">Contato</a>
+</div>
+
+<div id="sidenav"><span onclick="openNav()">&#9776; Menu</span></div>
+
+<main class="main-cadastro perguntas-frequentes">
+  <img src="{% static 'imagens/Logo-A-provisorio.png'%}" height="75px" alt="Logo Área Azul" onclick="location.href='{% url 'login' %}'">
+  <h2>Perguntas Frequentes</h2>
+  <button class="accordion">Como funciona o sistema ‘Área Azul’?</button>
+  <div class="panel">
+    <p>O usuário, através de um cadastro simples realizado no sistema, deverá criar uma conta online, onde poderá comprar créditos eletrônicos e adicionar tempo e valor no veículo estacionado em qualquer vaga regulamentada da Área Azul, demarcada por sinalização (placa).</p>
+  </div>
+
+  <button class="accordion">O que é a conta online?</button>
+  <div class="panel">
+    <p>É uma conta pessoal que será criada pelo usuário em nosso site, onde ficarão registrados todo o histórico de ações da Área Azul e créditos adquiridos exclusivamente para a mesma. Esta conta não tem qualquer relação com sua conta bancária.</p>
+  </div>
+
+  <button class="accordion">Como funciona a fiscalização através do sistema?</button>
+  <div class="panel">
+    <p>O sistema de estacionamento regulamentado, indicativo nas respectivas placas de regulamentação, obriga ao usuário utilizar o cartão de estacionamento ou o sistema automatizado para fiscalização dos monitores da Área Azul. O usuário deve adicionar o tempo desejado na placa do veículo estacionado e realizar o pagamento. Caso o usuário não o faça, o monitor aplicará uma Notificação de Regularização (NR).</p>
+  </div>
+
+  <button class="accordion">Qual o valor e prazo de pagamento da NR?</button>
+  <div class="panel">
+    <p>Quando o usuário NÃO utiliza o cartão ou o sistema automatizado de estacionamento pagará a NR, cujos valores das tarifas diferem quanto ao tipo de veículo como segue:</p>
+    <p><strong>Motos:</strong>R$ 5,00 por hora estacionada</p>
+    <p><strong>Demais Veículos:</strong>R$ 10,00 por hora estacionada</p>
+    <br>
+    <p>O usuário dispõe de 15 dias corridos após a emissão para efetuar o pagamento da NR. Caso não seja efetuado o pagamento haverá geração de multa ao infrator. Desde o dia 1º de janeiro de 2016 a infração de estacionamento irregular é considerada grave pelo Código de Trânsito Brasileiro, conforme a lei nº 13.146/2015. O valor da multa é de R$ 195,23 e gera perda de 5 (cincos) pontos na carteira de habilitação.</p>
+  </div>
+
+  <button class="accordion">Qual é o horário de cobrança da Área Azul?</button>
+  <div class="panel">
+    <p>O horário de cobrança da Área Azul vai das 8h às 18h de segunda a sexta-feira, e das 8h às 12h aos sábados, conforme as placas indicativas.</p>
+  </div>
+</main>
+
+<script>
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+
+  
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } 
+    });
+  }
+</script>
+{% endblock %}

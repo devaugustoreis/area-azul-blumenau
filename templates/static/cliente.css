@@ -9,6 +9,8 @@
     --cor7: #D00000;
     --cor8: #740101;
     --cor9: #cdcdcd;
+    --cor10: #d1ebff;
+    --cor11: #a3d8ff;
 }
 
 * {
@@ -509,6 +511,78 @@ body {
     padding-right: 8px;
 }
 
+/* Módulo "table_extract" */
+.tabela-extrato {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+  
+.tabela-extrato th, td {
+    text-align: center;
+    padding: 10px;
+}
+
+.tabela-extrato th {
+    background-color: var(--cor0);
+    color: var(--cor6);
+}
+
+.tabela-extrato td {
+    color: var(--cor0);
+}
+
+.tabela-extrato tr:nth-child(odd) {
+    background-color: var(--cor10);
+}
+  
+.tabela-extrato tr:nth-child(even) {
+    background-color: var(--cor11);
+}
+
+.saldo {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.tabela-total {
+    position: absolute;
+    right: 41px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 300px;
+}
+  
+.tabela-total td {
+    padding: 10px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--cor4);
+}
+
+.pagination {
+    margin-top: 10px;
+    margin-left: 15px;
+    float: left; 
+}
+
+.pagination a {
+    color: var(--cor4);
+    padding: 5px;
+    text-decoration: none;
+    transition: background-color .3s;
+    /* font-size: 14px; */
+}
+  
+.pagination a.active {
+    background-color: var(--cor0);
+    color: var(--cor6);
+}
+  
+.pagination a:hover:not(.active) {
+    background-color: var(--cor9);
+}
+
 /* Módulo "add_credits" */
 .add_credits h2 {
     color: var(--cor3);
@@ -644,8 +718,6 @@ body {
     color: var(--cor1);
 }
 
-
-
 /* Módulo "button_remove" */
 .button_remove {
     text-align: center;
@@ -689,6 +761,29 @@ body {
     margin-bottom: 10px;
     font-weight: normal;
     font-style: italic;
+}
+
+.add_plate input {
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    padding: 6px;
+    color: var(--cor0);
+    font-weight: bold;
+    outline: 0;
+    margin-right: 10px;
+}
+
+.add_plate input::placeholder {
+    color: var(--cor2)
+}
+
+.add_plate img {
+    width: 25px;
+    padding-right: 5px;
+    margin-top: 2px;
 }
 
 .add_plate input {
@@ -769,18 +864,11 @@ body {
 .date_filter_extrato {
     grid-column: 1/13;
     grid-row: 1/4;
-    border: 1px solid red;
 }
 
-.div_table {
+.div_table_extract {
     grid-column: 1/13;
     grid-row: 4/13;
-    border: 1px solid green;
-}
-
-.back_color{
-    background-color: var(--cor0) !important;
-    color: white !important;
 }
 
 /* Página "Adicionar Créditos" */
@@ -789,14 +877,9 @@ body {
     grid-row: 1/4;
 }
 
-.payment_method_add_credits {
-    grid-column: 1/13;
-    grid-row: 4/7;
-}
-
 .informations_add_credits {
     grid-column: 1/5;
-    grid-row: 7/12;
+    grid-row: 4/7;
 }
 
 .informations_add_credits h2 {
@@ -808,13 +891,18 @@ body {
     color: var(--cor0);
 }
 
+.payment_method_add_credits {
+    grid-column: 1/13;
+    grid-row: 7/12;
+}
+
 /* Página "Pagar NR" */
 .date_filter_pagar_nr {
     grid-column: 1/13;
     grid-row: 1/4;
 }
 
-.tabela{
+.tabela {
     grid-column: 1/13;
     grid-row: 4/8;
     border: 1px solid green;
@@ -843,6 +931,12 @@ body {
 .vehicle_type_veiculos {
     grid-column: 1/13;
     grid-row: 6/9;
+}
+
+.vehicle_type_veiculos h2 {
+    font-weight: normal;
+    font-style: italic;
+    border: 1px solid red;
 }
 
 .vehicle_type_veiculos h2 {
@@ -922,10 +1016,8 @@ body {
 
     background-color: var(--cor0);
     color: var(--cor1);
-
     border: none;
     font-size: larger;
-
     cursor: pointer;
     transition: 0.5s;
 }

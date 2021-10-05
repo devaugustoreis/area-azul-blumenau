@@ -1,39 +1,47 @@
 {% load static %}
-<table class="table table table-striped table-hover">
-    <thead>
-        <tr>
-        <th class="back_color" scope="col">Data</th>
-        <th class="back_color" scope="col">Hora</th>
-        <th class="back_color" scope="col">Movimento</th>
-        <th class="back_color" scope="col">Placa</th>
-        <th class="back_color" scope="col">Valor</th>
-        <th class="back_color" scope="col">Saldo</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <th scope="row">10/09/2021</th>
+<table class="tabela-extrato">
+    <tr id="top">
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Movimento</th>
+        <th>Placa</th>
+        <th>Valor</th>
+        <th class="saldo">Saldo</th>
+    </tr>
+    <tr>
+        <td>10/09/2021</td>
         <td>14:00</td>
-        <td>Compra de créditos</td>
-        <td>CMV 1245</td>
+        <td>Compra de Créditos</td>
+        <td>-</td>
         <td>R$ 20,00</td>
-        <td>R$ 20,00</td>
-        </tr>
-        <tr>
-        <th scope="row">10/09/2021</th>
-        <td>14:00</td>
+        <td class="saldo">R$ 20,00</td>
+    </tr>
+    <tr>
+        <td>10/09/2021</td>
+        <td>14:20</td>
         <td>Estacionamento</td>
+        <td>THI 1A85</td>
+        <td>- R$ 1,50</td>
+        <td class="saldo">R$ 18,50</td>
+    </tr>
+    <tr>
+        <td>11/09/2021</td>
+        <td>15:00</td>
+        <td>Pagamento de NR</td>
         <td>CMV 1245</td>
-        <td>R$ 2,00</td>
-        <td>R$ 0,00</td>
-        </tr>
-        <tr>
-        <th scope="row">10/09/2021</th>
-        <td>14:00</td>
-        <td>Estacionamento</td>
-        <td>CMV 1245</td>
-        <td>R$ 10,00</td>
-        <td>R$ 10,00</td>
-        </tr>
-    </tbody>
+        <td>- R$ 15,00</td>
+        <td class="saldo">R$ 3,50</td>
+    </tr>
+</table>
+<!-- <div class="pagination">
+    <a href="#">&laquo;</a>
+    <a class="active"href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">&raquo;</a>
+</div> -->
+<table class="tabela-total">
+    <td>Saldo</td>
+    <td>R$ 3,50</td>
 </table>

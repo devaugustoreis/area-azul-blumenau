@@ -63,3 +63,13 @@ def cadastro(request):
 
     context = {'form': form}
     return render(request, 'home/cadastro.html', context)
+
+
+def perguntas_frequentes(request):
+    return render(request, 'home/perguntas_frequentes.html')
+
+def sobre_nos(request):
+    return render(request, 'home/sobre_nos.html')
+
+def contato(request):
+    return render(request, 'home/contato.html')

@@ -125,13 +125,58 @@ a {
     color: var(--cor1);
 }
 
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--cor4);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+}
+  
+.sidenav a {
+    padding: 8px 8px 20px 25px;
+    text-decoration: none;
+    font-size: 19px;
+    color: var(--cor5);
+    display: block;
+    transition: 0.3s;
+}
+  
+.sidenav a:hover {
+    color: var(--cor1)
+}
+  
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 12px;
+    font-size: 36px;
+    /* margin-left: 50px; */
+}
+
+#sidenav {
+    color: var(--cor1);
+    cursor: pointer;
+    padding: 25px;
+    font-size: 19px;
+}
+  
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
 
 /* ---------------------------  Página "Login"  --------------------------- */
 /* ---  HEAD  --- */
 .div_upper {
     margin: 2vh auto;
     width: 80%;
-    height: 10rem;
+    height: 17vh;
     display: flex;
     justify-content: space-between;
 }
@@ -157,7 +202,7 @@ a {
 
 .div_upper_nav a {
     color: var(--cor1);
-    font-size: 20px; 
+    font-size: 22px; 
     font-weight: bold;
 }
 
@@ -197,8 +242,8 @@ a {
 .div_login_box {
     background-color: var(--cor1);
     border-radius: 2%;
-    width: 360px;
-    padding: 30px;
+    width: 375px;
+    padding: 45px;
     text-align: center;
     margin-right: 5vw;
 }
@@ -255,10 +300,11 @@ a {
 }
 
 .esqueci_senha_form h2 {
-    margin: 55px 0 45px 0;
+    margin: 55px 0 ;
     color: var(--cor0);
-    font-size: 19px;
-    font-family: 'Urbanist', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .esqueci_senha_form button {
@@ -269,7 +315,7 @@ a {
 
 
 /* ---------------------------  Página "Cadastro"  --------------------------- */
-main {
+.main-cadastro {
     background-color: var(--cor1);
     border-radius: 10px;
     width: 450px;
@@ -286,11 +332,12 @@ main {
     cursor: pointer;
 }
 
-.main-cadastro p {
+.main-cadastro h2 {
     color: var(--cor0);
-    font-size: 18px;
+    /* font-size: 20px; */
     font-weight: bold;
-    margin-top: 30px;
+    margin: 30px 0;
+    text-align: center;
 }
 
 .div-register {
@@ -313,4 +360,89 @@ main {
     margin: 20px auto;
     width: 165px;
     height: 45px;
+}
+
+/* ---------------------------  Página Perguntas Frequentes"  --------------------------- */
+.perguntas-frequentes {
+    width: 60%;
+}
+
+.accordion {
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    color: var(--cor0);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    transition: 0.4s;
+    margin: 8px auto;
+}
+  
+.active, .accordion:hover {
+    background-color: var(--cor4);
+    color: var(--cor5);
+    border: 1px solid var(--cor4);
+}
+  
+.accordion:after {
+    content: '\002B';
+    color: var(--cor0);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+  
+.active:after {
+    content: "\2212";
+}
+  
+.panel {
+    padding: 0 10px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    color: var(--cor4);
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* ---------------------------  Página "Sobre Nós"  --------------------------- */
+.sobre-nos {
+    width: 60%;
+    color: var(--cor0);
+    text-align: justify;
+}
+
+.sobre-nos div {
+    margin-bottom: 20px;
+}
+
+.sobre-nos h3 {
+    margin-bottom: 5px;
+    color: var(--cor4);
+}
+
+
+/* ---------------------------  Página "Contato"  --------------------------- */
+.contato input, textarea {
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--cor0);
+    border-radius: 5px;
+    margin-bottom: 8px;
+    color: var(--cor0);
+    font-size: 16px;
+}
+
+.contato textarea {
+    height: 80px;
+}
+
+.contato button {
+    margin: 10px auto;
 }
