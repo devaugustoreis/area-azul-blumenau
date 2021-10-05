@@ -227,12 +227,12 @@ body {
 }
 
 .btn-vehicle-type:hover {
-    background-color: var(--cor2);
+    background-color: var(--cor0);
     color: var(--cor1);
 }
 
 .btn-active {
-    background-color: var(--cor2);
+    background-color: var(--cor0);
     color: var(--cor1);
 }
 
@@ -256,7 +256,7 @@ body {
 }
 
 .btn_vehicle_plate:hover {
-    background-color: var(--cor2);
+    background-color: var(--cor0);
     color: var(--cor1);
 }
 
@@ -425,7 +425,7 @@ body {
 }
 
 .date_filter button:hover {
-    background-color: var(--cor2);
+    background-color: var(--cor0);
     color: var(--cor1);
 }
 
@@ -614,7 +614,7 @@ body {
 }
 
 .payment_method button:hover {
-    background-color: var(--cor2);
+    background-color: var(--cor0);
     color: var(--cor1);
 }
 
@@ -941,6 +941,10 @@ body {
 .add_plate {
     grid-column: 1/13;
     grid-row: 7/12;
+}
+
+.inner-box-shadow {
+    box-shadow: 0px 0px 3px 2px inset #1084d6b0;
 }
 
 /* Página "Meus Dados" */

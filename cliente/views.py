@@ -89,7 +89,7 @@ def adicionarVeiculo(request, pk):
         )
 
         newVehicle.owners.add(client)
-        messages.add_message(request, messages.success, 'Carro Cadastrado com Sucesso!')
+        # messages.add_message(request, messages.success, 'Carro Cadastrado com Sucesso!')
 
         return render(request, "cliente/veiculos.html")
 
