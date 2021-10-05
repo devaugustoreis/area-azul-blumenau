@@ -1,35 +1,39 @@
-{% extends 'base_clientes.html' %}
+{% extends 'cliente/base_clientes.html' %}
 {% load static %}
 
 {% block content %}
-    <div class="perfil">
-        <h2>Perfil:</h2>
-        <input type="text" placeholder="Victor Viana">
-        <input type="email" placeholder="victorvianads@gmail.com">
-        <input type="text" placeholder="011.423.369-13">
+<form action='' method='POST' class='dados-form'>
+    {% csrf_token %}
+    <div class="form-box">
+        <div class="perfil">
+            <h2>Perfil:</h2>
+            <span>CPF: {{user.username}}</span>
+            <span>Nome: {{user.client.name}}</span>
+            <span>Créditos: R$ {{user.client.credits}}</span>
+            <span>E-mail:</span>{{clientForm.email}}
+            <span>Telefone 01: {{clientForm.phone1}}</span>
+            <span>Telefone 02: {{clientForm.phone2}}</span>
+        </div>
+        <div class="address">
+            <h2>Endereço:</h2>
+            <span>CEP: {{addressForm.zip_code}}</span>
+            <span>Estado: {{addressForm.state}}</span>
+            <span>Cidade: {{addressForm.city}}</span>
+            <span>Bairro: {{addressForm.district}}</span>
+            <span>Rua: {{addressForm.street_name}}</span>
+            <span>Nº: {{addressForm.house_number}}</span>
+            <span>Complemento: {{addressForm.complement}}</span>
+        </div>
     </div>
-    <div class="phone">
-        <h2>Telefones:</h2>
-        <input type="text" placeholder="(47) 99127-4607">
-        <input type="text" placeholder="(47) 99127-4607">
-    </div>
-    <div class="password">
-        <h2>Perfil:</h2>
-        <input type="password" placeholder="Senha Atual">
-        <input type="password" placeholder="Nova Senha">
-        <input type="password" placeholder="Confirmar Senha">
-    </div>
-    <div class="address">
-        <h2>Endereço:</h2>
-        <input type="text" placeholder="Rua dos caçadores">
-        <input type="text" placeholder="325">
-        <input type="text" placeholder="apto 102">
-        <input type="text" placeholder="Velha">
-        <input type="text" placeholder="89.040-000">
-        <input type="text" placeholder="Blumenau">
-        <input type="text" placeholder="Santa Catarina">
-    </div>
-    <div class="button_save">
-        <button>Salvar</button>
-    </div>
+    <button type="submit" class="btn-dados">Salvar</button>
+</form>
+
+<script>
+    var form_fields = document.getElementsByTagName("input");
+
+    for (var field in form_fields) {
+    form_fields[field].className += "meus-dados-inputs";
+    }
+</script>
+
 {% endblock %}

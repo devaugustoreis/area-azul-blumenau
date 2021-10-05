@@ -1,21 +1,119 @@
-{% extends 'base_clientes.html' %}
+{% extends 'cliente/base_clientes.html' %}
 {% load static %}
 
 {% block content %}
+
     <div class="vehicle_plate_veiculos">
-        <h2 class="vehicle_plate_title">Veículo:</h2>
-        <div class="plate_button">
-            {% include 'partials/_vehicle_plate.html' %}
-            {% include 'partials/_button_remove.html' %}
-        </div>
+        <h2 class="vehicle_plate_title">Veículos:</h2>
+            {% for car in cars %}
+                <div class="plate_button">
+                    <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
+                    <div class="button_remove">
+                        <a href="{% url 'excluirVeiculo' user.client.id car.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        <p>remover</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% for moto in motos %}
+                <div class="plate_button">
+                    <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
+                    <div class="button_remove">
+                        <a href="{% url 'excluirVeiculo' user.client.id moto.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        <p>remover</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% for other in others %}
+                <div class="plate_button">
+                    <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
+                    <div class="button_remove">
+                        <a href="{% url 'excluirVeiculo' user.client.id other.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        <p>remover</p>
+                    </div>
+                </div>
+            {% endfor %}
     </div>
+
     <div class="vehicle_type_veiculos">
         <h2 id="title">Incluir novo veículo</h2>
-        {% include 'partials/_vehicle_type.html' %}
+        <div class="vehicle_type">
+            <h2>Tipo de Veículo:</h2>
+            <button class='btn-vehicle-type btn-active' id='btn-type-car'><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">Carro</button>
+            <button class='btn-vehicle-type' id='btn-type-moto'><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
+            <button class='btn-vehicle-type' id='btn-type-other'><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="others_vehicles">Demais Veículos</button>
+        </div>
     </div>
-    <div class="add_plate">
-        <h2>Placa:</h2>
-        <input type="text" placeholder="Insira a Placa">
-        <button><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
-    </div>
+
+    <form class="veiculos_form" id="novo_veiculo_form">
+        {% csrf_token %}
+        <div class="add_plate">
+            <h2>Placa:</h2>
+            <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
+            <button type="submit"><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
+        </div>  
+    </form>
+    
+    <!-- {% for message in messages %}
+        <p class="home_messages">{{message}}</p>
+    {% endfor %} -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        var vehicle_type = 'C'
+        var btnCar = document.getElementById('btn-type-car')
+        var btnMoto = document.getElementById('btn-type-moto')
+        var btnOther = document.getElementById('btn-type-other')
+        var placa = document.getElementById('placa')
+
+        function innerBoxShadow() {
+            placa.classList.add('inner-box-shadow')
+        }
+
+        function removeInnerBox() {
+            placa.classList.remove('inner-box-shadow')
+        }
+
+        btnCar.onclick = function() {
+            console.log(vehicle_type)
+            btnMoto.classList.remove('btn-active')
+            btnOther.classList.remove('btn-active')
+            btnCar.classList.add('btn-active')
+            vehicle_type = 'C'
+        }
+
+        btnMoto.onclick = function(){
+            btnCar.classList.remove('btn-active')
+            btnOther.classList.remove('btn-active')
+            btnMoto.classList.add('btn-active')
+            vehicle_type = 'M'
+        }
+
+        btnOther.onclick = function(){
+            btnCar.classList.remove('btn-active')
+            btnMoto.classList.remove('btn-active')
+            btnOther.classList.add('btn-active')
+            vehicle_type = 'O'
+        }
+
+        $(document).on('submit', '#novo_veiculo_form', function(){ 
+
+            $.ajax({
+                type: 'POST',
+                url: 'adicionar/',
+                data: {
+                    license_plate: $('#placa').val(),
+                    vehicle_type: vehicle_type,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success:function(){
+                    
+                }
+            });
+
+        });
+
+
+    </script>
 {% endblock %}

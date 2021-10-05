@@ -90,7 +90,6 @@ body {
 .sb_upper_img {
     height: 85%;
     width: 100%;
-    /* border: 1px solid green; */
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -103,7 +102,6 @@ body {
 .sb_upper_text {
     height: 15%;
     width: 100%;
-    /* border: 1px solid brown; */
     display: flex;
     align-items: center;
 }
@@ -136,6 +134,11 @@ body {
     text-decoration: none;
 }
 
+.disabled {
+    color:#002540 !important;
+    cursor: default !important;
+}
+
 .sidebar_options {
     height: 55px;
     width: 100%;
@@ -144,6 +147,10 @@ body {
     align-items: center;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.div_disabled {
+    cursor: default;
 }
 
 .sidebar_options:hover {
@@ -207,7 +214,7 @@ body {
     width: 29px;
 }
 
-.vehicle_type button {
+.btn-vehicle-type {
     color: var(--cor0);
     background-color: var(--cor1);
     border: 1px solid var(--cor0);
@@ -219,8 +226,13 @@ body {
     transition-duration: 0.3s;
 }
 
-.vehicle_type button:hover {
-    background-color: var(--cor2);
+.btn-vehicle-type:hover {
+    background-color: var(--cor0);
+    color: var(--cor1);
+}
+
+.btn-active {
+    background-color: var(--cor0);
     color: var(--cor1);
 }
 
@@ -244,8 +256,12 @@ body {
 }
 
 .btn_vehicle_plate:hover {
-    background-color: var(--cor2);
+    background-color: var(--cor0);
     color: var(--cor1);
+}
+
+.btn-car, .btn-moto, .btn-other {
+    display: inline-block;
 }
 
 .btn_vehicle_plate img {
@@ -435,7 +451,7 @@ body {
 }
 
 .date_filter button:hover {
-    background-color: var(--cor2);
+    background-color: var(--cor0);
     color: var(--cor1);
 }
 
@@ -624,7 +640,7 @@ body {
 }
 
 .payment_method button:hover {
-    background-color: var(--cor2);
+    background-color: var(--cor0);
     color: var(--cor1);
 }
 
@@ -635,7 +651,8 @@ body {
     text-align: center;
 }
 
-.button_remove button {
+.button_remove a {
+    display: inline-block;
     background-color: var(--cor7);
     padding: 0;
     margin: 0;
@@ -650,12 +667,12 @@ body {
     padding: 7px 6px 3px;
 }
 
-.button_remove button:hover {
+.button_remove a:hover {
     background-color: var(--cor8);
     border: 1px solid var(--cor8);
 }
   
-.button_remove button:active {
+.button_remove a:active {
     background-color: var(--cor8);
     border: 1px solid var(--cor8);
     transform: translateY(2px);
@@ -809,9 +826,14 @@ body {
 }
 
 /* Página "Meus Veículos" */
+.veiculos_form {
+    grid-column: 1/13;
+    grid-row: 9/13;
+}
+
 .vehicle_plate_veiculos {
     grid-column: 1/8;
-    grid-row: 1/4;
+    grid-row: 1/5;
 }
 
 .plate_button {
@@ -820,7 +842,7 @@ body {
 
 .vehicle_type_veiculos {
     grid-column: 1/13;
-    grid-row: 4/7;
+    grid-row: 6/9;
 }
 
 .vehicle_type_veiculos h2 {
@@ -839,49 +861,76 @@ body {
     grid-row: 7/12;
 }
 
+.inner-box-shadow {
+    box-shadow: 0px 0px 3px 2px inset #1084d6b0;
+}
+
 /* Página "Meus Dados" */
+.dados-form {
+    grid-column: 1/13;
+    grid-row: 1/13;
+}
+
+.form-box {
+    display: flex;
+    justify-content: space-between;
+}
+
 .perfil {
-    text-align: left;
-    grid-column: 1/6;
-    grid-row: 1/5;
-}
-
-.phone {
-    text-align: left;
-    grid-column: 1/6;
-    grid-row: 5/8;
-}
-
-.password {
-    text-align: left;
-    grid-column: 1/6;
-    grid-row: 8/12;
+    width: 45%;
 }
 
 .address {
-    grid-column: 7/12;
-    grid-row: 1/9;
+    width: 45%;
 }
 
-.button_save {
-    grid-column: 7/12;
-    grid-row: 9/13;
-    text-align: center;
-}
-
-.perfil input, .phone input, .password input, .address input {
+.perfil span, .address span {
     width: 100%;
-    height: 40px;
-    background-color: var(--cor1);
-    border: 1px solid var(--cor0);
-    outline: 0;
+    height: 35px;
+
+    display: block;
+    border: 1px solid;
+    border-color: var(--cor0);
+
     margin-top: 20px;
+
     color: var(--cor0);
-    padding: 6px;
-    font-size: 16px;
-    font-weight: bold;
+
+    padding-left: 10px;
 }
 
-.perfil input::placeholder, .phone input::placeholder, .password input::placeholder, .address input::placeholder {
-    color: var(--cor2)
+.meus-dados-inputs {
+    border: none;
+    border-bottom: 1px dotted var(--cor4);
+    width: 100%;
+    outline: none;
+    padding: 5px;
+    z-index: 1;
+    background-color: transparent;
+    font-size: 16px;
+    color: green;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-dados {
+    display: block;
+    height: 60px;
+    width: 160px;
+
+    margin: 100px auto;
+
+    background-color: var(--cor0);
+    color: var(--cor1);
+
+    border: none;
+    font-size: larger;
+
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn-dados:hover {
+    background-color: var(--cor4);
+    color: var(--cor0);
 }

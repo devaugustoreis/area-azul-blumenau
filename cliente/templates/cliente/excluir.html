@@ -1,0 +1,11 @@
+{% extends 'cliente/base_clientes.html' %}
+{% load static %}
+
+{% block content %}
+    <p> Você tem certeza que quer deletar "{{vehicle}}"?
+    <form action="{% url 'excluirVeiculo' user.client.id vehicle.id %}" method='POST'>
+        {% csrf_token %}
+        <a href="{% url 'veiculos' user.client.id %}">Cancelar</a>
+        <input type="submit" name="Confirm">
+    </form>
+{% endblock %}
