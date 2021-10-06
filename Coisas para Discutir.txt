@@ -1,20 +1,28 @@
-0 - Arrumar títulos das páginas;
+- Fundo branco ou transparente no perguntas frequentes?
+- Ajustar azul escuro para parecer mais azul e menos preto;
+- Adicionar FavIcon
+
+Página Adicionar Créditos:
+- Caixa do Input de valor adicionado (background color está branco);
+- Vai ter botão de zerar?
+- Consertar a página que o Augusto quebrou tudo (Desculpa, Marina!);
+- Mensagem de Crédito adicionado com sucesso.
 
 Página Veículos:
-1 - Adicionar mensagem de carro cadastrado com sucesso;
-2 - [RESOLVIDO] Manter botão de tipo de veículo ativo;
-3 - Formatar página de exclusão de veículos;
-4 - [RESOLVIDO] Readequar path redirect após exclusão do veículo;
-5 - Ajustar botão de remover veículo (tirar texto "remover"?); Botões devem ter hover?
-5.2 - Aumentar levemente o retângulo das placas? (algumas não cabem, exemplo: GGG7777)
+- Adicionar mensagem de carro cadastrado com sucesso;
+- Formatar página de exclusão de veículos;
+- Ajustar botão de remover veículo (tirar texto "remover"?); Botões devem ter hover?
+- Aumentar levemente o retângulo das placas? (algumas não cabem, exemplos: GGG7777; MMO2190)
+- Revisar cores dos h2;
 
 Página Dados:
-6 - Formatar página Dados;
-7 - Discutir para onde o usuário deve ser redirecionado (mesma página + mensagem?);
-8 - Mensagem de Dados atualizados com sucesso;
-
-Página Estacionar:
-9 - Botões de + e - não deveriam estar com posições invertidas?
+- Formatar página Dados;
+- Discutir para onde o usuário deve ser redirecionado (mesma página + mensagem?);
+- Mensagem de Dados atualizados com sucesso;
 
 
-hover dos botões assim?
+Se der tempo:
+- Máscara dos créditos mostrando duas casas decimais;
+- Validação para placa do carro e CPF
+- password reset;
+- foto de perfil no index;

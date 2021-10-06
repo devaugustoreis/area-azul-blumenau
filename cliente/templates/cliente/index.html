@@ -26,8 +26,8 @@
         <div class="cliente_options_links" onclick="location.href='{% url 'estacionar' user.client.id %}'">
             <img src="{% static 'imagens/Estacionar.png' %}" alt="Icone Estacionar" width="60"><a href="{% url 'estacionar' user.client.id %}">Estacionar</a>
         </div>
-        <div class="cliente_options_links div_disabled">
-            <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato" width="60"><a class="disabled">Extrato</a>
+        <div class="cliente_options_links" onclick="location.href='{% url 'extrato' user.client.id %}'">
+            <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato" width="60"><a href="{% url 'extrato' user.client.id %}">Extrato</a>
         </div>
         <div class="cliente_options_links" onclick="location.href='{% url 'creditos' user.client.id %}'">
             <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos" width="60"><a href="{% url 'creditos' user.client.id %}">Adicionar Créditos</a>

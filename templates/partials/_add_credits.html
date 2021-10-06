@@ -4,27 +4,27 @@
 <div class="values">
     <div>
         <p>R$ 5,00</p>
-        <button>-</button>
-        <button>+</button>
+        <button onclick="reduzirCreditos(5)">-</button>
+        <button onclick="aumentarCreditos(5)">+</button>
     </div>
     <div>
         <p>R$ 20,00</p>
-        <button>-</button>
-        <button>+</button>
+        <button onclick="reduzirCreditos(20)">-</button>
+        <button onclick="aumentarCreditos(20)">+</button>
     </div>
     <div>
         <p>R$ 50,00</p>   
-        <button>-</button>
-        <button>+</button>
+        <button onclick="reduzirCreditos(50)">-</button>
+        <button onclick="aumentarCreditos(50)">+</button>
     </div>
         <div id="div-other">
         <p>Outro</p>
         <div id="div-box">
             <div id="div-value">
                 <span>R$</span>
-                <input type="number" placeholder="0,00">
+                <input type="number" placeholder="0,00" id="aumento-creditos-custom">
             </div>
-            <button><img src="{% static 'imagens/check.png' %}" alt="Check"></button>
+            <button onclick="aumentarCreditosCustom()"><img src="{% static 'imagens/check.png' %}" alt="Check"></button>
         </div>
     </div>
 </div>
