@@ -11,6 +11,7 @@
     --cor9: #cdcdcd;
     --cor10: #d1ebff;
     --cor11: #a3d8ff;
+    --cor12: #004373;
 }
 
 * {
@@ -195,7 +196,7 @@ body {
 
 /* Módulo "vehicle_type" */
 .vehicle_type h2 {
-    color: var(--cor3);
+    color: var(--cor12);
     margin-bottom: 10px;
 }
 
@@ -221,7 +222,7 @@ body {
     border: 1px solid var(--cor0);
     font-size: 18px;
     margin-right: 20px;
-    height: 40px;
+    height: 45px;
     padding: 5px 15px;
     cursor: pointer;
     transition-duration: 0.3s;
@@ -234,18 +235,18 @@ body {
 
 /* Módulo "vehicle_plate" */
 .vehicle_plate_title {
-    color: var(--cor3);
+    color: var(--cor12);
     margin-bottom: 10px;
 }
 
 .btn_vehicle_plate {
     color: var(--cor0);
-    width: 125px;
+    width: 155px;
     background-color: var(--cor1);
     border: 1px solid var(--cor0);
     font-size: 18px;
     margin-right: 5px;
-    height: 40px;
+    height: 45px;
     padding: 5px 8px;
     cursor: pointer;
     transition-duration: 0.3s;
@@ -278,7 +279,7 @@ body {
 
 /* Módulo "time" */
 .time h2 {
-    color: var(--cor3);
+    color: var(--cor12);
     margin-bottom: 10px;
 }
 
@@ -390,9 +391,9 @@ body {
 }
 
 /* Módulo "total" */
-.total {
-    color: var(--cor0);
+.div-total {
     background-color: var(--cor1);
+    color: var(--cor0);
     border: 1px solid var(--cor0);
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
     border-radius: 6px;
@@ -405,7 +406,7 @@ body {
 
 .total h2 {
     font-weight: normal;
-    color: var(--cor4);
+    color: var(--cor12);
     padding-top: 40px;
 }
 
@@ -457,12 +458,13 @@ body {
 }
 
 .date h3 {
-    color: var(--cor3);
+    color: var(--cor12);
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 .date input {
-    color: var(--cor3);
+    color: var(--cor12);
     outline: 0;
     padding: 8px;
     border: 1px solid var(--cor0);
@@ -579,8 +581,8 @@ body {
 
 /* Módulo "add_credits" */
 .add_credits h2 {
-    color: var(--cor3);
-    margin-bottom: 10px;
+    color: var(--cor12);
+    margin-bottom: 15px;
 }
 
 .values {
@@ -682,12 +684,17 @@ body {
     height: 25px;
     color: var(--cor0);
     font-weight: bold;
+    background-color: transparent;
+}
+
+#div-value input::placeholder {
+    color: var(--cor0);
 }
 
 /* Módulo "payment_forms" */
 .payment_method h2 {
-    color: var(--cor3);
-    margin-bottom: 10px;
+    color: var(--cor12);
+    margin-bottom: 15px;
 }
 
 .payment_method img {
@@ -744,17 +751,12 @@ body {
     transform: translateY(2px);
 }
 
-.button_remove p {
-    color: var(--cor7);
-    margin: 0;
-    font-size: 14px;
-}
-
 /* Módulo "add_plate" */
 .add_plate h2 {
     margin-bottom: 10px;
     font-weight: normal;
     font-style: italic;
+    color: var(--cor12);
 }
 
 .add_plate input {
@@ -762,30 +764,7 @@ body {
     border: 1px solid var(--cor0);
     font-size: 18px;
     width: 150px;
-    height: 40px;
-    padding: 6px;
-    color: var(--cor0);
-    font-weight: bold;
-    outline: 0;
-    margin-right: 10px;
-}
-
-.add_plate input::placeholder {
-    color: var(--cor2)
-}
-
-.add_plate img {
-    width: 25px;
-    padding-right: 5px;
-    margin-top: 2px;
-}
-
-.add_plate input {
-    background-color: var(--cor1);
-    border: 1px solid var(--cor0);
-    font-size: 18px;
-    width: 150px;
-    height: 40px;
+    height: 45px;
     padding: 6px;
     color: var(--cor0);
     font-weight: bold;
@@ -808,7 +787,7 @@ body {
     background-color: var(--cor0);
     border: 1px solid var(--cor0);
     font-size: 18px;
-    height: 40px;
+    height: 45px;
     padding: 7px;
     cursor: pointer;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.24);
@@ -816,14 +795,14 @@ body {
 }
 
 .add_plate button:hover {
-    background-color: var(--cor4);
-    border: 1px solid var(--cor4);
+    background-color: var(--cor12);
+    border: 1px solid var(--cor12);
     color: var(--cor5);
 }
 
 .add_plate button:active {
-    background-color: var(--cor4);
-    border: 1px solid var(--cor4);
+    background-color: var(--cor12);
+    border: 1px solid var(--cor12);
     transform: translateY(1.5px);
 }
 
@@ -882,7 +861,7 @@ body {
 }
 
 .informations_add_credits h2 {
-    color: var(--cor3);
+    color: var(--cor12);
 }
 
 .informations_add_credits .box {
@@ -923,6 +902,15 @@ body {
     grid-row: 1/5;
 }
 
+.vehicle_plate_veiculos .btn_vehicle_plate {
+    cursor: auto;
+}
+
+.vehicle_plate_veiculos .btn_vehicle_plate:hover {
+    background-color: var(--cor1);
+    color: var(--cor0);
+}
+
 .plate_button {
     display: flex;
 }
@@ -935,6 +923,7 @@ body {
 .vehicle_type_veiculos h2 {
     font-weight: normal;
     font-style: italic;
+    color: var(--cor12);
 }
 
 .vehicle_type_veiculos #title {
@@ -952,10 +941,40 @@ body {
     box-shadow: 0px 0px 3px 2px inset #1084d6b0;
 }
 
+/* Página "Excluir Veículo" */
+
+
+.div-excluir {
+    grid-column: 1/13;
+    grid-row: 1/13;
+    background-color: red;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
+
+}
+
+.form-excluir {
+
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    background-color: green;
+    border-radius: 2%;
+    width: 410px;
+    padding: 30px;
+}
+
 /* Página "Meus Dados" */
 .dados-form {
     grid-column: 1/13;
-    grid-row: 1/13;
+    grid-row: 1/12;
+}
+
+.dados-form h2 {
+    color: var(--cor12);
 }
 
 .form-box {
@@ -964,38 +983,35 @@ body {
 }
 
 .perfil {
-    width: 45%;
+    width: 47%;
 }
 
 .address {
-    width: 45%;
+    width: 47%;
 }
 
 .perfil span, .address span {
     width: 100%;
-    height: 35px;
-
+    height: 40px;
     display: block;
     border: 1px solid;
     border-color: var(--cor0);
-
     margin-top: 20px;
-
     color: var(--cor0);
-
-    padding-left: 10px;
+    padding: 9px;
+    background-color: var(--cor1);
 }
 
 .meus-dados-inputs {
     border: none;
-    border-bottom: 1px dotted var(--cor4);
-    width: 100%;
+    /* border-bottom: 1px dotted var(--cor4); */
+    width: 70%;
     outline: none;
-    padding: 5px;
+    padding-left: 5px;
     z-index: 1;
     background-color: transparent;
     font-size: 16px;
-    color: green;
+    color: var(--cor0);
     font-weight: bold;
     transition: 0.2s;
 }
@@ -1004,9 +1020,7 @@ body {
     display: block;
     height: 60px;
     width: 160px;
-
     margin: 100px auto;
-
     background-color: var(--cor0);
     color: var(--cor1);
     border: none;
@@ -1016,7 +1030,7 @@ body {
 }
 
 .btn-dados:hover {
-    background-color: var(--cor4);
+    background-color: var(--cor12);
     color: var(--cor0);
 }
 

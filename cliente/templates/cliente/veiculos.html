@@ -9,7 +9,6 @@
                     <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
                     <div class="button_remove">
                         <a href="{% url 'excluirVeiculo' user.client.id car.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
-                        <p>remover</p>
                     </div>
                 </div>
             {% endfor %}
@@ -19,7 +18,6 @@
                     <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
                     <div class="button_remove">
                         <a href="{% url 'excluirVeiculo' user.client.id moto.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
-                        <p>remover</p>
                     </div>
                 </div>
             {% endfor %}
@@ -29,7 +27,6 @@
                     <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
                     <div class="button_remove">
                         <a href="{% url 'excluirVeiculo' user.client.id other.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
-                        <p>remover</p>
                     </div>
                 </div>
             {% endfor %}
