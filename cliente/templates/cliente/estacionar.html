@@ -51,15 +51,18 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        var btnAll = document.getElementById('btn-type-all')
-        var btnCar = document.getElementById('btn-type-car')
-        var btnMoto = document.getElementById('btn-type-moto')
-        var btnOther = document.getElementById('btn-type-other')
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Estacionar'
 
-        var allVehicles = document.getElementsByClassName('btn_vehicle_plate')
-        var cars = document.getElementsByClassName('btn-car')
-        var motos = document.getElementsByClassName('btn-moto')
-        var others = document.getElementsByClassName('btn-other')
+        let btnAll = document.getElementById('btn-type-all')
+        let btnCar = document.getElementById('btn-type-car')
+        let btnMoto = document.getElementById('btn-type-moto')
+        let btnOther = document.getElementById('btn-type-other')
+
+        let allVehicles = document.getElementsByClassName('btn_vehicle_plate')
+        let cars = document.getElementsByClassName('btn-car')
+        let motos = document.getElementsByClassName('btn-moto')
+        let others = document.getElementsByClassName('btn-other')
 
 
         function showHideVehicles(vehicles1, vehicles2, vehicles3) {

@@ -2,7 +2,7 @@
 <!-- Colocar o nome da classe da div como "payment_method" -->
 <div class="payment_method">
     <h2>Forma de Pagamento:</h2>
-    <button><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Crédito">Crédito</button>
-    <button><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Débito">Débito</button>
-    <button><img src="{% static 'imagens/pix.png' %}" alt="Caminhão Azul">PIX</button>
+    <button type="button" class="btn-payment" id="btn-credito" onclick="btnActive(btnCredito, btnDebito, btnPix, 'Crédito')"><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Crédito">Crédito</button>
+    <button type="button" class="btn-payment" id="btn-debito" onclick="btnActive(btnDebito, btnCredito, btnPix, 'Débito')"><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Débito">Débito</button>
+    <button type="button" class="btn-payment" id="btn-pix" onclick="btnActive(btnPix, btnCredito, btnDebito, 'Pix')"><img src="{% static 'imagens/pix.png' %}" alt="Símbolo PIX">PIX</button>
 </div>

@@ -13,24 +13,39 @@
 <main class="main-cadastro contato">
     <img src="{% static 'imagens/Logo-A-provisorio.png'%}" height="75px" alt="Logo Área Azul" onclick="location.href='{% url 'login' %}'">
     <h2>Contato</h2>
-    <div>
-        <input type="text" name="Nome" placeholder="NOME" required>
-        <input type="text" name="E-mail" placeholder="E-MAIL" required>
-        <input type="text" name="Telefone" placeholder="TELEFONE" required>
-        <input type="text" name="Cidade" placeholder="CIDADE" required>
-        <input type="text" name="Assunto" placeholder="ASSUNTO" required>
-        <textarea name="subject" placeholder="MENSAGEM"></textarea>
-    </div>
-    <button type="button" class="btn btn-cadastrar">Enviar</button>
+    <form>
+        <input type="text" name="Nome" placeholder="NOME" required id="contato-nome" onfocus="innerBoxShadow(nome)" onblur="removeInnerBox(nome)">
+        <input type="text" name="E-mail" placeholder="E-MAIL" required id="contato-email" onfocus="innerBoxShadow(email)" onblur="removeInnerBox(email)">
+        <input type="text" name="Telefone" placeholder="TELEFONE" required id="contato-telefone" onfocus="innerBoxShadow(telefone)" onblur="removeInnerBox(telefone)">
+        <input type="text" name="Cidade" placeholder="CIDADE" required id="contato-cidade" onfocus="innerBoxShadow(cidade)" onblur="removeInnerBox(cidade)">
+        <input type="text" name="Assunto" placeholder="ASSUNTO" required id="contato-assunto" onfocus="innerBoxShadow(assunto)" onblur="removeInnerBox(assunto)">
+        <textarea name="subject" placeholder="MENSAGEM" id="contato-mensagem" onfocus="innerBoxShadow(mensagem)" onblur="removeInnerBox(mensagem)"></textarea>
+        <button type="button" class="btn btn-cadastrar">Enviar</button>
+     </form>
 </main>
 
 <script>
+    let nome = document.getElementById('contato-nome')
+    let email = document.getElementById('contato-email')
+    let telefone = document.getElementById('contato-telefone')
+    let cidade = document.getElementById('contato-cidade')
+    let assunto = document.getElementById('contato-assunto')
+    let mensagem = document.getElementById('contato-mensagem')
+
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
     }
 
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function innerBoxShadow(input) {
+        input.classList.add('inner-box-shadow')
+    }
+
+    function removeInnerBox(input) {
+        input.classList.remove('inner-box-shadow')
     }
 </script>
 {% endblock %}

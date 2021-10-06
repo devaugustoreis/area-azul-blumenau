@@ -27,8 +27,8 @@
                 <div class="sidebar_options" onclick="location.href='{% url 'estacionar' user.client.id %}'">
                     <img src="{% static 'imagens/Estacionar.png' %}" alt="Icone Estacionar" width="25"><a href="{% url 'estacionar' user.client.id %}">Estacionar</a>
                 </div>
-                <div class="sidebar_options div_disabled">
-                    <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato" width="25"><a class="disabled">Extrato</a>
+                <div class="sidebar_options" onclick="location.href='{% url 'extrato' user.client.id %}'">
+                    <img src="{% static 'imagens/Extrato.png' %}" alt="Icone Extrato" width="25"><a href="{% url 'extrato' user.client.id %}">Extrato</a>
                 </div>
                 <div class="sidebar_options" onclick="location.href='{% url 'creditos' user.client.id %}'">
                     <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos" width="25"><a href="{% url 'creditos' user.client.id %}">Adicionar Créditos</a>
@@ -50,13 +50,7 @@
 
         <div class="page">
             <div class="page_title">
-                {% if request.get_full_path == "/cliente/estacionar/{{user.client.id}}" %} <h3>Estacionar</h3> {% endif %}
-                {% if request.get_full_path == "/cliente/extrato/" %} <h3>Extrato</h3> {% endif %}
-                {% if request.get_full_path == "/cliente/creditos/" %} <h3>Adicionar Créditos</h3> {% endif %}
-                {% if request.get_full_path == "/cliente/multas/" %} <h3>Pagar NR</h3> {% endif %}
-                {% if request.get_full_path == "/cliente/veiculos/" %} <h3>Meus Veículos</h3> {% endif %}
-                {% if request.get_full_path == "/cliente/dados/" %} <h3>Meus Dados</h3> {% endif %}
-                {% if request.get_full_path == "/cliente/atualizar_dados/" %} <h3>Meus Dados</h3> {% endif %}
+                <h3 id='page-title'>Titulo da Página</h3>
             </div>
             <div class="page_content">
                 {% block content %}{% endblock %}   

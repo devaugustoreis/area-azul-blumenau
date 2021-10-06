@@ -65,11 +65,16 @@ def cadastro(request):
     return render(request, 'home/cadastro.html', context)
 
 
+@unauthenticated_user
 def perguntas_frequentes(request):
     return render(request, 'home/perguntas_frequentes.html')
 
+
+@unauthenticated_user
 def sobre_nos(request):
     return render(request, 'home/sobre_nos.html')
 
+
+@unauthenticated_user
 def contato(request):
     return render(request, 'home/contato.html')

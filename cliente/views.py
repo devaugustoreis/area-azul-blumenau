@@ -34,7 +34,21 @@ def extrato(request, pk):
 def creditos(request, pk):
     client = Client.objects.get(pk=pk)
 
-    return render(request, "cliente/add_creditos.html", {})
+    context = {'client':client}
+    return render(request, "cliente/add_creditos.html", context)
+
+
+@login_required(login_url='login')
+def adicionarCreditos(request, pk):
+    client = Client.objects.get(id=pk)
+
+    if request.method == 'POST':
+        creditos = request.POST['value']
+
+        client.credits += int(creditos)
+        client.save()
+
+        return render(request, "cliente/creditos.html")
 
 
 @login_required(login_url='login')
@@ -54,25 +68,6 @@ def veiculos(request, pk):
     
     context = {'client':client, 'cars':cars, 'motos':motos, 'others':others, 'vehicles':vehicles}
     return render(request, "cliente/veiculos.html", context)
-
-
-@login_required(login_url='login')
-def dados(request, pk):
-    client = Client.objects.get(pk=pk)
-    address = client.address
-
-    clientForm = ClientForm(instance=client)
-    addressForm = AddressForm(instance=address)
-
-    if request.method == 'POST':
-        clientForm = ClientForm(request.POST, instance=client)
-        addressForm = AddressForm(request.POST, instance=address)
-        if clientForm.is_valid() and addressForm.is_valid():
-            clientForm.save()
-            addressForm.save()
-
-    context = {'clientForm':clientForm, 'addressForm':addressForm}
-    return render(request, "cliente/dados.html", context)
 
 
 @login_required(login_url='login')
@@ -104,3 +99,22 @@ def excluirVeiculo(request, pk_client, pk_vehicle):
 
     context = {'client':client, 'vehicle':vehicle}
     return render(request, "cliente/excluir.html", context)
+
+
+@login_required(login_url='login')
+def dados(request, pk):
+    client = Client.objects.get(pk=pk)
+    address = client.address
+
+    clientForm = ClientForm(instance=client)
+    addressForm = AddressForm(instance=address)
+
+    if request.method == 'POST':
+        clientForm = ClientForm(request.POST, instance=client)
+        addressForm = AddressForm(request.POST, instance=address)
+        if clientForm.is_valid() and addressForm.is_valid():
+            clientForm.save()
+            addressForm.save()
+
+    context = {'clientForm':clientForm, 'addressForm':addressForm}
+    return render(request, "cliente/dados.html", context)

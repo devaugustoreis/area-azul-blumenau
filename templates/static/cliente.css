@@ -187,7 +187,6 @@ body {
     height: 85%;
     width: 97%;
     margin: auto;
-    /* border: 1px solid red; */
     display: grid;
     grid-template-columns: repeat(12, 8.33%);
     grid-template-rows: repeat(12, 8.33%);
@@ -229,11 +228,6 @@ body {
 }
 
 .btn-vehicle-type:hover {
-    background-color: var(--cor0);
-    color: var(--cor1);
-}
-
-.btn-active {
     background-color: var(--cor0);
     color: var(--cor1);
 }
@@ -700,7 +694,7 @@ body {
     width: 50px;
 }
 
-.payment_method button {
+.btn-payment {
     font-weight: bold;
     color: var(--cor0);
     width: 110px;
@@ -713,7 +707,7 @@ body {
     transition-duration: 0.3s;
 }
 
-.payment_method button:hover {
+.btn-payment:hover {
     background-color: var(--cor0);
     color: var(--cor1);
 }
@@ -877,6 +871,11 @@ body {
     grid-row: 1/4;
 }
 
+#add-credits-form {
+    grid-column: 1/13;
+    grid-row: 4/13;
+}
+
 .informations_add_credits {
     grid-column: 1/5;
     grid-row: 4/7;
@@ -931,12 +930,6 @@ body {
 .vehicle_type_veiculos {
     grid-column: 1/13;
     grid-row: 6/9;
-}
-
-.vehicle_type_veiculos h2 {
-    font-weight: normal;
-    font-style: italic;
-    border: 1px solid red;
 }
 
 .vehicle_type_veiculos h2 {
@@ -1025,4 +1018,10 @@ body {
 .btn-dados:hover {
     background-color: var(--cor4);
     color: var(--cor0);
+}
+
+/* Classes que devem estar no final para sobrescrever outras */
+.btn-active {
+    background-color: var(--cor0);
+    color: var(--cor1);
 }

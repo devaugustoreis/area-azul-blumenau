@@ -39,9 +39,9 @@
         <h2 id="title">Incluir novo veículo</h2>
         <div class="vehicle_type">
             <h2>Tipo de Veículo:</h2>
-            <button class='btn-vehicle-type btn-active' id='btn-type-car'><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">Carro</button>
-            <button class='btn-vehicle-type' id='btn-type-moto'><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
-            <button class='btn-vehicle-type' id='btn-type-other'><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="others_vehicles">Demais Veículos</button>
+            <button class='btn-vehicle-type btn-active' id='btn-type-car' onclick="btnActive(btnCar, btnMoto, btnOther, 'C')"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">Carro</button>
+            <button class='btn-vehicle-type' id='btn-type-moto' onclick="btnActive(btnMoto, btnCar, btnOther, 'M')"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
+            <button class='btn-vehicle-type' id='btn-type-other' onclick="btnActive(btnOther, btnCar, btnMoto, 'O')"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="others_vehicles">Demais Veículos</button>
         </div>
     </div>
 
@@ -60,41 +60,33 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
-        var vehicle_type = 'C'
-        var btnCar = document.getElementById('btn-type-car')
-        var btnMoto = document.getElementById('btn-type-moto')
-        var btnOther = document.getElementById('btn-type-other')
-        var placa = document.getElementById('placa')
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Meus Veículos'
 
+        let vehicle_type = 'C'
+        let btnCar = document.getElementById('btn-type-car')
+        let btnMoto = document.getElementById('btn-type-moto')
+        let btnOther = document.getElementById('btn-type-other')
+        let placa = document.getElementById('placa')
+
+        
         function innerBoxShadow() {
             placa.classList.add('inner-box-shadow')
         }
+
 
         function removeInnerBox() {
             placa.classList.remove('inner-box-shadow')
         }
 
-        btnCar.onclick = function() {
-            console.log(vehicle_type)
-            btnMoto.classList.remove('btn-active')
-            btnOther.classList.remove('btn-active')
-            btnCar.classList.add('btn-active')
-            vehicle_type = 'C'
+
+        function btnActive(botao1, botao2, botao3, tipo) {
+            botao2.classList.remove('btn-active')
+            botao3.classList.remove('btn-active')
+            botao1.classList.add('btn-active')
+            vehicle_type = tipo
         }
 
-        btnMoto.onclick = function(){
-            btnCar.classList.remove('btn-active')
-            btnOther.classList.remove('btn-active')
-            btnMoto.classList.add('btn-active')
-            vehicle_type = 'M'
-        }
-
-        btnOther.onclick = function(){
-            btnCar.classList.remove('btn-active')
-            btnMoto.classList.remove('btn-active')
-            btnOther.classList.add('btn-active')
-            vehicle_type = 'O'
-        }
 
         $(document).on('submit', '#novo_veiculo_form', function(){ 
 
