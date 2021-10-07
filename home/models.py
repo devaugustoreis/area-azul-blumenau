@@ -22,6 +22,7 @@ class Client(models.Model):
     credits = models.FloatField(default=0)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.SET_NULL)
+    profile_pic = models.ImageField(default='generic_profile.png' ,null=True, blank=True)
 
     def __str__(self):
         return self.name

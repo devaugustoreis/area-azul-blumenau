@@ -1,8 +1,10 @@
-- Adicionar FavIcon
-- Procurar imagem para página 'Index'
+- Adicionar FavIcon;
+- Procurar imagem para página 'Index';
+- Arrumar distanciamento entre Veículo na página "Veículos";
+- Arrumar formatação das imagens nas páginas "Index" e "Dados";
+- Sugestão mostrar créditos no "base_clientes";
 
 Página Adicionar Créditos:
-- Vai ter botão de zerar?
 - Consertar a página que o Augusto quebrou tudo (Desculpa, Marina!);
 - Mensagem de Crédito adicionado com sucesso.
 
@@ -18,5 +20,5 @@ Se der tempo:
 - Máscara dos créditos mostrando duas casas decimais;
 - Validação para placa do carro e CPF
 - password reset;
-- foto de perfil no index;
-- Revisar cores (--cor4);
+- Revisar cores (--cor4) -> (--cor12)?;
+- Vai ter botão de zerar? (Sim, se der tempo)

@@ -110,11 +110,11 @@ def dados(request, pk):
     addressForm = AddressForm(instance=address)
 
     if request.method == 'POST':
-        clientForm = ClientForm(request.POST, instance=client)
+        clientForm = ClientForm(request.POST, request.FILES, instance=client)
         addressForm = AddressForm(request.POST, instance=address)
         if clientForm.is_valid() and addressForm.is_valid():
             clientForm.save()
             addressForm.save()
 
-    context = {'clientForm':clientForm, 'addressForm':addressForm}
+    context = {'client':client, 'clientForm':clientForm, 'addressForm':addressForm}
     return render(request, "cliente/dados.html", context)

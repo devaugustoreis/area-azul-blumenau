@@ -19,7 +19,7 @@
                     <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="70%" class="logo-template" onclick="location.href='{% url 'index' %}'">
                 </div>
                 <div class="sb_upper_text">
-                    <h3>Olá, <a href="{% url 'index' %}">{{user.client.name}}!</a></h3>
+                    <h3>Olá, <a href="{% url 'index' %}">{{user.client.name}}!</a> - R$ {{user.client.credits}}</h3>
                 </div>
             </div>
 
