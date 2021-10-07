@@ -12,7 +12,7 @@
             <div class="informations">
                 <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
                 <div class="box">
-                    <p class="total-creditos">R$ 0,00</p>
+                    <p class="total-creditos">R$ 0.00</p>
                 </div>
             </div>
         </div>
@@ -75,6 +75,7 @@
                 data: {
                     value: totalCreditos,
                     payment_method: payment_method,
+                    operation: 'Compra de Créditos',
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },
                 success:function(){

@@ -2,10 +2,12 @@
 - Procurar imagem para página 'Index';
 - Arrumar distanciamento entre Veículo na página "Veículos";
 - Arrumar formatação das imagens nas páginas "Index" e "Dados";
-- Sugestão mostrar créditos no "base_clientes";
+- Sugestão mostrar créditos no "base_clientes" (Feito. Conferir com Marina como está);
+- Ajustar Ícones (photoshop) para ficarem do mesmo tamanho na página Index.
 
 Página Adicionar Créditos:
 - Consertar a página que o Augusto quebrou tudo (Desculpa, Marina!);
+- Campo Créditos separado
 - Mensagem de Crédito adicionado com sucesso.
 
 Página Veículos:
@@ -22,3 +24,9 @@ Se der tempo:
 - password reset;
 - Revisar cores (--cor4) -> (--cor12)?;
 - Vai ter botão de zerar? (Sim, se der tempo)
+- Arrumar "bug" da troca de botão display da página "Estacionar";
+
+- Perguntas Frequentes: Borda preta mesmo? mudar fonte para branco (sugestão Felipe) ou deixar como está?
+
+OBS.: Minha opinião sobre mudar layout da página home pra section = Não vale a pena no momento.
+

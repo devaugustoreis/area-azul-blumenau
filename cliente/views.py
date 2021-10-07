@@ -1,9 +1,10 @@
 from django.http.response import HttpResponse
-from home.models import Address, Client, Vehicle
+from home.models import Address, Client, Vehicle, Operation
 from home.forms import AddressForm, ClientForm
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from home.filters import *
 
 
 @login_required(login_url='login')
@@ -26,8 +27,12 @@ def estacionar(request, pk):
 @login_required(login_url='login')
 def extrato(request, pk):
     client = Client.objects.get(pk=pk)
+    operations = client.operation_set.all()
 
-    return render(request, "cliente/extrato.html", {})
+    operationFilter = OperationsFilter()
+
+    context = {'client':client, 'operations':operations, 'operation_filter':operationFilter}
+    return render(request, "cliente/extrato.html", context)
 
 
 @login_required(login_url='login')
@@ -44,9 +49,17 @@ def adicionarCreditos(request, pk):
 
     if request.method == 'POST':
         creditos = request.POST['value']
+        operacao = request.POST['operation']
+        pagamento = request.POST['payment_method']
+        balanco = client.credits
+        newBalance = balanco + float(creditos)
 
-        client.credits += int(creditos)
+        client.credits += float(creditos)
         client.save()
+
+        Operation.objects.create(
+            client=client, operation_type=operacao, payment_method=pagamento, value=creditos, balance=newBalance
+        )
 
         return render(request, "cliente/creditos.html")
 
@@ -84,7 +97,7 @@ def adicionarVeiculo(request, pk):
         )
 
         newVehicle.owners.add(client)
-        # messages.add_message(request, messages.success, 'Carro Cadastrado com Sucesso!')
+        messages.add_message(request, messages.SUCCESS, 'Carro Cadastrado com Sucesso!')
 
         return render(request, "cliente/veiculos.html")
 

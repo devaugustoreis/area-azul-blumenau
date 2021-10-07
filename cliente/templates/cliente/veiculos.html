@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+    <div id='div-message' style="display: none;">
+        Carro cadastrado com sucesso.
+    </div>
     <div class="vehicle_plate_veiculos">
         <h2 class="vehicle_plate_title">Veículos:</h2>
             {% for car in cars %}
@@ -50,15 +53,13 @@
             <button type="submit"><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
         </div>  
     </form>
-    
-    <!-- {% for message in messages %}
-        <p class="home_messages">{{message}}</p>
-    {% endfor %} -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
         let pageTitle = document.getElementById('page-title')
         pageTitle.innerHTML = 'Meus Veículos'
+
+        let divMensagem = document.getElementById('div-message')
 
         let vehicle_type = 'C'
         let btnCar = document.getElementById('btn-type-car')
@@ -96,12 +97,12 @@
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },
                 success:function(){
-                    
+                    $("#div-message").show();
+                    $("#div-message").delay(5000).fadeOut();
                 }
             });
 
         });
-
 
     </script>
 {% endblock %}
