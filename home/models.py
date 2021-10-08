@@ -40,10 +40,20 @@ class Vehicle(models.Model):
         return self.license_plate
 
 class Operation(models.Model):
+    OPERATION_TYPE = (
+        ('Estacionar', 'Estacionar'),
+        ('Compra de Créditos', 'Compra de Créditos'),
+        ('Pagar NR', 'Pagar NR'),
+    )
+    PAYMENT_METHOD = (
+        ('Crédito', 'Crédito'),
+        ('Débito', 'Débito'),
+        ('Pix', 'Pix'),
+    )
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    operation_type = models.CharField(max_length=70)
-    payment_method = models.CharField(max_length=70, null=True, blank=True)
+    operation_type = models.CharField(max_length=70, choices=OPERATION_TYPE)
+    payment_method = models.CharField(max_length=70, choices=PAYMENT_METHOD, null=True, blank=True)
     vehicle = models.ForeignKey(Vehicle, null=True, blank=True, on_delete=models.SET_NULL)
     value = models.FloatField()
     balance = models.FloatField()

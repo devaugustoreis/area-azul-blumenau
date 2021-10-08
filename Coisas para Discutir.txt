@@ -4,6 +4,7 @@
 - Arrumar formatação das imagens nas páginas "Index" e "Dados";
 - Sugestão mostrar créditos no "base_clientes" (Feito. Conferir com Marina como está);
 - Ajustar Ícones (photoshop) para ficarem do mesmo tamanho na página Index.
+- O que aconteceu com a box da página "Estacionar"?
 
 Página Adicionar Créditos:
 - Consertar a página que o Augusto quebrou tudo (Desculpa, Marina!);

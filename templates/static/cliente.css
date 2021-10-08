@@ -41,6 +41,13 @@ body {
     margin-bottom: 50px;
 }
 
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border: 5px solid var(--cor0);
+    border-radius: 50%;
+}
+
 .cliente_main h2 {
     margin-bottom: 50px;
 }

@@ -29,7 +29,8 @@ def extrato(request, pk):
     client = Client.objects.get(pk=pk)
     operations = client.operation_set.all()
 
-    operationFilter = OperationsFilter()
+    operationFilter = OperationsFilter(request.GET, queryset=operations)
+    operations = operationFilter.qs
 
     context = {'client':client, 'operations':operations, 'operation_filter':operationFilter}
     return render(request, "cliente/extrato.html", context)

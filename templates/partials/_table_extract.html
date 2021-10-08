@@ -12,7 +12,7 @@
         <tr>
             <td>{{operation.date}}</td>
             <td>{{operation.operation_type}}</td>
-            <td>{{operation.payment_method}}</td>
+            <td>{% if operation.payment_method %}{{operation.payment_method}}{% else %}---{% endif %}</td>
             <td>{% if operation.vehicle %}{{operation.vehicle}}{% else %}---{% endif %}</td>
             <td>R$ {{operation.value}}</td>
             <td class="saldo">R$ {{operation.balance}}</td>

@@ -1,6 +1,7 @@
 from django.db.models import fields
 import django_filters
 from .models import *
+from django_filters import DateFilter
 
 class VehicleFilter(django_filters.FilterSet):
     class Meta:
@@ -9,6 +10,8 @@ class VehicleFilter(django_filters.FilterSet):
 
 
 class OperationsFilter(django_filters.FilterSet):
+    start_date = DateFilter(field_name="date", lookup_expr="gte")
+    end_date = DateFilter(field_name="date", lookup_expr="lte")
     class Meta:
         model = Operation
-        fields = ['date', 'operation_type', 'payment_method', 'vehicle']
+        fields = ['operation_type', 'payment_method', 'vehicle']

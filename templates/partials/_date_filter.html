@@ -1,13 +1,16 @@
 {% load static %}
 <form>
-    {{operation_filter.form}}
+    {{operation_filter.form.start_date}}
+    {{operation_filter.form.end_date}}
+    {{operation_filter.form.operation_type}}
+    {{operation_filter.form.payment_method}}
+    {{operation_filter.form.vehicle}}
     <button type="submit">Procurar</button>
 </form>
 <div class="date_filter">
     <button>Dia atual</button>
     <button>Mês atual</button>
     <button>Ano Atual</button>
-    <button>Personalizado</button>
     <div class="date">
         <div>
             <h3>Data Inicial:</h3>
