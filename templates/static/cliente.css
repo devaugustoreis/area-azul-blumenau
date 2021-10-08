@@ -41,6 +41,13 @@ body {
     margin-bottom: 50px;
 }
 
+.profile-pic {
+    width: 176px;
+    height: 176px;
+    border: 3px solid var(--cor0);
+    border-radius: 50%;
+}
+
 .cliente_main h2 {
     margin-bottom: 50px;
 }
@@ -110,7 +117,7 @@ body {
 }
 
 .sb_upper_text h3 {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--cor0);
     margin: auto;
 }

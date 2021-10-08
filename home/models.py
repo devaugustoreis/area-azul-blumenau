@@ -10,9 +10,6 @@ class Address(models.Model):
     house_number = models.CharField(max_length=6, null=True, blank=True)
     complement = models.CharField(max_length=200, null=True, blank=True)
 
-    # def __str__(self):
-    #     return self.city
-
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=50)
@@ -22,6 +19,7 @@ class Client(models.Model):
     credits = models.FloatField(default=0)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.SET_NULL)
+    profile_pic = models.ImageField(default='generic_profile.png', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -40,3 +38,22 @@ class Vehicle(models.Model):
 
     def __str__(self):
         return self.license_plate
+
+class Operation(models.Model):
+    OPERATION_TYPE = (
+        ('Estacionar', 'Estacionar'),
+        ('Compra de Créditos', 'Compra de Créditos'),
+        ('Pagar NR', 'Pagar NR'),
+    )
+    PAYMENT_METHOD = (
+        ('Crédito', 'Crédito'),
+        ('Débito', 'Débito'),
+        ('Pix', 'Pix'),
+    )
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    operation_type = models.CharField(max_length=70, choices=OPERATION_TYPE)
+    payment_method = models.CharField(max_length=70, choices=PAYMENT_METHOD, null=True, blank=True)
+    vehicle = models.ForeignKey(Vehicle, null=True, blank=True, on_delete=models.SET_NULL)
+    value = models.FloatField()
+    balance = models.FloatField()

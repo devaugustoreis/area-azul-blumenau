@@ -13,15 +13,15 @@
         <div id='vehiclesDiv'>
         
         {% for car in cars %}
-            <button class="btn_vehicle_plate btn-car"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
+            <button class="btn_vehicle_plate btn-car" onclick="btnActive(this)"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
         {% endfor %}
         
         {% for moto in motos %}
-            <button class="btn_vehicle_plate btn-moto"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
+            <button class="btn_vehicle_plate btn-moto" onclick="btnActive(this)"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
         {% endfor %}
 
         {% for other in others %}
-            <button class="btn_vehicle_plate btn-other"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
+            <button class="btn_vehicle_plate btn-other" onclick="btnActive(this)"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
         {% endfor %}
         
         </div>
@@ -39,14 +39,14 @@
             <div class="informations">
                 <img src="{% static 'imagens/relogio.png' %}" alt="stylesheet">
                 <div class="box">
-                    <p>90m00s</p>
+                    <p class="total-tempo">0min</p>
                 </div>
             </div>
             <h2>Valor:</h2>
             <div class="informations">
                 <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
                 <div class="box">
-                    <p>R$ 2,20</p>
+                    <p class="total-value">R$ 0,00</p>
                 </div>
             </div>
         </div>
@@ -56,6 +56,7 @@
         let pageTitle = document.getElementById('page-title')
         pageTitle.innerHTML = 'Estacionar'
 
+        /* Botões Tipo de Veículo e Veículo */
         let btnAll = document.getElementById('btn-type-all')
         let btnCar = document.getElementById('btn-type-car')
         let btnMoto = document.getElementById('btn-type-moto')
@@ -66,6 +67,17 @@
         let motos = document.getElementsByClassName('btn-moto')
         let others = document.getElementsByClassName('btn-other')
 
+        /* Botões Adicionando Tempo */
+        let displayTimeValue1 = document.querySelector('#estacionar-value1')
+        let displayTimeValue2 = document.querySelector('#estacionar-value2')
+        let displayTempo = document.querySelector('.total-tempo')
+        let displayValue = document.querySelector('.total-value')
+
+        let totalTempo = 0
+        let totalValue = 0
+        let valorVeiculo1 = 0
+        let valorVeiculo2 = 0
+        let tipoVeiculo = ''
 
         function showHideVehicles(vehicles1, vehicles2, vehicles3) {
             for (let vehicle of vehicles1) {
@@ -83,6 +95,32 @@
         function showAllVehicles(vehicles) {
             for (let vehicle of vehicles) {
                 vehicle.style.display = 'inline-block'
+            }
+        }
+
+
+        function btnActive(botao) {
+            totalTempo = 0
+            totalValue = 0
+            displayTempo.innerHTML = `${totalTempo}min`
+            displayValue.innerHTML = `R$ ${totalValue.toFixed(2)}`
+            for (let vehicle of allVehicles) {
+                vehicle.classList.remove('btn-active')
+            }
+            botao.classList.add('btn-active')
+            if (botao.classList.contains('btn-car' || 'btn-other')) {
+                valorVeiculo1 = 1.50
+                valorVeiculo2 = 3
+                tipoVeiculo = 'car or other' 
+                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2)}`
+                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2)}`
+            }
+            if (botao.classList.contains('btn-moto')) {
+                valorVeiculo1 = 0.75
+                valorVeiculo2 = 1.5
+                tipoVeiculo = 'moto' 
+                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2)}`
+                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2)}`
             }
         }
 
@@ -117,6 +155,30 @@
             btnMoto.classList.remove('btn-active')
             btnOther.classList.add('btn-active')
             showHideVehicles(cars, motos, others)
+        }
+
+
+        function aumentarTempo(valorTempo, valorReais){
+            if (tipoVeiculo != '') {
+                totalTempo += valorTempo
+                if (valorReais == 'Tarifa Menor') {totalValue += valorVeiculo1}
+                else if (valorReais == 'Tarifa Maior') {totalValue += valorVeiculo2}
+                displayTempo.innerHTML = `${totalTempo}min`
+                displayValue.innerHTML = `R$ ${totalValue.toFixed(2)}`
+            }
+        }
+
+
+        function reduzirTempo(valorTempo, valorReais){
+            if (tipoVeiculo != '') {
+                totalTempo -= valorTempo
+                if (totalTempo < 0) totalTempo = 0
+                if (valorReais == 'Tarifa Menor') {totalValue -= valorVeiculo1}
+                else if (valorReais == 'Tarifa Maior') {totalValue -= valorVeiculo2}
+                if (totalValue < 0) totalValue = 0 
+                displayTempo.innerHTML = `${totalTempo}min`
+                displayValue.innerHTML = `R$ ${totalValue.toFixed(2)}`
+            }
         }
 
     </script>

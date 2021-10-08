@@ -59,6 +59,8 @@
         let pageTitle = document.getElementById('page-title')
         pageTitle.innerHTML = 'Meus Veículos'
 
+        let divMensagem = document.getElementById('div-message')
+
         let vehicle_type = 'C'
         let btnCar = document.getElementById('btn-type-car')
         let btnMoto = document.getElementById('btn-type-moto')
@@ -102,11 +104,12 @@
                     console.log('Cadastrando carro..')
                     window.location.reload(true); 
                     Location.reload()
+                    $("#div-message").show();
+                    $("#div-message").delay(5000).fadeOut();
                 }
             });
 
         });
-
 
     </script>
 {% endblock %}

@@ -2,16 +2,17 @@
 {% load static %}
 
 {% block content %}
-<form action='' method='POST' class='dados-form'>
+<form action='' method='POST' class='dados-form' enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-box">
         <div class="perfil">
             <h2>Perfil:</h2>
             <span>CPF: {{user.username}}</span>
-            <span>Nome: {{user.client.name}}</span>
+            <span>Nome: {{clientForm.name}}</span>
             <span>E-mail: {{clientForm.email}}</span>
             <span>Telefone 01: {{clientForm.phone1}}</span>
             <span>Telefone 02: {{clientForm.phone2}}</span>
+            {{clientForm.profile_pic}}
         </div>
         <div class="address">
             <h2>Endereço:</h2>
