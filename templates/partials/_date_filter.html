@@ -1,27 +1,24 @@
 {% load static %}
 <form>
-    {{operation_filter.form.start_date}}
-    {{operation_filter.form.end_date}}
     {{operation_filter.form.operation_type}}
     {{operation_filter.form.payment_method}}
     {{operation_filter.form.vehicle}}
-    <button type="submit">Procurar</button>
-</form>
-<div class="date_filter">
-    <button>Dia atual</button>
-    <button>Mês atual</button>
-    <button>Ano Atual</button>
-    <div class="date">
-        <div>
-            <h3>Data Inicial:</h3>
-            <input type="date">
-        </div>
-        <div>
-            <h3>Data Final:</h3>
-            <input type="date">
-        </div>
-        <div id="search">
-            <button><img src="{% static 'imagens/lupa.png' %}" alt="Lupa">Buscar</button>
+    <div class="date_filter">
+        <button>Dia atual</button>
+        <button>Mês atual</button>
+        <button>Ano Atual</button>
+        <div class="date">
+            <div>
+                <h3>Data Inicial:</h3>
+                {{operation_filter.form.start_date}}
+            </div>
+            <div>
+                <h3>Data Final:</h3>
+                {{operation_filter.form.end_date}}
+            </div>
+            <div id="search">
+                <button type="submit"><img src="{% static 'imagens/lupa.png' %}" alt="Lupa">Buscar</button>
+            </div>
         </div>
     </div>
-</div>
+</form>

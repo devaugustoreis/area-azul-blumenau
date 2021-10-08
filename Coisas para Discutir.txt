@@ -1,10 +1,10 @@
 - Adicionar FavIcon;
 - Procurar imagem para página 'Index';
-- Arrumar distanciamento entre Veículo na página "Veículos";
-- Arrumar formatação das imagens nas páginas "Index" e "Dados";
-- Sugestão mostrar créditos no "base_clientes" (Feito. Conferir com Marina como está);
+- Créditos na base_clientes (Marina irá revisar);
 - Ajustar Ícones (photoshop) para ficarem do mesmo tamanho na página Index.
-- O que aconteceu com a box da página "Estacionar"?
+
+Página Extrato:
+- Dados na tabela assim?
 
 Página Adicionar Créditos:
 - Consertar a página que o Augusto quebrou tudo (Desculpa, Marina!);
@@ -16,18 +16,17 @@ Página Veículos:
 - Formatar página de exclusão de veículos;
 
 Página Dados:
-- Formatar página Dados;
+- Formatar form de envio de imagem;
 - Mensagem de Dados atualizados com sucesso;
 
 Se der tempo:
 - Máscara dos créditos mostrando duas casas decimais;
-- Validação para placa do carro e CPF
+- Validação para placa do carro e CPF (Viana já fez);
 - password reset;
-- Revisar cores (--cor4) -> (--cor12)?;
 - Vai ter botão de zerar? (Sim, se der tempo)
 - Arrumar "bug" da troca de botão display da página "Estacionar";
+- Revisar página Dados;
 
-- Perguntas Frequentes: Borda preta mesmo? mudar fonte para branco (sugestão Felipe) ou deixar como está?
 
-OBS.: Minha opinião sobre mudar layout da página home pra section = Não vale a pena no momento.
+
 
