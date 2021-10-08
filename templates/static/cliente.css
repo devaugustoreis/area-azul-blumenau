@@ -50,7 +50,7 @@ body {
     height: 170px;
     background-color: var(--cor0);
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     display: flex;
     justify-content: space-between;
 }
@@ -245,6 +245,7 @@ body {
     background-color: var(--cor1);
     border: 1px solid var(--cor0);
     font-size: 18px;
+    margin-bottom: 5px;
     margin-right: 5px;
     height: 45px;
     padding: 5px 8px;
@@ -358,8 +359,6 @@ body {
 }
   
 .button_confirm button:active {
-    background-color: var(--cor4);
-    border: 1px solid var(--cor4);
     transform: translateY(2px);
 }
 
@@ -892,32 +891,9 @@ body {
 }
 
 /* Página "Meus Veículos" */
-.veiculos_form {
-    grid-column: 1/13;
-    grid-row: 9/13;
-}
-
-.vehicle_plate_veiculos {
-    grid-column: 1/8;
-    grid-row: 1/5;
-}
-
-.vehicle_plate_veiculos .btn_vehicle_plate {
-    cursor: auto;
-}
-
-.vehicle_plate_veiculos .btn_vehicle_plate:hover {
-    background-color: var(--cor1);
-    color: var(--cor0);
-}
-
-.plate_button {
-    display: flex;
-}
-
 .vehicle_type_veiculos {
     grid-column: 1/13;
-    grid-row: 6/9;
+    grid-row: 1/6;
 }
 
 .vehicle_type_veiculos h2 {
@@ -932,39 +908,105 @@ body {
     font-style: normal;
 }
 
-.add_plate {
-    grid-column: 1/13;
-    grid-row: 7/12;
+.veiculos_form {
+    margin-top: 20px;
 }
 
 .inner-box-shadow {
     box-shadow: 0px 0px 3px 2px inset #1084d6b0;
 }
 
+.vehicle_plate_veiculos {
+    grid-column: 1/13;
+    grid-row: 6/12;
+}
+
+.vehicle_plate_plates {
+    display: block;
+    width: 700px;
+}
+
+
+.vehicle_plate_veiculos .btn_vehicle_plate {
+    cursor: auto;
+}
+
+.vehicle_plate_veiculos .btn_vehicle_plate:hover {
+    background-color: var(--cor1);
+    color: var(--cor0);
+}
+
+.plate_button {
+    display: inline-flex;
+    margin-bottom: 10px;
+    margin-right: 25px;
+}
+
+
 /* Página "Excluir Veículo" */
-
-
 .div-excluir {
     grid-column: 1/13;
     grid-row: 1/13;
-    background-color: red;
-    display: flex;
     margin: auto;
     justify-content: center;
-
-
 }
 
 .form-excluir {
-
-    /* position: absolute;
-    top: 50%;
-    left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    background-color: green;
+    color: var(--cor0);
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.24);
     border-radius: 2%;
-    width: 410px;
-    padding: 30px;
+    width: 480px;
+    height: 154px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.form-excluir p {
+    padding: 20px;
+}
+
+.botoes-excluir {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 12px 12px;
+}
+
+.form-excluir a, .form-excluir button {
+    width: 49%;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    text-decoration: none;
+}
+
+.form-excluir a {
+    background-color: var(--cor0);
+    border: 1px solid var(--cor0);
+    color: var(--cor1);
+}
+
+.form-excluir a:hover {
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    color: var(--cor5);
+}
+  
+.form-excluir button {
+    background-color: var(--cor7);
+    border: 1px solid var(--cor7);
+    color: var(--cor1);
+}
+
+.form-excluir button:hover {
+    background-color: var(--cor8);
+    border: 1px solid var(--cor8);
+}
+  
+.form-excluir a:active, .form-excluir button:active {
+    transform: translateY(2px);
 }
 
 /* Página "Meus Dados" */

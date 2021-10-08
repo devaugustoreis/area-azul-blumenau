@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block content %}
-
     <div class="div-excluir">
         <form class="form-excluir" action="{% url 'excluirVeiculo' user.client.id vehicle.id %}" method='POST'>
-            <p>Você tem certeza que quer deletar "{{vehicle}}"?</p>
-            {% csrf_token %}
-            <a href="{% url 'veiculos' user.client.id %}">Cancelar</a>
-            <input type="submit" name="Confirm">
+            <p>Você tem certeza que quer excluir o veículo <strong>"{{vehicle}}"</strong>?</p>
+            <div class="botoes-excluir">
+                {% csrf_token %}
+                <a href="{% url 'veiculos' user.client.id %}">Cancelar</a>
+                <button type="submit">Excluir</button>
+            </div>
         </form>
     </div>
-
     <script>
         let pageTitle = document.getElementById('page-title')
         pageTitle.innerHTML = 'Excluir Veículo'

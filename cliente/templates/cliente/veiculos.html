@@ -2,36 +2,6 @@
 {% load static %}
 
 {% block content %}
-    <div class="vehicle_plate_veiculos">
-        <h2 class="vehicle_plate_title">Veículos:</h2>
-            {% for car in cars %}
-                <div class="plate_button">
-                    <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
-                    <div class="button_remove">
-                        <a href="{% url 'excluirVeiculo' user.client.id car.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
-                    </div>
-                </div>
-            {% endfor %}
-
-            {% for moto in motos %}
-                <div class="plate_button">
-                    <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
-                    <div class="button_remove">
-                        <a href="{% url 'excluirVeiculo' user.client.id moto.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
-                    </div>
-                </div>
-            {% endfor %}
-
-            {% for other in others %}
-                <div class="plate_button">
-                    <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
-                    <div class="button_remove">
-                        <a href="{% url 'excluirVeiculo' user.client.id other.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
-                    </div>
-                </div>
-            {% endfor %}
-    </div>
-
     <div class="vehicle_type_veiculos">
         <h2 id="title">Incluir novo veículo</h2>
         <div class="vehicle_type">
@@ -40,17 +10,46 @@
             <button class='btn-vehicle-type' id='btn-type-moto' onclick="btnActive(btnMoto, btnCar, btnOther, 'M')"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
             <button class='btn-vehicle-type' id='btn-type-other' onclick="btnActive(btnOther, btnCar, btnMoto, 'O')"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="others_vehicles">Demais Veículos</button>
         </div>
+        <form class="veiculos_form" id="novo_veiculo_form">
+            {% csrf_token %}
+            <div class="add_plate">
+                <h2>Placa:</h2>
+                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
+                <button type="submit"><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
+            </div>  
+        </form>
     </div>
 
-    <form class="veiculos_form" id="novo_veiculo_form">
-        {% csrf_token %}
-        <div class="add_plate">
-            <h2>Placa:</h2>
-            <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
-            <button type="submit"><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
-        </div>  
-    </form>
-    
+    <div class="vehicle_plate_veiculos">
+        <h2 class="vehicle_plate_title">Veículos:</h2>
+            <div class="vehicle_plate_plates">
+                {% for car in cars %}
+                    <div class="plate_button">
+                        <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
+                        <div class="button_remove">
+                            <a href="{% url 'excluirVeiculo' user.client.id car.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for moto in motos %}
+                    <div class="plate_button">
+                        <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
+                        <div class="button_remove">
+                            <a href="{% url 'excluirVeiculo' user.client.id moto.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for other in others %}
+                    <div class="plate_button">
+                        <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
+                        <div class="button_remove">
+                            <a href="{% url 'excluirVeiculo' user.client.id other.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    </div>
+   
     <!-- {% for message in messages %}
         <p class="home_messages">{{message}}</p>
     {% endfor %} -->
