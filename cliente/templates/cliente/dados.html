@@ -10,7 +10,7 @@
             <span>CPF: {{user.username}}</span>
             <span>Nome: {{user.client.name}}</span>
             <span>Créditos: R$ {{user.client.credits}}</span>
-            <span>E-mail:</span>{{clientForm.email}}
+            <span>E-mail: {{clientForm.email}}</span>
             <span>Telefone 01: {{clientForm.phone1}}</span>
             <span>Telefone 02: {{clientForm.phone2}}</span>
         </div>
@@ -25,6 +25,7 @@
             <span>Complemento: {{addressForm.complement}}</span>
         </div>
     </div>
+
     <button type="submit" class="btn-dados">Salvar</button>
 </form>
 
@@ -37,6 +38,41 @@
     for (var field in form_fields) {
     form_fields[field].className += "meus-dados-inputs";
     }
+
+    var cep = document.getElementById('id_zip_code')
+
+    cep.onkeyup = function(){
+      if(id_zip_code.value.length == 5) {
+        id_zip_code.value += '-'
+      }
+    }
+
+    var phone1 = document.getElementById('id_phone1')
+
+    phone1.onkeyup = function(){
+      if(id_phone1.value.length == 0){
+        id_phone1.value +="("
+      } else if (id_phone1.value.length == 3){
+        id_phone1.value +=")"
+      } else if (id_phone1.value.length == 9){
+        id_phone1.value +="-"
+      }
+    }
+
+    var phone2 = document.getElementById('id_phone2')
+
+    phone2.onkeyup = function(){
+      if(id_phone2.value.length == 0){
+        id_phone2.value +="("
+      } else if (id_phone2.value.length == 3){
+        id_phone2.value +=")"
+      } else if (id_phone2.value.length == 9){
+        id_phone2.value +="-"
+      }
+    }
+
+
+
 </script>
 
 {% endblock %}
