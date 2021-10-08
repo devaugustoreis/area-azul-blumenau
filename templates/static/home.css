@@ -11,6 +11,9 @@
     --cor7: #D00000;
     --cor8: #740101;
     --cor9: #cdcdcd;
+    --cor10: #d1ebff;
+    --cor11: #a3d8ff;
+    --cor12: #004373;
 }
 
 * {
@@ -401,30 +404,34 @@ a {
 
 .active,
 .accordion:hover {
-    background-color: var(--cor4);
-    color: var(--cor5);
-    border: 1px solid var(--cor4);
+    background-color: var(--cor12);
+    color: var(--cor1);
+    border: 1px solid var(--cor12);
 }
 
 .accordion:after {
     content: '\002B';
-    color: var(--cor0);
     font-weight: bold;
     float: right;
     margin-left: 5px;
 }
 
+.accordion:after:hover {
+    color: var(--cor1);
+}
+
 .active:after {
     content: "\2212";
+    color: var(--cor1);
 }
 
 .panel {
     padding: 0 10px;
-    background-color: white;
+    background-color: transparent;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    color: var(--cor4);
+    color: var(--cor12);
     font-size: 16px;
     text-align: justify;
 }
@@ -444,7 +451,7 @@ a {
 
 .sobre-nos h3 {
     margin-bottom: 5px;
-    color: var(--cor4);
+    color: var(--cor12);
 }
 
 
