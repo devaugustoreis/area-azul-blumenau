@@ -1025,3 +1025,21 @@ body {
     background-color: var(--cor0);
     color: var(--cor1);
 }
+
+.message {
+    width: 300px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}

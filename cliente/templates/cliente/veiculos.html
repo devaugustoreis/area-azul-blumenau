@@ -2,8 +2,16 @@
 {% load static %}
 
 {% block content %}
-    <div class="vehicle_plate_veiculos">
-        <h2 class="vehicle_plate_title">Veículos:</h2>
+<p class="message hidden">Carro cadastrado com sucesso.</p>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="vehicle_plate_veiculos">
+    <h2 class="vehicle_plate_title">Veículos:</h2>
             {% for car in cars %}
                 <div class="plate_button">
                     <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
@@ -49,8 +57,9 @@
         {% csrf_token %}
         <div class="add_plate">
             <h2>Placa:</h2>
-            <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
+            <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" onfocus="innerBoxShadow()" onblur="removeInnerBox()">           
             <button type="submit"><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
+
         </div>  
     </form>
     
@@ -99,7 +108,13 @@
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },
                 success:function(){
-                    
+                    console.log('TESTE 123')
+                    document.querySelector(".message").innerHTML = "Carro cadastrado com sucesso."
+                    var test = document.querySelector(".message").classList.remove('hidden')
+                    console.log('TESTE ' + test)
+                    console.log('Cadastrando carro..')
+                    window.location.reload(true); 
+                    Location.reload()
                 }
             });
 

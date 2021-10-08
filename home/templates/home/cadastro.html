@@ -65,6 +65,18 @@
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+
+    var cpf_cadastro = document.getElementById('id_username')
+
+    cpf_cadastro.onkeyup = function(){
+        if(cpf_cadastro.value.length == 3 || cpf_cadastro.value.length == 7) {
+            cpf_cadastro.value += '.'
+        } else if(cpf_cadastro.value.length == 11){
+            cpf_cadastro.value += '-'
+      }
+    }
+
+
 </script>
 
 {% endblock %}

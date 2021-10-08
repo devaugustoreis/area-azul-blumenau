@@ -84,9 +84,10 @@ def adicionarVeiculo(request, pk):
         )
 
         newVehicle.owners.add(client)
-        # messages.add_message(request, messages.success, 'Carro Cadastrado com Sucesso!')
-
-        return render(request, "cliente/veiculos.html")
+        messages.add_message(request, messages.SUCCESS, 'Carro Cadastrado com Sucesso!')
+        messages.success(request, 'Profile details updated.')
+        return redirect('veiculos')
+        return render(request, "#")
 
 
 @login_required(login_url='login')
@@ -115,6 +116,7 @@ def dados(request, pk):
         if clientForm.is_valid() and addressForm.is_valid():
             clientForm.save()
             addressForm.save()
+            messages.add_message(request, messages.SUCCESS, 'Veículo adicionado com sucesso.')
 
     context = {'clientForm':clientForm, 'addressForm':addressForm}
     return render(request, "cliente/dados.html", context)
