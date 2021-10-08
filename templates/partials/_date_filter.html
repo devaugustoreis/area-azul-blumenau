@@ -7,11 +7,11 @@
     <div class="date">
         <div>
             <h3>Data Inicial:</h3>
-            <input type="date">
+            <input type="text" onkeyup="mascara_data(this, this.value)"> 
         </div>
         <div>
             <h3>Data Final:</h3>
-            <input type="date">
+            <input type="text" onkeyup="mascara_data(this, this.value)">
         </div>
         <div id="search">
             <button><img src="{% static 'imagens/lupa.png' %}" alt="Lupa">Buscar</button>
