@@ -129,7 +129,8 @@ def dados(request, pk):
         if clientForm.is_valid() and addressForm.is_valid():
             clientForm.save()
             addressForm.save()
-            messages.add_message(request, messages.SUCCESS, 'Veículo adicionado com sucesso.')
+            messages.add_message(request, messages.SUCCESS, 'Dados atualizados com sucesso!')
+
 
     context = {'client':client, 'clientForm':clientForm, 'addressForm':addressForm}
     return render(request, "cliente/dados.html", context)

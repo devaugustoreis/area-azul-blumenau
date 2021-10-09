@@ -25,11 +25,25 @@
             <span>Complemento: {{addressForm.complement}}</span>
         </div>
     </div>
+    
+    {% if messages %}
+        {% for message in messages %}
+        
+            <p class="cliente_messages">{{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="remove" onclick="deletarMensagem(this)">&times;</button>
+            </p>
+        
+        {% endfor %}
+    {% endif %}
 
     <button type="submit" class="btn-dados">Salvar</button>
 </form>
 
 <script>
+    function deletarMensagem(botao) {
+        botao.parentElement.remove()
+    }
+
     let pageTitle = document.getElementById('page-title')
     pageTitle.innerHTML = 'Meus Dados'
 

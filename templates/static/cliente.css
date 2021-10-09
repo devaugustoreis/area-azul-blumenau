@@ -1089,20 +1089,39 @@ body {
     color: var(--cor1);
 }
 
-.message {
-    width: 300px;
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    position: relative;
-    padding: .75rem 1.25rem;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    justify-content: center;
-    display: flex;
-    align-items: center;
+.cliente_messages {
+    border: 1px solid var(--cor5);
+    background-color: var(--cor5);
+    color: var(--cor6);
+    width: 28%;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+    margin: auto;
+    margin-top: 20px;
 }
 
-.hidden {
-    display: none;
+#remove{
+    font-size: 20px;
+    background-color: transparent;
+    font-weight: 900;
+    transition: .15s;
+    margin-left: 41px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    
+}
+
+
+button:hover{
+    background-color: var(--cor3);
+    color: var(--cor0);
+    transition: 0.5s;
+}
+
+.att_dados{
+    display: flex;
+    justify-content: space-between;
 }
