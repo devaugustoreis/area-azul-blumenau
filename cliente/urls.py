@@ -9,7 +9,7 @@ urlpatterns = [
     path("<str:pk>/creditos/adicionar/", views.adicionarCreditos, name="adicionarCreditos"),
     path("<str:pk>/multas/", views.multas, name="multas"),
     path("<str:pk>/veiculos/", views.veiculos, name="veiculos"),
-    path("<str:pk>/veiculos/adicionar/", views.adicionarVeiculo, name="adicionarVeiculo"),
+    # path("<str:pk>/veiculos/adicionar/", views.adicionarVeiculo, name="adicionarVeiculo"),
     path("<str:pk_client>/veiculos/excluir/<str:pk_vehicle>/", views.excluirVeiculo, name="excluirVeiculo"),
     path("<str:pk>/dados/", views.dados, name="dados"),
 ]

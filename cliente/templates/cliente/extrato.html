@@ -13,6 +13,20 @@
     let pageTitle = document.getElementById('page-title')
     pageTitle.innerHTML = 'Extrato'
 
+    let startDate = document.getElementById('id_start_date')
+    let endDate = document.getElementById('id_end_date')
+
+    startDate.setAttribute('maxlength', 10);
+    endDate.setAttribute('maxlength', 10);
+
+    startDate.onkeyup = function() {
+      mascara_data(startDate, startDate.value)
+    }
+
+    endDate.onkeyup = function() {
+      mascara_data(endDate, endDate.value)
+    }
+
     function mascara_data(campo, valor){
     var mydata = '';
     mydata = mydata + valor;
@@ -25,5 +39,6 @@
       campo.value = mydata;
     }
   }
+
   </script>
 {% endblock %}

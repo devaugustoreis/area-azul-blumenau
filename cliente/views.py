@@ -79,14 +79,6 @@ def veiculos(request, pk):
     motos = client.vehicle_set.filter(vehicle_type='M')
     others = client.vehicle_set.filter(vehicle_type='O')
     vehicles = Vehicle.objects.filter(owners__id=pk)
-    
-    context = {'client':client, 'cars':cars, 'motos':motos, 'others':others, 'vehicles':vehicles}
-    return render(request, "cliente/veiculos.html", context)
-
-
-@login_required(login_url='login')
-def adicionarVeiculo(request, pk):
-    client = Client.objects.get(id=pk)
 
     if request.method == 'POST':
         plate = request.POST['license_plate']
@@ -98,9 +90,29 @@ def adicionarVeiculo(request, pk):
         )
 
         newVehicle.owners.add(client)
-        messages.add_message(request, messages.SUCCESS, 'Carro Cadastrado com Sucesso!')
+        # messages.add_message(request, messages.SUCCESS, 'Carro cadastrado com sucesso!')
+    
+    context = {'client':client, 'cars':cars, 'motos':motos, 'others':others, 'vehicles':vehicles}
+    return render(request, "cliente/veiculos.html", context)
 
-        return render(request, "cliente/veiculos.html")
+
+# @login_required(login_url='login')
+# def adicionarVeiculo(request, pk):
+#     client = Client.objects.get(id=pk)
+
+#     if request.method == 'POST':
+#         plate = request.POST['license_plate']
+#         type = request.POST['vehicle_type']
+
+#         newVehicle = Vehicle.objects.create(
+#             license_plate = plate, 
+#             vehicle_type = type
+#         )
+
+#         newVehicle.owners.add(client)
+#         messages.add_message(request, messages.SUCCESS, 'Carro cadastrado com sucesso!')
+
+#         return render(request, "cliente/veiculos.html")
 
 
 @login_required(login_url='login')
@@ -130,6 +142,8 @@ def dados(request, pk):
             clientForm.save()
             addressForm.save()
             messages.add_message(request, messages.SUCCESS, 'Dados atualizados com sucesso!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Um erro ocorreu. Por favor, tente novamente.')
 
 
     context = {'client':client, 'clientForm':clientForm, 'addressForm':addressForm}

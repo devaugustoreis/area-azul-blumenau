@@ -139,8 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'templates/static/imagens')
 
 # MESSAGES
 MESSAGE_TAGS = {
-    messages.INFO: 'alert-warning',
-    messages.WARNING: 'alert-warning',
-    messages.SUCCESS: 'alert-success',
-    messages.ERROR: 'alert-danger',
+    messages.WARNING: 'msg-warning',
+    messages.SUCCESS: 'msg-success',
+    messages.ERROR: 'msg-error',
 }

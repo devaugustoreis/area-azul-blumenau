@@ -108,7 +108,7 @@
                 vehicle.classList.remove('btn-active')
             }
             botao.classList.add('btn-active')
-            if (botao.classList.contains('btn-car' || 'btn-other')) {
+            if (botao.classList.contains('btn-car') || botao.classList.contains('btn-other')) {
                 valorVeiculo1 = 1.50
                 valorVeiculo2 = 3
                 tipoVeiculo = 'car or other' 
@@ -124,8 +124,21 @@
             }
         }
 
+        
+        function deactivateVehiclesButtons() {
+            for (let vehicle of allVehicles) {
+                vehicle.classList.remove('btn-active')
+                valorVeiculo1 = 0
+                valorVeiculo2 = 0
+                tipoVeiculo = '' 
+                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2)}`
+                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2)}`
+            }
+        }
+
 
         btnAll.onclick = function() {
+            deactivateVehiclesButtons()
             btnCar.classList.remove('btn-active')
             btnMoto.classList.remove('btn-active')
             btnOther.classList.remove('btn-active')
@@ -134,6 +147,7 @@
         }
 
         btnCar.onclick = function() {
+            deactivateVehiclesButtons()
             btnAll.classList.remove('btn-active')
             btnMoto.classList.remove('btn-active')
             btnOther.classList.remove('btn-active')
@@ -142,6 +156,7 @@
         }
 
         btnMoto.onclick = function(){
+            deactivateVehiclesButtons()
             btnAll.classList.remove('btn-active')
             btnCar.classList.remove('btn-active')
             btnOther.classList.remove('btn-active')
@@ -150,6 +165,7 @@
         }
 
         btnOther.onclick = function(){
+            deactivateVehiclesButtons()
             btnAll.classList.remove('btn-active')
             btnCar.classList.remove('btn-active')
             btnMoto.classList.remove('btn-active')

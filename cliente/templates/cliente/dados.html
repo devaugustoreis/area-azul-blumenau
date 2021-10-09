@@ -12,7 +12,7 @@
             <span>E-mail: {{clientForm.email}}</span>
             <span>Telefone 01: {{clientForm.phone1}}</span>
             <span>Telefone 02: {{clientForm.phone2}}</span>
-            {{clientForm.profile_pic}}
+            <span id='import-img'>{{clientForm.profile_pic}}</span>
         </div>
         <div class="address">
             <h2>Endereço:</h2>
@@ -29,10 +29,10 @@
     {% if messages %}
         {% for message in messages %}
         
-            <p class="cliente_messages">{{message}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="remove" onclick="deletarMensagem(this)">&times;</button>
-            </p>
-        
+            <div class="cliente_messages {{message.tags}}">
+                <p>{{message}}</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
+            </div>
+  
         {% endfor %}
     {% endif %}
 
@@ -40,12 +40,12 @@
 </form>
 
 <script>
+    let pageTitle = document.getElementById('page-title')
+    pageTitle.innerHTML = 'Meus Dados'
+
     function deletarMensagem(botao) {
         botao.parentElement.remove()
     }
-
-    let pageTitle = document.getElementById('page-title')
-    pageTitle.innerHTML = 'Meus Dados'
 
     var form_fields = document.getElementsByTagName("input");
 
@@ -62,30 +62,27 @@
     }
 
     var phone1 = document.getElementById('id_phone1')
-
-    phone1.onkeyup = function(){
-      if(id_phone1.value.length == 0){
-        id_phone1.value +="("
-      } else if (id_phone1.value.length == 3){
-        id_phone1.value +=")"
-      } else if (id_phone1.value.length == 9){
-        id_phone1.value +="-"
-      }
-    }
-
     var phone2 = document.getElementById('id_phone2')
+    
 
-    phone2.onkeyup = function(){
-      if(id_phone2.value.length == 0){
-        id_phone2.value +="("
-      } else if (id_phone2.value.length == 3){
-        id_phone2.value +=")"
-      } else if (id_phone2.value.length == 9){
-        id_phone2.value +="-"
+    function maskPhone(elem_id) {
+      if (elem_id.value.length == 0) {
+        elem_id.value +="("
+      } else if (elem_id.value.length == 3) {
+        elem_id.value +=")"
+      } else if (elem_id.value.length == 9) {
+        elem_id.value +="-"
       }
     }
 
 
+    phone1.onkeydown = function(){
+      maskPhone(phone1)
+    }
+
+    phone2.onkeydown = function(){
+      maskPhone(phone2)
+    }
 
 </script>
 

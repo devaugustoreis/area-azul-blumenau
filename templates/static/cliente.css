@@ -471,8 +471,9 @@ body {
 
 .date input {
     color: var(--cor12);
+    font-weight: bold;
     outline: 0;
-    padding: 8px;
+    padding: 8px 12px;
     border: 1px solid var(--cor0);
     border-radius: 50px;
     width: 205px;
@@ -812,6 +813,34 @@ body {
     transform: translateY(1.5px);
 }
 
+/* Messages */
+.cliente_messages {
+    width: 30%;
+    margin: 25px auto;
+    width: 350px;
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.msg-success {
+    border: 1px solid #b8daff;
+    background-color: #0070c0bb;
+    color: var(--cor12);
+}
+
+.btn-close {
+    font-size: 20px;
+    background-color: transparent;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+    color: inherit;  
+}
+
 /* Página "Estacionar" */
 .vehicle_type_estacionar {
     grid-column: 1/8;
@@ -1053,7 +1082,6 @@ body {
 
 .meus-dados-inputs {
     border: none;
-    /* border-bottom: 1px dotted var(--cor4); */
     width: 70%;
     outline: none;
     padding-left: 5px;
@@ -1065,17 +1093,26 @@ body {
     transition: 0.2s;
 }
 
+#import-img {
+    height: 100px;
+}
+
 .btn-dados {
     display: block;
     height: 60px;
     width: 160px;
-    margin: 100px auto;
     background-color: var(--cor0);
     color: var(--cor1);
     border: none;
     font-size: larger;
     cursor: pointer;
     transition: 0.5s;
+
+    justify-content: end;
+    position: absolute;
+    bottom: 4.2%;
+    left: 60%;
+    transform: translate(-50%);
 }
 
 .btn-dados:hover {
@@ -1087,41 +1124,4 @@ body {
 .btn-active {
     background-color: var(--cor0);
     color: var(--cor1);
-}
-
-.cliente_messages {
-    border: 1px solid var(--cor5);
-    background-color: var(--cor5);
-    color: var(--cor6);
-    width: 28%;
-    margin-top: 10px;
-    border-radius: 5px;
-    padding: 5px;
-    font-weight: bold;
-    margin: auto;
-    margin-top: 20px;
-}
-
-#remove{
-    font-size: 20px;
-    background-color: transparent;
-    font-weight: 900;
-    transition: .15s;
-    margin-left: 41px;
-    cursor: pointer;
-    border: none;
-    color: #fff;
-    
-}
-
-
-button:hover{
-    background-color: var(--cor3);
-    color: var(--cor0);
-    transition: 0.5s;
-}
-
-.att_dados{
-    display: flex;
-    justify-content: space-between;
 }
