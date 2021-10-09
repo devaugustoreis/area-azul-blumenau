@@ -98,7 +98,7 @@ body {
 }
 
 .sb_upper_img {
-    height: 85%;
+    height: 78%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -110,14 +110,15 @@ body {
 }
 
 .sb_upper_text {
-    height: 15%;
+    height: 12%;
     width: 100%;
-    display: flex;
+    /* display: flex; */
     align-items: center;
+    margin-bottom: 0;
 }
 
 .sb_upper_text h3 {
-    font-size: 16px;
+    font-size: 18px;
     color: var(--cor0);
     margin: auto;
 }
@@ -129,6 +130,13 @@ body {
 
 .sb_upper_text a:hover {
     color: var(--cor4)
+}
+
+#sb_upper_text_saldo {
+    font-size: 15px;
+    color: var(--cor12);
+    margin: auto;
+    font-style: italic;
 }
 
 .sidebar_lower {
@@ -252,7 +260,7 @@ body {
     background-color: var(--cor1);
     border: 1px solid var(--cor0);
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-right: 5px;
     height: 45px;
     padding: 5px 8px;
@@ -286,6 +294,10 @@ body {
 }
 
 /* Módulo "time" */
+#time {
+    margin-right: 40px;
+}
+
 .time h2 {
     color: var(--cor12);
     margin-bottom: 10px;
@@ -397,34 +409,45 @@ body {
 }
 
 /* Módulo "total" */
-.div-total {
+.total {
     background-color: var(--cor1);
     color: var(--cor0);
     border: 1px solid var(--cor0);
-    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
-    border-radius: 6px;
-    padding: 40px;
+    padding: 10px;
+    width: 365px;
+    height: 120px;
+    margin-top: 40px;
 }
+
+.div-total {
+    display: flex;
+    justify-content: space-between;
+}
+
 
 .total h1 {
     text-align: center;
+    font-size: 22px;
 }
 
 .total h2 {
     font-weight: normal;
     color: var(--cor12);
-    padding-top: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.div-total-informations {
+    width: 47%;
 }
 
 .informations {
     display: flex;
-    margin-top: 10px;
-    padding-top: 10px;
 }
 
 .informations img {
-    width: 100px;
-    margin-right: 10px;
+    width: 45px;
+    margin-right: 8px;
 }
 
 .box {
@@ -435,9 +458,9 @@ body {
 }
 
 .box p {
-    font-size: 30px;
     font-weight: bolder;
     margin: auto;
+    font-size: 20px;
 }
 
 /* Módulo "date_filter" */
@@ -647,7 +670,7 @@ body {
 }
 
 #div-other {
-    margin: 0;
+    margin: 0 20px 0 0;
     width: 172px;
     padding: 5px 8px;
     font-weight: bold;
@@ -695,6 +718,27 @@ body {
 
 #div-value input::placeholder {
     color: var(--cor0);
+}
+
+#limpar {
+    border-radius: 0;
+    margin: 56px 0 0 0;
+    width: 100px;
+    font-size: 20px;
+    background-color: var(--cor0);
+    border: 1px solid var(--cor0);
+    color: var(--cor1);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+#limpar:hover {
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    color: var(--cor5);
+}
+  
+#limpar:active {
+    transform: translateY(3px);
 }
 
 /* Módulo "payment_forms" */
@@ -824,19 +868,20 @@ body {
 }
 
 .time {
-    grid-column: 1/8;
+    grid-column: 1/13;
     grid-row: 8/12;
+    display: flex;
 }
+
+/* .total {
+    grid-column: 8/12;
+    grid-row: 2/9;
+} */
 
 .button_confirm {
     grid-column: 1/13;
     grid-row: 12/13;
     text-align: center;
-}
-
-.total {
-    grid-column: 8/12;
-    grid-row: 2/9;
 }
 
 /* Página "Extrato" */
@@ -862,22 +907,50 @@ body {
 }
 
 .informations_add_credits {
-    grid-column: 1/5;
-    grid-row: 4/7;
+    display: flex;
 }
 
 .informations_add_credits h2 {
     color: var(--cor12);
 }
 
+#saldo_add_credits {
+    margin-right: 60px;
+}
+
+.informations_add_credits .informations {
+    display: flex;
+    margin-top: 10px;
+}
+
+.informations_add_credits .informations img {
+    width: 60px;
+    margin-right: 10px;
+}
+
 .informations_add_credits .box {
     background-color: var(--cor1);
     color: var(--cor0);
+    width: 165px;
+    height: 65px;
+    border: 1px solid var(--cor0);
+}
+
+.informations_add_credits .box p {
+    font-size: 26px;
+    font-weight: bolder;
 }
 
 .payment_method_add_credits {
-    grid-column: 1/13;
-    grid-row: 7/12;
+    margin-top: 45px;
+}
+
+#add-credits-form .button_confirm {
+    justify-content: end;
+    position: absolute;
+    bottom: 4.2%;
+    left: 60%;
+    transform: translate(-50%);
 }
 
 /* Página "Pagar NR" */
