@@ -26,12 +26,38 @@
         
         </div>
     </div>
+
     <div class="time">
         {% include 'partials/_time.html' %}
+        <!-- <h1>TOTAL</h1> -->
+        <div class="total">
+            <h1>TOTAL</h1>
+            <div class="div-total">
+
+                <div class="div-total-informations">
+                    <h2>Tempo:</h2>
+                    <div class="informations">
+                        <img src="{% static 'imagens/relogio.png' %}" alt="stylesheet">
+                        <div class="box">
+                            <p class="total-tempo">0min</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-total-informations">
+                    <h2>Valor:</h2>
+                    <div class="informations">
+                        <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
+                        <div class="box">
+                            <p class="total-value">R$ 0,00</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </div>
-    <div class="button_confirm">
-        <button>Confirmar</button>
-    </div>
+<!-- 
     <div class="total">
         <div class="div-total">
             <h1>TOTAL</h1>
@@ -50,7 +76,12 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+    <div class="button_confirm">
+        <button>Confirmar</button>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         let pageTitle = document.getElementById('page-title')
