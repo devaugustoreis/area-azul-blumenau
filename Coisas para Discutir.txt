@@ -1,10 +1,8 @@
 - Adicionar FavIcon;
-- Procurar imagem para página 'Index';
-- Créditos na base_clientes (Marina irá revisar);
-- Ajustar Ícones (photoshop) para ficarem do mesmo tamanho na página Index.
 
 Página Extrato:
 - Dados na tabela assim?
+- Ajustar style dos filtros drop-down (procurar algo pronto no w3 schools);
 
 Página Adicionar Créditos:
 - Consertar a página que o Augusto quebrou tudo (Desculpa, Marina!);
