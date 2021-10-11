@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -139,8 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'templates/static/imagens')
 
 # MESSAGES
 MESSAGE_TAGS = {
-    messages.INFO: 'alert-warning',
-    messages.WARNING: 'alert-warning',
-    messages.SUCCESS: 'alert-success',
-    messages.ERROR: 'alert-danger',
+    messages.WARNING: 'msg-warning',
+    messages.SUCCESS: 'msg-success',
+    messages.ERROR: 'msg-error',
 }

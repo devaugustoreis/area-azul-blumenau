@@ -1,12 +1,14 @@
 {% load static %}
 <form>
-    {{operation_filter.form.operation_type}}
-    {{operation_filter.form.payment_method}}
-    {{operation_filter.form.vehicle}}
+    Movimento: {{operation_filter.form.operation_type}}
+    Forma de Pagemento: {{operation_filter.form.payment_method}}
+    <!-- {{operation_filter.form.vehicle}} -->
+    Valor Inicial: {{operation_filter.form.start_value}}
+    Valor Final: {{operation_filter.form.end_value}}
     <div class="date_filter">
-        <button>Dia atual</button>
-        <button>Mês atual</button>
-        <button>Ano Atual</button>
+        <button id="filter-today">Dia atual</button>
+        <button id="filter-this-month">Mês atual</button>
+        <button id="filter-this-year">Ano Atual</button>
         <div class="date">
             <div>
                 <h3>Data Inicial:</h3>

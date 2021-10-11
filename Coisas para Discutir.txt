@@ -1,31 +1,30 @@
-- Adicionar FavIcon;
-- Procurar imagem para página 'Index';
-- Créditos na base_clientes (Marina irá revisar);
-- Ajustar Ícones (photoshop) para ficarem do mesmo tamanho na página Index.
+- Revisar página Index, ajustar Div com logo e texto e imagens para porcentagens (responsividade com telas maiores)
+
+Página Estacionar:
+- A caixinha de adicionar tempo/ valor está "quebrada";
 
 Página Extrato:
-- Dados na tabela assim?
+- Dados na tabela assim? Dar uma revisada;
+- Ajustar botões de "Dia Atual" e etc para funcionarem;
+- Ajustar style dos filtros drop-down (procurar algo pronto no w3 schools);
 
 Página Adicionar Créditos:
-- Consertar a página que o Augusto quebrou tudo (Desculpa, Marina!);
-- Campo Créditos separado
+- Dúvida: Inverter Campo Adicionar com campo que mostra o balanço de Créditos?
 - Mensagem de Crédito adicionado com sucesso.
 
 Página Veículos:
 - Adicionar mensagem de carro cadastrado com sucesso;
-- Formatar página de exclusão de veículos;
 
 Página Dados:
 - Formatar form de envio de imagem;
-- Mensagem de Dados atualizados com sucesso;
+- Conferir posição e estilo da mensagem de Dados atualizados com sucesso;
 
 Se der tempo:
-- Máscara dos créditos mostrando duas casas decimais;
-- Validação para placa do carro e CPF (Viana já fez);
-- password reset;
-- Vai ter botão de zerar? (Sim, se der tempo)
-- Arrumar "bug" da troca de botão display da página "Estacionar";
-- Revisar página Dados;
+- Revisar Validações de CPF / Data / Placa do Carro (conferir jquery maskedinput);
+- Password reset;
+- Páginação no Extrato;
+- Conferir se consigo pegar apenas os Veículos do Cliente no filtro;
+
 
 
 

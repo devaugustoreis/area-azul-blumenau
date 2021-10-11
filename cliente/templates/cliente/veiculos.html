@@ -14,10 +14,14 @@
             {% csrf_token %}
             <div class="add_plate">
                 <h2>Placa:</h2>
-                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
+                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" autocapitalize="characters" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
                 <button type="submit"><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
             </div>  
         </form>
+    </div>
+        
+    <div class="cliente_messages msg-success" style="display:none;" id="msg-teste">
+        <p>Carro Cadastrado com Sucesso!</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
     </div>
 
     <div class="vehicle_plate_veiculos">
@@ -49,10 +53,6 @@
                 {% endfor %}
             </div>
     </div>
-   
-    <!-- {% for message in messages %}
-        <p class="home_messages">{{message}}</p>
-    {% endfor %} -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
@@ -60,6 +60,10 @@
         pageTitle.innerHTML = 'Meus Veículos'
 
         let divMensagem = document.getElementById('div-message')
+
+        function deletarMensagem(botao) {
+            botao.parentElement.remove()
+        }
 
         let vehicle_type = 'C'
         let btnCar = document.getElementById('btn-type-car')
@@ -86,26 +90,18 @@
         }
 
 
-        $(document).on('submit', '#novo_veiculo_form', function(){ 
+        $(document).on('submit', '#novo_veiculo_form', function(){
 
             $.ajax({
                 type: 'POST',
-                url: 'adicionar/',
+                url: '',
                 data: {
-                    license_plate: $('#placa').val(),
+                    license_plate: $('#placa').val().toUpperCase(),
                     vehicle_type: vehicle_type,
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },
                 success:function(){
-                    console.log('TESTE 123')
-                    document.querySelector(".message").innerHTML = "Carro cadastrado com sucesso."
-                    var test = document.querySelector(".message").classList.remove('hidden')
-                    console.log('TESTE ' + test)
-                    console.log('Cadastrando carro..')
-                    window.location.reload(true); 
-                    Location.reload()
-                    $("#div-message").show();
-                    $("#div-message").delay(5000).fadeOut();
+                    $("#msg-teste").load();
                 }
             });
 

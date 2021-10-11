@@ -1,0 +1,136 @@
+{% extends 'cliente/base_clientes.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="add_credits">
+        {% include 'partials/_add_credits.html' %}
+    </div>
+
+    <form id="add-credits-form">
+        {% csrf_token %}
+        <div class="informations_add_credits">
+
+            <div id="saldo_add_credits">
+                <h2>Saldo Atual:</h2>
+                <div class="informations">
+                    <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
+                    <div class="box">
+                        <p>R$ <span id="saldo-atual">{{user.client.credits|floatformat:2}}</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="saldo_add_credits">
+                <h2>Valor a Adicionar:</h2>
+                <div class="informations">
+                    <img src="{% static 'imagens/valor2.png' %}" alt="stylesheet">
+                    <div class="box">
+                        <p class="total-creditos">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2>Saldo Final:</h2>
+                <div class="informations">
+                    <img src="{% static 'imagens/Adicionar_Creditos_Blue.png' %}" alt="stylesheet">
+                    <div class="box">
+                        <p id="saldo-final"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="payment_method_add_credits">
+            {% include 'partials/_payment_method.html' %}
+        </div>
+        <div class="button_confirm">
+            <button type="submit">Confirmar</button>
+        </div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Adicionar Créditos'
+
+        /* Botões Adicionar Créditos */
+        let inputAumentoCustom = document.getElementById('aumento-creditos-custom')
+        let displayCreditos = document.querySelector('.total-creditos')
+        let saldoAtual = document.getElementById('saldo-atual').innerHTML
+        let displaySaldoFinal = document.querySelector('#saldo-final')
+
+        saldoAtual = saldoAtual.replace(/,/g, '.')
+        saldoAtual = parseFloat(saldoAtual)
+
+        let totalCreditos = 0
+        let saldoFinal = saldoAtual
+        displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+
+        function aumentarCreditos(valor) {
+            totalCreditos += valor
+            displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
+            saldoFinal = saldoAtual + totalCreditos
+            displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+        }
+
+        function reduzirCreditos(valor) {
+            totalCreditos -= valor
+            if (totalCreditos < 0) totalCreditos = 0
+            displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
+            saldoFinal = saldoAtual + totalCreditos
+            displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+        }
+
+        function aumentarCreditosCustom() {
+            if (inputAumentoCustom.value < 0) inputAumentoCustom.value = 0
+            if (inputAumentoCustom.value != '') {
+                totalCreditos += parseFloat(inputAumentoCustom.value)
+                displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
+                saldoFinal = saldoAtual + totalCreditos
+                displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+            }
+        }
+
+        function zerarCreditos() {
+            totalCreditos = 0
+            displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
+            saldoFinal = saldoAtual + totalCreditos
+            displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+        }
+
+        /* Botões Método de Pagamento */
+        let btnCredito = document.getElementById('btn-credito')
+        let btnDebito = document.getElementById('btn-debito')
+        let btnPix = document.getElementById('btn-pix')
+        
+        payment_method = 'Crédito'
+
+        function btnActive(botao1, botao2, botao3, pagamento) {
+            botao2.classList.remove('btn-active')
+            botao3.classList.remove('btn-active')
+            botao1.classList.add('btn-active')
+            payment_method = pagamento
+        }
+        
+
+        $(document).on('submit', '#add-credits-form', function(){ 
+
+            $.ajax({
+                type: 'POST',
+                url: '',
+                data: {
+                    value: totalCreditos,
+                    payment_method: payment_method,
+                    operation: 'Compra de Créditos',
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success:function(){
+                    
+                }
+            });
+
+        });
+
+    </script>
+{% endblock %}
