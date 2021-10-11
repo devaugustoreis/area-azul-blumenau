@@ -19,6 +19,17 @@ def estacionar(request, pk):
     motos = client.vehicle_set.filter(vehicle_type='M')
     others = client.vehicle_set.filter(vehicle_type='O')
     vehicles = Vehicle.objects.filter(owners__id=pk)
+
+    if request.method == 'POST':
+        plate = request.POST['license_plate']
+        type = 'C'
+
+        newVehicle = Vehicle.objects.create(
+            license_plate = plate, 
+            vehicle_type = type
+        )
+
+        newVehicle.owners.add(client)
     
     context = {'client':client, 'cars':cars, 'motos':motos, 'others':others, 'vehicles':vehicles}
     return render(request, "cliente/estacionar.html", context)
@@ -38,14 +49,6 @@ def extrato(request, pk):
 
 @login_required(login_url='login')
 def creditos(request, pk):
-    client = Client.objects.get(pk=pk)
-
-    context = {'client':client}
-    return render(request, "cliente/add_creditos.html", context)
-
-
-@login_required(login_url='login')
-def adicionarCreditos(request, pk):
     client = Client.objects.get(id=pk)
 
     if request.method == 'POST':
@@ -62,7 +65,7 @@ def adicionarCreditos(request, pk):
             client=client, operation_type=operacao, payment_method=pagamento, value=creditos, balance=newBalance
         )
 
-        return render(request, "cliente/creditos.html")
+    return render(request, "cliente/adicionar_creditos.html")
 
 
 @login_required(login_url='login')

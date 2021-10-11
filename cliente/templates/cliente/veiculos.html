@@ -14,7 +14,7 @@
             {% csrf_token %}
             <div class="add_plate">
                 <h2>Placa:</h2>
-                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
+                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" autocapitalize="characters" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
                 <button type="submit"><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
             </div>  
         </form>
@@ -96,7 +96,7 @@
                 type: 'POST',
                 url: '',
                 data: {
-                    license_plate: $('#placa').val(),
+                    license_plate: $('#placa').val().toUpperCase(),
                     vehicle_type: vehicle_type,
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },

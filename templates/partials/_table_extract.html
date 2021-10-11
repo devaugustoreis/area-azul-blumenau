@@ -14,8 +14,8 @@
             <td>{{operation.operation_type}}</td>
             <td>{% if operation.payment_method %}{{operation.payment_method}}{% else %}---{% endif %}</td>
             <td>{% if operation.vehicle %}{{operation.vehicle}}{% else %}---{% endif %}</td>
-            <td>R$ {{operation.value}}</td>
-            <td class="saldo">R$ {{operation.balance}}</td>
+            <td>R$ {{operation.value|floatformat:2}}</td>
+            <td class="saldo">R$ {{operation.balance|floatformat:2}}</td>
         </tr>
     {% endfor %}
 </table>
@@ -29,5 +29,5 @@
 </div> -->
 <table class="tabela-total">
     <td>Saldo</td>
-    <td>R$ {{client.credits}}</td>
+    <td>R$ {{client.credits|floatformat:2}}</td>
 </table>

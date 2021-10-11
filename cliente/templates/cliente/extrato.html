@@ -20,25 +20,36 @@
     endDate.setAttribute('maxlength', 10);
 
     startDate.onkeyup = function() {
-      mascara_data(startDate, startDate.value)
+      mascaraData(startDate, startDate.value)
     }
 
     endDate.onkeyup = function() {
-      mascara_data(endDate, endDate.value)
+      mascaraData(endDate, endDate.value)
     }
 
-    function mascara_data(campo, valor){
-    var mydata = '';
-    mydata = mydata + valor;
-    if (mydata.length == 2){
-      mydata = mydata + '/';
-      campo.value = mydata;
+    function mascaraData(campo, valor){
+      var key = event.keyCode || event.charCode;
+      if( key == 8 || key == 46 ) return false;
+      
+      var mydata = '';
+      mydata = mydata + valor;
+      if (mydata.length == 2){
+        mydata = mydata + '/';
+        campo.value = mydata;
+      }
+      if (mydata.length == 5){
+        mydata = mydata + '/';
+        campo.value = mydata;
+      }
     }
-    if (mydata.length == 5){
-      mydata = mydata + '/';
-      campo.value = mydata;
-    }
-  }
+  
+    // let btnFilterToday = document.getElementById('filter-today')
+    // let btnFilterMonth = document.getElementById('filter-this-month')
+    // let btnFilterYear = document.getElementById('filter-this-year') 
+    
+    // function filterToday(){
+    //   startDate = 
+    // }
 
   </script>
 {% endblock %}

@@ -15,7 +15,7 @@
                 <div class="informations">
                     <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
                     <div class="box">
-                        <p id="saldo-atual">R$ {{user.client.credits}}</p>
+                        <p>R$ <span id="saldo-atual">{{user.client.credits|floatformat:2}}</span></p>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="informations">
                     <img src="{% static 'imagens/valor2.png' %}" alt="stylesheet">
                     <div class="box">
-                        <p class="total-creditos">R$ 0.00</p>
+                        <p class="total-creditos">R$ 0,00</p>
                     </div>
                 </div>
             </div>
@@ -57,38 +57,46 @@
         /* Botões Adicionar Créditos */
         let inputAumentoCustom = document.getElementById('aumento-creditos-custom')
         let displayCreditos = document.querySelector('.total-creditos')
-        let saldoAtual = document.getElementById('saldo-atual').value
+        let saldoAtual = document.getElementById('saldo-atual').innerHTML
         let displaySaldoFinal = document.querySelector('#saldo-final')
 
-        console.log(saldoAtual)
+        saldoAtual = saldoAtual.replace(/,/g, '.')
+        saldoAtual = parseFloat(saldoAtual)
 
         let totalCreditos = 0
         let saldoFinal = saldoAtual
-        // displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2)}`
+        displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
 
-        function aumentarCreditos(valor){
+        function aumentarCreditos(valor) {
             totalCreditos += valor
-            displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2)}`
+            displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
             saldoFinal = saldoAtual + totalCreditos
-            displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2)}`
+            displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
         }
 
-        function reduzirCreditos(valor){
+        function reduzirCreditos(valor) {
             totalCreditos -= valor
             if (totalCreditos < 0) totalCreditos = 0
-            displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2)}`
+            displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
             saldoFinal = saldoAtual + totalCreditos
-            displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2)}`
+            displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
         }
 
-        function aumentarCreditosCustom(){
+        function aumentarCreditosCustom() {
             if (inputAumentoCustom.value < 0) inputAumentoCustom.value = 0
             if (inputAumentoCustom.value != '') {
                 totalCreditos += parseFloat(inputAumentoCustom.value)
-                displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2)}`
+                displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
                 saldoFinal = saldoAtual + totalCreditos
-                displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2)}`
+                displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
             }
+        }
+
+        function zerarCreditos() {
+            totalCreditos = 0
+            displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
+            saldoFinal = saldoAtual + totalCreditos
+            displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
         }
 
         /* Botões Método de Pagamento */
@@ -96,6 +104,8 @@
         let btnDebito = document.getElementById('btn-debito')
         let btnPix = document.getElementById('btn-pix')
         
+        payment_method = 'Crédito'
+
         function btnActive(botao1, botao2, botao3, pagamento) {
             botao2.classList.remove('btn-active')
             botao3.classList.remove('btn-active')
@@ -108,7 +118,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: 'adicionar/',
+                url: '',
                 data: {
                     value: totalCreditos,
                     payment_method: payment_method,

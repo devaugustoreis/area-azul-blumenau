@@ -78,8 +78,13 @@
         </div>
     </div> -->
 
+    <div id="countdown">Countdown: </div>
+
     <div class="button_confirm">
-        <button>Confirmar</button>
+        <!-- <form action="" id="estacionar_form"> -->
+            {% csrf_token %}
+            <button onclick="getEntryTime(); getExpirationTime(); countdown();">Confirmar</button>
+        <!-- </form> -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -131,6 +136,7 @@
 
 
         function btnActive(botao) {
+            chosenCar = botao.innerHTML
             totalTempo = 0
             totalValue = 0
             displayTempo.innerHTML = `${totalTempo}min`
@@ -143,15 +149,15 @@
                 valorVeiculo1 = 1.50
                 valorVeiculo2 = 3
                 tipoVeiculo = 'car or other' 
-                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2)}`
-                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2)}`
+                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2).replace(".", ',')}`
+                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2).replace(".", ',')}`
             }
             if (botao.classList.contains('btn-moto')) {
                 valorVeiculo1 = 0.75
                 valorVeiculo2 = 1.5
                 tipoVeiculo = 'moto' 
-                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2)}`
-                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2)}`
+                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2).replace(".", ',')}`
+                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2).replace(".", ',')}`
             }
         }
 
@@ -162,8 +168,8 @@
                 valorVeiculo1 = 0
                 valorVeiculo2 = 0
                 tipoVeiculo = '' 
-                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2)}`
-                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2)}`
+                displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2).replace(".", ',')}`
+                displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2).replace(".", ',')}`
             }
         }
 
@@ -211,7 +217,8 @@
                 if (valorReais == 'Tarifa Menor') {totalValue += valorVeiculo1}
                 else if (valorReais == 'Tarifa Maior') {totalValue += valorVeiculo2}
                 displayTempo.innerHTML = `${totalTempo}min`
-                displayValue.innerHTML = `R$ ${totalValue.toFixed(2)}`
+                displayValue.innerHTML = `R$ ${totalValue.toFixed(2).replace(".", ',')}`
+                convertTime()
             }
         }
 
@@ -224,9 +231,72 @@
                 else if (valorReais == 'Tarifa Maior') {totalValue -= valorVeiculo2}
                 if (totalValue < 0) totalValue = 0 
                 displayTempo.innerHTML = `${totalTempo}min`
-                displayValue.innerHTML = `R$ ${totalValue.toFixed(2)}`
+                displayValue.innerHTML = `R$ ${totalValue.toFixed(2).replace(".", ',')}`
+                convertTime()
             }
         }
+
+
+        var divCountdown = document.getElementById('countdown')
+
+        var hours = 0
+        var minutes = 0
+        var seconds = 0;
+
+        function convertTime(){
+            hours = Math.floor(totalTempo / 60);          
+            minutes = totalTempo % 60;   
+        }
+
+
+        function getEntryTime() {
+            var today = new Date();
+            var now = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            console.log('Entry Time:', now)
+            console.log('{{user.client.credits}}')
+        }
+
+
+        function getExpirationTime() {
+            var today2 = new Date();
+            var expiration = (today2.getHours()+hours) + ":" + (today2.getMinutes()+minutes) + ":" + today2.getSeconds();
+            console.log('Expiration:', expiration)
+        }
+
+
+        function countdown(){
+            if (seconds == 0) {
+                seconds = 59;
+                minutes--;
+            } else {
+                seconds--;
+            }
+            if (minutes == -1) {
+                minutes = 59;
+                hours--;
+            }
+
+            divCountdown.innerHTML = "hours:"+hours+", minutes:"+minutes+", seconds:"+seconds;
+            setTimeout(countdown, 1000);
+        }
+
+        // $(document).on('submit', '#estacionar_form', function() {
+
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '',
+        //         data: {
+        //             license_plate: 'QIB3758',
+        //             // now = ,
+        //             timer = totalTempo,
+        //             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+        //         },
+        //         success:function(){
+        //             alert('Deu boa!')
+        //         }
+        //     });
+
+        // });
 
     </script>
 {% endblock %}
