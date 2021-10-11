@@ -13,15 +13,33 @@
         <div id='vehiclesDiv'>
         
         {% for car in cars %}
-            <button class="btn_vehicle_plate btn-car" onclick="btnActive(this)"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
+            <button 
+                class="btn_vehicle_plate btn-car" 
+                onclick="btnActive(this)"
+                id="{{car}}">
+                    <img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">
+                    {{car}}
+            </button>
         {% endfor %}
         
         {% for moto in motos %}
-            <button class="btn_vehicle_plate btn-moto" onclick="btnActive(this)"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
+            <button 
+                class="btn_vehicle_plate btn-moto" 
+                onclick="btnActive(this)"
+                id="{{moto}}">
+                    <img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">
+                    {{moto}}
+            </button>
         {% endfor %}
 
         {% for other in others %}
-            <button class="btn_vehicle_plate btn-other" onclick="btnActive(this)"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
+            <button 
+                class="btn_vehicle_plate btn-other" 
+                onclick="btnActive(this)"
+                id="{{other}}">
+                    <img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">
+                    {{other}}
+            </button>
         {% endfor %}
         
         </div>
@@ -81,16 +99,18 @@
     <div id="countdown">Countdown: </div>
 
     <div class="button_confirm">
-        <!-- <form action="" id="estacionar_form"> -->
+        <form action="" id="estacionar_form">
             {% csrf_token %}
-            <button onclick="getEntryTime(); getExpirationTime(); countdown();">Confirmar</button>
-        <!-- </form> -->
+            <button onclick="">Confirmar</button>
+        </form>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         let pageTitle = document.getElementById('page-title')
         pageTitle.innerHTML = 'Estacionar'
+
+        var chosenCar = 'EFG4567'
 
         /* Botões Tipo de Veículo e Veículo */
         let btnAll = document.getElementById('btn-type-all')
@@ -136,7 +156,9 @@
 
 
         function btnActive(botao) {
-            chosenCar = botao.innerHTML
+            chosenCar = botao.id
+            console.log(chosenCar)
+            console.log(typeof(chosenCar))
             totalTempo = 0
             totalValue = 0
             displayTempo.innerHTML = `${totalTempo}min`
@@ -253,14 +275,22 @@
             var today = new Date();
             var now = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             console.log('Entry Time:', now)
-            console.log('{{user.client.credits}}')
+            return now
         }
 
 
         function getExpirationTime() {
             var today2 = new Date();
-            var expiration = (today2.getHours()+hours) + ":" + (today2.getMinutes()+minutes) + ":" + today2.getSeconds();
+            var exp_h = (today2.getHours()+hours)
+            var exp_m = (today2.getMinutes()+minutes)
+            if (exp_m >= 60) {
+                exp_h++;
+                exp_m = exp_m % 60;
+            }
+            var exp_s = today2.getSeconds()
+            var expiration = exp_h + ":" + exp_m + ":" + exp_s;
             console.log('Expiration:', expiration)
+            return expiration
         }
 
 
@@ -280,23 +310,28 @@
             setTimeout(countdown, 1000);
         }
 
-        // $(document).on('submit', '#estacionar_form', function() {
+        $(document).on('submit', '#estacionar_form', function() {
+            let entryTime = getEntryTime()
+            let expiration = getExpirationTime()
 
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: '',
-        //         data: {
-        //             license_plate: 'QIB3758',
-        //             // now = ,
-        //             timer = totalTempo,
-        //             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-        //         },
-        //         success:function(){
-        //             alert('Deu boa!')
-        //         }
-        //     });
+            $.ajax({
+                type: 'POST',
+                url: '',
+                data: {
+                    license_plate: chosenCar,
+                    value: totalValue,
+                    entry_time: entryTime,
+                    expiration_time: expiration,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success:function(){
 
-        // });
+                },
+                error: function (error) {
+                    alert('error; ' + eval(error));
+                }
+            });
+        });
 
     </script>
 {% endblock %}

@@ -22,11 +22,14 @@ def estacionar(request, pk):
 
     if request.method == 'POST':
         plate = request.POST['license_plate']
-        type = 'C'
+        entry = request.POST['entry_time']
+        expiration = request.POST['expiration_time']
 
         newVehicle = Vehicle.objects.create(
             license_plate = plate, 
-            vehicle_type = type
+            vehicle_type = 'C',
+            entry_time = entry,
+            expiration_time = expiration
         )
 
         newVehicle.owners.add(client)
