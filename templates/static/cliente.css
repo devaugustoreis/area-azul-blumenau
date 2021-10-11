@@ -538,6 +538,35 @@ body {
     padding-right: 8px;
 }
 
+.filtros {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.campo-filtros {
+    color: var(--cor0);
+    width: 230px;
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    margin-right: 25px;
+    padding: 8px;
+}
+
+.campo-filtros p {
+    margin-bottom: 8px;
+}
+
+#id_operation_type, #id_payment_method, #id_start_value, #id_end_value {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    color: var(--cor0);
+    width: 100%;
+    cursor: pointer;
+    padding: 3px;
+}
+
 /* Módulo "table_extract" */
 .tabela-extrato {
     border-collapse: collapse;
@@ -862,12 +891,11 @@ body {
 
 /* Messages */
 .cliente_messages {
-    width: 30%;
     margin: 25px auto;
     width: 350px;
-    margin-top: 25px;
+    margin-top: 50px;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -875,7 +903,7 @@ body {
 
 .msg-success {
     border: 1px solid #b8daff;
-    background-color: #0070c0bb;
+    background-color: var(--cor11);
     color: var(--cor12);
 }
 
@@ -925,12 +953,12 @@ body {
 /* Página "Extrato" */
 .date_filter_extrato {
     grid-column: 1/13;
-    grid-row: 1/4;
+    grid-row: 1/5;
 }
 
 .div_table_extract {
     grid-column: 1/13;
-    grid-row: 4/13;
+    grid-row: 5/13;
 }
 
 /* Página "Adicionar Créditos" */
@@ -1174,8 +1202,24 @@ body {
     transition: 0.2s;
 }
 
+#profile_pic-clear_id {
+    width: 13px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+}
+
 #import-img {
     height: 100px;
+}
+
+#id_profile_pic {
+    font-size: 14px;
+    color: var(--cor7);
+    width: 80%;
+}
+
+#id_profile_pic button#file-upload-button {
+    color: red;
 }
 
 .btn-dados {

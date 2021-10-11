@@ -1,10 +1,13 @@
 {% load static %}
 <form>
-    Movimento: {{operation_filter.form.operation_type}}
-    Forma de Pagemento: {{operation_filter.form.payment_method}}
-    <!-- {{operation_filter.form.vehicle}} -->
-    Valor Inicial: {{operation_filter.form.start_value}}
-    Valor Final: {{operation_filter.form.end_value}}
+    <div class="filtros">
+        <div class="campo-filtros"><p>Movimento:</p>{{operation_filter.form.operation_type}}</div>
+        <div class="campo-filtros"><p>Forma de Pagamento:</p>{{operation_filter.form.payment_method}}</div>
+        <!-- {{operation_filter.form.vehicle}} -->
+        <div class="campo-filtros"><p>Valor Inicial:</p>{{operation_filter.form.start_value}}</div>
+        <div class="campo-filtros"><p>Valor Final:</p>{{operation_filter.form.end_value}}</div>
+    </div>
+
     <div class="date_filter">
         <button id="filter-today">Dia atual</button>
         <button id="filter-this-month">Mês atual</button>
@@ -23,4 +26,5 @@
             </div>
         </div>
     </div>
+
 </form>
