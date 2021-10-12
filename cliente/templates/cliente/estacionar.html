@@ -96,12 +96,20 @@
         </div>
     </div> -->
 
-    <div id="countdown">Countdown: </div>
+    {% for vehicle in vehicles %}
+        {% if vehicle.expiration_time %}
+            <div id="divCountdown">
+                <img src onerror='displayCountdown("{{vehicle.expiration_time|date:'H:i:s'}}")'>{{vehicle}}
+                Expiration: {{ vehicle.expiration_time|date:'H:i:s' }}
+                Countdown:<span id="span-countdown"></span>
+            </div>
+        {% endif %}
+    {% endfor %}
 
     <div class="button_confirm">
         <form action="" id="estacionar_form">
             {% csrf_token %}
-            <button onclick="">Confirmar</button>
+            <button>Confirmar</button>
         </form>
     </div>
 
@@ -157,8 +165,6 @@
 
         function btnActive(botao) {
             chosenCar = botao.id
-            console.log(chosenCar)
-            console.log(typeof(chosenCar))
             totalTempo = 0
             totalValue = 0
             displayTempo.innerHTML = `${totalTempo}min`
@@ -259,41 +265,48 @@
         }
 
 
-        var divCountdown = document.getElementById('countdown')
+        var spanCountdown = document.getElementById('span-countdown')
 
         var hours = 0
         var minutes = 0
-        var seconds = 0;
+        var seconds = 0
+        var hours_increased = 0
+        var minutes_increased = 0
+
 
         function convertTime(){
-            hours = Math.floor(totalTempo / 60);          
-            minutes = totalTempo % 60;   
+            hours_increased = Math.floor(totalTempo / 60);          
+            minutes_increased = totalTempo % 60;   
         }
 
 
-        function getEntryTime() {
-            var today = new Date();
-            var now = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            console.log('Entry Time:', now)
-            return now
-        }
+        var today = new Date(); 
+        var now_h = today.getHours() 
+        var now_m = today.getMinutes() 
+        var now_s = today.getSeconds()
+        var now_full = now_h + ":" + now_m + ":" + now_s
+        
 
-
-        function getExpirationTime() {
-            var today2 = new Date();
-            var exp_h = (today2.getHours()+hours)
-            var exp_m = (today2.getMinutes()+minutes)
-            if (exp_m >= 60) {
-                exp_h++;
-                exp_m = exp_m % 60;
+        function displayCountdown(exp_time) {
+            console.log(now_full)
+            console.log(exp_time)
+            var start_time = now_full.split(":")
+            var end_time = exp_time.split(":")
+            hours = end_time[0] - start_time[0]
+            minutes = end_time[1] - start_time[1]
+            if (minutes < 0) {
+                minutes = minutes + 60
+                hours--
             }
-            var exp_s = today2.getSeconds()
-            var expiration = exp_h + ":" + exp_m + ":" + exp_s;
-            console.log('Expiration:', expiration)
-            return expiration
+            seconds = end_time[2] - start_time[2]
+            if (seconds < 0) {
+                seconds = seconds + 60
+                minutes--
+            }
+            countdown()
         }
 
-
+        
         function countdown(){
             if (seconds == 0) {
                 seconds = 59;
@@ -305,14 +318,39 @@
                 minutes = 59;
                 hours--;
             }
-
-            divCountdown.innerHTML = "hours:"+hours+", minutes:"+minutes+", seconds:"+seconds;
-            setTimeout(countdown, 1000);
+            if (hours == -1) {
+                spanCountdown.innerHTML = "Tempo Expirado."
+            } else {
+                spanCountdown.innerHTML = "hours:"+hours+", minutes:"+minutes+", seconds:"+seconds;
+                setTimeout(countdown, 1000);
+            } 
         }
 
+
+        function getEntryTime() {
+            var today2 = new Date();
+            var entry = today2.getHours() + ":" + today2.getMinutes() + ":" + today2.getSeconds();
+            return entry
+        }
+
+
+        function getExpirationTime() {
+            var today3 = new Date();
+            var exp_h = (today3.getHours()+hours_increased)
+            var exp_m = (today3.getMinutes()+minutes_increased)
+            if (exp_m >= 60) {
+                exp_h++;
+                exp_m = exp_m % 60;
+            }
+            var exp_s = today3.getSeconds()
+            var expiration = exp_h + ":" + exp_m + ":" + exp_s;
+            return expiration
+        }
+
+        
         $(document).on('submit', '#estacionar_form', function() {
             let entryTime = getEntryTime()
-            let expiration = getExpirationTime()
+            let expirationTime = getExpirationTime()
 
             $.ajax({
                 type: 'POST',
@@ -321,7 +359,7 @@
                     license_plate: chosenCar,
                     value: totalValue,
                     entry_time: entryTime,
-                    expiration_time: expiration,
+                    expiration_time: expirationTime,
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },
                 success:function(){

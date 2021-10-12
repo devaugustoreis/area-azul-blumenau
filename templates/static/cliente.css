@@ -909,7 +909,7 @@ body {
     grid-row: 2/9;
 } */
 
-#countdown {
+#divCountdown {
     width: 350px;
     height: 100px;
     border: 1px red solid;

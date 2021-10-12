@@ -25,14 +25,15 @@ def estacionar(request, pk):
         entry = request.POST['entry_time']
         expiration = request.POST['expiration_time']
 
-        newVehicle = Vehicle.objects.create(
-            license_plate = plate, 
-            vehicle_type = 'C',
-            entry_time = entry,
-            expiration_time = expiration
-        )
+        for vehicle in vehicles:
+            vehicle.entry_time = None
+            vehicle.expiration_time = None
+            vehicle.save()
 
-        newVehicle.owners.add(client)
+        parkedVehicle = Vehicle.objects.get(license_plate=plate)
+        parkedVehicle.entry_time = entry
+        parkedVehicle.expiration_time = expiration
+        parkedVehicle.save()
     
     context = {'client':client, 'cars':cars, 'motos':motos, 'others':others, 'vehicles':vehicles}
     return render(request, "cliente/estacionar.html", context)
