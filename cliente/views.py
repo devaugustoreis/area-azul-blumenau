@@ -1,4 +1,4 @@
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, HttpResponseRedirect
 from home.models import Address, Client, Vehicle, Operation
 from home.forms import AddressForm, ClientForm
 from django.shortcuts import redirect, render
@@ -22,14 +22,31 @@ def estacionar(request, pk):
 
     if request.method == 'POST':
         plate = request.POST['license_plate']
-        type = 'C'
+        entry = request.POST['entry_time']
+        expiration = request.POST['expiration_time']
+        creditos = request.POST['value']
 
-        newVehicle = Vehicle.objects.create(
-            license_plate = plate, 
-            vehicle_type = type
+        for vehicle in vehicles:
+            vehicle.entry_time = None
+            vehicle.expiration_time = None
+            vehicle.save()
+
+        parkedVehicle = Vehicle.objects.get(license_plate=plate)
+        parkedVehicle.entry_time = entry
+        parkedVehicle.expiration_time = expiration
+        parkedVehicle.save()
+
+        balanco = client.credits
+        newBalance = balanco - float(creditos)
+
+        client.credits -= float(creditos)
+        client.save()
+
+        Operation.objects.create(
+            client=client, operation_type="Estacionar", vehicle=parkedVehicle, value=creditos, balance=newBalance
         )
 
-        newVehicle.owners.add(client)
+        return redirect('estacionar', client.pk)
     
     context = {'client':client, 'cars':cars, 'motos':motos, 'others':others, 'vehicles':vehicles}
     return render(request, "cliente/estacionar.html", context)
@@ -60,6 +77,8 @@ def creditos(request, pk):
 
         client.credits += float(creditos)
         client.save()
+
+        # messages.add_message(request, messages.SUCCESS, f'R${creditos} em créditos adicionados com sucesso à sua conta!')
 
         Operation.objects.create(
             client=client, operation_type=operacao, payment_method=pagamento, value=creditos, balance=newBalance
@@ -93,7 +112,9 @@ def veiculos(request, pk):
         )
 
         newVehicle.owners.add(client)
-        # messages.add_message(request, messages.SUCCESS, 'Carro cadastrado com sucesso!')
+        # messages.add_message(request, messages.SUCCESS, 'Veículo cadastrado com sucesso!')
+
+        return redirect('veiculos', client.pk)
     
     context = {'client':client, 'cars':cars, 'motos':motos, 'others':others, 'vehicles':vehicles}
     return render(request, "cliente/veiculos.html", context)
@@ -122,8 +143,11 @@ def veiculos(request, pk):
 def excluirVeiculo(request, pk_client, pk_vehicle):
     client = Client.objects.get(id=pk_client)
     vehicle = Vehicle.objects.get(id=pk_vehicle)
+
     if request.method == 'POST':
         vehicle.delete()
+        messages.add_message(request, messages.SUCCESS, 'Veículo excluído com sucesso!')
+
         return redirect('veiculos', client.pk)
 
     context = {'client':client, 'vehicle':vehicle}

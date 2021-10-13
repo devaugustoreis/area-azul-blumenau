@@ -41,11 +41,17 @@
             </div>
 
         </div>
+
         <div class="payment_method_add_credits">
             {% include 'partials/_payment_method.html' %}
         </div>
+
+        <div class="cliente_messages msg-success" id="div-msg-creditos">
+            <p id="msg-credito-adicionado"></p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
+        </div>
+
         <div class="button_confirm">
-            <button type="submit">Confirmar</button>
+            <button type="submit" onclick="forcedReload()">Confirmar</button>
         </div>
     </form>
 
@@ -53,6 +59,20 @@
     <script>
         let pageTitle = document.getElementById('page-title')
         pageTitle.innerHTML = 'Adicionar Créditos'
+
+        $('#div-msg-creditos').hide()
+
+        function forcedReload() {
+            setTimeout(function() {
+                window.location.reload(true)
+            }, 3000);
+        }
+
+
+        function deletarMensagem(botao) {
+            botao.parentElement.remove()
+        }
+
 
         /* Botões Adicionar Créditos */
         let inputAumentoCustom = document.getElementById('aumento-creditos-custom')
@@ -113,8 +133,11 @@
             payment_method = pagamento
         }
         
+        msgCreditos = document.getElementById('msg-credito-adicionado')
+        msgCreditos.innerHTML = `Créditos adicionados à sua conta com sucesso!`
 
         $(document).on('submit', '#add-credits-form', function(){ 
+            $('#msg-credito-adicionado').html(`R$${totalCreditos.toFixed(2).replace(".", ',')} em créditos foram adicionados à sua conta com sucesso!`)
 
             $.ajax({
                 type: 'POST',
@@ -125,11 +148,21 @@
                     operation: 'Compra de Créditos',
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },
-                success:function(){
-                    
+                beforeSend:function(html) {
+                    setTimeout(function(){
+                        $("#div-msg-creditos").fadeIn()
+                    }, 3000);
+                },
+                success:function() {
+                    $("#div-msg-creditos").fadeIn()
+                    setTimeout(function() {
+                        $("#div-msg-creditos").fadeOut()
+                    }, 3000);
                 }
+
             });
 
+            return false
         });
 
     </script>

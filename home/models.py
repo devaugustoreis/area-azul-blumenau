@@ -31,7 +31,8 @@ class Vehicle(models.Model):
         ('O', 'Other'),
     )
     license_plate = models.CharField(max_length=7)
-    entry_time = models.DateTimeField(null=True ,blank=True)
+    entry_time = models.TimeField(null=True, blank=True)
+    expiration_time = models.TimeField(null=True, blank=True)
     timer = models.IntegerField(null=True, blank=True, default=0)
     vehicle_type = models.CharField(max_length=1, choices=VEHICLES_TYPE)
     owners = models.ManyToManyField(Client)
