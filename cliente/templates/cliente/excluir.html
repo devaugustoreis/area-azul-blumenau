@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+    <script>
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Excluir Veículo'
+    </script>
+
     <div class="div-excluir">
         <form class="form-excluir" action="{% url 'excluirVeiculo' user.client.id vehicle.id %}" method='POST'>
             <p>Você tem certeza que quer excluir o veículo <strong>"{{vehicle}}"</strong>?</p>
@@ -12,8 +17,5 @@
             </div>
         </form>
     </div>
-    <script>
-        let pageTitle = document.getElementById('page-title')
-        pageTitle.innerHTML = 'Excluir Veículo'
-    </script>
+
 {% endblock %}

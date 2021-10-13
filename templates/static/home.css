@@ -104,14 +104,20 @@ a {
 }
 
 .home_messages {
-    border: 1px solid var(--cor5);
-    background-color: var(--cor5);
-    color: var(--cor6);
-    width: 100%;
-    margin-top: 10px;
+    margin: 25px auto;
+    width: 350px;
+    margin-top: 50px;
     border-radius: 5px;
-    padding: 5px;
-    font-weight: bold;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.msg-success {
+    border: 1px solid #b8daff;
+    background-color: var(--cor11);
+    color: var(--cor12);
 }
 
 .btn {

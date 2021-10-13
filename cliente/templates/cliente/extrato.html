@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+  <script>
+    let pageTitle = document.getElementById('page-title')
+    pageTitle.innerHTML = 'Extrato'
+  </script>
+  
   <div class="date_filter_extrato">
     {% include 'partials/_date_filter.html' %}
   </div>
@@ -10,9 +15,6 @@
   </div>
 
   <script>
-    let pageTitle = document.getElementById('page-title')
-    pageTitle.innerHTML = 'Extrato'
-
     let startDate = document.getElementById('id_start_date')
     let endDate = document.getElementById('id_end_date')
 
@@ -80,7 +82,20 @@
     }
 
     
-    function setLastMonth() {
+    // function setLastMonth() {
+    //   getDateNow()
+    //   month -= 1
+    //   if (month < 1) {
+    //     month = 12
+    //     year--
+    //   }
+    //   let lastMonth = day+'/'+month+'/'+year
+    //   startDate.value = lastMonth
+    //   endDate.value = tomorrow
+    // }
+
+
+    function thisMonth() {
       getDateNow()
       month -= 1
       if (month < 1) {
@@ -91,15 +106,15 @@
       startDate.value = lastMonth
       endDate.value = tomorrow
     }
+    
 
-
-    function setLastYear() {
-      getDateNow()
-      year -= 1
-      let lastYear = day+'/'+month+'/'+year
-      startDate.value = lastYear
-      endDate.value = tomorrow
-    }
+    // function setLastYear() {
+    //   getDateNow()
+    //   year -= 1
+    //   let lastYear = day+'/'+month+'/'+year
+    //   startDate.value = lastYear
+    //   endDate.value = tomorrow
+    // }
 
   </script>
 {% endblock %}

@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+    <script>
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Pagar NR'
+    </script>
+
     <div class="date_filter_pagar_nr">
         {% include 'partials/_date_filter.html' %}
     </div>
@@ -14,9 +19,5 @@
     <div class="button_confirm">
         <button>Pagar</button>
     </div>
-
-    <script>
-        let pageTitle = document.getElementById('page-title')
-        pageTitle.innerHTML = 'Pagar NR'
-    </script>
+    
 {% endblock %}

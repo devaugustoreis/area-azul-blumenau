@@ -575,6 +575,7 @@ body {
     width: 100%;
     cursor: pointer;
     padding: 3px;
+    outline: none;
 }
 
 /* Módulo "table_extract" */
@@ -705,8 +706,8 @@ body {
     transform: translateY(2px);
 }
 
-.values input::-webkit-outer-spin-button,
-.values input::-webkit-inner-spin-button{
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
     -webkit-appearance: none;
 }
 
@@ -993,7 +994,7 @@ body {
     margin: 20px 0 10px 0;
 }
 
-.expiration-span {
+#expiration-span {
     margin: 0 0 0 15px;
 }
 
