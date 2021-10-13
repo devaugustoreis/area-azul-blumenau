@@ -2,59 +2,50 @@
 {% load static %}
 
 {% block content %}
-    <script>
-        let pageTitle = document.getElementById('page-title')
-        pageTitle.innerHTML = 'Adicionar Créditos'
-    </script>
+    <div class="informations_add_credits">
+        <div id="saldo_add_credits">
+            <h2>Saldo Atual:</h2>
+            <div class="informations">
+                <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
+                <div class="box">
+                    <p>R$ <span id="saldo-atual">{{user.client.credits|floatformat:2}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div id="saldo_add_credits">
+            <h2>Valor a Adicionar:</h2>
+            <div class="informations">
+                <img src="{% static 'imagens/valor2.png' %}" alt="stylesheet">
+                <div class="box">
+                    <p class="total-creditos">R$ 0,00</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Saldo Final:</h2>
+            <div class="informations">
+                <img src="{% static 'imagens/Adicionar_Creditos_Blue.png' %}" alt="stylesheet">
+                <div class="box" style="border-color: var(--cor12);">
+                    <p id="saldo-final" style="color: var(--cor12);"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="add_credits">
         {% include 'partials/_add_credits.html' %}
     </div>
 
+    <div class="payment_method_add_credits">
+        {% include 'partials/_payment_method.html' %}
+    </div>
+
+    <div class="cliente_messages msg-success" id="div-msg-creditos">
+        <p id="msg-credito-adicionado"></p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
+    </div>
+
     <form id="add-credits-form">
         {% csrf_token %}
-        <div class="informations_add_credits">
-
-            <div id="saldo_add_credits">
-                <h2>Saldo Atual:</h2>
-                <div class="informations">
-                    <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
-                    <div class="box">
-                        <p>R$ <span id="saldo-atual">{{user.client.credits|floatformat:2}}</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="saldo_add_credits">
-                <h2>Valor a Adicionar:</h2>
-                <div class="informations">
-                    <img src="{% static 'imagens/valor2.png' %}" alt="stylesheet">
-                    <div class="box">
-                        <p class="total-creditos">R$ 0,00</p>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h2>Saldo Final:</h2>
-                <div class="informations">
-                    <img src="{% static 'imagens/Adicionar_Creditos_Blue.png' %}" alt="stylesheet">
-                    <div class="box">
-                        <p id="saldo-final"></p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="payment_method_add_credits">
-            {% include 'partials/_payment_method.html' %}
-        </div>
-
-        <div class="cliente_messages msg-success" id="div-msg-creditos" style="display: none;">
-            <p id="msg-credito-adicionado"></p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
-        </div>
-
         <div class="button_confirm">
             <button type="submit" id="btn-confirm-credits" onclick="forcedReload()" disabled>Confirmar</button>
         </div>

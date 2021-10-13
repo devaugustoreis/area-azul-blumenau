@@ -14,6 +14,11 @@
     <title>Área Azul - Blumenau</title>
 </head>
 <style>
+    html {
+        height: 100vh;
+        width: 100%;
+    }
+
     body {
         background-image: url('/static/imagens/Blumenau-Santa-Catarina-Black-White-90.png');
         background-size: cover;
@@ -21,9 +26,9 @@
 </style>
 <body>
     <div class="cliente_main">
-        <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="300" class="logo">
+        <div class="div_logo"><img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="300" class="logo"></div>
         <h2>Olá, {{user.client.name}}!</h2>
-        {% if user.client.profile_pic %}<img src="{{request.user.client.profile_pic.url}}" alt="Imagem_Perfil" width=240 class='profile-pic'>{% endif %}
+        {% if user.client.profile_pic %}<div class="div_profile-pic"><img src="{{request.user.client.profile_pic.url}}" alt="Imagem_Perfil" width=240 class='profile-pic'></div>{% endif %}
         <h1>Você tem</h1>
         <h1>R$ {{user.client.credits|floatformat:2}}</h1>
         <h1>em créditos.</h1>
