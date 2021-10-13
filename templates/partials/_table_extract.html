@@ -2,6 +2,7 @@
 <table class="tabela-extrato">
     <tr id="top">
         <th>Data</th>
+        <th>Hora</th>
         <th>Movimento</th>
         <th>Pagamento</th>
         <th>Placa</th>
@@ -10,7 +11,8 @@
     </tr>
     {% for operation in operations %}
         <tr>
-            <td>{{operation.date}}</td>
+            <td>{{operation.date|date:"d/m/Y"}}</td>
+            <td>{{operation.date|date:"H:i"}}</td>
             <td>{{operation.operation_type}}</td>
             <td>{% if operation.payment_method %}{{operation.payment_method}}{% else %}---{% endif %}</td>
             <td>{% if operation.vehicle %}{{operation.vehicle}}{% else %}---{% endif %}</td>

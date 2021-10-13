@@ -6,22 +6,18 @@
         <h2 id="title">Incluir novo veículo</h2>
         <div class="vehicle_type">
             <h2>Tipo de Veículo:</h2>
-            <button class='btn-vehicle-type btn-active' id='btn-type-car' onclick="btnActive(btnCar, btnMoto, btnOther, 'C')"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">Carro</button>
-            <button class='btn-vehicle-type' id='btn-type-moto' onclick="btnActive(btnMoto, btnCar, btnOther, 'M')"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
-            <button class='btn-vehicle-type' id='btn-type-other' onclick="btnActive(btnOther, btnCar, btnMoto, 'O')"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="others_vehicles">Demais Veículos</button>
+            <button class='btn-vehicle-type btn-active' id='btn-type-car' onmouseover="hoverImgColor('white_car')" onmouseout="backImgColor(this, 'blue_car')" onclick="btnActive(btnCar, btnMoto, btnOther, 'C')"><img src="{% static 'imagens/img_carro_white.png' %}" alt="Carro Azul" id="car">Carro</button>
+            <button class='btn-vehicle-type' id='btn-type-moto' onmouseover="hoverImgColor('white_moto')" onmouseout="backImgColor(this, 'blue_moto')" onclick="btnActive(btnMoto, btnCar, btnOther, 'M')"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
+            <button class='btn-vehicle-type' id='btn-type-other' onmouseover="hoverImgColor('white_truck')" onmouseout="backImgColor(this, 'blue_truck')" onclick="btnActive(btnOther, btnCar, btnMoto, 'O')"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">Demais Veículos</button>
         </div>
         <form class="veiculos_form" id="novo_veiculo_form">
             {% csrf_token %}
             <div class="add_plate">
                 <h2>Placa:</h2>
-                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" autocapitalize="characters" onfocus="innerBoxShadow()" onblur="removeInnerBox()">
-                <button type="submit"><img src="{% static 'imagens/add_plate.png' %}" alt="Adicionar Carro">Adicionar</button>
+                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" autocapitalize="characters" onfocus="innerBoxShadow()" onblur="removeInnerBox()" onkeyup="verifyPlate()">
+                <button id="btn-add-car" type="submit" disabled onclick="forcedReload()"><img src="{% static 'imagens/add_plate_blue.png' %}" alt="Adicionar Carro" id="img-add-car">Adicionar</button>
             </div>  
         </form>
-    </div>
-        
-    <div class="cliente_messages msg-success" style="display:none;" id="msg-teste">
-        <p>Carro Cadastrado com Sucesso!</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
     </div>
 
     <div class="vehicle_plate_veiculos">
@@ -37,7 +33,7 @@
                 {% endfor %}
                 {% for moto in motos %}
                     <div class="plate_button">
-                        <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">{{moto}}</button>
+                        <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">{{moto}}</button>
                         <div class="button_remove">
                             <a href="{% url 'excluirVeiculo' user.client.id moto.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
                         </div>
@@ -45,12 +41,26 @@
                 {% endfor %}
                 {% for other in others %}
                     <div class="plate_button">
-                        <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">{{other}}</button>
+                        <button class="btn_vehicle_plate"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">{{other}}</button>
                         <div class="button_remove">
                             <a href="{% url 'excluirVeiculo' user.client.id other.id %}"><img src="{% static 'imagens/remove_car.png' %}" alt="stylesheet"></a>
                         </div>
                     </div>
                 {% endfor %}
+            </div>
+
+            <!-- {% if messages %}
+                {% for message in messages %}
+                
+                    <div class="cliente_messages {{message.tags}}">
+                        <p>{{message}}</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
+                    </div>
+        
+                {% endfor %}
+            {% endif %} -->
+
+            <div class="cliente_messages msg-success" id="msg-veiculo-cadastrado">
+                <p>Veículo Cadastrado com Sucesso!</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
             </div>
     </div>
 
@@ -61,15 +71,29 @@
 
         let divMensagem = document.getElementById('div-message')
 
+        function forcedReload() {
+            setTimeout(function() {
+                window.location.reload(true)
+            }, 3000);
+        }
+
+
         function deletarMensagem(botao) {
             botao.parentElement.remove()
         }
+
 
         let vehicle_type = 'C'
         let btnCar = document.getElementById('btn-type-car')
         let btnMoto = document.getElementById('btn-type-moto')
         let btnOther = document.getElementById('btn-type-other')
         let placa = document.getElementById('placa')
+        
+        let btnAddCar = document.getElementById('btn-add-car')
+        let imgAddCar = document.getElementById('img-add-car')
+        let imgCar = document.getElementById('car')
+        let imgMoto = document.getElementById('moto')
+        let imgOther = document.getElementById('other_vehicles')
 
         
         function innerBoxShadow() {
@@ -82,13 +106,52 @@
         }
 
 
+        function hoverImgColor(img) {
+            if (img == 'white_car') imgCar.src="{% static 'imagens/img_carro_white.png' %}"
+            if (img == 'white_moto') imgMoto.src="{% static 'imagens/img_moto_white.png' %}"
+            if (img == 'white_truck') imgOther.src="{% static 'imagens/img_demais_white.png' %}"
+        }
+
+
+        function backImgColor(btn, img) {
+            if (btn.classList.contains('btn-active')) return
+            if (img == 'blue_car') imgCar.src="{% static 'imagens/img_carro_az.png' %}"
+            if (img == 'blue_moto') imgMoto.src="{% static 'imagens/img_moto_az.png' %}"
+            if (img == 'blue_truck') imgOther.src="{% static 'imagens/img_demais_az.png' %}"
+        }
+
+
+        function changeImgColor(botao) {
+            imgCar.src="{% static 'imagens/img_carro_az.png' %}"
+            imgMoto.src="{% static 'imagens/img_moto_az.png' %}"
+            imgOther.src="{% static 'imagens/img_demais_az.png' %}"
+            if (botao == btnCar) imgCar.src="{% static 'imagens/img_carro_white.png' %}"
+            if (botao == btnMoto) imgMoto.src="{% static 'imagens/img_moto_white.png' %}"
+            if (botao == btnOther) imgOther.src="{% static 'imagens/img_demais_white.png' %}"
+        }
+
+
         function btnActive(botao1, botao2, botao3, tipo) {
+            changeImgColor(botao1)
             botao2.classList.remove('btn-active')
             botao3.classList.remove('btn-active')
             botao1.classList.add('btn-active')
             vehicle_type = tipo
         }
+        
 
+        function verifyPlate(){
+            if (placa.value.length == 7) {
+                btnAddCar.disabled = false
+                imgAddCar.src="{% static 'imagens/add_plate.png' %}"
+            }
+            else {
+                imgAddCar.src="{% static 'imagens/add_plate_blue.png' %}"
+                btnAddCar.disabled = true
+            }
+        }
+
+        $('#msg-veiculo-cadastrado').hide()
 
         $(document).on('submit', '#novo_veiculo_form', function(){
 
@@ -100,11 +163,21 @@
                     vehicle_type: vehicle_type,
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },
-                success:function(){
-                    $("#msg-teste").load();
+                beforeSend:function(html) {
+                    setTimeout(function(){
+                        $("#msg-veiculo-cadastrado").fadeIn()
+                    }, 3000);
+                },
+                success:function() {
+                    $("#msg-veiculo-cadastrado").fadeIn()
+                    setTimeout(function() {
+                        $("#msg-veiculo-cadastrado").fadeOut()
+                    }, 3000);
                 }
+            
             });
 
+            return false
         });
 
     </script>

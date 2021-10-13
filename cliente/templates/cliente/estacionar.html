@@ -2,12 +2,51 @@
 {% load static %}
 
 {% block content %}
+    <script>
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Estacionar'
+
+        var today = new Date(); 
+        var now = today.getHours()  + ":" + today.getMinutes()  + ":" + today.getSeconds()
+        
+        var hours = 0
+        var minutes = 0
+        var seconds = 0
+
+
+        function displayCountdown(exp_time) {
+            console.log(now)
+            console.log(exp_time)
+            var start_time = now.split(":")
+            var end_time = exp_time.split(":")
+            hours = end_time[0] - start_time[0]
+            minutes = end_time[1] - start_time[1]
+            if (minutes < 0) {
+                minutes = minutes + 60
+                hours--
+            }
+            seconds = end_time[2] - start_time[2]
+            if (seconds < 0) {
+                seconds = seconds + 60
+                minutes--
+            }
+        }
+    </script>
+
+
     <div class="vehicle_type_estacionar">
         <div class="vehicle_type">
         <h2>Tipo de Veículo:</h2>
-            <button class='btn-vehicle-type btn-active' id='btn-type-all'><img src="{% static 'imagens/img_carro_az.png' %}" alt="Todos" id="car">Todos</button>
+            <button 
+                class='btn-vehicle-type btn-active' 
+                id='btn-type-all'
+                onmouseover="hoverImgColor('all_white')" 
+                onmouseout="backImgColor(this, 'all_blue')">
+                    <img src="{% static 'imagens/img_carro_white.png' %}" alt="Todos" id="all">Todos
+            </button>
             {% include 'partials/_vehicle_type.html' %}
     </div>
+
     <div class="vehicle_plate_estacionar">
         <h2 class="vehicle_plate_title">Veículos:</h2>
         <div id='vehiclesDiv'>
@@ -27,7 +66,7 @@
                 class="btn_vehicle_plate btn-moto" 
                 onclick="btnActive(this)"
                 id="{{moto}}">
-                    <img src="{% static 'imagens/img_moto_az.png' %}" alt="Carro Azul" id="car">
+                    <img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">
                     {{moto}}
             </button>
         {% endfor %}
@@ -37,7 +76,7 @@
                 class="btn_vehicle_plate btn-other" 
                 onclick="btnActive(this)"
                 id="{{other}}">
-                    <img src="{% static 'imagens/img_demais_az.png' %}" alt="Carro Azul" id="car">
+                    <img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">
                     {{other}}
             </button>
         {% endfor %}
@@ -47,7 +86,6 @@
 
     <div class="time">
         {% include 'partials/_time.html' %}
-        <!-- <h1>TOTAL</h1> -->
         <div class="total">
             <h1>TOTAL</h1>
             <div class="div-total">
@@ -75,50 +113,96 @@
             </div>
         </div>
     </div>
-<!-- 
-    <div class="total">
-        <div class="div-total">
-            <h1>TOTAL</h1>
-            <h2>Tempo:</h2>
-            <div class="informations">
-                <img src="{% static 'imagens/relogio.png' %}" alt="stylesheet">
-                <div class="box">
-                    <p class="total-tempo">0min</p>
-                </div>
-            </div>
-            <h2>Valor:</h2>
-            <div class="informations">
-                <img src="{% static 'imagens/valor.png' %}" alt="stylesheet">
-                <div class="box">
-                    <p class="total-value">R$ 0,00</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
+
 
     {% for vehicle in vehicles %}
         {% if vehicle.expiration_time %}
             <div id="divCountdown">
-                <img src onerror='displayCountdown("{{vehicle.expiration_time|date:'H:i:s'}}")'>{{vehicle}}
-                Expiration: {{ vehicle.expiration_time|date:'H:i:s' }}
-                Countdown:<span id="span-countdown"></span>
+                <button class="btn-countdown">{{vehicle}}</button>
+                <div class="div-countdown-expiration">
+                    <img src="{% static 'imagens/relogio.png' %}" onload='displayCountdown("{{vehicle.expiration_time|date:'H:i:s'}}")'>
+                    <button class="btn-countdown expiration-span">{{ vehicle.expiration_time|date:'H:i:s' }}</button>
+                </div>
+                <p>Tempo Restante:</p>
+                <span id="span-countdown"></span>
             </div>
         {% endif %}
     {% endfor %}
+    
+    <div id="div-msg-veiculo-nao-selecionado">
+        <div class="cliente_messages msg-info">
+            <p>Por favor selecione um veículo!</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
+        </div>
+    </div>
 
     <div class="button_confirm">
-        <form action="" id="estacionar_form">
+            <button id="btn-estacionar" onclick="showModal();" disabled>Estacionar</button>
+    </div>
+
+    <div id="modal-full-screen" class="background-modal">
+        <form class="modal-form-estacionar" action="" id="estacionar_form">
             {% csrf_token %}
-            <button>Confirmar</button>
+            <p class="modal-msg">Você gostaria de estacionar o veículo <strong id="modal-car"></strong> por <strong id="modal-time"></strong>?</p>
+            <p class="modal-obs">Obs.: O tempo restante no veículo atual será descartado.</p>
+            <div class="botoes-excluir">
+                <a onclick="closeModal();">Cancelar</a>
+                <button type="submit">Confirmar</button>
+            </div>
         </form>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        let pageTitle = document.getElementById('page-title')
-        pageTitle.innerHTML = 'Estacionar'
+        var chosenCar = ''
 
-        var chosenCar = 'EFG4567'
+        $('#div-msg-veiculo-nao-selecionado').hide()
+
+        function showNoVehicleMessage() {
+            console.log(chosenCar)
+            if (chosenCar == '') {
+                $("#div-msg-veiculo-nao-selecionado").fadeIn()
+                setTimeout(function() {
+                    $("#div-msg-veiculo-nao-selecionado").fadeOut()
+                }, 2000);
+            }
+        }
+
+
+        function deletarMensagem(botao) {
+            botao.parentElement.parentElement.remove()
+        }
+
+
+        /* Correct colors on buttons */
+        let imgAll = document.getElementById('all')
+        let imgCar = document.getElementById('car')
+        let imgMoto = document.getElementById('moto')
+        let imgOther = document.getElementById('other_vehicles')
+
+        function hoverImgColor(img) {
+            if (img == 'all_white') imgAll.src="{% static 'imagens/img_carro_white.png' %}"
+            if (img == 'white_car') imgCar.src="{% static 'imagens/img_carro_white.png' %}"
+            if (img == 'white_moto') imgMoto.src="{% static 'imagens/img_moto_white.png' %}"
+            if (img == 'white_truck') imgOther.src="{% static 'imagens/img_demais_white.png' %}"
+        }
+
+
+        function backImgColor(btn, img) {
+            if (btn.classList.contains('btn-active')) return
+            if (img == 'all_blue') imgAll.src="{% static 'imagens/img_carro_az.png' %}"
+            if (img == 'blue_car') imgCar.src="{% static 'imagens/img_carro_az.png' %}"
+            if (img == 'blue_moto') imgMoto.src="{% static 'imagens/img_moto_az.png' %}"
+            if (img == 'blue_truck') imgOther.src="{% static 'imagens/img_demais_az.png' %}"
+        }
+
+
+        function clearImgColor(botao) {
+            imgAll.src="{% static 'imagens/img_carro_az.png' %}"
+            imgCar.src="{% static 'imagens/img_carro_az.png' %}"
+            imgMoto.src="{% static 'imagens/img_moto_az.png' %}"
+            imgOther.src="{% static 'imagens/img_demais_az.png' %}"
+        }
+
 
         /* Botões Tipo de Veículo e Veículo */
         let btnAll = document.getElementById('btn-type-all')
@@ -137,11 +221,14 @@
         let displayTempo = document.querySelector('.total-tempo')
         let displayValue = document.querySelector('.total-value')
 
+        let btnEstacionar = document.getElementById('btn-estacionar')
+
         let totalTempo = 0
         let totalValue = 0
         let valorVeiculo1 = 0
         let valorVeiculo2 = 0
         let tipoVeiculo = ''
+
 
         function showHideVehicles(vehicles1, vehicles2, vehicles3) {
             for (let vehicle of vehicles1) {
@@ -191,6 +278,7 @@
 
         
         function deactivateVehiclesButtons() {
+            btnEstacionar.disabled = true
             for (let vehicle of allVehicles) {
                 vehicle.classList.remove('btn-active')
                 valorVeiculo1 = 0
@@ -204,6 +292,8 @@
 
         btnAll.onclick = function() {
             deactivateVehiclesButtons()
+            clearImgColor()
+            imgAll.src="{% static 'imagens/img_carro_white.png' %}"
             btnCar.classList.remove('btn-active')
             btnMoto.classList.remove('btn-active')
             btnOther.classList.remove('btn-active')
@@ -213,6 +303,8 @@
 
         btnCar.onclick = function() {
             deactivateVehiclesButtons()
+            clearImgColor()
+            imgCar.src="{% static 'imagens/img_carro_white.png' %}"
             btnAll.classList.remove('btn-active')
             btnMoto.classList.remove('btn-active')
             btnOther.classList.remove('btn-active')
@@ -222,6 +314,8 @@
 
         btnMoto.onclick = function(){
             deactivateVehiclesButtons()
+            clearImgColor()
+            imgMoto.src="{% static 'imagens/img_moto_white.png' %}"
             btnAll.classList.remove('btn-active')
             btnCar.classList.remove('btn-active')
             btnOther.classList.remove('btn-active')
@@ -231,6 +325,8 @@
 
         btnOther.onclick = function(){
             deactivateVehiclesButtons()
+            clearImgColor()
+            imgOther.src="{% static 'imagens/img_demais_white.png' %}"
             btnAll.classList.remove('btn-active')
             btnCar.classList.remove('btn-active')
             btnMoto.classList.remove('btn-active')
@@ -239,7 +335,14 @@
         }
 
 
+        function statusBtnEstacionar() {
+            if (totalTempo > 0 && chosenCar != '') {btnEstacionar.disabled = false}
+            else {btnEstacionar.disabled = true}
+        }
+
+
         function aumentarTempo(valorTempo, valorReais){
+            showNoVehicleMessage()
             if (tipoVeiculo != '') {
                 totalTempo += valorTempo
                 if (valorReais == 'Tarifa Menor') {totalValue += valorVeiculo1}
@@ -247,11 +350,13 @@
                 displayTempo.innerHTML = `${totalTempo}min`
                 displayValue.innerHTML = `R$ ${totalValue.toFixed(2).replace(".", ',')}`
                 convertTime()
+                statusBtnEstacionar()
             }
         }
 
 
         function reduzirTempo(valorTempo, valorReais){
+            showNoVehicleMessage()
             if (tipoVeiculo != '') {
                 totalTempo -= valorTempo
                 if (totalTempo < 0) totalTempo = 0
@@ -261,18 +366,16 @@
                 displayTempo.innerHTML = `${totalTempo}min`
                 displayValue.innerHTML = `R$ ${totalValue.toFixed(2).replace(".", ',')}`
                 convertTime()
+                statusBtnEstacionar()
             }
         }
 
-
-        var spanCountdown = document.getElementById('span-countdown')
-
-        var hours = 0
-        var minutes = 0
-        var seconds = 0
+        
+        /* Time Related */
         var hours_increased = 0
         var minutes_increased = 0
 
+        var spanCountdown = document.getElementById('span-countdown')
 
         function convertTime(){
             hours_increased = Math.floor(totalTempo / 60);          
@@ -280,33 +383,6 @@
         }
 
 
-        var today = new Date(); 
-        var now_h = today.getHours() 
-        var now_m = today.getMinutes() 
-        var now_s = today.getSeconds()
-        var now_full = now_h + ":" + now_m + ":" + now_s
-        
-
-        function displayCountdown(exp_time) {
-            console.log(now_full)
-            console.log(exp_time)
-            var start_time = now_full.split(":")
-            var end_time = exp_time.split(":")
-            hours = end_time[0] - start_time[0]
-            minutes = end_time[1] - start_time[1]
-            if (minutes < 0) {
-                minutes = minutes + 60
-                hours--
-            }
-            seconds = end_time[2] - start_time[2]
-            if (seconds < 0) {
-                seconds = seconds + 60
-                minutes--
-            }
-            countdown()
-        }
-
-        
         function countdown(){
             if (seconds == 0) {
                 seconds = 59;
@@ -318,14 +394,16 @@
                 minutes = 59;
                 hours--;
             }
-            if (hours == -1) {
-                spanCountdown.innerHTML = "Tempo Expirado."
-            } else {
-                spanCountdown.innerHTML = "hours:"+hours+", minutes:"+minutes+", seconds:"+seconds;
+            if (hours > -1) {
+                spanCountdown.innerHTML = hours+"horas "+minutes+"minutos "+seconds+"segundos";
                 setTimeout(countdown, 1000);
+            } else {
+                spanCountdown.innerHTML = "Tempo Expirado."     
             } 
         }
 
+
+        countdown()
 
         function getEntryTime() {
             var today2 = new Date();
@@ -347,7 +425,29 @@
             return expiration
         }
 
+
+        /* Modal */
+        let modal = document.getElementById('modal-full-screen')
+        let modalDisplayCar = document.getElementById('modal-car')
+        var modalDisplayTime = document.getElementById('modal-time')
+
+        function showModal() {
+            modalDisplayCar.innerHTML = `"${chosenCar}"`
+            if (hours_increased < 1) modalDisplayTime.innerHTML = `${minutes_increased}min`
+            else if (minutes_increased == 0) {
+                modalDisplayTime.innerHTML = `${hours_increased}h`
+            } else {
+                modalDisplayTime.innerHTML = `${hours_increased}h e ${minutes_increased}min`
+            }
+            modal.style.display = 'block'
+        }
+
+
+        function closeModal() {
+            modal.style.display = 'none'
+        }
         
+
         $(document).on('submit', '#estacionar_form', function() {
             let entryTime = getEntryTime()
             let expirationTime = getExpirationTime()

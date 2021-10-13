@@ -6,9 +6,10 @@
     Valor Inicial: {{operation_filter.form.start_value}}
     Valor Final: {{operation_filter.form.end_value}}
     <div class="date_filter">
-        <button id="filter-today">Dia atual</button>
-        <button id="filter-this-month">Mês atual</button>
-        <button id="filter-this-year">Ano Atual</button>
+        <button id="filter-today" onclick="setToday()">Hoje</button>
+        <button id="filter-today" onclick="setLastWeek()">Última Semana</button>
+        <button id="filter-this-month" onclick="setLastMonth()">Último Mês</button>
+        <button id="filter-this-year" onclick="setLastYear()">Último Ano</button>
         <div class="date">
             <div>
                 <h3>Data Inicial:</h3>

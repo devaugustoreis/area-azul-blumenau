@@ -1,27 +1,19 @@
-- Revisar página Index, ajustar Div com logo e texto e imagens para porcentagens (responsividade com telas maiores)
-
-Página Estacionar:
-- Criar página de confirmação para estacionar;
-- Adicionar Estacionamento nas operações;
-
-Página Extrato:
-- Dados na tabela assim? Dar uma revisada;
-- Ajustar botões de "Dia Atual" e etc para funcionarem;
+- Arrumar Hover dos carros da página Estacionar;
+- Tirar página "Pagar NR" do menu?
+- Melhorar tratamento mensagens
 
 Página Adicionar Créditos:
 - Dúvida: Inverter Campo Adicionar com campo que mostra o balanço de Créditos?
-- Mensagem de Crédito adicionado com sucesso.
-
-Página Veículos:
-- Adicionar mensagem de carro cadastrado com sucesso;
-
 
 Se der tempo:
 - Revisar Validações de CPF / Data / Placa do Carro (conferir jquery maskedinput);
 - Password reset;
 - Páginação no Extrato;
+- Valor positivo ou negativo na tabela, como tratar?
 - Conferir se consigo pegar apenas os Veículos do Cliente no filtro;
-- Função para formatar Data;
+- Botão de Salvar Dados está mais discreto que os demais?;
+- Verificação do mesmo dia ou dia seguinte durante Estacionar;
+- Botões de pagamento da página "Adicionar Créditos"
 
 
 

@@ -42,14 +42,64 @@
         campo.value = mydata;
       }
     }
-  
-    // let btnFilterToday = document.getElementById('filter-today')
-    // let btnFilterMonth = document.getElementById('filter-this-month')
-    // let btnFilterYear = document.getElementById('filter-this-year') 
     
-    // function filterToday(){
-    //   startDate = 
-    // }
+    var date = new Date();
+    var year = date.getFullYear()
+    var month = (date.getMonth()+1)
+    var day = date.getDate();
+    var tomorrow = (day+1)+'/'+month+'/'+year
+
+
+    function getDateNow() {
+      date = new Date();
+      year = date.getFullYear()
+      month = (date.getMonth()+1)
+      day = date.getDate();
+      tomorrow = (day+1)+'/'+month+'/'+year
+    }
+    
+
+    function setToday() {
+      getDateNow()
+      let today = day+'/'+month+'/'+year
+      startDate.value = today
+      endDate.value = tomorrow
+    }
+    
+
+    function setLastWeek() {
+      getDateNow()
+      day -= 6
+      if (day < 1) {
+        day = day + 30
+        month--
+      }
+      let lastWeek = day+'/'+month+'/'+year
+      startDate.value = lastWeek
+      endDate.value = tomorrow
+    }
+
+    
+    function setLastMonth() {
+      getDateNow()
+      month -= 1
+      if (month < 1) {
+        month = 12
+        year--
+      }
+      let lastMonth = day+'/'+month+'/'+year
+      startDate.value = lastMonth
+      endDate.value = tomorrow
+    }
+
+
+    function setLastYear() {
+      getDateNow()
+      year -= 1
+      let lastYear = day+'/'+month+'/'+year
+      startDate.value = lastYear
+      endDate.value = tomorrow
+    }
 
   </script>
 {% endblock %}
