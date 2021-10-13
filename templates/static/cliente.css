@@ -82,7 +82,7 @@ body {
 }
 
 .cliente_options_links:hover {
-    background-color: var(--cor4);
+    background-color: var(--cor12);
 }
 
 /* Template base_clientes */
@@ -129,7 +129,7 @@ body {
 }
 
 .sb_upper_text a:hover {
-    color: var(--cor4)
+    color: var(--cor12);
 }
 
 #sb_upper_text_saldo {
@@ -172,7 +172,7 @@ body {
 }
 
 .sidebar_options:hover {
-    background-color: var(--cor4);
+    background-color: var(--cor12);
 }
 
 .sidebar_options img {
@@ -345,14 +345,14 @@ body {
 }
 
 .add_time button:hover {
-    background-color: var(--cor4);
-    border: 1px solid var(--cor4);
+    background-color: var(--cor12);
+    border: 1px solid var(--cor12);
     color: var(--cor5);
 }
   
 .add_time button:active {
-    background-color: var(--cor4);
-    border: 1px solid var(--cor4);
+    background-color: var(--cor12);
+    border: 1px solid var(--cor12);
     transform: translateY(1.5px);
 }
 
@@ -413,7 +413,7 @@ body {
     background-color: var(--cor1);
     color: var(--cor0);
     border: 1px solid var(--cor0);
-    padding: 10px;
+    padding: 8px;
     width: 365px;
     height: 120px;
     margin-top: 40px;
@@ -433,8 +433,9 @@ body {
 .total h2 {
     font-weight: normal;
     color: var(--cor12);
-    margin-top: 10px;
-    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-size: 19px;
 }
 
 .div-total-informations {
@@ -446,8 +447,8 @@ body {
 }
 
 .informations img {
-    width: 45px;
-    margin-right: 8px;
+    width: 38px;
+    margin-right: 6px;
 }
 
 .box {
@@ -535,6 +536,35 @@ body {
 #search img {
     width: 22px;
     padding-right: 8px;
+}
+
+.filtros {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.campo-filtros {
+    color: var(--cor0);
+    width: 230px;
+    background-color: var(--cor1);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    margin-right: 25px;
+    padding: 8px;
+}
+
+.campo-filtros p {
+    margin-bottom: 8px;
+}
+
+#id_operation_type, #id_payment_method, #id_start_value, #id_end_value {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor0);
+    font-size: 18px;
+    color: var(--cor0);
+    width: 100%;
+    cursor: pointer;
+    padding: 3px;
 }
 
 /* Módulo "table_extract" */
@@ -861,12 +891,11 @@ body {
 
 /* Messages */
 .cliente_messages {
-    width: 30%;
     margin: 25px auto;
     width: 350px;
-    margin-top: 25px;
+    margin-top: 50px;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -874,7 +903,7 @@ body {
 
 .msg-success {
     border: 1px solid #b8daff;
-    background-color: #0070c0bb;
+    background-color: var(--cor11);
     color: var(--cor12);
 }
 
@@ -924,12 +953,12 @@ body {
 /* Página "Extrato" */
 .date_filter_extrato {
     grid-column: 1/13;
-    grid-row: 1/4;
+    grid-row: 1/5;
 }
 
 .div_table_extract {
     grid-column: 1/13;
-    grid-row: 4/13;
+    grid-row: 5/13;
 }
 
 /* Página "Adicionar Créditos" */
@@ -1173,8 +1202,24 @@ body {
     transition: 0.2s;
 }
 
+#profile_pic-clear_id {
+    width: 13px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+}
+
 #import-img {
     height: 100px;
+}
+
+#id_profile_pic {
+    font-size: 14px;
+    color: var(--cor7);
+    width: 80%;
+}
+
+#id_profile_pic button#file-upload-button {
+    color: red;
 }
 
 .btn-dados {
@@ -1196,7 +1241,7 @@ body {
 }
 
 .btn-dados:hover {
-    background-color: var(--cor12);
+    background-color: var(--cor4);
     color: var(--cor0);
 }
 

@@ -1,12 +1,8 @@
 - Revisar página Index, ajustar Div com logo e texto e imagens para porcentagens (responsividade com telas maiores)
 
-Página Estacionar:
-- A caixinha de adicionar tempo/ valor está "quebrada";
-
 Página Extrato:
 - Dados na tabela assim? Dar uma revisada;
 - Ajustar botões de "Dia Atual" e etc para funcionarem;
-- Ajustar style dos filtros drop-down (procurar algo pronto no w3 schools);
 
 Página Adicionar Créditos:
 - Dúvida: Inverter Campo Adicionar com campo que mostra o balanço de Créditos?
