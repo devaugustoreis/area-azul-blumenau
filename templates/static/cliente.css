@@ -225,15 +225,15 @@ body {
     width: 25px;
 }
 
-.vehicle_type #car {
+.vehicle_type #car, .img-small-car {
     width: 25px;
 }
 
-.vehicle_type #moto {
+.vehicle_type #moto, .img-small-moto {
     width: 23px;
 }
 
-.vehicle_type #other_vehicles {
+.vehicle_type #other_vehicles, .img-small-other {
     width: 29px;
 }
 
@@ -287,19 +287,19 @@ body {
     padding-right: 8px;
 }
 
-.btn_vehicle_plate #all {
+#all {
     width: 25px;
 }
 
-.btn_vehicle_plate #car {
+#car {
     width: 25px;
 }
 
-.btn_vehicle_plate #moto {
+#moto {
     width: 23px;
 }
 
-.btn_vehicle_plate #other_vehicles {
+#other_vehicles {
     width: 29px;
 }
 
@@ -476,9 +476,9 @@ body {
 
 /* Módulo "date_filter" */
 .date_filter button {
-    color: var(--cor0);
+    color: var(--cor1);
     width: 145px;
-    background-color: var(--cor1);
+    background-color: var(--cor0);
     border: 1px solid var(--cor0);
     font-size: 18px;
     margin-right: 25px;
@@ -488,8 +488,9 @@ body {
 }
 
 .date_filter button:hover {
-    background-color: var(--cor0);
-    color: var(--cor1);
+    background-color: var(--cor4);
+    border: 1px solid var(--cor4);
+    color: var(--cor5);
 }
 
 .date {
@@ -515,6 +516,11 @@ body {
     display: flex;
     margin-right: 25px;
     background-color: var(--cor1);
+}
+
+#id_end_date:after {
+    content: " 23:59:59";
+    color: transparent;
 }
 
 #search {
@@ -575,6 +581,11 @@ body {
     width: 100%;
     cursor: pointer;
     padding: 3px;
+    outline: none;
+}
+
+#id_start_value, #id_end_value {
+    cursor: text;
 }
 
 /* Módulo "table_extract" */
@@ -604,6 +615,10 @@ body {
   
 .tabela-extrato tr:nth-child(even) {
     background-color: var(--cor11);
+}
+
+.td-value-negative {
+    color: var(--cor4);
 }
 
 .saldo {
@@ -705,8 +720,8 @@ body {
     transform: translateY(2px);
 }
 
-.values input::-webkit-outer-spin-button,
-.values input::-webkit-inner-spin-button{
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
     -webkit-appearance: none;
 }
 
@@ -926,8 +941,8 @@ body {
 
 .msg-info {
     border: 1px solid #ffb8b8;
-    background-color: #ac2828bb;
-    color: #740404da;
+    background-color: #ffa3a3;
+    color: #730000;
 }
 
 .btn-close {
@@ -960,7 +975,6 @@ body {
     grid-column: 8/13;
     grid-row: 1/5;
     margin: auto;
-    width: 360px;
     background-color: var(--cor1);
     border: 2px solid var(--cor0);
     color: var(--cor0);
@@ -986,15 +1000,20 @@ body {
     padding: 5px 8px;
 }
 
+.cntdown-large {
+    width: 300px;
+    margin-left: 15px;
+}
+
+.btn-countdown img {
+    padding-right: 8px;
+}
+
 .div-countdown-expiration {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px 0 10px 0;
-}
-
-.expiration-span {
-    margin: 0 0 0 15px;
 }
 
 #div-msg-veiculo-nao-selecionado {
@@ -1176,6 +1195,14 @@ body {
     left: 60%;
     transform: translate(-50%);
 }
+
+.button_confirm button:disabled {
+border: var(--cor0) 1px solid;
+    background-color: transparent;
+    color: var(--cor0);
+    cursor: default;
+}
+
 
 /* Página "Pagar NR" */
 .date_filter_pagar_nr {
@@ -1364,20 +1391,38 @@ body {
     width: 13px;
     margin-left: 15px;
     margin-bottom: 30px;
+    cursor: pointer;
+}
+
+#profile_pic-clear_id+label{
+    cursor: pointer;
 }
 
 #import-img {
     height: 100px;
 }
 
+#import-img a {
+    text-decoration: none;
+    color: var(--cor0);
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+#import-img a:hover {
+    color: var(--cor12);
+}
+
 #id_profile_pic {
     font-size: 14px;
     color: var(--cor7);
     width: 80%;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-#id_profile_pic button#file-upload-button {
-    color: red;
+#id_profile_pic:hover {
+    color: var(--cor8);
 }
 
 .btn-dados {

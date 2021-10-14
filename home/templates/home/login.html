@@ -55,10 +55,24 @@
         
             <a href="{% url 'esqueci_senha' %}">Esqueci minha senha</a>
 
+            {% if messages %}
+                {% for message in messages %}
+                
+                    <div class="home_messages {{message.tags}}">
+                        <p>{{message}}</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
+                    </div>
+        
+                {% endfor %}
+            {% endif %}
 
-            <button class="btn" type="submit">Continuar</button>
+            <button class="btn btn-login" type="submit">Continuar</button>
             <a href="{% url 'cadastro' %}">Ainda não sou cadastrado</a>
         </form>
     </div>
 </div>
+<script>
+    function deletarMensagem(botao) {
+          botao.parentElement.remove()
+    }
+</script>
 {% endblock %}

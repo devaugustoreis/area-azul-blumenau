@@ -16,7 +16,13 @@
             <td>{{operation.operation_type}}</td>
             <td>{% if operation.payment_method %}{{operation.payment_method}}{% else %}---{% endif %}</td>
             <td>{% if operation.vehicle %}{{operation.vehicle}}{% else %}---{% endif %}</td>
-            <td>R$ {{operation.value|floatformat:2}}</td>
+            <td>
+                {% if operation.operation_type == 'Compra de Créditos' %}
+                    R$ {{operation.value|floatformat:2}}
+                {% else %}
+                    <span class="td-value-negative">- R$ {{operation.value|floatformat:2}}</span>
+                {% endif %}
+            </td>
             <td class="saldo">R$ {{operation.balance|floatformat:2}}</td>
         </tr>
     {% endfor %}

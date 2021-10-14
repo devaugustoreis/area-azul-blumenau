@@ -104,14 +104,43 @@ a {
 }
 
 .home_messages {
-    border: 1px solid var(--cor5);
-    background-color: var(--cor5);
-    color: var(--cor6);
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.msg-success {
+    border: 1px solid #b8daff;
+    background-color: var(--cor11);
+    color: var(--cor12);
+}
+
+.msg-error {
+    border: 1px solid #ffb8b8;
+    background-color: #ffa3a3;
+    color: #730000;
+}
+
+.errorlist {
+    color: var(--cor12);
     width: 100%;
     margin-top: 10px;
     border-radius: 5px;
     padding: 5px;
     font-weight: bold;
+}
+
+.btn-close {
+    font-size: 20px;
+    background-color: transparent;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+    color: inherit;  
 }
 
 .btn {
@@ -289,7 +318,7 @@ a {
     color: var(--cor4);
 }
 
-.div_login_box button {
+.btn-login {
     width: 145px;
     height: 45px;
     margin: 50px auto 0 auto;

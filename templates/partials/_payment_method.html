@@ -2,7 +2,28 @@
 <!-- Colocar o nome da classe da div como "payment_method" -->
 <div class="payment_method">
     <h2>Forma de Pagamento:</h2>
-    <button type="button" class="btn-payment btn-active" id="btn-credito" onclick="btnActive(btnCredito, btnDebito, btnPix, 'Crédito')"><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Crédito">Crédito</button>
-    <button type="button" class="btn-payment" id="btn-debito" onclick="btnActive(btnDebito, btnCredito, btnPix, 'Débito')"><img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Débito">Débito</button>
-    <button type="button" class="btn-payment" id="btn-pix" onclick="btnActive(btnPix, btnCredito, btnDebito, 'Pix')"><img src="{% static 'imagens/pix.png' %}" alt="Símbolo PIX">PIX</button>
+    <button type="button" 
+        class="btn-payment" 
+        id="btn-credito" 
+        onclick="btnActive(btnCredito, btnDebito, btnPix, 'Crédito')" 
+        onmouseover="hoverImgColor('white_credit')" 
+        onmouseout="backImgColor(this, 'blue_credit')">
+            <img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Crédito" id="img-credit">Crédito
+    </button>
+    <button type="button" 
+        class="btn-payment" 
+        id="btn-debito" 
+        onclick="btnActive(btnDebito, btnCredito, btnPix, 'Débito')"
+        onmouseover="hoverImgColor('white_debit')" 
+        onmouseout="backImgColor(this, 'blue_debit')">
+            <img src="{% static 'imagens/cartão.png' %}" alt="Cartão de Débito" id="img-debit">Débito
+    </button>
+    <button type="button" 
+        class="btn-payment" 
+        id="btn-pix" 
+        onclick="btnActive(btnPix, btnCredito, btnDebito, 'Pix')"
+        onmouseover="hoverImgColor('white_pix')" 
+        onmouseout="backImgColor(this, 'blue_pix')">
+            <img src="{% static 'imagens/pix.png' %}" alt="Símbolo PIX" id="img-pix">PIX
+    </button>
 </div>

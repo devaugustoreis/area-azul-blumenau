@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+    <script>
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Adicionar Créditos'
+    </script>
+
     <div class="add_credits">
         {% include 'partials/_add_credits.html' %}
     </div>
@@ -46,21 +51,17 @@
             {% include 'partials/_payment_method.html' %}
         </div>
 
-        <div class="cliente_messages msg-success" id="div-msg-creditos">
+        <div class="cliente_messages msg-success" id="div-msg-creditos" style="display: none;">
             <p id="msg-credito-adicionado"></p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
         </div>
 
         <div class="button_confirm">
-            <button type="submit" onclick="forcedReload()">Confirmar</button>
+            <button type="submit" id="btn-confirm-credits" onclick="forcedReload()" disabled>Confirmar</button>
         </div>
     </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        let pageTitle = document.getElementById('page-title')
-        pageTitle.innerHTML = 'Adicionar Créditos'
-
-        $('#div-msg-creditos').hide()
 
         function forcedReload() {
             setTimeout(function() {
@@ -73,6 +74,45 @@
             botao.parentElement.remove()
         }
 
+
+        var imgCredit = document.getElementById('img-credit')
+        var imgDebit = document.getElementById('img-debit') 
+        var imgPix = document.getElementById('img-pix')
+
+
+        function hoverImgColor(img) {
+            if (img == 'white_credit') imgCredit.src="{% static 'imagens/cartão_white.png' %}"
+            if (img == 'white_debit') imgDebit.src="{% static 'imagens/cartão_white.png' %}"
+            if (img == 'white_pix') imgPix.src="{% static 'imagens/pix_white.png' %}"
+        }
+
+
+        function backImgColor(btn, img) {
+            if (btn.classList.contains('btn-active')) return
+            if (img == 'blue_credit') imgCredit.src="{% static 'imagens/cartão.png' %}"
+            if (img == 'blue_debit') imgDebit.src="{% static 'imagens/cartão.png' %}"
+            if (img == 'blue_pix') imgPix.src="{% static 'imagens/pix.png' %}"
+        }
+
+
+        function changeImgColor(botao) {
+            imgCredit.src="{% static 'imagens/cartão.png' %}"
+            imgDebit.src="{% static 'imagens/cartão.png' %}"
+            imgPix.src="{% static 'imagens/pix.png' %}"
+            if (botao == btnCredito) imgCredit.src="{% static 'imagens/cartão_white.png' %}"
+            if (botao == btnDebito) imgDebit.src="{% static 'imagens/cartão_white.png' %}"
+            if (botao == btnPix) imgPix.src="{% static 'imagens/pix_white.png' %}"
+        }
+        
+        
+        btnConfirmCredits = document.getElementById('btn-confirm-credits')
+
+        function btnAbleDisable() {
+            if (totalCreditos > 0 && payment_method != '') btnConfirmCredits.disabled = false
+            else {
+                btnConfirmCredits.disabled = true
+            }
+        }
 
         /* Botões Adicionar Créditos */
         let inputAumentoCustom = document.getElementById('aumento-creditos-custom')
@@ -92,6 +132,7 @@
             displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
             saldoFinal = saldoAtual + totalCreditos
             displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+            btnAbleDisable()
         }
 
         function reduzirCreditos(valor) {
@@ -100,6 +141,7 @@
             displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
             saldoFinal = saldoAtual + totalCreditos
             displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+            btnAbleDisable()
         }
 
         function aumentarCreditosCustom() {
@@ -109,6 +151,7 @@
                 displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
                 saldoFinal = saldoAtual + totalCreditos
                 displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+                btnAbleDisable()
             }
         }
 
@@ -117,6 +160,7 @@
             displayCreditos.innerHTML = `R$ ${totalCreditos.toFixed(2).replace(".", ',')}`
             saldoFinal = saldoAtual + totalCreditos
             displaySaldoFinal.innerHTML = `R$ ${saldoFinal.toFixed(2).replace(".", ',')}`
+            btnAbleDisable()
         }
 
         /* Botões Método de Pagamento */
@@ -124,20 +168,22 @@
         let btnDebito = document.getElementById('btn-debito')
         let btnPix = document.getElementById('btn-pix')
         
-        payment_method = 'Crédito'
+        var payment_method = ''
 
         function btnActive(botao1, botao2, botao3, pagamento) {
             botao2.classList.remove('btn-active')
             botao3.classList.remove('btn-active')
             botao1.classList.add('btn-active')
             payment_method = pagamento
+            changeImgColor(botao1)
+            btnAbleDisable()
         }
         
         msgCreditos = document.getElementById('msg-credito-adicionado')
         msgCreditos.innerHTML = `Créditos adicionados à sua conta com sucesso!`
 
         $(document).on('submit', '#add-credits-form', function(){ 
-            $('#msg-credito-adicionado').html(`R$${totalCreditos.toFixed(2).replace(".", ',')} em créditos foram adicionados à sua conta com sucesso!`)
+            $('#msg-credito-adicionado').html(`R$${totalCreditos.toFixed(2).replace(".", ',')} em créditos foram adicionados à sua conta com sucesso! Aguarde e a página será recarregada.`)
 
             $.ajax({
                 type: 'POST',

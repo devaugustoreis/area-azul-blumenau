@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+  <script>
+    let pageTitle = document.getElementById('page-title')
+    pageTitle.innerHTML = 'Extrato'
+  </script>
+  
   <div class="date_filter_extrato">
     {% include 'partials/_date_filter.html' %}
   </div>
@@ -10,9 +15,6 @@
   </div>
 
   <script>
-    let pageTitle = document.getElementById('page-title')
-    pageTitle.innerHTML = 'Extrato'
-
     let startDate = document.getElementById('id_start_date')
     let endDate = document.getElementById('id_end_date')
 
@@ -48,19 +50,26 @@
     var month = (date.getMonth()+1)
     var day = date.getDate();
     var tomorrow = (day+1)+'/'+month+'/'+year
+    
+
+    function verifyMonthDay() {
+      if (month < 10) month = '0'+month
+      if (day < 10) day = '0'+day
+    }
 
 
     function getDateNow() {
       date = new Date();
       year = date.getFullYear()
       month = (date.getMonth()+1)
-      day = date.getDate();
+      day = date.getDate(); 
       tomorrow = (day+1)+'/'+month+'/'+year
     }
     
 
     function setToday() {
       getDateNow()
+      verifyMonthDay()
       let today = day+'/'+month+'/'+year
       startDate.value = today
       endDate.value = tomorrow
@@ -74,29 +83,59 @@
         day = day + 30
         month--
       }
+      verifyMonthDay()
       let lastWeek = day+'/'+month+'/'+year
       startDate.value = lastWeek
       endDate.value = tomorrow
     }
 
     
-    function setLastMonth() {
+    // function setLastMonth() {
+    //   getDateNow()
+    //   month -= 1
+    //   if (month < 1) {
+    //     month = 12
+    //     year--
+    //   }
+    //   let lastMonth = day+'/'+month+'/'+year
+    //   startDate.value = lastMonth
+    //   endDate.value = tomorrow
+    // }
+
+
+    function setThisMonth() {
       getDateNow()
-      month -= 1
+      month -= 1 
+      let lastDay = new Date(year, month, 0);
+      lastDay = lastDay.getDate() 
       if (month < 1) {
         month = 12
         year--
       }
-      let lastMonth = day+'/'+month+'/'+year
+      verifyMonthDay()
+      let lastMonth = lastDay+'/'+month+'/'+year
       startDate.value = lastMonth
       endDate.value = tomorrow
     }
+    
 
+    // function setLastYear() {
+    //   getDateNow()
+    //   year -= 1
+    //   let lastYear = day+'/'+month+'/'+year
+    //   startDate.value = lastYear
+    //   endDate.value = tomorrow
+    // }
+    
 
-    function setLastYear() {
+    function setThisYear() {
       getDateNow()
+      let lastDay = new Date(year, 0, 0);
+      lastDay = lastDay.getDate() 
       year -= 1
-      let lastYear = day+'/'+month+'/'+year
+      month = 12
+      verifyMonthDay()
+      let lastYear = lastDay+'/'+month+'/'+year
       startDate.value = lastYear
       endDate.value = tomorrow
     }

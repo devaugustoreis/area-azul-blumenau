@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+    <script>
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Meus Veículos'
+    </script>
+
     <div class="vehicle_type_veiculos">
         <h2 id="title">Incluir novo veículo</h2>
         <div class="vehicle_type">
@@ -49,7 +54,7 @@
                 {% endfor %}
             </div>
 
-            <!-- {% if messages %}
+            {% if messages %}
                 {% for message in messages %}
                 
                     <div class="cliente_messages {{message.tags}}">
@@ -57,18 +62,15 @@
                     </div>
         
                 {% endfor %}
-            {% endif %} -->
+            {% endif %}
 
-            <div class="cliente_messages msg-success" id="msg-veiculo-cadastrado">
-                <p>Veículo Cadastrado com Sucesso!</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
+            <div class="cliente_messages msg-success" id="msg-veiculo-cadastrado" style="display: none;">
+                <p>Veículo Cadastrado com Sucesso! Aguarde um momento e a página será recarregada.</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
             </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
-        let pageTitle = document.getElementById('page-title')
-        pageTitle.innerHTML = 'Meus Veículos'
-
         let divMensagem = document.getElementById('div-message')
 
         function forcedReload() {
@@ -150,8 +152,6 @@
                 btnAddCar.disabled = true
             }
         }
-
-        $('#msg-veiculo-cadastrado').hide()
 
         $(document).on('submit', '#novo_veiculo_form', function(){
 

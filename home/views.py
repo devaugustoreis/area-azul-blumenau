@@ -21,7 +21,7 @@ def entrar(request):
             login(request, user)
             return redirect('index')
         else:
-            messages.info(request, 'Login ou senha incorretos.')
+            messages.add_message(request, messages.ERROR, 'Login ou senha incorretos.')
 
     context = {}
     return render(request, 'home/login.html', context)
@@ -58,7 +58,7 @@ def cadastro(request):
                 user=user, name=name, email=email, address=emptyAddress
             )
 
-            messages.success(request, 'Parabéns, ' + name + '. Sua conta foi cadastrada com sucesso!')
+            messages.add_message(request, messages.SUCCESS, 'Parabéns, ' + name + '. Sua conta foi cadastrada com sucesso!')
             return redirect('login')
 
     context = {'form': form}
