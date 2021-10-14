@@ -50,19 +50,26 @@
     var month = (date.getMonth()+1)
     var day = date.getDate();
     var tomorrow = (day+1)+'/'+month+'/'+year
+    
+
+    function verifyMonthDay() {
+      if (month < 10) month = '0'+month
+      if (day < 10) day = '0'+day
+    }
 
 
     function getDateNow() {
       date = new Date();
       year = date.getFullYear()
       month = (date.getMonth()+1)
-      day = date.getDate();
+      day = date.getDate(); 
       tomorrow = (day+1)+'/'+month+'/'+year
     }
     
 
     function setToday() {
       getDateNow()
+      verifyMonthDay()
       let today = day+'/'+month+'/'+year
       startDate.value = today
       endDate.value = tomorrow
@@ -76,6 +83,7 @@
         day = day + 30
         month--
       }
+      verifyMonthDay()
       let lastWeek = day+'/'+month+'/'+year
       startDate.value = lastWeek
       endDate.value = tomorrow
@@ -95,14 +103,17 @@
     // }
 
 
-    function thisMonth() {
+    function setThisMonth() {
       getDateNow()
-      month -= 1
+      month -= 1 
+      let lastDay = new Date(year, month, 0);
+      lastDay = lastDay.getDate() 
       if (month < 1) {
         month = 12
         year--
       }
-      let lastMonth = day+'/'+month+'/'+year
+      verifyMonthDay()
+      let lastMonth = lastDay+'/'+month+'/'+year
       startDate.value = lastMonth
       endDate.value = tomorrow
     }
@@ -115,6 +126,19 @@
     //   startDate.value = lastYear
     //   endDate.value = tomorrow
     // }
+    
+
+    function setThisYear() {
+      getDateNow()
+      let lastDay = new Date(year, 0, 0);
+      lastDay = lastDay.getDate() 
+      year -= 1
+      month = 12
+      verifyMonthDay()
+      let lastYear = lastDay+'/'+month+'/'+year
+      startDate.value = lastYear
+      endDate.value = tomorrow
+    }
 
   </script>
 {% endblock %}

@@ -28,8 +28,10 @@
             <button 
                 class="btn_vehicle_plate btn-car" 
                 onclick="btnActive(this)"
-                id="{{car}}">
-                    <img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">
+                id="{{car}}"
+                onmouseover="hoverVehicleWhite(this, {{car.id}})"
+                onmouseout="backVehicleBlue(this, {{car.id}})">
+                    <img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" class="img-small-car" id="{{car.id}}">
                     {{car}}
             </button>
         {% endfor %}
@@ -38,8 +40,10 @@
             <button 
                 class="btn_vehicle_plate btn-moto" 
                 onclick="btnActive(this)"
-                id="{{moto}}">
-                    <img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">
+                id="{{moto}}"
+                onmouseover="hoverVehicleWhite(this, {{moto.id}})"
+                onmouseout="backVehicleBlue(this, {{moto.id}})">
+                    <img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" class="img-small-moto" id="{{moto.id}}">
                     {{moto}}
             </button>
         {% endfor %}
@@ -48,8 +52,10 @@
             <button 
                 class="btn_vehicle_plate btn-other" 
                 onclick="btnActive(this)"
-                id="{{other}}">
-                    <img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">
+                id="{{other}}"
+                onmouseover="hoverVehicleWhite(this, {{other.id}})"
+                onmouseout="backVehicleBlue(this, {{other.id}})">
+                    <img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" class="img-small-other" id="{{other.id}}">
                     {{other}}
             </button>
         {% endfor %}
@@ -88,30 +94,65 @@
     </div>
 
 
-    {% for vehicle in vehicles %}
-        {% if vehicle.expiration_time %}
+    <!-- Box Crônometro do Carro Estacionado -->
+    {% for car in cars %}
+        {% if car.expiration_time %}
             <div id="divCountdown">
-                <button class="btn-countdown">{{vehicle}}</button>
+                <button class="btn-countdown"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
                 <div class="div-countdown-expiration">
                     <img src="{% static 'imagens/relogio.png' %}">
-                    <button class="btn-countdown" id="expiration-span">{{ vehicle.expiration_time|date:'H:i:s' }}</button>
+                    <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ car.expiration_time|date:'H:i:s' }}</span></button>
                 </div>
                 <p>Tempo Restante:</p>
                 <span id="span-countdown"></span>
             </div>
         {% endif %}
     {% endfor %}
+
+    {% for moto in motos %}
+        {% if moto.expiration_time %}
+            <div id="divCountdown">
+                <button class="btn-countdown"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">{{moto}}</button>
+                <div class="div-countdown-expiration">
+                    <img src="{% static 'imagens/relogio.png' %}">
+                    <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ moto.expiration_time|date:'H:i:s' }}</span></button>
+                </div>
+                <p>Tempo Restante:</p>
+                <span id="span-countdown"></span>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    {% for other in others %}
+        {% if other.expiration_time %}
+            <div id="divCountdown">
+                <button class="btn-countdown"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">{{other}}</button>
+                <div class="div-countdown-expiration">
+                    <img src="{% static 'imagens/relogio.png' %}">
+                    <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ other.expiration_time|date:'H:i:s' }}</span></button>
+                </div>
+                <p>Tempo Restante:</p>
+                <span id="span-countdown"></span>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <!-- Fim da box cronômetro do carro estacionado -->
     
-    <div id="div-msg-veiculo-nao-selecionado">
+
+    <!-- Mensagens -->
+    <div id="div-msg-estacionar" style="display: none;">
         <div class="cliente_messages msg-info">
-            <p>Por favor selecione um veículo!</p>
+            <p id="msg-estacionar"></p>
         </div>
     </div>
 
     <div class="button_confirm">
-            <button id="btn-estacionar" onclick="showModal();" disabled>Estacionar</button>
+            <button id="btn-estacionar" onclick="checkCredits()" disabled>Estacionar</button>
     </div>
+    <!-- Fim Mensagens -->
 
+
+    <!-- Modal -->
     <div id="modal-full-screen" class="background-modal">
         <form class="modal-form-estacionar" action="" id="estacionar_form">
             {% csrf_token %}
@@ -119,10 +160,11 @@
             <p class="modal-obs">Obs.: O tempo restante no veículo atual será descartado.</p>
             <div class="botoes-excluir">
                 <a onclick="closeModal();">Cancelar</a>
-                <button type="submit" onclick="forcedReload()">Confirmar</button>
+                <button onclick="forcedReload()" type="submit">Confirmar</button>
             </div>
         </form>
     </div>
+    <!-- Fim Modal -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -131,19 +173,7 @@
         function forcedReload() {
             setTimeout(function() {
                 window.location.reload(true)
-            }, 1000);
-        }
-
-        $('#div-msg-veiculo-nao-selecionado').hide()
-
-        function showNoVehicleMessage() {
-            console.log(chosenCar)
-            if (chosenCar == '') {
-                $("#div-msg-veiculo-nao-selecionado").fadeIn()
-                setTimeout(function() {
-                    $("#div-msg-veiculo-nao-selecionado").fadeOut()
-                }, 2000);
-            }
+            }, 2000);
         }
 
 
@@ -158,6 +188,24 @@
         let imgMoto = document.getElementById('moto')
         let imgOther = document.getElementById('other_vehicles')
 
+
+        function hoverVehicleWhite(btn, imgId) {
+            let vehicleHover = document.getElementById(imgId)
+            if (btn.classList.contains('btn-car')) vehicleHover.src = "{% static 'imagens/img_carro_white.png' %}"
+            if (btn.classList.contains('btn-moto')) vehicleHover.src = "{% static 'imagens/img_moto_white.png' %}"
+            if (btn.classList.contains('btn-other')) vehicleHover.src = "{% static 'imagens/img_demais_white.png' %}"
+        }
+
+
+        function backVehicleBlue(btn, imgId) {
+            if (btn.classList.contains('btn-active')) return
+            let vehicleHover = document.getElementById(imgId)
+            if (btn.classList.contains('btn-car')) vehicleHover.src = "{% static 'imagens/img_carro_az.png' %}"
+            if (btn.classList.contains('btn-moto')) vehicleHover.src = "{% static 'imagens/img_moto_az.png' %}"
+            if (btn.classList.contains('btn-other')) vehicleHover.src = "{% static 'imagens/img_demais_az.png' %}"
+        }
+
+        
         function hoverImgColor(img) {
             if (img == 'all_white') imgAll.src="{% static 'imagens/img_carro_white.png' %}"
             if (img == 'white_car') imgCar.src="{% static 'imagens/img_carro_white.png' %}"
@@ -172,6 +220,22 @@
             if (img == 'blue_car') imgCar.src="{% static 'imagens/img_carro_az.png' %}"
             if (img == 'blue_moto') imgMoto.src="{% static 'imagens/img_moto_az.png' %}"
             if (img == 'blue_truck') imgOther.src="{% static 'imagens/img_demais_az.png' %}"
+        }
+
+
+        function resetColor() {
+            let allCarsImg = document.getElementsByClassName('img-small-car')
+            for (var i = 0; i < allCarsImg.length; i++) {
+                allCarsImg[i].src="{% static 'imagens/img_carro_az.png' %}"
+            }
+            let allMotosImg = document.getElementsByClassName('img-small-moto')
+            for (var i = 0; i < allMotosImg.length; i++) {
+                allMotosImg[i].src="{% static 'imagens/img_moto_az.png' %}"
+            }
+            let allOthersImg = document.getElementsByClassName('img-small-other')
+            for (var i = 0; i < allOthersImg.length; i++) {
+                allOthersImg[i].src="{% static 'imagens/img_demais_az.png' %}"
+            }
         }
 
 
@@ -239,7 +303,9 @@
                 vehicle.classList.remove('btn-active')
             }
             botao.classList.add('btn-active')
+            resetColor()
             if (botao.classList.contains('btn-car') || botao.classList.contains('btn-other')) {
+                botao.getElementsByTagName('img')[0].src="{% static 'imagens/img_carro_white.png' %}"
                 valorVeiculo1 = 1.50
                 valorVeiculo2 = 3
                 tipoVeiculo = 'car or other' 
@@ -247,16 +313,20 @@
                 displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2).replace(".", ',')}`
             }
             if (botao.classList.contains('btn-moto')) {
+                botao.getElementsByTagName('img')[0].src="{% static 'imagens/img_moto_white.png' %}"
                 valorVeiculo1 = 0.75
                 valorVeiculo2 = 1.5
                 tipoVeiculo = 'moto' 
                 displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2).replace(".", ',')}`
                 displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2).replace(".", ',')}`
             }
+            if (botao.classList.contains('btn-other')) botao.getElementsByTagName('img')[0].src="{% static 'imagens/img_demais_white.png' %}"
         }
 
         
-        function deactivateVehiclesButtons() {
+        function deactivateVehiclesButtons() { 
+            clearImgColor()
+            resetColor()
             chosenCar = ''
             btnEstacionar.disabled = true
             for (let vehicle of allVehicles) {
@@ -267,12 +337,15 @@
                 displayTimeValue1.innerHTML = `R$ ${valorVeiculo1.toFixed(2).replace(".", ',')}`
                 displayTimeValue2.innerHTML = `R$ ${valorVeiculo2.toFixed(2).replace(".", ',')}`
             }
+            totalTempo = 0
+            totalValue = 0
+            displayTempo.innerHTML = `${totalTempo}min`
+            displayValue.innerHTML = `R$ ${totalValue.toFixed(2).replace(".", ',')}`
         }
 
 
         btnAll.onclick = function() {
             deactivateVehiclesButtons()
-            clearImgColor()
             imgAll.src="{% static 'imagens/img_carro_white.png' %}"
             btnCar.classList.remove('btn-active')
             btnMoto.classList.remove('btn-active')
@@ -283,7 +356,6 @@
 
         btnCar.onclick = function() {
             deactivateVehiclesButtons()
-            clearImgColor()
             imgCar.src="{% static 'imagens/img_carro_white.png' %}"
             btnAll.classList.remove('btn-active')
             btnMoto.classList.remove('btn-active')
@@ -294,7 +366,6 @@
 
         btnMoto.onclick = function(){
             deactivateVehiclesButtons()
-            clearImgColor()
             imgMoto.src="{% static 'imagens/img_moto_white.png' %}"
             btnAll.classList.remove('btn-active')
             btnCar.classList.remove('btn-active')
@@ -305,7 +376,6 @@
 
         btnOther.onclick = function(){
             deactivateVehiclesButtons()
-            clearImgColor()
             imgOther.src="{% static 'imagens/img_demais_white.png' %}"
             btnAll.classList.remove('btn-active')
             btnCar.classList.remove('btn-active')
@@ -322,7 +392,7 @@
 
 
         function aumentarTempo(valorTempo, valorReais){
-            showNoVehicleMessage()
+            checkVehicle()
             if (tipoVeiculo != '') {
                 totalTempo += valorTempo
                 if (valorReais == 'Tarifa Menor') {totalValue += valorVeiculo1}
@@ -336,7 +406,7 @@
 
 
         function reduzirTempo(valorTempo, valorReais){
-            showNoVehicleMessage()
+            checkVehicle()
             if (tipoVeiculo != '') {
                 totalTempo -= valorTempo
                 if (totalTempo < 0) totalTempo = 0
@@ -350,7 +420,34 @@
             }
         }
 
+
+        var saldoCliente = '{{client.credits}}'
+        saldoCliente = parseFloat(saldoCliente)
         
+        function showMessage(msg){
+            $('#msg-estacionar').html(msg)
+
+            $("#div-msg-estacionar").fadeIn()
+            setTimeout(function() {
+                $("#div-msg-estacionar").fadeOut()
+            }, 2000);     
+        }
+
+
+        function checkCredits() {
+            console.log(saldoCliente)
+            console.log(totalValue)
+            if (saldoCliente >= totalValue) showModal()
+            else {
+                showMessage("Saldo em conta insuficiente.");
+            }
+        }
+        
+
+        function checkVehicle() {
+            if (chosenCar == '') showMessage("Por favor selecione um veículo!")
+        }
+
         /* Time Related */
         var hours_increased = 0
         var minutes_increased = 0

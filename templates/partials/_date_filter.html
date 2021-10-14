@@ -3,7 +3,7 @@
     <div class="filtros">
         <div class="campo-filtros"><p>Movimento:</p>{{operation_filter.form.operation_type}}</div>
         <div class="campo-filtros"><p>Forma de Pagamento:</p>{{operation_filter.form.payment_method}}</div>
-        <!-- {{operation_filter.form.vehicle}} -->
+        <div class="campo-filtros"><p>Veiculo:</p>{{operation_filter.form.vehicle}}</div>
         <div class="campo-filtros"><p>Valor Inicial:</p>{{operation_filter.form.start_value}}</div>
         <div class="campo-filtros"><p>Valor Final:</p>{{operation_filter.form.end_value}}</div>
     </div>
@@ -11,8 +11,8 @@
     <div class="date_filter">
         <button id="filter-today" onclick="setToday()">Data Atual</button>
         <button id="filter-today" onclick="setLastWeek()">Últimos 7 dias</button>
-        <button id="filter-this-month" onclick="ThisMonth()">Mês Atual</button>
-        <button id="filter-this-year" onclick="ThisYear()">Ano Atual</button>
+        <button id="filter-this-month" onclick="setThisMonth()">Mês Atual</button>
+        <button id="filter-this-year" onclick="setThisYear()">Ano Atual</button>
         <div class="date">
             <div>
                 <h3>Data Inicial:</h3>

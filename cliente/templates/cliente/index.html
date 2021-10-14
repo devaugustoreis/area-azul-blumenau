@@ -23,7 +23,7 @@
     <div class="cliente_main">
         <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" width="300" class="logo">
         <h2>Olá, {{user.client.name}}!</h2>
-        <img src="{{request.user.client.profile_pic.url}}" alt="Imagem_Perfil" width=240 class='profile-pic'>
+        {% if user.client.profile_pic %}<img src="{{request.user.client.profile_pic.url}}" alt="Imagem_Perfil" width=240 class='profile-pic'>{% endif %}
         <h1>Você tem</h1>
         <h1>R$ {{user.client.credits|floatformat:2}}</h1>
         <h1>em créditos.</h1>

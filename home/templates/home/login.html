@@ -65,9 +65,14 @@
                 {% endfor %}
             {% endif %}
 
-            <button class="btn" type="submit">Continuar</button>
+            <button class="btn btn-login" type="submit">Continuar</button>
             <a href="{% url 'cadastro' %}">Ainda não sou cadastrado</a>
         </form>
     </div>
 </div>
+<script>
+    function deletarMensagem(botao) {
+          botao.parentElement.remove()
+    }
+</script>
 {% endblock %}

@@ -16,12 +16,11 @@
             <td>{{operation.operation_type}}</td>
             <td>{% if operation.payment_method %}{{operation.payment_method}}{% else %}---{% endif %}</td>
             <td>{% if operation.vehicle %}{{operation.vehicle}}{% else %}---{% endif %}</td>
-            <td class="table-value">{% if operation.operation_type == 'Compra de Créditos' %}
-                    <p>
-                        R$ {{operation.value|floatformat:2}}
-                    </p>
+            <td>
+                {% if operation.operation_type == 'Compra de Créditos' %}
+                    R$ {{operation.value|floatformat:2}}
                 {% else %}
-                    - R$ {{operation.value|floatformat:2}}
+                    <span class="td-value-negative">- R$ {{operation.value|floatformat:2}}</span>
                 {% endif %}
             </td>
             <td class="saldo">R$ {{operation.balance|floatformat:2}}</td>
@@ -40,16 +39,3 @@
     <td>Saldo</td>
     <td>R$ {{client.credits|floatformat:2}}</td>
 </table>
-<script>
-    tdValueList = document.getElementsByClassName('table-value')
-    console.log(tdValueList)
-    for (let item of tdValueList) {
-        console.log(item)
-        // teste = item.innerHTML
-        // console.log(teste)
-        console.log(item.children[0])
-        console.log(typeof(item.children[0]))
-        valor = item.innerHTML
-        // if (valor.contains == '-') console.log('deu boa!')
-    }
-</script>
