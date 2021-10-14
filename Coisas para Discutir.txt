@@ -1,13 +1,13 @@
-- Tirar página "Pagar NR" do menu?
-- Verificar posição e estilo mensagens (Marina);
-- Verificar Box Cronômetro da página Estacionar (Marina);
+- Tirar pï¿½gina "Pagar NR" do menu?
+- Verificar posiï¿½ï¿½o e estilo mensagens (Marina);
+- Verificar Box Cronï¿½metro da pï¿½gina Estacionar (Marina);
 
 Se der tempo:
-- Revisar Validações de CPF / Data / Placa do Carro (conferir jquery maskedinput);
+- Revisar Validaï¿½ï¿½es de CPF / Data / Placa do Carro (conferir jquery maskedinput);
 - Password reset;
-- Páginação no Extrato;
-- Conferir se consigo pegar apenas os Veículos do Cliente no filtro;
-- Verificação do mesmo dia ou dia seguinte durante Estacionar;
+- Pï¿½ginaï¿½ï¿½o no Extrato;
+- Conferir se consigo pegar apenas os Veï¿½culos do Cliente no filtro;
+- Verificaï¿½ï¿½o do mesmo dia ou dia seguinte durante Estacionar;
 
 
 
