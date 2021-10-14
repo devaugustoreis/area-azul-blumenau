@@ -13,7 +13,6 @@ from django_filters import DateFilter
 class OperationsFilter(django_filters.FilterSet):
     start_date = DateFilter(field_name="date", lookup_expr="gte")
     end_date = DateFilter(field_name="date", lookup_expr="lte")
-    # vehicle = filters.ModelChoiceFilter(queryset=departments)
     start_value = NumberFilter(field_name="value", lookup_expr="gte")
     end_value = NumberFilter(field_name="value", lookup_expr="lte")
     class Meta:

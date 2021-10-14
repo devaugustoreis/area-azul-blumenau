@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+    <script>
+        let pageTitle = document.getElementById('page-title')
+        pageTitle.innerHTML = 'Adicionar Créditos'
+    </script>
+
     <div class="informations_add_credits">
         <div id="saldo_add_credits">
             <h2>Saldo Atual:</h2>
@@ -40,7 +45,7 @@
         {% include 'partials/_payment_method.html' %}
     </div>
 
-    <div class="cliente_messages msg-success" id="div-msg-creditos">
+    <div class="cliente_messages msg-success" id="div-msg-creditos" style="display: none;">
         <p id="msg-credito-adicionado"></p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
     </div>
 
