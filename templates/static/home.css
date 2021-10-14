@@ -212,26 +212,24 @@ a {
 
 /* ---------------------------  Página "Login"  --------------------------- */
 
-
 /* ---  HEAD  --- */
-
 .div_upper {
     margin: 2vh auto;
-    width: 80%;
+    width: 85%;
     height: 17vh;
     display: flex;
     justify-content: space-between;
 }
 
 .div_upper_logo {
-    width: 30%;
+    width: 25%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
 .div_upper_logo img {
-    width: 350px;
+    width: 100%;
 }
 
 .div_upper_nav {
@@ -244,7 +242,7 @@ a {
 
 .div_upper_nav a {
     color: var(--cor1);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -252,16 +250,15 @@ a {
     color: var(--cor4);
 }
 
-
 /* ---  BODY  --- */
 
 .div_body {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    height: 35rem;
+    width: 85%;
+    height: 25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -269,14 +266,14 @@ a {
 
 .div_body_text {
     color: var(--cor6);
-    width: 30%;
-    height: 10rem;
-    font-size: 22px;
+    width: 40%;
+    height: 15rem;
+    font-size: 18px;
 }
 
 .div_body_text h1 {
     color: var(--cor6);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .div_body_text h2 {
@@ -286,17 +283,18 @@ a {
 .div_login_box {
     background-color: var(--cor1);
     border-radius: 2%;
-    width: 375px;
-    padding: 45px;
+    width: 28%;
+    height: 100%;
+    padding: 35px;
     text-align: center;
     margin-right: 5vw;
 }
 
 .div_login_box h1 {
-    margin: 10px 0 70px 0;
+    margin: 10px 0 45px 0;
     color: var(--cor0);
+    font-size: 22px;
 }
-
 
 /* .div_select_user {
     width: 80%;
@@ -312,6 +310,7 @@ a {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    font-size: 13px;
 }
 
 .div_login_box a:hover {
