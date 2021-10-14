@@ -17,7 +17,7 @@
         {% csrf_token %}
         <div class="div_home_input">
             {{form.username}}
-            <label for="Login" class="home_input_label">CPF / CNPJ</label>
+            <label for="Login" class="home_input_label" autocomplete="off">CPF / CNPJ</label>
         </div>
 
         <div class="div_home_input">
@@ -46,6 +46,9 @@
     </form>
 </main>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src='{% static "jquery.mask.js" %}'></script>
+
 <script>
     var form_fields = document.getElementsByTagName("input");
     // form_fields[1].placeholder = "Usuário";
@@ -66,16 +69,9 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 
-    var cpf_cadastro = document.getElementById('id_username')
+    $('#id_username').mask('000.000.000-00')
 
-    cpf_cadastro.onkeyup = function(){
-        if(cpf_cadastro.value.length == 3 || cpf_cadastro.value.length == 7) {
-            cpf_cadastro.value += '.'
-        } else if(cpf_cadastro.value.length == 11){
-            cpf_cadastro.value += '-'
-      }
-    }
-
+    $('#id_username').attr("autocomplete", "off");
 
 </script>
 
