@@ -38,38 +38,16 @@
                   <p>{{message}}</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
               </div>
     
-    {% if messages %}
-        {% for message in messages %}
-        
-            <div class="cliente_messages {{message.tags}}">
-                <p>{{message}}</p><button type="button" class="btn-close" onclick="deletarMensagem(this)">&times;</button>
-            </div>
-  
-        {% endfor %}
-    {% endif %}
+          {% endfor %}
+      {% endif %}
 
-    <div class="button_confirm btn-dados"><button type="submit">Salvar</button></div>
-</form>
+      <div class="button_confirm btn-dados"><button type="submit">Salvar</button></div>
+  </form>
 
-<script>
-    let pageTitle = document.getElementById('page-title')
-    pageTitle.innerHTML = 'Meus Dados'
+  <script>
 
-    function deletarMensagem(botao) {
-        botao.parentElement.remove()
-    }
-
-    var form_fields = document.getElementsByTagName("input");
-
-    for (var field in form_fields) {
-    form_fields[field].className += "meus-dados-inputs";
-    }
-
-    var cep = document.getElementById('id_zip_code')
-
-    cep.onkeyup = function(){
-      if(id_zip_code.value.length == 5) {
-        id_zip_code.value += '-'
+      function deletarMensagem(botao) {
+          botao.parentElement.remove()
       }
 
       var form_fields = document.getElementsByTagName("input");
