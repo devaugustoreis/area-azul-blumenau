@@ -44,6 +44,9 @@
       <button type="submit" class="btn-dados">Salvar</button>
   </form>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src='{% static "jquery.mask.js" %}'></script>
+
   <script>
 
       function deletarMensagem(botao) {
@@ -56,36 +59,9 @@
       form_fields[field].className += "meus-dados-inputs";
       }
 
-      var cep = document.getElementById('id_zip_code')
-
-      cep.onkeyup = function(){
-        if(id_zip_code.value.length == 5) {
-          id_zip_code.value += '-'
-        }
-      }
-
-      var phone1 = document.getElementById('id_phone1')
-      var phone2 = document.getElementById('id_phone2')
-      
-
-      function maskPhone(elem_id) {
-        if (elem_id.value.length == 0) {
-          elem_id.value +="("
-        } else if (elem_id.value.length == 3) {
-          elem_id.value +=")"
-        } else if (elem_id.value.length == 9) {
-          elem_id.value +="-"
-        }
-      }
-
-
-      phone1.onkeydown = function(){
-        maskPhone(phone1)
-      }
-
-      phone2.onkeydown = function(){
-        maskPhone(phone2)
-      }
+      $('#id_zip_code').mask('00000-000') 
+      $('#id_phone1').mask('(00) 00000-0000')    
+      $('#id_phone2').mask('(00) 00000-0000')  
 
   </script>
 

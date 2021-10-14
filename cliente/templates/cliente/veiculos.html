@@ -19,7 +19,7 @@
             {% csrf_token %}
             <div class="add_plate">
                 <h2>Placa:</h2>
-                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" autocapitalize="characters" onfocus="innerBoxShadow()" onblur="removeInnerBox()" onkeyup="verifyPlate()">
+                <input type="text" placeholder="Insira a Placa" id="placa" maxlength="7" onfocus="innerBoxShadow()" onblur="removeInnerBox()" onkeyup="verifyPlate()">
                 <button id="btn-add-car" type="submit" disabled onclick="forcedReload()"><img src="{% static 'imagens/add_plate_blue.png' %}" alt="Adicionar Carro" id="img-add-car">Adicionar</button>
             </div>  
         </form>
@@ -70,6 +70,8 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'jquery.mask.js' %}"></script>
+
     <script type="text/javascript">
         let divMensagem = document.getElementById('div-message')
 
@@ -179,6 +181,10 @@
 
             return false
         });
+
+
+        $('#placa').mask('SSS0A00');
+
 
     </script>
 {% endblock %}

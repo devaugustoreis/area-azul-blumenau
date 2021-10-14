@@ -45,7 +45,7 @@
             {% csrf_token %}
 
             <div class="div_home_input">
-                <input type="text" class="home_input" id="username" name="username" autocomplete="off" maxlength="14" onkeyup="mascara_cpf()" required>
+                <input type="text" class="home_input" id="username" name="username" autocomplete="off" maxlength="14" required>
                 <label for="username" class="home_input_label">CPF / CNPJ</label>
             </div>
             <div class="div_home_input input_space">
@@ -70,9 +70,15 @@
         </form>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src='{% static "jquery.mask.js" %}'></script>
 <script>
     function deletarMensagem(botao) {
           botao.parentElement.remove()
     }
+
+    $('#username').mask('000.000.000-00')
+
 </script>
 {% endblock %}
