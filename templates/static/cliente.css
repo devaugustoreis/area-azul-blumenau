@@ -191,11 +191,6 @@ body {
     text-decoration: none;
 }
 
-.disabled {
-    color:#002540 !important;
-    cursor: default !important;
-}
-
 .sidebar_options {
     height: 55px;
     width: 100%;
@@ -206,16 +201,47 @@ body {
     transition: 0.3s;
 }
 
-.div_disabled {
-    cursor: default;
+.sidebar_options img {
+    margin: 0 15px 0 15px;    
 }
 
 .sidebar_options:hover {
     background-color: var(--cor12);
 }
 
-.sidebar_options img {
-    margin: 0 15px 0 15px;    
+.disabled {
+    color:#002540 !important;
+    cursor: default !important;
+}
+
+.div_disabled {
+    cursor: default;
+}
+
+@media only screen and (max-width: 1400px) {
+    .sb_upper_img {
+        height: 73%;
+    }
+
+    .logo-template {
+        width: 63%;
+    }
+
+    .sb_upper_text {
+        height: 14%;
+    }
+
+    .sb_upper_text h3 {
+        font-size: 15px;
+    }
+
+    #sb_upper_text_saldo {
+        font-size: 13px;
+    }
+
+    .sidebar_options img {
+        width: 20px;
+    }
 }
 
 .page {
@@ -608,6 +634,30 @@ body {
     font-weight: bolder;
     margin: auto;
     font-size: 20px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .total {
+        height: 111px;
+        margin-top: 34px;
+        padding: 9px;
+    }
+    
+    .total h1 {
+        font-size: 18px;
+    }
+    
+    .total h2 {
+        font-size: 16px;
+    }
+
+    .informations img {
+        width: 35px;
+    }
+    
+    .box p {
+        font-size: 18px;
+    }
 }
 
 /* Módulo "date_filter" */
@@ -1248,6 +1298,21 @@ input::-webkit-inner-spin-button{
     cursor: default;
 }
 
+@media only screen and (max-width: 1400px) {
+    #divCountdown {
+        grid-column: 7/13;
+        grid-row: 1/8;
+        margin: auto;
+        background-color: var(--cor1);
+        border: 2px solid var(--cor0);
+        color: var(--cor0);
+        font-size: 18px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+    }
+}
+
 /* Modal "Estacionar" */
 .background-modal {
     display: none;
@@ -1348,7 +1413,7 @@ input::-webkit-inner-spin-button{
 
 .div_table_extract {
     grid-column: 1/13;
-    grid-row: 5/13;
+    grid-row: 8/13;
 }
 
 /* Página "Adicionar Créditos" */

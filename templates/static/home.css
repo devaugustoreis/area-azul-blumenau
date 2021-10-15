@@ -208,15 +208,15 @@ a {
     font-size: 19px;
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
+@media only screen and (max-width: 1400px) {
+    #sidenav {
+        font-size: 17px;
     }
+
     .sidenav a {
-        font-size: 18px;
+        font-size: 17px;
     }
 }
-
 
 /* ---------------------------  Página "Login"  --------------------------- */
 
@@ -237,7 +237,7 @@ a {
 }
 
 .div_upper_logo img {
-    width: 100%;
+    width: 90%;
 }
 
 .div_upper_nav {
@@ -419,7 +419,6 @@ a {
 
 
 /* ---------------------------  Página Perguntas Frequentes"  --------------------------- */
-
 .perguntas-frequentes {
     width: 60%;
 }
@@ -472,9 +471,27 @@ a {
     text-align: justify;
 }
 
+@media only screen and (max-width: 1400px) {
+    .perguntas-frequentes {
+        width: 50%;
+    }
+
+    .perguntas-frequentes h2 {
+        margin: 20px;
+    }
+    
+    .accordion {
+        padding: 2.5%;
+        font-size: 16px;
+        margin: 1.2% auto;
+    }
+     
+    .panel {
+        font-size: 15px;
+    }
+}
 
 /* ---------------------------  Página "Sobre Nós"  --------------------------- */
-
 .sobre-nos {
     width: 60%;
     color: var(--cor0);
@@ -490,7 +507,28 @@ a {
     color: var(--cor12);
 }
 
-
+@media only screen and (max-width: 1400px) {
+    .sobre-nos {
+        width: 50%;
+        padding: 1% 2.5% 0;
+    }
+    
+    .sobre-nos h2 {
+        margin: 18px 0;
+    }
+    
+    .sobre-nos div {
+        margin-bottom: 18px;
+    }
+    
+    .sobre-nos h3 {
+        font-size: 17px;
+    }
+    
+    .sobre-nos p {
+        font-size: 15px;
+    }
+}
 /* ---------------------------  Página "Contato"  --------------------------- */
 
 .contato input,
@@ -515,4 +553,18 @@ textarea {
 
 .inner-box-shadow {
     box-shadow: 0px 0px 3px 2px inset #1084d6b0;
+}
+
+@media only screen and (max-width: 1400px) {
+    .contato h2 {
+        margin: 18px 0;
+    }
+    
+    .contato input,
+    textarea {
+        padding: 8px;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
 }
