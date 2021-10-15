@@ -45,11 +45,11 @@
             {% csrf_token %}
 
             <div class="div_home_input">
-                <input type="text" class="home_input" id="username" name="username" autocomplete="off" maxlength="14" required>
+                <input type="text" class="home_input" id="username" name="username" onkeyup="verifyInputs()" autocomplete="off" maxlength="14" required>
                 <label for="username" class="home_input_label">CPF / CNPJ</label>
             </div>
             <div class="div_home_input input_space">
-                <input type="password" class="home_input" id="password" name="password" required>
+                <input type="password" class="home_input" id="password" name="password" onkeyup="verifyInputs()" required>
                 <label for="password" class="home_input_label">Senha</label>
             </div>
         
@@ -65,7 +65,7 @@
                 {% endfor %}
             {% endif %}
 
-            <button class="btn btn-login" type="submit">Continuar</button>
+            <button class="btn btn-login" type="submit" disabled>Continuar</button>
             <a href="{% url 'cadastro' %}">Ainda não sou cadastrado</a>
         </form>
     </div>
@@ -77,6 +77,15 @@
     function deletarMensagem(botao) {
           botao.parentElement.remove()
     }
+
+
+    function verifyInputs() {
+        if ($('#username').val().length == 14 && $('#password').val().length > 4 ) document.getElementsByClassName('btn')[0].disabled = false
+        else {
+            document.getElementsByClassName('btn')[0].disabled = true
+        }
+    }
+
 
     $('#username').mask('000.000.000-00')
 

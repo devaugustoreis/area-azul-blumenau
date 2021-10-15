@@ -87,11 +87,11 @@ def creditos(request, pk):
     return render(request, "cliente/adicionar_creditos.html")
 
 
-@login_required(login_url='login')
-def multas(request, pk):
-    client = Client.objects.get(pk=pk)
+# @login_required(login_url='login')
+# def multas(request, pk):
+#     client = Client.objects.get(pk=pk)
 
-    return render(request, "cliente/pagar_nr.html", {})
+#     return render(request, "cliente/pagar_nr.html", {})
 
 
 @login_required(login_url='login')

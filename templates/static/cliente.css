@@ -39,23 +39,26 @@ body {
 }
 
 .div_logo {
-    height: 15%;
+    width: 18%;
+    height: 18%;
     position: absolute;
     left: 0%;
 }
 
 .logo {
+    width: 100%;
     height: 100%;
     margin-bottom: 5vh;
 }
 
 .div_profile-pic {
-    height: 27%;
-    margin-bottom: 5vh;
+    height: 30%;
+    width: 11%;
+    margin: 0 auto 5vh auto;
 }
 
 .profile-pic {
-    width: 176px;
+    width: 100%;
     height: 100%;
     border: 3px solid var(--cor0);
     border-radius: 50%;
@@ -69,7 +72,7 @@ body {
 
 .cliente_options_div {
     width: 100%;
-    height: 170px;
+    height: 20vh;
     background-color: var(--cor0);
     position: absolute;
     bottom: 5%;
@@ -79,16 +82,20 @@ body {
 
 .cliente_options_links {
     height: 100%;
-    width: 14%;
+    width: 16%;
     text-align: center;
-    padding: 35px;
+    padding: 4vh;
     cursor: pointer;
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.cliente_options_links img {
+.img-index {
     display: block;
-    margin: 0 auto 15px;
+    margin: 0 auto;
+    width: 60px;
 }
 
 .cliente_options_links a {
@@ -98,6 +105,24 @@ body {
 
 .cliente_options_links:hover {
     background-color: var(--cor12);
+}
+
+@media only screen and (max-width: 1400px) {
+    .cliente_main h1 {
+        font-size: 26px;
+    }
+    
+    .cliente_main h2 {
+        font-size: 26px;
+    }
+
+    .cliente_options_links {
+        padding: 3vh;
+    }
+
+    .img-index {
+        width: 45px;
+    }
 }
 
 /* Template base_clientes */
@@ -127,7 +152,6 @@ body {
 .sb_upper_text {
     height: 12%;
     width: 100%;
-    /* display: flex; */
     align-items: center;
     margin-bottom: 0;
 }
@@ -224,6 +248,16 @@ body {
     padding: 20px;
 }
 
+@media only screen and (max-width: 1400px) {
+    .page_title {
+        height: 6%;
+    }
+
+    .page_content {
+        padding: 0 10px;
+    }
+}
+
 /* Módulo "vehicle_type" */
 .vehicle_type h2 {
     color: var(--cor12);
@@ -234,11 +268,7 @@ body {
     padding-right: 8px;
 }
 
-.vehicle_type #all {
-    width: 25px;
-}
-
-.vehicle_type #car, .img-small-car {
+.vehicle_type #all, .vehicle_type #car, .img-small-car {
     width: 25px;
 }
 
@@ -265,6 +295,31 @@ body {
 .btn-vehicle-type:hover {
     background-color: var(--cor0);
     color: var(--cor1);
+}
+
+@media only screen and (max-width: 1400px) {
+    .vehicle_type h2 {
+        font-size: 20px;
+    }
+
+    .btn-vehicle-type {
+        font-size: 16px;
+        margin-right: 10px;
+        height: 35px;
+        padding: 5px 10px;
+    }
+
+    .vehicle_type #all, .vehicle_type #car, .img-small-car {
+        width: 22px;
+    }
+    
+    .vehicle_type #moto, .img-small-moto {
+        width: 20px;
+    }
+    
+    .vehicle_type #other_vehicles, .img-small-other {
+        width: 26px;
+    }
 }
 
 /* Módulo "vehicle_plate" */
@@ -300,11 +355,7 @@ body {
     padding-right: 8px;
 }
 
-#all {
-    width: 25px;
-}
-
-#car {
+#all, #car {
     width: 25px;
 }
 
@@ -314,6 +365,37 @@ body {
 
 #other_vehicles {
     width: 29px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .vehicle_plate_title {
+        font-size: 20px;
+    }
+
+    .btn_vehicle_plate {
+        width: 116px;
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-right: 5px;
+        height: 36px;
+        padding: 5px 8px;
+    }
+
+    .btn_vehicle_plate img {
+        padding-right: 8px;
+    }
+    
+    #all, #car {
+        width: 22px;
+    }
+    
+    #moto {
+        width: 20px;
+    }
+    
+    #other_vehicles {
+        width: 26px;
+    }
 }
 
 /* Módulo "time" */
@@ -342,13 +424,13 @@ body {
     color: var(--cor0);
 }
 
-.add_time p {
-    margin: 5px;
-}
-
 .add_time #minutes {
     font-weight: bold;
     font-size: 22px;
+}
+
+.add_time p {
+    margin: 5px;
 }
 
 .add_time button {
@@ -379,6 +461,38 @@ body {
     transform: translateY(1.5px);
 }
 
+@media only screen and (max-width: 1400px) {
+    .time h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .add_time div {
+        width: 105px;
+        height: 110px;
+        margin-right: 20px;
+        padding: 5px 5px;
+        color: var(--cor0);
+    }
+
+    .add_time #minutes {
+        font-size: 18px;
+    }
+    
+    .add_time p {
+        font-size: 18px;
+        margin: 4px;
+    }
+
+    .add_time button {
+        width: 29px;
+        height: 29px;
+        font-size: 22px;
+        padding: 0;
+        margin: 4px;
+    }
+}
+
 /* Módulo "button_confirm" */
 .button_confirm button {
     width: 265px;
@@ -392,6 +506,15 @@ body {
     transition-duration: 0.3s;
     position: relative;
     bottom: 6%;
+}
+
+@media only screen and (max-width: 1400px) {
+    .button_confirm button {
+        width: 165px;
+        height: 46px;
+        box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+        font-size: 18px;
+    }
 }
 
 .button_confirm button:hover {
@@ -665,7 +788,6 @@ body {
     padding: 5px;
     text-decoration: none;
     transition: background-color .3s;
-    /* font-size: 14px; */
 }
   
 .pagination a.active {
@@ -810,6 +932,35 @@ input::-webkit-inner-spin-button{
     transform: translateY(3px);
 }
 
+@media only screen and (max-width: 1400px) {
+    .values div {
+        width: 105px;
+        height: 86px;
+        font-size: 16px;
+        margin-right: 20px;
+        padding: 4px;
+    }
+
+    .values p {
+        margin: 4px;
+        font-size: 20px;
+    }
+    
+    .values button {
+        width: 29px;
+        height: 29px;
+        font-size: 22px;
+        margin: 4px;
+    }
+
+    #div-value input {
+        padding: 5px;
+        width: 80px;
+        font-size: 18px;
+        height: 25px;
+    }
+}
+
 /* Módulo "payment_forms" */
 .payment_method h2 {
     color: var(--cor12);
@@ -836,6 +987,19 @@ input::-webkit-inner-spin-button{
 .btn-payment:hover {
     background-color: var(--cor0);
     color: var(--cor1);
+}
+
+@media only screen and (max-width: 1400px) {
+    .payment_method img {
+        width: 45px;
+    }
+
+    .btn-payment {
+        width: 100px;
+        font-size: 18px;
+        margin: 0 20px 0 0;
+        padding: 10px 18px;
+    }
 }
 
 /* Módulo "button_remove" */
@@ -865,9 +1029,14 @@ input::-webkit-inner-spin-button{
 }
   
 .button_remove a:active {
-    background-color: var(--cor8);
-    border: 1px solid var(--cor8);
     transform: translateY(2px);
+}
+
+@media only screen and (max-width: 1400px) {
+    .button_remove img {
+        width: 31px;
+        padding: 7px 6px 3px;
+    }
 }
 
 /* Módulo "add_plate" */
@@ -922,8 +1091,6 @@ input::-webkit-inner-spin-button{
 }
 
 .add_plate button:active {
-    background-color: var(--cor12);
-    border: 1px solid var(--cor12);
     transform: translateY(1.5px);
 }
 
@@ -934,13 +1101,38 @@ input::-webkit-inner-spin-button{
     cursor: default;
 }
 
+@media only screen and (max-width: 1400px) {
+    .add_plate h2 {
+        margin-bottom: 8px;
+    }
+
+    .add_plate input {
+        font-size: 14px;
+        width: 116px;
+        height: 36px;
+        padding: 5px 8px;
+    }
+
+    .add_plate img {
+        width: 20px;
+        padding-right: 5px;
+        margin-top: 2px;
+    }
+
+    .add_plate button {
+        font-size: 16px;
+        height: 36px;
+        padding: 7px;
+    }
+}
+
 /* Messages */
 .cliente_messages {
     margin: 25px auto;
     width: 450px;
     margin-top: 50px;
     border-radius: 5px;
-    padding: 8px;
+    padding: 8px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -966,6 +1158,14 @@ input::-webkit-inner-spin-button{
     cursor: pointer;
     border: none;
     color: inherit;  
+}
+
+@media only screen and (max-width: 1400px) {
+    .cliente_messages {
+        margin-top: 30px;
+        padding: 5px 8px;
+        font-size: 14px;
+    }
 }
 
 /* Página "Estacionar" */
@@ -1231,6 +1431,25 @@ input::-webkit-inner-spin-button{
     cursor: default;
 }
 
+@media only screen and (max-width: 1400px) {
+    .add-creditos-title {
+        font-size: 18px;
+    }
+
+    .informations_add_credits .informations img {
+        width: 48px;
+        margin-right: 10px;
+    }
+    
+    .informations_add_credits .box {
+        width: 125px;
+        height: 55px;
+    }
+
+    .informations_add_credits .box p {
+        font-size: 22px;
+    }
+}
 
 /* Página "Pagar NR" */
 .date_filter_pagar_nr {
@@ -1255,16 +1474,16 @@ input::-webkit-inner-spin-button{
     grid-row: 1/6;
 }
 
-.vehicle_type_veiculos h2 {
-    font-weight: normal;
-    font-style: italic;
-    color: var(--cor12);
-}
-
 .vehicle_type_veiculos #title {
     margin-bottom: 20px;
     font-weight: bolder;
     font-style: normal;
+}
+
+.vehicle_type_veiculos h2 {
+    font-weight: normal;
+    font-style: italic;
+    color: var(--cor12);
 }
 
 .veiculos_form {
@@ -1300,6 +1519,25 @@ input::-webkit-inner-spin-button{
     margin-right: 25px;
 }
 
+@media only screen and (max-width: 1400px) {
+    .vehicle_type_veiculos #title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .vehicle_type_veiculos h2 {
+        font-size: 18px;
+    }
+
+    .veiculos_form {
+        margin-top: 12px;
+    }
+
+    .plate_button {
+        margin-bottom: 7px;
+        margin-right: 18px;
+    }
+}
 
 /* Página "Excluir Veículo" */
 .div-excluir {
@@ -1393,13 +1631,15 @@ input::-webkit-inner-spin-button{
 .perfil span, .address span {
     width: 100%;
     height: 40px;
-    display: block;
+    display: flex;
+    align-items: center;
     border: 1px solid;
     border-color: var(--cor0);
     margin-top: 20px;
     color: var(--cor0);
     padding: 9px;
     background-color: var(--cor1);
+    font-size: 16px;
 }
 
 .meus-dados-inputs {
@@ -1415,6 +1655,12 @@ input::-webkit-inner-spin-button{
     transition: 0.2s;
 }
 
+#import-img {
+    display: block;
+    height: 100px;
+    padding: 15px 9px;
+}
+
 #profile_pic-clear_id {
     width: 13px;
     margin-left: 15px;
@@ -1424,11 +1670,6 @@ input::-webkit-inner-spin-button{
 
 #profile_pic-clear_id+label{
     cursor: pointer;
-}
-
-#import-img {
-    height: 100px;
-    padding: 15px 9px;
 }
 
 #import-img a {
@@ -1459,6 +1700,34 @@ input::-webkit-inner-spin-button{
     bottom: 4.2%;
     left: 60%;
     transform: translate(-50%);
+}
+
+@media only screen and (max-width: 1400px) {
+    .dados-form h2 {
+        font-size: 20px;
+    }
+
+    .perfil span, .address span {
+        height: 30px;
+        margin-top: 16px;
+        padding: 3px 8px;
+        font-size: 14px;
+    }
+
+    .meus-dados-inputs {
+        padding-left: 5px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    #import-img {
+        height: 76px;
+        padding: 8px 9px;
+    }
+
+    #profile_pic-clear_id {
+        margin-bottom: 20px;
+    }
 }
 
 /* Classes que devem estar no final para sobrescrever outras */
