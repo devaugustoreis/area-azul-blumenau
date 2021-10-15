@@ -20,9 +20,6 @@
   <script>
     let startDate = document.getElementById('id_start_date')
     let endDate = document.getElementById('id_end_date')
-
-    startDate.setAttribute('maxlength', 10);
-    endDate.setAttribute('maxlength', 10);
     
     var date = new Date();
     var year = date.getFullYear()
@@ -42,7 +39,7 @@
       year = date.getFullYear()
       month = (date.getMonth()+1)
       day = date.getDate(); 
-      tomorrow = (day+1)+'/'+month+'/'+year
+      tomorrow = day+'/'+month+'/'+year
     }
     
 
@@ -51,7 +48,7 @@
       verifyMonthDay()
       let today = day+'/'+month+'/'+year
       startDate.value = today
-      endDate.value = tomorrow
+      endDate.value = day+'/'+month+'/'+year
     }
     
 

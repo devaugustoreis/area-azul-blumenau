@@ -164,7 +164,7 @@ a {
     border: var(--cor0) 1px solid;
     background-color: transparent;
     color: var(--cor0);
-    cursor: default;
+    cursor: not-allowed;
 }
 
 .sidenav {

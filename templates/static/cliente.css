@@ -191,11 +191,6 @@ body {
     text-decoration: none;
 }
 
-.disabled {
-    color:#002540 !important;
-    cursor: default !important;
-}
-
 .sidebar_options {
     height: 55px;
     width: 100%;
@@ -204,10 +199,6 @@ body {
     align-items: center;
     cursor: pointer;
     transition: 0.3s;
-}
-
-.div_disabled {
-    cursor: default;
 }
 
 .sidebar_options:hover {
@@ -1098,7 +1089,7 @@ input::-webkit-inner-spin-button{
     border: var(--cor0) 1px solid;
     background-color: transparent;
     color: var(--cor0);
-    cursor: default;
+    cursor: not-allowed;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -1245,7 +1236,7 @@ input::-webkit-inner-spin-button{
     border: var(--cor0) 1px solid;
     background-color: transparent;
     color: var(--cor0);
-    cursor: default;
+    cursor: not-allowed;
 }
 
 /* Modal "Estacionar" */
@@ -1348,7 +1339,7 @@ input::-webkit-inner-spin-button{
 
 .div_table_extract {
     grid-column: 1/13;
-    grid-row: 5/13;
+    grid-row: 6/13;
 }
 
 /* Página "Adicionar Créditos" */
@@ -1428,7 +1419,7 @@ input::-webkit-inner-spin-button{
     border: var(--cor0) 1px solid;
     background-color: transparent;
     color: var(--cor0);
-    cursor: default;
+    cursor: not-allowed;
 }
 
 @media only screen and (max-width: 1400px) {
