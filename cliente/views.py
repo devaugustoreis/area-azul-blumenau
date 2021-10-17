@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from home.filters import *
+from django.core.paginator import Paginator
 
 
 @login_required(login_url='login')
@@ -55,10 +56,14 @@ def estacionar(request, pk):
 @login_required(login_url='login')
 def extrato(request, pk):
     client = Client.objects.get(pk=pk)
-    operations = client.operation_set.all()
-
+    operations = client.operation_set.all().order_by('-date')
+    
     operationFilter = OperationsFilter(request.GET, queryset=operations)
     operations = operationFilter.qs
+
+    paginator = Paginator(operations, 8)
+    page = request.GET.get('page')
+    operations = paginator.get_page(page)
 
     context = {'client':client, 'operations':operations, 'operation_filter':operationFilter}
     return render(request, "cliente/extrato.html", context)

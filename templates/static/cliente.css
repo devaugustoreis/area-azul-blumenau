@@ -725,9 +725,9 @@ body {
 }
 
 .date h3 {
+    display: inline-block;
     color: var(--cor12);
-    margin-bottom: 10px;
-    margin-left: 10px;
+    margin: 0 112px 10px 10px;
 }
 
 .date input {
@@ -742,11 +742,20 @@ body {
     display: flex;
     margin-right: 25px;
     background-color: var(--cor1);
+    cursor: text;
 }
 
-#id_end_date:after {
-    content: " 23:59:59";
-    color: transparent;
+.date input::placeholder {
+    color: #00437396;
+}
+
+#div-date-range {
+    display: flex;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url('/static/imagens/calendar.png');
+    cursor: pointer;
 }
 
 #search {
@@ -1214,7 +1223,7 @@ input::-webkit-inner-spin-button{
     border: var(--cor0) 1px solid;
     background-color: transparent;
     color: var(--cor0);
-    cursor: default;
+    cursor: not-allowed;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -1362,7 +1371,7 @@ input::-webkit-inner-spin-button{
     border: var(--cor0) 1px solid;
     background-color: transparent;
     color: var(--cor0);
-    cursor: default;
+    cursor: not-allowed;
 }
 
 
@@ -1432,26 +1441,27 @@ input::-webkit-inner-spin-button{
 }
 
 .modal-form-estacionar a {
+    border: var(--cor0) 1px solid;
+    background-color: transparent;
+    color: var(--cor0);
+}
+
+.modal-form-estacionar a:hover {
+    background-color: var(--cor0);
+    border: 1px solid var(--cor0);
+    color: var(--cor1);
+}
+  
+.modal-form-estacionar button {
     background-color: var(--cor0);
     border: 1px solid var(--cor0);
     color: var(--cor1);
 }
 
-.modal-form-estacionar a:hover {
+.modal-form-estacionar button:hover {
     background-color: var(--cor4);
     border: 1px solid var(--cor4);
     color: var(--cor5);
-}
-  
-.modal-form-estacionar button {
-    background-color: var(--cor7);
-    border: 1px solid var(--cor7);
-    color: var(--cor1);
-}
-
-.modal-form-estacionar button:hover {
-    background-color: var(--cor8);
-    border: 1px solid var(--cor8);
 }
   
 .modal-form-estacionar a:active, .modal-form-estacionar button:active {
@@ -1546,7 +1556,7 @@ input::-webkit-inner-spin-button{
     border: var(--cor0) 1px solid;
     background-color: transparent;
     color: var(--cor0);
-    cursor: default;
+    cursor: not-allowed;
 }
 
 @media only screen and (max-width: 1400px) {

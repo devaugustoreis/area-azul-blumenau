@@ -14,8 +14,8 @@
     <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" class="logo" onclick="location.href='{% url 'login' %}'">
     <h2>Esqueci minha senha</h2>
     <div class="div_home_input">
-        <input type="text" class="home_input" id="esq_senha_input" onkeyup="verifyInputs()" required>
-        <label for="log_input" class="home_input_label">CPF / CNPJ</label>
+        <input type="email" class="home_input" id="esq_senha_input" onkeyup="verifyInputs()" required>
+        <label for="log_input" class="home_input_label">E-mail</label>
     </div>
     <button type="button" class="btn" disabled>Enviar</button>
 </form>
@@ -28,15 +28,17 @@
         document.getElementById("mySidenav").style.width = "250px";
     }
 
+
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
 
-    $('#esq_senha_input').mask('000.000.000-00')
 
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
 
     function verifyInputs() {
-        if ($('#esq_senha_input').val().length == 14) document.getElementsByClassName('btn')[0].disabled = false
+        let validEmail = $("#esq_senha_input").val()
+        if (!emailReg.test(validEmail) == false) document.getElementsByClassName('btn')[0].disabled = false
         else {
             document.getElementsByClassName('btn')[0].disabled = true
         }
