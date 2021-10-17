@@ -44,7 +44,6 @@ class Operation(models.Model):
     OPERATION_TYPE = (
         ('Estacionar', 'Estacionar'),
         ('Compra de Créditos', 'Compra de Créditos'),
-        ('Pagar NR', 'Pagar NR'),
     )
     PAYMENT_METHOD = (
         ('Crédito', 'Crédito'),
