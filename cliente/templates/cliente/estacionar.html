@@ -98,7 +98,7 @@
     {% for car in cars %}
         {% if car.expiration_time %}
             <div id="divCountdown">
-                <button class="btn-countdown"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
+                <button class="btn-countdown" id="{{car}}"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
                 <div class="div-countdown-expiration">
                     <img src="{% static 'imagens/relogio.png' %}">
                     <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ car.expiration_time|date:'H:i:s' }}</span></button>
@@ -112,7 +112,7 @@
     {% for moto in motos %}
         {% if moto.expiration_time %}
             <div id="divCountdown">
-                <button class="btn-countdown"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">{{moto}}</button>
+                <button class="btn-countdown" id="{{moto}}"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">{{moto}}</button>
                 <div class="div-countdown-expiration">
                     <img src="{% static 'imagens/relogio.png' %}">
                     <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ moto.expiration_time|date:'H:i:s' }}</span></button>
@@ -126,7 +126,7 @@
     {% for other in others %}
         {% if other.expiration_time %}
             <div id="divCountdown">
-                <button class="btn-countdown"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">{{other}}</button>
+                <button class="btn-countdown" id="{{other}}"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">{{other}}</button>
                 <div class="div-countdown-expiration">
                     <img src="{% static 'imagens/relogio.png' %}">
                     <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ other.expiration_time|date:'H:i:s' }}</span></button>
@@ -145,22 +145,23 @@
             <p id="msg-estacionar"></p>
         </div>
     </div>
+    <!-- Fim Mensagens -->
+
 
     <div class="button_confirm">
             <button id="btn-estacionar" onclick="checkCredits()" disabled>Estacionar</button>
     </div>
-    <!-- Fim Mensagens -->
-
+    
 
     <!-- Modal -->
     <div id="modal-full-screen" class="background-modal">
         <form class="modal-form-estacionar" action="" id="estacionar_form">
             {% csrf_token %}
             <p class="modal-msg">Você gostaria de estacionar o veículo <strong id="modal-car"></strong> por <strong id="modal-time"></strong>?</p>
-            <p class="modal-obs">Obs.: O tempo restante no veículo atual será descartado.</p>
+            <p class="modal-obs">Obs.: Caso estacione outro veículo, o tempo restante no veículo atual será descartado.</p>
             <div class="botoes-excluir">
                 <a onclick="closeModal();">Cancelar</a>
-                <button onclick="forcedReload()" type="submit">Confirmar</button>
+                <button type="submit" onclick="forcedReload()">Confirmar</button>
             </div>
         </form>
     </div>
@@ -435,8 +436,6 @@
 
 
         function checkCredits() {
-            console.log(saldoCliente)
-            console.log(totalValue)
             if (saldoCliente >= totalValue) showModal()
             else {
                 showMessage("Saldo em conta insuficiente.");
@@ -448,6 +447,7 @@
             if (chosenCar == '') showMessage("Por favor selecione um veículo!")
         }
 
+
         /* Time Related */
         var hours_increased = 0
         var minutes_increased = 0
@@ -457,11 +457,6 @@
             minutes_increased = totalTempo % 60;   
         }
 
-
-        if (document.getElementById('expiration-span') !== null) {
-            var spanCountdown = document.getElementById('span-countdown')
-            var expirationTime = document.getElementById('expiration-span').innerHTML
-        }
         
         var today = new Date(); 
         var now = today.getHours()  + ":" + today.getMinutes()  + ":" + today.getSeconds()
@@ -496,7 +491,6 @@
 
 
         function checkPlurals(display, value, string) {
-            console.log(value)
             if (value == 1) display = `${value} ${string} `
             else if (value > 1) {
                 display = `${value} ${string}s `
@@ -505,18 +499,20 @@
         }
 
 
+        var start_time, end_time
+
         function calculateCountdown(exp_time) {
             console.log(now)
             console.log(exp_time)
-            var start_time = now.split(":")
-            var end_time = exp_time.split(":")
-            hours = end_time[0] - start_time[0]
-            minutes = end_time[1] - start_time[1]
+            start_time = now.split(":")
+            end_time = exp_time.split(":")
+            hours = parseFloat(end_time[0]) - parseFloat(start_time[0])
+            minutes = parseFloat(end_time[1]) - parseFloat(start_time[1])
             if (minutes < 0) {
                 minutes = minutes + 60
                 hours--
             }
-            seconds = end_time[2] - start_time[2]
+            seconds = parseFloat(end_time[2]) - parseFloat(start_time[2])
             if (seconds < 0) {
                 seconds = seconds + 60
                 minutes--
@@ -526,6 +522,9 @@
 
 
         if (document.getElementById('expiration-span') !== null) {
+            var spanCountdown = document.getElementById('span-countdown')
+            var expirationTime = document.getElementById('expiration-span').innerHTML
+            var parkedCar = document.getElementsByClassName('btn-countdown')[0].id
             calculateCountdown(expirationTime)
         }
         
@@ -538,14 +537,25 @@
 
 
         function getExpirationTime() {
-            var today3 = new Date();
-            var exp_h = (today3.getHours()+hours_increased)
-            var exp_m = (today3.getMinutes()+minutes_increased)
-            if (exp_m >= 60) {
-                exp_h++;
-                exp_m = exp_m % 60;
+            var exp_h, exp_m, exp_s
+            if ((chosenCar == parkedCar) && (spanCountdown.innerHTML != "Tempo Expirado.")) {
+                exp_h = parseFloat(end_time[0]) + hours_increased
+                exp_m = parseFloat(end_time[1]) + minutes_increased
+                if (exp_m >= 60) {
+                    exp_h++;
+                    exp_m = exp_m % 60;
+                }
+                exp_s = end_time[2]
+            } else {
+                today3 = new Date();
+                exp_h = (today3.getHours()+hours_increased)
+                exp_m = (today3.getMinutes()+minutes_increased)
+                if (exp_m >= 60) {
+                    exp_h++;
+                    exp_m = exp_m % 60;
+                }
+                exp_s = today3.getSeconds()  
             }
-            var exp_s = today3.getSeconds()
             var expiration = exp_h + ":" + exp_m + ":" + exp_s;
             return expiration
         }
@@ -588,10 +598,7 @@
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                 },
                 success:function(){
-
-                },
-                error: function (error) {
-                    alert('error; ' + eval(error));
+                    
                 }
             });
         });

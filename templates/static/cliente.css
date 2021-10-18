@@ -701,6 +701,10 @@ body {
     cursor: text;
 }
 
+#id_start_value::placeholder , #id_end_value::placeholder {
+    color: var(--cor0);
+}
+
 .date_filter button {
     color: var(--cor1);
     width: 145px;
@@ -751,6 +755,14 @@ body {
 
 #div-date-range {
     display: flex;
+}
+
+.gambiarra {
+    position: absolute;
+    margin-left: 215px;
+    height: 20px;
+    width: 20px;
+    background-color: var(--cor6);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -1441,15 +1453,14 @@ input::-webkit-inner-spin-button{
 }
 
 .modal-form-estacionar a {
-    border: var(--cor0) 1px solid;
-    background-color: transparent;
-    color: var(--cor0);
+    border: var(--cor7) 1px solid;
+    background-color: var(--cor7);
+    color: var(--cor1);
 }
 
 .modal-form-estacionar a:hover {
-    background-color: var(--cor0);
-    border: 1px solid var(--cor0);
-    color: var(--cor1);
+    background-color: var(--cor8);
+    border: 1px solid var(--cor8);
 }
   
 .modal-form-estacionar button {
