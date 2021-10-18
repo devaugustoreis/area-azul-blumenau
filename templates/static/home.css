@@ -216,6 +216,10 @@ a {
     .sidenav a {
         font-size: 17px;
     }
+
+    .home_input_label {
+        font-size: 14px;
+    }
 }
 
 /* ---------------------------  Página "Login"  --------------------------- */
@@ -256,6 +260,12 @@ a {
 
 .div_upper_nav a:hover {
     color: var(--cor4);
+}
+
+@media only screen and (max-width: 1400px) {
+    .div_upper_nav a {
+        font-size: 18px;
+    }
 }
 
 /* ---  BODY  --- */
@@ -336,29 +346,30 @@ a {
     }
 
     .div_body_text {
-        width: 43%;
+        width: 38%;
     }
 
     .div_body_text h1 {
         margin-bottom: 0;
-        font-size: 40px;
+        font-size: 36px;
     }
 
     .div_body_text h2 {
-        font-size: 29px;
+        font-size: 25px;
     }
 
     .div_login_box {
         padding: 40px 45px;
+        width: 330px;
     }
 
     .div_login_box h1 {
         margin: 0 0 45px 0;
-        font-size: 28px;
+        font-size: 22px;
     }
 
     .div_login_box a {
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 
@@ -448,6 +459,12 @@ a {
     height: 45px;
 }
 
+@media only screen and (max-width: 1400px) {
+    .main-cadastro img {
+        height: 70px;
+    }
+}
+
 
 /* ---------------------------  Página Perguntas Frequentes"  --------------------------- */
 .perguntas-frequentes {
@@ -504,21 +521,22 @@ a {
 
 @media only screen and (max-width: 1400px) {
     .perguntas-frequentes {
-        width: 50%;
+        width: 45%;
     }
 
     .perguntas-frequentes h2 {
         margin: 20px;
+        font-size: 20px;
     }
     
     .accordion {
-        padding: 2.5%;
-        font-size: 16px;
+        padding: 13px;
+        font-size: 14px;
         margin: 1.2% auto;
     }
      
     .panel {
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 
@@ -540,12 +558,13 @@ a {
 
 @media only screen and (max-width: 1400px) {
     .sobre-nos {
-        width: 50%;
+        width: 45%;
         padding: 1% 2.5% 0;
     }
     
     .sobre-nos h2 {
         margin: 18px 0;
+        font-size: 20px;
     }
     
     .sobre-nos div {
@@ -553,11 +572,11 @@ a {
     }
     
     .sobre-nos h3 {
-        font-size: 17px;
+        font-size: 16px;
     }
     
     .sobre-nos p {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 /* ---------------------------  Página "Contato"  --------------------------- */
@@ -589,13 +608,14 @@ textarea {
 @media only screen and (max-width: 1400px) {
     .contato h2 {
         margin: 18px 0;
+        font-size: 20px;
     }
     
     .contato input,
     textarea {
         padding: 8px;
         margin-bottom: 8px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
 }

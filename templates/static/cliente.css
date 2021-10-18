@@ -847,6 +847,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     #search {
         padding-top: 23px;
     }
+
+    .gambiarra {
+        margin-left: 205px;
+    }
 }
 
 /* Módulo "table_extract" */
@@ -899,7 +903,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 10px;
     font-weight: bold;
     font-style: italic;
-    color: var(--cor4);
+    color: var(--cor12);
 }
 
 .pagination {
@@ -912,12 +916,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 5px;
     text-decoration: none;
     transition: background-color .3s;
-}
-  
-.pagination a.active {
-    background-color: var(--cor0);
-    color: var(--cor6);
-    font-weight: bolder;
 }
   
 .pagination a:hover:not(.active) {
@@ -1459,12 +1457,12 @@ input::-webkit-inner-spin-button{
 }
 
 .modal-msg {
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 5px 20px;
 }
 
 .modal-obs {
     font-size: 14px;
-    padding: 5px 20px 20px 20px;
+    padding: 0px 20px;
 }
 
 .botoes-excluir {
@@ -1480,6 +1478,7 @@ input::-webkit-inner-spin-button{
     cursor: pointer;
     transition-duration: 0.3s;
     text-decoration: none;
+    margin-top: 20px;
 }
 
 .modal-form-estacionar a {

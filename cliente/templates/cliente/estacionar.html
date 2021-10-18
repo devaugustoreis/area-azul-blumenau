@@ -158,7 +158,7 @@
         <form class="modal-form-estacionar" action="" id="estacionar_form">
             {% csrf_token %}
             <p class="modal-msg">Você gostaria de estacionar o veículo <strong id="modal-car"></strong> por <strong id="modal-time"></strong>?</p>
-            <p class="modal-obs">Obs.: Caso estacione outro veículo, o tempo restante no veículo atual será descartado.</p>
+            <p class="modal-obs">Obs.: O tempo restante no veículo atual será descartado.</p>
             <div class="botoes-excluir">
                 <a onclick="closeModal();">Cancelar</a>
                 <button type="submit" onclick="forcedReload()">Confirmar</button>
@@ -565,8 +565,22 @@
         let modal = document.getElementById('modal-full-screen')
         let modalDisplayCar = document.getElementById('modal-car')
         var modalDisplayTime = document.getElementById('modal-time')
+        var modalMsg = document.getElementsByClassName('modal-msg')[0]
+        var modalObs = document.getElementsByClassName('modal-obs')[0]
 
         function showModal() {
+            if ((chosenCar == parkedCar) && (spanCountdown.innerHTML != "Tempo Expirado.")) {
+                console.log('teste')
+                modalMsg.innerHTML = 'Você gostaria de acrescentar <strong id="modal-time"></strong> ao veículo <strong id="modal-car"></strong>?'
+                modalDisplayCar = document.getElementById('modal-car')
+                modalDisplayTime = document.getElementById('modal-time')
+                modalObs.style.display = 'none'
+            } else {
+                modalMsg.innerHTML = 'Você gostaria de estacionar o veículo <strong id="modal-car"></strong> por <strong id="modal-time"></strong>?'
+                modalDisplayCar = document.getElementById('modal-car')
+                modalDisplayTime = document.getElementById('modal-time')
+                modalObs.style.display = 'block'
+            }
             modalDisplayCar.innerHTML = `"${chosenCar}"`
             if (hours_increased < 1) modalDisplayTime.innerHTML = `${minutes_increased}min`
             else if (minutes_increased == 0) {
