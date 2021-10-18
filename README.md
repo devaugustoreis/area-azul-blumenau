@@ -10,6 +10,4 @@ Após baixar o projeto, siga os seguintes passos:
 
 2º - Entrar no ambient virtual. **-> .\env\Scripts\Activate.ps1**
 
-3º - Instalar o Django **-> pip install django**
-
-4º - Instalar o Django Filter **-> pip install django-filter**
+3º - Instalar os pacotes necessários **-> pip install -r requirements.txt**
