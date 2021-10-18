@@ -35,9 +35,9 @@
                 <div class="sidebar_options" onclick="location.href='{% url 'creditos' user.client.id %}'">
                     <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos" width="25"><a href="{% url 'creditos' user.client.id %}">Adicionar Créditos</a>
                 </div>
-                <div class="sidebar_options div_disabled">
-                    <img src="{% static 'imagens/Pagar_Multa.png' %}" alt="Icone Pagar_Multa" width="25"><a class="disabled">Pagar NR</a>
-                </div>
+                <!-- <div class="sidebar_options">
+                    <img src="{% static 'imagens/Pagar_Multa.png' %}" alt="Icone Pagar_Multa" width="25"><a>Pagar NR</a>
+                </div> -->
                 <div class="sidebar_options" onclick="location.href='{% url 'veiculos' user.client.id %}'">
                     <img src="{% static 'imagens/Meus_Veiculos.png' %}" alt="Icone Meus_Veiculos" width="25"><a href="{% url 'veiculos' user.client.id %}">Meus Veículos</a>
                 </div>

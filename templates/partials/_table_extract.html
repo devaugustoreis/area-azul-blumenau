@@ -27,14 +27,18 @@
         </tr>
     {% endfor %}
 </table>
-<!-- <div class="pagination">
-    <a href="#">&laquo;</a>
-    <a class="active"href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">&raquo;</a>
-</div> -->
+
+<div class="pagination">
+    {% for pagina in operations.paginator.page_range %}
+        {% if operations.number == pagina %}
+            <!-- <a href="#">&laquo;</a> -->
+            <a class="page-link page-active" href="?page={{pagina}}">{{pagina}}</a>
+            <!-- <a href="#">&raquo;</a> -->
+        {% else %}
+            <a class="page-link" href="?page={{pagina}}">{{pagina}}</a>
+        {% endif %}
+    {% endfor %}
+</div>
 <table class="tabela-total">
     <td>Saldo</td>
     <td>R$ {{client.credits|floatformat:2}}</td>

@@ -18,35 +18,9 @@
   <script src="{% static 'jquery.mask.js' %}"></script>
 
   <script>
-    let startDate = document.getElementById('id_start_date')
-    let endDate = document.getElementById('id_end_date')
-
-    startDate.setAttribute('maxlength', 10);
-    endDate.setAttribute('maxlength', 10);
-
-    startDate.onkeyup = function() {
-      mascaraData(startDate, startDate.value)
-    }
-
-    endDate.onkeyup = function() {
-      mascaraData(endDate, endDate.value)
-    }
-
-    // function mascaraData(campo, valor){
-    //   var key = event.keyCode || event.charCode;
-    //   if( key == 8 || key == 46 ) return false;
-      
-    //   var mydata = '';
-    //   mydata = mydata + valor;
-    //   if (mydata.length == 2){
-    //     mydata = mydata + '/';
-    //     campo.value = mydata;
-    //   }
-    //   if (mydata.length == 5){
-    //     mydata = mydata + '/';
-    //     campo.value = mydata;
-    //   }
-    // }
+    let startDate = document.getElementById('id_date_range_0')
+    let endDate = document.getElementById('id_date_range_1')
+    let divDateRange = document.getElementById('div-date-range')
     
     var date = new Date();
     var year = date.getFullYear()
@@ -66,7 +40,7 @@
       year = date.getFullYear()
       month = (date.getMonth()+1)
       day = date.getDate(); 
-      tomorrow = (day+1)+'/'+month+'/'+year
+      tomorrow = day+'/'+month+'/'+year
     }
     
 
@@ -75,13 +49,13 @@
       verifyMonthDay()
       let today = day+'/'+month+'/'+year
       startDate.value = today
-      endDate.value = tomorrow
+      endDate.value = day+'/'+month+'/'+year
     }
     
 
     function setLastWeek() {
       getDateNow()
-      day -= 6
+      day -= 7
       if (day < 1) {
         day = day + 30
         month--
@@ -92,59 +66,26 @@
       endDate.value = tomorrow
     }
 
-    
-    // function setLastMonth() {
-    //   getDateNow()
-    //   month -= 1
-    //   if (month < 1) {
-    //     month = 12
-    //     year--
-    //   }
-    //   let lastMonth = day+'/'+month+'/'+year
-    //   startDate.value = lastMonth
-    //   endDate.value = tomorrow
-    // }
-
 
     function setThisMonth() {
       getDateNow()
-      month -= 1 
-      let lastDay = new Date(year, month, 0);
-      lastDay = lastDay.getDate() 
-      if (month < 1) {
-        month = 12
-        year--
-      }
       verifyMonthDay()
-      let lastMonth = lastDay+'/'+month+'/'+year
-      startDate.value = lastMonth
+      startDate.value = '01'+'/'+month+'/'+year
       endDate.value = tomorrow
     }
-    
 
-    // function setLastYear() {
-    //   getDateNow()
-    //   year -= 1
-    //   let lastYear = day+'/'+month+'/'+year
-    //   startDate.value = lastYear
-    //   endDate.value = tomorrow
-    // }
-    
 
     function setThisYear() {
       getDateNow()
-      let lastDay = new Date(year, 0, 0);
-      lastDay = lastDay.getDate() 
-      year -= 1
-      month = 12
-      verifyMonthDay()
-      let lastYear = lastDay+'/'+month+'/'+year
-      startDate.value = lastYear
+      startDate.value = '01/01/'+year
       endDate.value = tomorrow
     }
 
-    $('#id_start_date').mask('00/00/0000');
-    $('#id_end_date').mask('00/00/0000');
-    
+
+    $('#id_date_range_0').mask('00/00/0000', {placeholder: "dd/mm/aaaa"});
+    $('#id_date_range_1').mask('00/00/0000', {placeholder: "dd/mm/aaaa"});
+    $('#id_start_value').mask('000.00', {placeholder: "R$ 0,00", reverse: true});
+    $('#id_end_value').mask('000.00', {placeholder: "R$ 0,00", reverse: true});
+
   </script>
 {% endblock %}

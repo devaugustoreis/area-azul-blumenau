@@ -14,15 +14,17 @@
     <img src="{% static 'imagens/Logo-A-provisorio.png'%}" height="75px" alt="Logo Área Azul" onclick="location.href='{% url 'login' %}'">
     <h2>Contato</h2>
     <form>
-        <input type="text" name="Nome" placeholder="NOME" required id="contato-nome" onfocus="innerBoxShadow(nome)" onblur="removeInnerBox(nome)">
-        <input type="text" name="E-mail" placeholder="E-MAIL" required id="contato-email" onfocus="innerBoxShadow(email)" onblur="removeInnerBox(email)">
-        <input type="text" name="Telefone" placeholder="TELEFONE" required id="contato-telefone" onfocus="innerBoxShadow(telefone)" onblur="removeInnerBox(telefone)">
-        <input type="text" name="Cidade" placeholder="CIDADE" required id="contato-cidade" onfocus="innerBoxShadow(cidade)" onblur="removeInnerBox(cidade)">
-        <input type="text" name="Assunto" placeholder="ASSUNTO" required id="contato-assunto" onfocus="innerBoxShadow(assunto)" onblur="removeInnerBox(assunto)">
-        <textarea name="subject" placeholder="MENSAGEM" id="contato-mensagem" onfocus="innerBoxShadow(mensagem)" onblur="removeInnerBox(mensagem)"></textarea>
-        <button type="button" class="btn btn-cadastrar">Enviar</button>
+        <input type="text" name="Nome" placeholder="NOME" required id="contato-nome" onfocus="innerBoxShadow(this)" onblur="removeInnerBox(this)" onkeyup="verifyInputs()">
+        <input type="text" name="E-mail" placeholder="E-MAIL" required id="contato-email" onfocus="innerBoxShadow(this)" onblur="removeInnerBox(this)" onkeyup="verifyInputs()">
+        <input type="text" name="Telefone" placeholder="TELEFONE" required id="contato-telefone" onfocus="innerBoxShadow(this)" onblur="removeInnerBox(this)" onkeyup="verifyInputs()">
+        <input type="text" name="Cidade" placeholder="CIDADE" required id="contato-cidade" onfocus="innerBoxShadow(this)" onblur="removeInnerBox(this)" onkeyup="verifyInputs()">
+        <input type="text" name="Assunto" placeholder="ASSUNTO" required id="contato-assunto" onfocus="innerBoxShadow(this)" onblur="removeInnerBox(this)" onkeyup="verifyInputs()">
+        <textarea name="subject" placeholder="MENSAGEM" id="contato-mensagem" onfocus="innerBoxShadow(this)" onblur="removeInnerBox(this)" onkeyup="verifyInputs()"></textarea>
+        <button type="button" class="btn btn-cadastrar" disabled>Enviar</button>
      </form>
 </main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
     let nome = document.getElementById('contato-nome')
@@ -32,20 +34,42 @@
     let assunto = document.getElementById('contato-assunto')
     let mensagem = document.getElementById('contato-mensagem')
 
+
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
     }
+
 
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
 
+
     function innerBoxShadow(input) {
         input.classList.add('inner-box-shadow')
     }
 
+
     function removeInnerBox(input) {
         input.classList.remove('inner-box-shadow')
     }
+
+
+    var disabled = true
+
+    
+    function verifyInputs() {
+        if (($('#contato-nome').val() != '') && 
+            ($('#contato-email').val() != '') &&
+            ($('#contato-telefone').val() != '') &&
+            ($('#contato-cidade').val() != '') &&
+            ($('#contato-assunto').val() != '') &&
+            ($('#contato-mensagem').val() != '')) 
+                document.getElementsByClassName('btn')[0].disabled = false
+        else {
+            document.getElementsByClassName('btn')[0].disabled = true
+        }
+    }
+
 </script>
 {% endblock %}

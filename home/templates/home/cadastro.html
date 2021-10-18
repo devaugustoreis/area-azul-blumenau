@@ -42,7 +42,7 @@
 
         {{form.errors}}
 
-        <button type="submit" class="btn btn-cadastrar">Cadastrar</button>   
+        <button type="submit" class="btn btn-cadastrar" disabled>Cadastrar</button>   
     </form>
 </main>
 
@@ -51,15 +51,17 @@
 
 <script>
     var form_fields = document.getElementsByTagName("input");
-    // form_fields[1].placeholder = "Usuário";
-    // form_fields[2].placeholder = "Email";
-    // form_fields[3].placeholder = "Senha";
-    // form_fields[4].placeholder = "Confirmação de senha";
 
     for (var field in form_fields) {
       form_fields[field].className += "home_input register_input";
+      console.log(form_fields[field])
+      form_fields[field].onkeyup = function() {
+          verifyInputs()
+      }
     }
 
+
+    console.log(form_fields)
 
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
@@ -72,6 +74,18 @@
     $('#id_username').mask('000.000.000-00')
 
     $('#id_username').attr("autocomplete", "off");
+
+    function verifyInputs() {
+        if (($('#id_username').val().length == 14) && 
+            ($('#id_first_name').val() != '') &&
+            ($('#id_email').val() != '') &&
+            ($('#id_password1').val() != '') &&
+            ($('#id_password2').val() != '')) 
+                document.getElementsByClassName('btn')[0].disabled = false
+        else {
+            document.getElementsByClassName('btn')[0].disabled = true
+        }
+    }
 
 </script>
 

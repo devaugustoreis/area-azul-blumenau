@@ -1,20 +1,21 @@
 from django.db.models import fields
 import django_filters
-from django_filters.filters import ModelChoiceFilter, ModelMultipleChoiceFilter, NumberFilter
+from django_filters.filters import DateFromToRangeFilter, DateRangeFilter, ModelChoiceFilter, ModelMultipleChoiceFilter, NumberFilter
 from .models import *
 from django_filters import DateFilter
 
-# class VehicleFilter(django_filters.FilterSet):
-#     class Meta:
-#         model = Vehicle
-#         fields = '__all__'
-
 
 class OperationsFilter(django_filters.FilterSet):
-    start_date = DateFilter(field_name="date", lookup_expr="gte")
-    end_date = DateFilter(field_name="date", lookup_expr="lte")
+    # operation1 = Operation.objects.last()
+    # clientName = operation1.client.name
+    # clientVehicles = Vehicle.objects.filter(owners__name=clientName)
+
+    date_range = DateFromToRangeFilter(field_name='date') 
+        # ,widget=django_filters.widgets.RangeWidget(attrs={'type': 'date'}))
+    # vehicle = ModelChoiceFilter(queryset=clientVehicles)
     start_value = NumberFilter(field_name="value", lookup_expr="gte")
     end_value = NumberFilter(field_name="value", lookup_expr="lte")
+
     class Meta:
         model = Operation
-        fields = ['operation_type', 'payment_method', 'vehicle']
+        fields = ['operation_type', 'payment_method']
