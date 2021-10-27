@@ -3,17 +3,14 @@
 
 {% block content %}
     <script>
-        let pageTitle = document.getElementById('page-title')
-        pageTitle.innerHTML = 'Meus Veículos'
+        document.getElementById('page-title').innerHTML = 'Meus Veículos'
     </script>
 
     <div class="vehicle_type_veiculos">
         <h2 id="title">Incluir novo veículo</h2>
         <div class="vehicle_type">
             <h2>Tipo de Veículo:</h2>
-            <button class='btn-vehicle-type btn-active' id='btn-type-car' onmouseover="hoverImgColor('white_car')" onmouseout="backImgColor(this, 'blue_car')" onclick="btnActive(btnCar, btnMoto, btnOther, 'C')"><img src="{% static 'imagens/img_carro_white.png' %}" alt="Carro Azul" id="car">Carro</button>
-            <button class='btn-vehicle-type' id='btn-type-moto' onmouseover="hoverImgColor('white_moto')" onmouseout="backImgColor(this, 'blue_moto')" onclick="btnActive(btnMoto, btnCar, btnOther, 'M')"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
-            <button class='btn-vehicle-type' id='btn-type-other' onmouseover="hoverImgColor('white_truck')" onmouseout="backImgColor(this, 'blue_truck')" onclick="btnActive(btnOther, btnCar, btnMoto, 'O')"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">Demais Veículos</button>
+            {% include 'partials/_vehicle_type.html' %}
         </div>
         <form class="veiculos_form" id="novo_veiculo_form">
             {% csrf_token %}
@@ -70,7 +67,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'jquery.mask.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.js' %}"></script>
 
     <script type="text/javascript">
         let divMensagem = document.getElementById('div-message')
@@ -86,18 +83,19 @@
             botao.parentElement.remove()
         }
 
-
-        let vehicle_type = 'C'
-        let btnCar = document.getElementById('btn-type-car')
-        let btnMoto = document.getElementById('btn-type-moto')
-        let btnOther = document.getElementById('btn-type-other')
+    
         let placa = document.getElementById('placa')
         
+        let vehicleTypeButtons = document.getElementsByClassName('btn-vehicle-type') 
         let btnAddCar = document.getElementById('btn-add-car')
         let imgAddCar = document.getElementById('img-add-car')
         let imgCar = document.getElementById('car')
         let imgMoto = document.getElementById('moto')
         let imgOther = document.getElementById('other_vehicles')
+
+        document.getElementById('btn-type-car').classList.add('btn-active')
+        imgCar.src="{% static 'imagens/img_carro_white.png' %}"
+        let vehicle_type = 'C'
 
         
         function innerBoxShadow() {
@@ -125,24 +123,25 @@
         }
 
 
-        function changeImgColor(botao) {
+        function changeImgColor(tipo) {
             imgCar.src="{% static 'imagens/img_carro_az.png' %}"
             imgMoto.src="{% static 'imagens/img_moto_az.png' %}"
             imgOther.src="{% static 'imagens/img_demais_az.png' %}"
-            if (botao == btnCar) imgCar.src="{% static 'imagens/img_carro_white.png' %}"
-            if (botao == btnMoto) imgMoto.src="{% static 'imagens/img_moto_white.png' %}"
-            if (botao == btnOther) imgOther.src="{% static 'imagens/img_demais_white.png' %}"
-        }
-
-
-        function btnActive(botao1, botao2, botao3, tipo) {
-            changeImgColor(botao1)
-            botao2.classList.remove('btn-active')
-            botao3.classList.remove('btn-active')
-            botao1.classList.add('btn-active')
-            vehicle_type = tipo
+            if (tipo == 'C') imgCar.src="{% static 'imagens/img_carro_white.png' %}"
+            if (tipo == 'M') imgMoto.src="{% static 'imagens/img_moto_white.png' %}"
+            if (tipo == 'O') imgOther.src="{% static 'imagens/img_demais_white.png' %}"
         }
         
+
+        function selectVehicleType(btnClicked, tipo) {
+            changeImgColor(tipo)
+            for (let button of vehicleTypeButtons) {
+                button.classList.remove('btn-active')
+            }
+            btnClicked.classList.add('btn-active')
+            vehicle_type = tipo
+        }
+
 
         function verifyPlate(){
             if (placa.value.length == 7) {

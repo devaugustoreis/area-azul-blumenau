@@ -1,4 +1,4 @@
-{% extends 'base_home.html' %}
+{% extends 'home/base_home.html' %}
 {% load static %}
 
 {% block content %}
@@ -60,16 +60,6 @@
       }
     }
 
-
-    console.log(form_fields)
-
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
 
     $('#id_username').mask('000.000.000-00')
 

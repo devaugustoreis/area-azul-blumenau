@@ -3,8 +3,7 @@
 
 {% block content %}
   <script>
-      let pageTitle = document.getElementById('page-title')
-      pageTitle.innerHTML = 'Meus Dados'
+      document.getElementById('page-title').innerHTML = 'Meus Dados'
   </script>
 
   <form action='' method='POST' class='dados-form' enctype="multipart/form-data">
@@ -13,7 +12,7 @@
           <div class="perfil">
               <h2>Perfil:</h2>
               <span>CPF: {{user.username}}</span>
-              <span>Nome: {{clientForm.name}}</span>
+              <span>Nome: {{client.name}}</span>
               <span>E-mail: {{clientForm.email}}</span>
               <span>Telefone 01: {{clientForm.phone1}}</span>
               <span>Telefone 02: {{clientForm.phone2}}</span>
@@ -45,7 +44,7 @@
   </form>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src='{% static "jquery.mask.js" %}'></script>
+  <script src='{% static "js/jquery.mask.js" %}'></script>
 
   <script>
 

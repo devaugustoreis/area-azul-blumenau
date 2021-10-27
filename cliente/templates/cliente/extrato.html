@@ -3,8 +3,7 @@
 
 {% block content %}
   <script>
-    let pageTitle = document.getElementById('page-title')
-    pageTitle.innerHTML = 'Extrato'
+    document.getElementById('page-title').innerHTML = 'Extrato'
   </script>
   
   <div class="date_filter_extrato">
@@ -15,7 +14,7 @@
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="{% static 'jquery.mask.js' %}"></script>
+  <script src="{% static 'js/jquery.mask.js' %}"></script>
 
   <script>
     let startDate = document.getElementById('id_date_range_0')

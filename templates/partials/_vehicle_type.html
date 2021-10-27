@@ -1,5 +1,4 @@
 {% load static %}
-    <button class='btn-vehicle-type' id='btn-type-car' onmouseover="hoverImgColor('white_car')" onmouseout="backImgColor(this, 'blue_car')"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">Carro</button>
-    <button class='btn-vehicle-type' id='btn-type-moto' onmouseover="hoverImgColor('white_moto')" onmouseout="backImgColor(this, 'blue_moto')"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
-    <button class='btn-vehicle-type' id='btn-type-other' onmouseover="hoverImgColor('white_truck')" onmouseout="backImgColor(this, 'blue_truck')"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">Demais Veículos</button>
-</div>
+    <button class='btn-vehicle-type' id='btn-type-car' onclick="selectVehicleType(this, 'C')" onmouseover="hoverImgColor('white_car')" onmouseout="backImgColor(this, 'blue_car')"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">Carro</button>
+    <button class='btn-vehicle-type' id='btn-type-moto' onclick="selectVehicleType(this, 'M')" onmouseover="hoverImgColor('white_moto')" onmouseout="backImgColor(this, 'blue_moto')"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">Moto</button>
+    <button class='btn-vehicle-type' id='btn-type-other' onclick="selectVehicleType(this, 'O')" onmouseover="hoverImgColor('white_truck')" onmouseout="backImgColor(this, 'blue_truck')"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">Demais Veículos</button>

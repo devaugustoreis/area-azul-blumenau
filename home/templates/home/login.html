@@ -1,7 +1,8 @@
-{% extends 'base_home.html' %}
+{% extends 'home/base_home.html' %}
 {% load static %}
 
 {% block content %}
+
 <div class="div_upper">
     <div class="div_upper_logo">
         <img src="{% static 'imagens/Logo-B-provisorio.png'%}" alt="areaazul-logo" class="logo">
@@ -24,32 +25,15 @@
     <div class="div_login_box">
         <h1>Faça seu login</h1>
 
-        <!-- Input Selects removidos
-        <div class="div_select_user">
-            <div>
-                <input type="radio" name="select" id="cpf">
-                <label for="cpf">CPF</label>
-            </div>
-            <div>
-                <input type="radio" name="select" id="cnpj">
-                <label for="cnpj">CNPJ</label>
-            </div>
-            <div>
-                <input type="radio" name="select" id="fiscal">
-                <label for="fiscal">Fiscal</label>
-            </div>
-        </div>
-        -->
-
         <form action="" method="POST">
             {% csrf_token %}
 
             <div class="div_home_input">
-                <input type="text" class="home_input" id="username" name="username" onkeyup="verifyInputs()" autocomplete="off" maxlength="14" required>
+                <input type="text" class="home_input" id="username" name="username" onkeyup="verifyLogin()" autocomplete="off" maxlength="14" required>
                 <label for="username" class="home_input_label">CPF</label>
             </div>
             <div class="div_home_input input_space">
-                <input type="password" class="home_input" id="password" name="password" onkeyup="verifyInputs()" required>
+                <input type="password" class="home_input" id="password" name="password" onkeyup="verifyLogin()" required>
                 <label for="password" class="home_input_label">Senha</label>
             </div>
         
@@ -71,23 +55,4 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src='{% static "jquery.mask.js" %}'></script>
-<script>
-    function deletarMensagem(botao) {
-          botao.parentElement.remove()
-    }
-
-
-    function verifyInputs() {
-        if ($('#username').val().length == 14 && $('#password').val().length > 4 ) document.getElementsByClassName('btn')[0].disabled = false
-        else {
-            document.getElementsByClassName('btn')[0].disabled = true
-        }
-    }
-
-
-    $('#username').mask('000.000.000-00')
-
-</script>
 {% endblock %}

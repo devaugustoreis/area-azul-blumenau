@@ -1,7 +1,8 @@
-{% extends 'base_home.html' %}
+{% extends 'home/base_home.html' %}
 {% load static %}
 
 {% block content %}
+
 <div class="sidenav" id="mySidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="{% url 'login' %}">Home / Login</a>
@@ -14,37 +15,10 @@
     <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" class="logo" onclick="location.href='{% url 'login' %}'">
     <h2>Esqueci minha senha</h2>
     <div class="div_home_input">
-        <input type="email" class="home_input" id="esq_senha_input" onkeyup="verifyInputs()" required>
+        <input type="email" class="home_input" id="esq_senha_input" onkeyup="verifyEmail()" required>
         <label for="log_input" class="home_input_label">E-mail</label>
     </div>
     <button type="button" class="btn" disabled>Enviar</button>
 </form>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src='{% static "jquery.mask.js" %}'></script>
-
-<script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-    }
-
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
-
-
-    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
-
-    function verifyInputs() {
-        let validEmail = $("#esq_senha_input").val()
-        if (!emailReg.test(validEmail) == false) document.getElementsByClassName('btn')[0].disabled = false
-        else {
-            document.getElementsByClassName('btn')[0].disabled = true
-        }
-    }
-
-</script>
-
 
 {% endblock %}
