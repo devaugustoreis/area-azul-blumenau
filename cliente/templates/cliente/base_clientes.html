@@ -36,9 +36,6 @@
                 <div class="sidebar_options" onclick="location.href='{% url 'creditos' user.client.id %}'">
                     <img src="{% static 'imagens/Adicionar_Creditos.png' %}" alt="Icone Adicionar_Creditos" width="25"><a href="{% url 'creditos' user.client.id %}">Adicionar Créditos</a>
                 </div>
-                <!-- <div class="sidebar_options">
-                    <img src="{% static 'imagens/Pagar_Multa.png' %}" alt="Icone Pagar_Multa" width="25"><a>Pagar NR</a>
-                </div> -->
                 <div class="sidebar_options" onclick="location.href='{% url 'veiculos' user.client.id %}'">
                     <img src="{% static 'imagens/Meus_Veiculos.png' %}" alt="Icone Meus_Veiculos" width="25"><a href="{% url 'veiculos' user.client.id %}">Meus Veículos</a>
                 </div>
@@ -50,7 +47,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="page">
             <div class="page_title">
                 <h3 id='page-title'>Titulo da Página</h3>
@@ -62,5 +59,6 @@
 
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{% static 'js/cliente.js' %}"></script>
 </body>
 </html>

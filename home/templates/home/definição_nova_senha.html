@@ -1,0 +1,31 @@
+{% extends 'home/base_home.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_sidenav.html' %}
+
+<form class="esqueci_senha_form" action="" id="form" method="POST">
+    {% csrf_token %}
+    <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" class="logo" onclick="location.href='{% url 'login' %}'">
+    <h2 id="nova-senha-title">Altere sua Senha</h2>
+    <div class="div_home_input">
+        {{form.new_password1}}
+        <label for="log_input" class="home_input_label">Nova Senha</label>  
+    </div>
+    <div class="div_home_input">
+        {{form.new_password2}}
+        <label for="log_input" class="home_input_label">Confirmação da Senha</label>
+    </div>
+    <button type="submit" class="btn" id="btn-nova-senha">Enviar</button>
+</form>
+
+<script>
+    var form_fields = document.getElementsByTagName("input");
+
+    for (var field in form_fields) {
+        form_fields[field].className += "home_input new_password_input";
+    }
+</script>
+
+{% endblock %}

@@ -3,22 +3,32 @@
 
 {% block content %}
 
-<div class="sidenav" id="mySidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{% url 'login' %}">Home / Login</a>
-    <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
-    <a href="{% url 'sobre_nos' %}">Sobre Nós</a>
-    <a href="{% url 'contato' %}">Contato</a>
-</div>
-<div id="sidenav"><span onclick="openNav()">&#9776; Menu</span></div>
-<form class="esqueci_senha_form" action="" id="form">
+{% include 'partials/_sidenav.html' %}
+
+<form class="esqueci_senha_form" action="" id="form" method="POST">
+    {% csrf_token %}
     <img src="{% static 'imagens/Logo-A-provisorio.png' %}" alt="Logo Área Azul" class="logo" onclick="location.href='{% url 'login' %}'">
     <h2>Esqueci minha senha</h2>
     <div class="div_home_input">
-        <input type="email" class="home_input" id="esq_senha_input" onkeyup="verifyEmail()" required>
+        {{form.email}}
         <label for="log_input" class="home_input_label">E-mail</label>
     </div>
-    <button type="button" class="btn" disabled>Enviar</button>
+    <button type="submit" class="btn" disabled>Enviar</button>
 </form>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
+
+    $('#id_email').addClass("home_input")
+    $('#id_email').keyup(function() {
+        let validEmail = $("#id_email").val()
+        if (!emailReg.test(validEmail) == false) document.getElementsByClassName('btn')[0].disabled = false
+        else {
+            document.getElementsByClassName('btn')[0].disabled = true
+        }
+    });
+ 
+</script>
 {% endblock %}

@@ -1,17 +1,5 @@
 var chosenCar = ''
 
-function forcedReload() {
-    setTimeout(function() {
-        window.location.reload(true)
-    }, 2000);
-}
-
-
-function deletarMensagem(botao) {
-    botao.parentElement.parentElement.remove()
-}
-
-
 /* Botões Tipo de Veículo e Veículo */
 let vehicleTypeButtons = document.getElementsByClassName('btn-vehicle-type') 
 
@@ -156,7 +144,6 @@ function reduzirTempo(valorTempo, valorReais){
 }
 
 
-var saldoCliente = '{{client.credits}}'
 saldoCliente = parseFloat(saldoCliente)
 
 function showMessage(msg){

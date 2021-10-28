@@ -1,0 +1,16 @@
+{% extends 'home/base_home.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_sidenav.html' %}
+
+<main class="main-cadastro trocar-senha">
+    <img src="{% static 'imagens/Logo-A-provisorio.png'%}" height="75px" alt="Logo Área Azul" onclick="location.href='{% url 'login' %}'">
+    <div>
+        <p class='msg-senha'>• Instruções para a redefinição de senha foram enviadas para o e-mail informado. Você deve recebê-lo em breve.</p>
+        <p class='msg-senha'>• Caso não tenha recebido nada, verifique sua caixa de spam e se o e-mail foi digitado corretamente.</p>
+    </div>
+</main>
+
+{% endblock %}

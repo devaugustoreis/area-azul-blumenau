@@ -198,7 +198,6 @@ a {
     top: 0;
     right: 12px;
     font-size: 36px;
-    /* margin-left: 50px; */
 }
 
 #sidenav {
@@ -221,6 +220,7 @@ a {
         font-size: 14px;
     }
 }
+
 
 /* ---------------------------  Página "Login"  --------------------------- */
 
@@ -312,16 +312,6 @@ a {
     color: var(--cor0);
 }
 
-
-/* .div_select_user {
-    width: 80%;
-    margin: 50px auto 40px auto;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    color: gray;
-} */
-
 .div_login_box a {
     color: var(--cor0);
     display: block;
@@ -374,41 +364,6 @@ a {
 }
 
 
-/* ---------------------------  Página "Esqueci_Senha"  --------------------------- */
-
-.esqueci_senha_form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--cor1);
-    border-radius: 2%;
-    width: 410px;
-    padding: 30px;
-}
-
-.esqueci_senha_form .logo {
-    display: block;
-    margin: auto;
-    width: 60%;
-    cursor: pointer;
-}
-
-.esqueci_senha_form h2 {
-    margin: 55px 0;
-    color: var(--cor0);
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.esqueci_senha_form button {
-    width: 170px;
-    height: 50px;
-    margin: 80px auto 10px auto;
-}
-
-
 /* ---------------------------  Página "Cadastro"  --------------------------- */
 
 .main-cadastro {
@@ -430,7 +385,6 @@ a {
 
 .main-cadastro h2 {
     color: var(--cor0);
-    /* font-size: 20px; */
     font-weight: bold;
     margin: 30px 0;
     text-align: center;
@@ -466,7 +420,82 @@ a {
 }
 
 
+/* ---------------------------  Página "Esqueci_Senha"  --------------------------- */
+
+.esqueci_senha_form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--cor1);
+    border-radius: 2%;
+    width: 410px;
+    padding: 30px;
+}
+
+.esqueci_senha_form .logo {
+    display: block;
+    margin: auto;
+    width: 60%;
+    cursor: pointer;
+}
+
+.esqueci_senha_form h2 {
+    margin: 55px 0;
+    color: var(--cor0);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.esqueci_senha_form button {
+    width: 170px;
+    height: 50px;
+    margin: 80px auto 10px auto;
+}
+
+
+/* ---------------------------  Página "Solicitação_Nova_Senha"  --------------------------- */
+
+.trocar-senha {
+    color: var(--cor0);
+    width: 410px;
+    padding: 40px;
+}
+
+.msg-senha {
+    margin-top: 38px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: justify;
+}
+
+
+/* ---------------------------  Página "Definição_Nova_Senha"  --------------------------- */
+
+#nova-senha-title {
+    margin: 40px 0;
+}
+
+.new_password_input {
+    color: gray;
+    height: 30px;
+    display: block;
+    margin-bottom: 35px;
+}
+
+#btn-nova-senha {
+    margin-top: 30px;
+}
+
+.redirect-login {
+    width: 170px;
+    height: 50px;
+    margin: 55px auto 10px auto;
+}
+
 /* ---------------------------  Página Perguntas Frequentes"  --------------------------- */
+
 .perguntas-frequentes {
     width: 60%;
 }
@@ -540,7 +569,9 @@ a {
     }
 }
 
+
 /* ---------------------------  Página "Sobre Nós"  --------------------------- */
+
 .sobre-nos {
     width: 60%;
     color: var(--cor0);
@@ -579,6 +610,8 @@ a {
         font-size: 14px;
     }
 }
+
+
 /* ---------------------------  Página "Contato"  --------------------------- */
 
 .contato input,

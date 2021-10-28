@@ -83,20 +83,11 @@ def creditos(request, pk):
         client.credits += float(creditos)
         client.save()
 
-        # messages.add_message(request, messages.SUCCESS, f'R${creditos} em créditos adicionados com sucesso à sua conta!')
-
         Operation.objects.create(
             client=client, operation_type=operacao, payment_method=pagamento, value=creditos, balance=newBalance
         )
 
     return render(request, "cliente/adicionar_creditos.html")
-
-
-# @login_required(login_url='login')
-# def multas(request, pk):
-#     client = Client.objects.get(pk=pk)
-
-#     return render(request, "cliente/pagar_nr.html", {})
 
 
 @login_required(login_url='login')
@@ -117,31 +108,11 @@ def veiculos(request, pk):
         )
 
         newVehicle.owners.add(client)
-        # messages.add_message(request, messages.SUCCESS, 'Veículo cadastrado com sucesso!')
 
         return redirect('veiculos', client.pk)
     
     context = {'client':client, 'cars':cars, 'motos':motos, 'others':others, 'vehicles':vehicles}
     return render(request, "cliente/veiculos.html", context)
-
-
-# @login_required(login_url='login')
-# def adicionarVeiculo(request, pk):
-#     client = Client.objects.get(id=pk)
-
-#     if request.method == 'POST':
-#         plate = request.POST['license_plate']
-#         type = request.POST['vehicle_type']
-
-#         newVehicle = Vehicle.objects.create(
-#             license_plate = plate, 
-#             vehicle_type = type
-#         )
-
-#         newVehicle.owners.add(client)
-#         messages.add_message(request, messages.SUCCESS, 'Carro cadastrado com sucesso!')
-
-#         return render(request, "cliente/veiculos.html")
 
 
 @login_required(login_url='login')

@@ -1,15 +1,3 @@
-function forcedReload() {
-    setTimeout(function() {
-        window.location.reload(true)
-    }, 3000);
-}
-
-
-function deletarMensagem(botao) {
-    botao.parentElement.remove()
-}
-
-
 btnConfirmCredits = document.getElementById('btn-confirm-credits')
 
 function btnAbleDisable() {

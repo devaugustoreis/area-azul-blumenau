@@ -25,267 +25,9 @@ body {
     background-color: var(--cor6);
 }
 
-/* Página Index */
-.cliente_main {
-    width: 95%;
-    height: 70vh;
-    text-align: center;
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%);
-    color: var(--cor0);
-    text-shadow: 1px 1px 1px #070707c4;
-}
 
-.div_logo {
-    width: 18%;
-    height: 18%;
-    position: absolute;
-    left: 0%;
-}
+/* ---------------------------  Módulo "vehicle_type"  --------------------------- */
 
-.logo {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 5vh;
-}
-
-.div_profile-pic {
-    height: 30%;
-    width: 11%;
-    margin: 0 auto 5vh auto;
-}
-
-.profile-pic {
-    width: 100%;
-    height: 100%;
-    border: 3px solid var(--cor0);
-    border-radius: 50%;
-}
-
-.cliente_main h2 {
-    margin-top: 10vh;
-    margin-bottom: 5vh;
-    font-size: 30px;
-}
-
-.cliente_options_div {
-    width: 100%;
-    height: 20vh;
-    background-color: var(--cor0);
-    position: absolute;
-    bottom: 5%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.cliente_options_links {
-    height: 100%;
-    width: 16%;
-    text-align: center;
-    padding: 4vh;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.img-index {
-    display: block;
-    margin: 0 auto;
-    width: 60px;
-}
-
-.cliente_options_links a {
-    text-decoration: none;
-    color: var(--cor6);
-}
-
-.cliente_options_links:hover {
-    background-color: var(--cor12);
-}
-
-@media only screen and (max-width: 1400px) {
-    .cliente_main h1 {
-        font-size: 26px;
-    }
-    
-    .cliente_main h2 {
-        font-size: 26px;
-    }
-
-    .cliente_options_links {
-        padding: 4vh;
-    }
-
-    .img-index {
-        width: 45px;
-    }
-}
-
-/* Template base_clientes */
-.fullpage {
-    display: flex;
-}
-
-.sidebar_upper {
-    height: 25vh;
-    width: 20vw;
-    border: 1px solid var(--cor0);
-    text-align: center;
-}
-
-.sb_upper_img {
-    height: 78%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.logo-template {
-    margin: auto;
-}
-
-.sb_upper_text {
-    height: 12%;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 0;
-}
-
-.sb_upper_text h3 {
-    font-size: 18px;
-    color: var(--cor0);
-    margin: auto;
-}
-
-.sb_upper_text a {
-    color: inherit;
-    transition: 0.2s;
-}
-
-.sb_upper_text a:hover {
-    color: var(--cor12);
-}
-
-#sb_upper_text_saldo {
-    font-size: 15px;
-    color: var(--cor12);
-    margin: auto;
-    font-style: italic;
-}
-
-.sidebar_lower {
-    height: 75vh;
-    width: 20vw;
-    padding-top: 10px;
-    background-color: var(--cor0);
-    text-align: center;
-}
-
-.sidebar_lower a{
-    color: var(--cor1);
-    text-decoration: none;
-}
-
-.sidebar_options {
-    height: 55px;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.sidebar_options img {
-    margin: 0 15px 0 15px;    
-}
-
-.sidebar_options:hover {
-    background-color: var(--cor12);
-}
-
-.disabled {
-    color:#002540 !important;
-    cursor: default !important;
-}
-
-.div_disabled {
-    cursor: default;
-}
-
-@media only screen and (max-width: 1400px) {
-    .sb_upper_img {
-        height: 73%;
-    }
-
-    .logo-template {
-        width: 63%;
-    }
-
-    .sb_upper_text {
-        height: 14%;
-    }
-
-    .sb_upper_text h3 {
-        font-size: 15px;
-    }
-
-    #sb_upper_text_saldo {
-        font-size: 13px;
-    }
-
-    .sidebar_options img {
-        width: 20px;
-    }
-}
-
-.page {
-    height: 100vh;
-    width: 80vw;
-}
-
-.page_title {
-    height: 5%;
-    width: 97%;
-    background-color: var(--cor0);
-    color: var(--cor6);
-    margin: 5.5vh auto 2.5vh auto;
-    display: flex;
-    align-items: center;
-}
-
-.page_title h3 {
-    margin-left: 25px;
-    font-weight: 100;
-}
-
-.page_content {
-    height: 85%;
-    width: 97%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(12, 8.33%);
-    grid-template-rows: repeat(12, 8.33%);
-    padding: 20px;
-}
-
-@media only screen and (max-width: 1400px) {
-    .page_title {
-        height: 6%;
-        margin: 4.5vh auto 2.5vh auto;
-    }
-
-    .page_content {
-        padding: 0 10px;
-    }
-}
-
-/* Módulo "vehicle_type" */
 .vehicle_type h2 {
     color: var(--cor12);
     margin-bottom: 10px;
@@ -349,7 +91,9 @@ body {
     }
 }
 
-/* Módulo "vehicle_plate" */
+
+/* ---------------------------  Módulo "vehicle_plate"  --------------------------- */
+
 .vehicle_plate_title {
     color: var(--cor12);
     margin-bottom: 10px;
@@ -425,7 +169,9 @@ body {
     }
 }
 
-/* Módulo "time" */
+
+/* ---------------------------  Módulo "time"  --------------------------- */
+
 #time {
     margin-right: 40px;
 }
@@ -524,7 +270,9 @@ body {
     }
 }
 
-/* Módulo "button_confirm" */
+
+/* ---------------------------  Módulo "button_confirm"  --------------------------- */
+
 .button_confirm button {
     width: 265px;
     height: 66px;
@@ -558,7 +306,9 @@ body {
     transform: translateY(2px);
 }
 
-/* Módulo "button_save" */
+
+/* ---------------------------  Módulo "button_save"  --------------------------- */
+
 .button_save button {
     width: 265px;
     height: 66px;
@@ -585,7 +335,9 @@ body {
     transform: translateY(2px);
 }
 
-/* Módulo "total" */
+
+/* ---------------------------  Módulo "total"  --------------------------- */
+
 .total {
     background-color: var(--cor1);
     color: var(--cor0);
@@ -666,7 +418,9 @@ body {
     }
 }
 
-/* Módulo "date_filter" */
+
+/* ---------------------------  Módulo "date_filter"  --------------------------- */
+
 .filtros {
     display: flex;
     margin-bottom: 20px;
@@ -765,11 +519,6 @@ body {
     background-color: var(--cor6);
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url('/static/imagens/calendar.png');
-    cursor: pointer;
-}
-
 #search {
     padding-top: 37px;
 }
@@ -853,7 +602,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 }
 
-/* Módulo "table_extract" */
+
+/* ---------------------------  Módulo "table_extract"  --------------------------- */
+
 .tabela-extrato {
     border-collapse: collapse;
     border-spacing: 0;
@@ -947,7 +698,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 }
 
-/* Módulo "add_credits" */
+
+/* ---------------------------  Módulo "add_credits"  --------------------------- */
+
 .add_credits h2 {
     color: var(--cor12);
     margin-bottom: 15px;
@@ -1117,7 +870,9 @@ input::-webkit-inner-spin-button{
     }
 }
 
-/* Módulo "payment_forms" */
+
+/* ---------------------------  Módulo "payment_methods"  --------------------------- */
+
 .payment_method h2 {
     color: var(--cor12);
     margin-bottom: 15px;
@@ -1158,7 +913,9 @@ input::-webkit-inner-spin-button{
     }
 }
 
-/* Módulo "button_remove" */
+
+/* ---------------------------  Módulo "button_remove"  --------------------------- */
+
 .button_remove {
     text-align: center;
 }
@@ -1195,7 +952,9 @@ input::-webkit-inner-spin-button{
     }
 }
 
-/* Módulo "add_plate" */
+
+/* ---------------------------  Módulo "add_plate"  --------------------------- */
+
 .add_plate h2 {
     margin-bottom: 10px;
     font-weight: normal;
@@ -1282,7 +1041,9 @@ input::-webkit-inner-spin-button{
     }
 }
 
-/* Messages */
+
+/* ---------------------------  Messages  --------------------------- */
+
 .cliente_messages {
     margin: 25px auto;
     width: 450px;
@@ -1333,7 +1094,264 @@ input::-webkit-inner-spin-button{
     width: 300px;
 }
 
-/* Página "Estacionar" */
+
+/* ---------------------------  Template "base_clientes"  --------------------------- */
+
+.fullpage {
+    display: flex;
+}
+
+.sidebar_upper {
+    height: 25vh;
+    width: 20vw;
+    border: 1px solid var(--cor0);
+    text-align: center;
+}
+
+.sb_upper_img {
+    height: 78%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-template {
+    margin: auto;
+}
+
+.sb_upper_text {
+    height: 12%;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.sb_upper_text h3 {
+    font-size: 18px;
+    color: var(--cor0);
+    margin: auto;
+}
+
+.sb_upper_text a {
+    color: inherit;
+    transition: 0.2s;
+}
+
+.sb_upper_text a:hover {
+    color: var(--cor12);
+}
+
+#sb_upper_text_saldo {
+    font-size: 15px;
+    color: var(--cor12);
+    margin: auto;
+    font-style: italic;
+}
+
+.sidebar_lower {
+    height: 75vh;
+    width: 20vw;
+    padding-top: 10px;
+    background-color: var(--cor0);
+    text-align: center;
+}
+
+.sidebar_lower a{
+    color: var(--cor1);
+    text-decoration: none;
+}
+
+.sidebar_options {
+    height: 55px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar_options img {
+    margin: 0 15px 0 15px;    
+}
+
+.sidebar_options:hover {
+    background-color: var(--cor12);
+}
+
+@media only screen and (max-width: 1400px) {
+    .sb_upper_img {
+        height: 73%;
+    }
+
+    .logo-template {
+        width: 63%;
+    }
+
+    .sb_upper_text {
+        height: 14%;
+    }
+
+    .sb_upper_text h3 {
+        font-size: 15px;
+    }
+
+    #sb_upper_text_saldo {
+        font-size: 13px;
+    }
+
+    .sidebar_options img {
+        width: 20px;
+    }
+}
+
+.page {
+    height: 100vh;
+    width: 80vw;
+}
+
+.page_title {
+    height: 5%;
+    width: 97%;
+    background-color: var(--cor0);
+    color: var(--cor6);
+    margin: 5.5vh auto 2.5vh auto;
+    display: flex;
+    align-items: center;
+}
+
+.page_title h3 {
+    margin-left: 25px;
+    font-weight: 100;
+}
+
+.page_content {
+    height: 85%;
+    width: 97%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(12, 8.33%);
+    grid-template-rows: repeat(12, 8.33%);
+    padding: 20px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .page_title {
+        height: 6%;
+        margin: 4.5vh auto 2.5vh auto;
+    }
+
+    .page_content {
+        padding: 0 10px;
+    }
+}
+
+
+/* ---------------------------  Página "Index"  --------------------------- */
+
+.cliente_main {
+    width: 95%;
+    height: 70vh;
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    color: var(--cor0);
+    text-shadow: 1px 1px 1px #070707c4;
+}
+
+.div_logo {
+    width: 18%;
+    height: 18%;
+    position: absolute;
+    left: 0%;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5vh;
+}
+
+.div_profile-pic {
+    height: 30%;
+    width: 11%;
+    margin: 0 auto 5vh auto;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--cor0);
+    border-radius: 50%;
+}
+
+.cliente_main h2 {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    font-size: 30px;
+}
+
+.cliente_options_div {
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor0);
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cliente_options_links {
+    height: 100%;
+    width: 16%;
+    text-align: center;
+    padding: 4vh;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.img-index {
+    display: block;
+    margin: 0 auto;
+    width: 60px;
+}
+
+.cliente_options_links a {
+    text-decoration: none;
+    color: var(--cor6);
+}
+
+.cliente_options_links:hover {
+    background-color: var(--cor12);
+}
+
+@media only screen and (max-width: 1400px) {
+    .cliente_main h1 {
+        font-size: 26px;
+    }
+    
+    .cliente_main h2 {
+        font-size: 26px;
+    }
+
+    .cliente_options_links {
+        padding: 4vh;
+    }
+
+    .img-index {
+        width: 45px;
+    }
+}
+
+
+/* ---------------------------  Página "Estacionar"  --------------------------- */
+
 .vehicle_type_estacionar {
     grid-column: 1/8;
     grid-row: 1/4;
@@ -1414,12 +1432,9 @@ input::-webkit-inner-spin-button{
     cursor: not-allowed;
 }
 
-
-/* Modal "Estacionar" */
 .background-modal {
     display: none;
     position: fixed;
-    /* z-index: 2; */
     left: 0;
     top: 0;
     width: 100%;
@@ -1508,7 +1523,9 @@ input::-webkit-inner-spin-button{
     transform: translateY(2px);
 }
 
-/* Página "Extrato" */
+
+/* ---------------------------  Página "Extrato"  --------------------------- */
+
 .date_filter_extrato {
     grid-column: 1/13;
     grid-row: 1/6;
@@ -1519,7 +1536,9 @@ input::-webkit-inner-spin-button{
     grid-row: 5/13;
 }
 
-/* Página "Adicionar Créditos" */
+
+/* ---------------------------  Página "Adicionar Créditos"  --------------------------- */
+
 .informations_add_credits {
     grid-column: 1/13;
     grid-row: 1/4;
@@ -1619,24 +1638,9 @@ input::-webkit-inner-spin-button{
     }
 }
 
-/* Página "Pagar NR" */
-.date_filter_pagar_nr {
-    grid-column: 1/13;
-    grid-row: 1/4;
-}
 
-.tabela {
-    grid-column: 1/13;
-    grid-row: 4/8;
-    border: 1px solid green;
-}
+/* ---------------------------  Página "Meus Veículos"  --------------------------- */
 
-.payment_method_pagar_nr {
-    grid-column: 1/13;
-    grid-row: 8/12;
-}
-
-/* Página "Meus Veículos" */
 .vehicle_type_veiculos {
     grid-column: 1/13;
     grid-row: 1/6;
@@ -1707,7 +1711,9 @@ input::-webkit-inner-spin-button{
     }
 }
 
-/* Página "Excluir Veículo" */
+
+/* ---------------------------  Página "Excluir Veículo"  --------------------------- */
+
 .div-excluir {
     grid-column: 1/13;
     grid-row: 1/13;
@@ -1773,7 +1779,9 @@ input::-webkit-inner-spin-button{
     transform: translateY(2px);
 }
 
-/* Página "Meus Dados" */
+
+/* ---------------------------  Página "Meus Dados"  --------------------------- */
+
 .dados-form {
     grid-column: 1/13;
     grid-row: 1/12;
