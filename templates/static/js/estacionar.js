@@ -179,34 +179,51 @@ function convertTime(){
 }
 
 
-var today = new Date(); 
-var now = today.getHours()  + ":" + today.getMinutes()  + ":" + today.getSeconds()
+function checkDateTime(dateTime) {
+    if (dateTime < 10) dateTime = '0' + dateTime
+    return dateTime
+}
+
+
+var newDate = new Date(); 
+
+var year = newDate.getFullYear()
+var month = checkDateTime((newDate.getMonth()+1))
+var day = checkDateTime(newDate.getDate())
+var today = day + '/' + month + '/' + year
+
+var now = newDate.getHours()  + ":" + newDate.getMinutes()  + ":" + newDate.getSeconds()
 
 var hours = 0
 var minutes = 0
 var seconds = 0
 
 function countdown(){
-    if (seconds == 0) {
-        seconds = 59;
-        minutes--;
+    if (today == dayParked) {
+        if (seconds == 0) {
+            seconds = 59;
+            minutes--;
+        } else {
+            seconds--;
+        }
+        if (minutes == -1) {
+            minutes = 59;
+            hours--;
+        }
+        if (hours > -1) {
+            let displayHours = ''
+            let displayMinutes = ''
+            let displaySeconds = `e ${seconds} segundos`
+            if (minutes < 1) displaySeconds = `${seconds} segundos`
+            displayHours = checkPlurals(displayHours, hours, 'hora')
+            displayMinutes = checkPlurals(displayMinutes, minutes, 'minuto')
+            spanCountdown.innerHTML = displayHours + displayMinutes + displaySeconds
+            setTimeout(countdown, 1000);
+        } else {
+            spanCountdown.innerHTML = "Tempo Expirado."     
+        }
     } else {
-        seconds--;
-    }
-    if (minutes == -1) {
-        minutes = 59;
-        hours--;
-    }
-    if (hours > -1) {
-        let displayHours = ''
-        let displayMinutes = ''
-        let displaySeconds = `e ${seconds} segundos`
-        displayHours = checkPlurals(displayHours, hours, 'hora')
-        displayMinutes = checkPlurals(displayMinutes, minutes, 'minuto')
-        spanCountdown.innerHTML = displayHours + displayMinutes + displaySeconds
-        setTimeout(countdown, 1000);
-    } else {
-        spanCountdown.innerHTML = "Tempo Expirado."     
+        spanCountdown.innerHTML = "Tempo Expirado."  
     } 
 }
 
@@ -244,8 +261,9 @@ function calculateCountdown(exp_time) {
 
 if (document.getElementById('expiration-span') !== null) {
     var spanCountdown = document.getElementById('span-countdown')
+    var dayParked = document.getElementById('day-parked-span').innerHTML
     var expirationTime = document.getElementById('expiration-span').innerHTML
-    var parkedCar = document.getElementsByClassName('btn-countdown')[0].id
+    var parkedCar = document.getElementsByClassName('btn-countdown')[0].id 
     calculateCountdown(expirationTime)
 }
 

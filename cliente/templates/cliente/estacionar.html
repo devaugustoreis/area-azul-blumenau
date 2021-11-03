@@ -100,6 +100,7 @@
         {% if car.expiration_time %}
             <div id="divCountdown">
                 <button class="btn-countdown" id="{{car}}"><img src="{% static 'imagens/img_carro_az.png' %}" alt="Carro Azul" id="car">{{car}}</button>
+                <p class='day-parked-p'>Estacionado no dia <span id="day-parked-span">{{ car.day_parked|date:'d/m/Y' }}</span></p>
                 <div class="div-countdown-expiration">
                     <img src="{% static 'imagens/relogio.png' %}">
                     <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ car.expiration_time|date:'H:i:s' }}</span></button>
@@ -114,6 +115,7 @@
         {% if moto.expiration_time %}
             <div id="divCountdown">
                 <button class="btn-countdown" id="{{moto}}"><img src="{% static 'imagens/img_moto_az.png' %}" alt="Moto Azul" id="moto">{{moto}}</button>
+                <p class='day-parked-p'>Estacionado no dia <span id="day-parked-span">{{ moto.day_parked|date:'d/m/Y' }}</span></p>
                 <div class="div-countdown-expiration">
                     <img src="{% static 'imagens/relogio.png' %}">
                     <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ moto.expiration_time|date:'H:i:s' }}</span></button>
@@ -128,6 +130,7 @@
         {% if other.expiration_time %}
             <div id="divCountdown">
                 <button class="btn-countdown" id="{{other}}"><img src="{% static 'imagens/img_demais_az.png' %}" alt="Caminhão Azul" id="other_vehicles">{{other}}</button>
+                <p class='day-parked-p'>Estacionado no dia <span id="day-parked-span">{{ other.day_parked|date:'d/m/Y' }}</span></p>
                 <div class="div-countdown-expiration">
                     <img src="{% static 'imagens/relogio.png' %}">
                     <button class="btn-countdown cntdown-large">Seu tempo expira às <span id="expiration-span">{{ other.expiration_time|date:'H:i:s' }}</span></button>

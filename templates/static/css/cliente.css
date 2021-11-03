@@ -1411,7 +1411,15 @@ input::-webkit-inner-spin-button{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0 10px 0;
+    margin: 15px 0 10px 0;
+}
+
+.day-parked-p {
+    margin-top: 20px;
+}
+
+#day-parked-span {
+    font-weight: bold;
 }
 
 #div-msg-veiculo-nao-selecionado {

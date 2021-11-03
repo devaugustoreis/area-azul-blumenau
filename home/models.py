@@ -31,6 +31,7 @@ class Vehicle(models.Model):
         ('O', 'Other'),
     )
     license_plate = models.CharField(max_length=7)
+    day_parked = models.DateField(null=True, blank=True, auto_now=True)
     entry_time = models.TimeField(null=True, blank=True)
     expiration_time = models.TimeField(null=True, blank=True)
     timer = models.IntegerField(null=True, blank=True, default=0)
